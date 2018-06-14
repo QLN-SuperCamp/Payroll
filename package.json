@@ -4,7 +4,9 @@
   "description": "SuperCamp Payroll",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src -d lib",
+    "start-server": "ws",
+    "babel-watch-main": "npx babel assets/js/main.js -o assets/js/main-compiled.js --watch"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/QLN-SuperCamp/Payroll/issues"
   },
-  "homepage": "https://github.com/QLN-SuperCamp/Payroll#readme"
+  "homepage": "https://github.com/QLN-SuperCamp/Payroll#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  },
+  "dependencies": {
+    "animate.css": "^3.6.1"
+  }
 }
