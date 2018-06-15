@@ -48,7 +48,7 @@
       <div class="header py-4">
         <div class="container">
           <div class="d-flex">
-            <a class="header-brand" href="./index.html">
+            <a class="header-brand" href="#">
               <img src="./demo/brand/supercamp.svg" class="header-brand-img" alt="SuperCamp logo">
             </a>
             <div class="d-flex order-lg-2 ml-auto">
@@ -200,7 +200,7 @@
               <div class="row">
                 <div class="col-12">
 
-                  <form id="site-info-card" class="card">
+                  <form name="submit-to-google-sheet"id="site-info-card" class="card">
                     <div class="card-header">
                       <h3 class="card-title">Site Information</h3>
                     </div>
@@ -223,19 +223,19 @@
                             <div class="form-label">Site<span class="form-required">*</span></div>
                             <div class="custom-controls-stacked">
                               <label class="custom-control custom-radio">
-                                <input id="site-sw" type="radio" class="custom-control-input" name="site" value="sw">
+                                <input id="site-sw" type="radio" class="custom-control-input" name="siteSW" value="sw">
                                 <div class="custom-control-label">Southwestern University</div>
                               </label>
                               <label class="custom-control custom-radio">
-                                <input id="site-stan" type="radio" class="custom-control-input" name="site" value="stan">
+                                <input id="site-stan" type="radio" class="custom-control-input" name="siteSTAN" value="stan">
                                 <div class="custom-control-label">Stanford University</div>
                               </label>
                               <label class="custom-control custom-radio">
-                                <input id="site-ucf" type="radio" class="custom-control-input" name="site" value="ucf">
+                                <input id="site-ucf" type="radio" class="custom-control-input" name="siteUCF" value="ucf">
                                 <div class="custom-control-label">University of Central Florida</div>
                               </label>
                               <label class="custom-control custom-radio">
-                                <input id="site-villa" type="radio" class="custom-control-input" name="site" value="villa">
+                                <input id="site-villa" type="radio" class="custom-control-input" name="siteVILLA" value="villa">
                                 <div class="custom-control-label">Villanova University</div>
                               </label>
                             </div>
@@ -243,18 +243,18 @@
                           </div>
                         </div>
                         <div class="col-md-3">
-                          <div class="form-label">Camps<span class="form-required">*</span></div>
+                          <div class="form-label">Camp<span class="form-required">*</span></div>
                           <p id="no-site-text">
                             <em>Please select a site.</em>
                           </p>
                           <div id="sw-camps" class="form-group hidden">
                             <div class="custom-controls-stacked">
                               <label class="custom-control custom-radio">
-                                <input id="sw-camp1" type="radio" class="custom-control-input" name="camps" value="sw-camp1">
+                                <input id="sw-camp1" type="radio" class="custom-control-input" name="campSW1" value="sw-camp1">
                                 <div class="custom-control-label">Camp 1 (TXS118 / TXJ118)</div>
                               </label>
                               <label class="custom-control custom-radio">
-                                <input id="sw-camp2" type="radio" class="custom-control-input" name="camps" value="sw-camp2">
+                                <input id="sw-camp2" type="radio" class="custom-control-input" name="campSW2" value="sw-camp2">
                                 <div class="custom-control-label">Camp 2 (TXQA118)</div>
                               </label>
                             </div>
@@ -262,27 +262,27 @@
                           <div id="stan-camps" class="form-group hidden">
                             <div class="custom-controls-stacked">
                               <label class="custom-control custom-radio">
-                                <input id="stan-camp1" type="radio" class="custom-control-input" name="camps" value="stan-camp1">
+                                <input id="stan-camp1" type="radio" class="custom-control-input" name="campSTAN1" value="stan-camp1">
                                 <div class="custom-control-label">Camp 1 (STS118)</div>
                               </label>
                               <label class="custom-control custom-radio">
-                                <input id="stan-camp2" type="radio" class="custom-control-input" name="camps" value="stan-camp2">
+                                <input id="stan-camp2" type="radio" class="custom-control-input" name="campSTAN2" value="stan-camp2">
                                 <div class="custom-control-label">Camp 2 (STJ118)</div>
                               </label>
                               <label class="custom-control custom-radio">
-                                <input id="stan-camp3" type="radio" class="custom-control-input" name="camps" value="stan-camp3">
+                                <input id="stan-camp3" type="radio" class="custom-control-input" name="campSTAN3" value="stan-camp3">
                                 <div class="custom-control-label">Camp 3 (STS218)</div>
                               </label>
                               <label class="custom-control custom-radio">
-                                <input id="stan-camp4" type="radio" class="custom-control-input" name="camps" value="stan-camp4">
+                                <input id="stan-camp4" type="radio" class="custom-control-input" name="campSTAN4" value="stan-camp4">
                                 <div class="custom-control-label">Camp 4 (STJ218)</div>
                               </label>
                               <label class="custom-control custom-radio">
-                                <input id="stan-camp5" type="radio" class="custom-control-input" name="camps" value="stan-camp5">
+                                <input id="stan-camp5" type="radio" class="custom-control-input" name="campSTAN5" value="stan-camp5">
                                 <div class="custom-control-label">Camp 5 (STS318)</div>
                               </label>
                               <label class="custom-control custom-radio">
-                                <input id="stan-camp6" type="radio" class="custom-control-input" name="camps" value="stan-camp6">
+                                <input id="stan-camp6" type="radio" class="custom-control-input" name="campSTAN6" value="stan-camp6">
                                 <div class="custom-control-label">Camp 6 (STS418)</div>
                               </label>
                             </div>
@@ -290,11 +290,11 @@
                           <div id="ucf-camps" class="form-group hidden">
                             <div class="custom-controls-stacked">
                               <label class="custom-control custom-radio">
-                                <input id="ucf-camp1" type="radio" class="custom-control-input" name="camps" value="ucf-camp1">
+                                <input id="ucf-camp1" type="radio" class="custom-control-input" name="campUCF1" value="ucf-camp1">
                                 <div class="custom-control-label">Camp 1 (FLJ118)</div>
                               </label>
                               <label class="custom-control custom-radio">
-                                <input id="ucf-camp2" type="radio" class="custom-control-input" name="camps" value="ucf-camp2">
+                                <input id="ucf-camp2" type="radio" class="custom-control-input" name="campUCF2" value="ucf-camp2">
                                 <div class="custom-control-label">Camp 2 (FLS118)</div>
                               </label>
                             </div>
@@ -302,11 +302,11 @@
                           <div id="villa-camps" class="form-group hidden">
                             <div class="custom-controls-stacked">
                               <label class="custom-control custom-radio">
-                                <input id="villa-camp1" type="radio" class="custom-control-input" name="camps" value="villa-camp1">
+                                <input id="villa-camp1" type="radio" class="custom-control-input" name="campVILLA1" value="villa-camp1">
                                 <div class="custom-control-label">Camp 1 (PAS118)</div>
                               </label>
                               <label class="custom-control custom-radio">
-                                <input id="villa-camp2" type="radio" class="custom-control-input" name="camps" value="villa-camp2">
+                                <input id="villa-camp2" type="radio" class="custom-control-input" name="campVILLA2" value="villa-camp2">
                                 <div class="custom-control-label">Camp 2 (PAJ118)</div>
                               </label>
                             </div>
@@ -372,6 +372,7 @@
                     <div id="continue-button-container" class="card-footer text-right">
                         <div class="d-flex">
                           <button type="button" id="site-info-continue-button" class="btn btn-primary ml-auto">Continue</button>
+                          <button type="submit" class="btn btn-primary ml-auto">Send data</button>
                         </div>
                       </div>
                   </form>
@@ -663,6 +664,23 @@
   <!-- Staff Members -->
   <script src="assets/js/staffmembers.js"></script>
   <script src="assets/js/main-compiled.js"></script>
+
+  <!-- Polyfills? -->
+  <script src="https://wzrd.in/standalone/formdata-polyfill"></script>
+  <script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
+  <script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyaZdP8ZLdRG-8EqKqO5ceqeaWJEH2y3HDJFjV5LlFv4V6_FkQ/exec'
+    const form = document.forms['submit-to-google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
 </body>
 
 </html>
