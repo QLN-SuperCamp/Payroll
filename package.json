@@ -6,7 +6,8 @@
   "scripts": {
     "build": "babel src -d lib",
     "start-server": "ws",
-    "babel-watch-main": "npx babel assets/js/main.js -o assets/js/main-compiled.js --watch"
+    "babel-watch-main": "npx babel assets/js/main.js -o assets/js/main-compiled.js --watch",
+    "startup": "ws && npm run babel-watch-main"
   },
   "repository": {
     "type": "git",

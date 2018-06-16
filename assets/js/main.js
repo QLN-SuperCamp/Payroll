@@ -1,6 +1,37 @@
 // Declare the current camp variable
 var currentCamp = "none";
 
+// Data to send through FormBody
+var workingTLs = [];
+var workingLCs = [];
+var workingWPs = [];
+var workingOCs = [];
+var sickTLs = [];
+var sickLCWPs = [];
+var sickOCs = [];
+var exceptionTLs = [];
+var exceptionLCs = [];
+var exceptionWPs = [];
+var exceptionOCs = [];
+
+var exceptionTLsInfo = [];
+var exceptionLCWPsInfo = [];
+var exceptionOCsInfo = [];
+
+var lcCheckboxes = [];
+var wpCheckboxes = [];
+
+var chosenSite = "";
+
+var tlIsSick = false;
+var lcwpIsSick = false;
+var ocIsSick = false;
+
+var checkedSickTLCheckboxes = [];
+var checkedSickLCWPCheckboxes = [];
+var checkedSickOCCheckboxes = [];
+
+
 // Form Cards
 var siteInfoCard = document.getElementById('site-info-card');
 var tlCard = document.getElementById('tl-card');
@@ -12,6 +43,7 @@ var allPositionCards = [tlCard, lcwpCard, ocCard];
 var siteInfoContinueButton = document.getElementById('site-info-continue-button');
 siteInfoContinueButton.addEventListener('click', showPositionCards);
 var continueButtonContainer = document.getElementById('continue-button-container');
+var sendDataButton = document.getElementById('send-data-button');
 
 // Invalid Feedback
 var invalidFeedbackFirstName = document.getElementById('invalid-feedback-first-name');
@@ -168,15 +200,19 @@ function siteChosen() {
     if (value === "sw") {
         hideThis([stanCamps, ucfCamps, villaCamps, noSiteText]);
         showThis(swCamps);
+        chosenSite = "sw";
     } else if (value === "stan") {
         hideThis([swCamps, ucfCamps, villaCamps, noSiteText]);
         showThis(stanCamps);
+        chosenSite = "stan";
     } else if (value === "ucf") {
         hideThis([swCamps, stanCamps, villaCamps, noSiteText]);
         showThis(ucfCamps);
+        chosenSite = "ucf";
     } else {
         hideThis([swCamps, stanCamps, ucfCamps, noSiteText]);
         showThis(villaCamps);
+        chosenSite = "villa";
     }
 
 
@@ -407,6 +443,12 @@ function addStaffMembers() {
                 label.appendChild(checkbox);
                 label.appendChild(span);
                 lcwpCheckboxes.push(checkbox);
+
+                if (group === staffMembersWorkingLC) {
+                    lcCheckboxes.push(checkbox);
+                } else if (group === staffMembersWorkingWP) {
+                    wpCheckboxes.push(checkbox);
+                }
             } else {
                 checkbox.dataset.position = "OC";
                 staffMembersOCContainer.appendChild(label);
@@ -483,6 +525,7 @@ function checkExceptions() {
 
                         let inputGroup = document.createElement("div");
                         inputGroup.classList.add("input-group");
+                        inputGroup.name = checkbox.name;
 
                         let hoursInput = document.createElement("input");
                         hoursInput.type = "number";
@@ -503,7 +546,7 @@ function checkExceptions() {
                         let minutesInput = document.createElement("input");
                         minutesInput.type = "number";
                         minutesInput.min = "0";
-                        minutesInput.max = "60";
+                        minutesInput.max = "45";
                         minutesInput.step = "15";
                         minutesInput.classList.add("form-control");
                         //minutesInput.placeholder = "How many minutes were worked?";
@@ -584,11 +627,6 @@ function sickSwitched() {
 }
 
 function createSickStaff(positionType) {
-    
-
-
-
-
     // Probably going to run into a problem right here. 
     // If you create sick staff individually based on the corresponding switch,
     // Don't clear the containers regardless. Set up logic to check if the switch
@@ -631,7 +669,7 @@ function createSickStaff(positionType) {
             group.forEach(function (person) {
                 let label = document.createElement('label');
                 label.classList.add("custom-control", "custom-checkbox");
-    
+
                 let checkbox = document.createElement('input');
                 checkbox.type = "checkbox";
                 checkbox.classList.add("custom-control-input");
@@ -640,15 +678,15 @@ function createSickStaff(positionType) {
                 checkbox.id = `${person.firstName}`.toLowerCase() + "-" + `${person.lastName}`.toLowerCase() + "-sick";
                 checkbox.checked = false;
                 checkbox.addEventListener("change", checkSick);
-    
+
                 let span = document.createElement("span");
                 span.classList.add("custom-control-label");
                 span.innerHTML = "<em>(" + `${person.position1}` + ")</em> " + `${person.firstName}` + " " + `${person.lastName}`;
-    
+
                 // You only want to actually append and create these things, if the corresponding
                 // sick switch was toggled. Otherwise you are making sick staff for every position
                 // regardless of which switch was toggled
-                
+
                 checkbox.dataset.position = "TL";
                 sickStaffTLContainer.appendChild(label);
                 label.appendChild(checkbox);
@@ -660,7 +698,7 @@ function createSickStaff(positionType) {
             group.forEach(function (person) {
                 let label = document.createElement('label');
                 label.classList.add("custom-control", "custom-checkbox");
-    
+
                 let checkbox = document.createElement('input');
                 checkbox.type = "checkbox";
                 checkbox.classList.add("custom-control-input");
@@ -669,15 +707,15 @@ function createSickStaff(positionType) {
                 checkbox.id = `${person.firstName}`.toLowerCase() + "-" + `${person.lastName}`.toLowerCase() + "-sick";
                 checkbox.checked = false;
                 checkbox.addEventListener("change", checkSick);
-    
+
                 let span = document.createElement("span");
                 span.classList.add("custom-control-label");
                 span.innerHTML = "<em>(" + `${person.position1}` + ")</em> " + `${person.firstName}` + " " + `${person.lastName}`;
-    
+
                 // You only want to actually append and create these things, if the corresponding
                 // sick switch was toggled. Otherwise you are making sick staff for every position
                 // regardless of which switch was toggled
-                
+
                 checkbox.dataset.position = "LCWP";
                 sickStaffLCWPContainer.appendChild(label);
                 label.appendChild(checkbox);
@@ -689,7 +727,7 @@ function createSickStaff(positionType) {
             group.forEach(function (person) {
                 let label = document.createElement('label');
                 label.classList.add("custom-control", "custom-checkbox");
-    
+
                 let checkbox = document.createElement('input');
                 checkbox.type = "checkbox";
                 checkbox.classList.add("custom-control-input");
@@ -698,23 +736,22 @@ function createSickStaff(positionType) {
                 checkbox.id = `${person.firstName}`.toLowerCase() + "-" + `${person.lastName}`.toLowerCase() + "-sick";
                 checkbox.checked = false;
                 checkbox.addEventListener("change", checkSick);
-    
+
                 let span = document.createElement("span");
                 span.classList.add("custom-control-label");
                 span.innerHTML = "<em>(" + `${person.position1}` + ")</em> " + `${person.firstName}` + " " + `${person.lastName}`;
-    
+
                 // You only want to actually append and create these things, if the corresponding
                 // sick switch was toggled. Otherwise you are making sick staff for every position
                 // regardless of which switch was toggled
-                
+
                 checkbox.dataset.position = "OC";
                 sickStaffOCContainer.appendChild(label);
                 label.appendChild(checkbox);
                 label.appendChild(span);
                 sickOCCheckboxes.push(checkbox);
             });
-        } else {
-        }
+        } else {}
     });
 }
 
@@ -723,11 +760,9 @@ function checkSick() {
     allSickExceptionsContainers.forEach(function (container) {
         container.innerHTML = "";
     });
+
     
-    let checkedSickTLCheckboxes = [];
-    let checkedSickLCWPCheckboxes = [];
-    let checkedSickOCCheckboxes = [];
-    
+
     let allSickCheckboxes = [sickTLCheckboxes, sickLCWPCheckboxes, sickOCCheckboxes];
 
     allSickCheckboxes.forEach(function (checkboxGroup) {
@@ -738,13 +773,16 @@ function checkSick() {
 
             if (checkboxGroup[0].dataset.position === "TL") {
                 // Show the Title and the Container itself
-                showThis(sickExceptionsTitleTL, sickExceptionsTLContainer);
+                //showThis(sickExceptionsTitleTL, sickExceptionsTLContainer);
+                tlIsSick = true;
             } else if (checkboxGroup[0].dataset.position === "LCWP") {
                 // Show the Title and the Container itself
-                showThis(sickExceptionsTitleLCWP, sickExceptionsLCWPContainer);
+                //showThis(sickExceptionsTitleLCWP, sickExceptionsLCWPContainer);
+                lcwpIsSick = true;
             } else {
                 // Show the Title and the Container itself
-                showThis(sickExceptionsTitleOC, sickExceptionsOCContainer);
+                //showThis(sickExceptionsTitleOC, sickExceptionsOCContainer);
+                ocIsSick = true;
             }
 
             // Go through checkboxes, if one is checked, add it to the array
@@ -759,6 +797,11 @@ function checkSick() {
                     }
                 }
             });
+
+            /*
+            STOPPING SICK HOUR CHECKS.
+            IF NEEDED, PUT BACK IN. FOR NOW, JUST ADD THE SICK STAFF MEMBER TO THE
+            CORRESPONDING ARRAY
 
             let checkedCheckboxesGroup = [checkedSickTLCheckboxes, checkedSickLCWPCheckboxes, checkedSickOCCheckboxes];
 
@@ -837,6 +880,7 @@ function checkSick() {
                     });
                 }
             });
+            */
         } else {
             //hideThis(allExceptionsTitles);
             //hideThis(allExceptionsContainers);
@@ -893,22 +937,27 @@ function showPositionCards() {
     if (isSiteInfoValid() === true) {
         showThis(tlCard, lcwpCard, ocCard);
         allPositionCards.forEach(function (card) {
-            card.classList.add("animated", "zoomIn");
+            card.classList.add("animated", "slideInUp");
         });
         hideThis(continueButtonContainer);
+        setTimeout(scrollToTLCard, 1500);
     } else {
         let invalidItems = isSiteInfoValid();
-        
-        
+
+
         invalidItems.forEach(function (invalidItem) {
-           invalidItem.classList.add("is-invalid");
+            invalidItem.classList.add("is-invalid");
         });
     }
 }
 
+function scrollToTLCard() {
+    tlCard.scrollIntoView({ behavior: 'smooth' });
+}
+
 function isSiteInfoValid() {
     // If everything in the Site Info card is valid
-    if (firstName.classList.contains("is-valid") && lastName.classList.contains("is-valid") && allSiteInputs.some(isChecked) && allCamps.some(isChecked)) {               
+    if (firstName.classList.contains("is-valid") && lastName.classList.contains("is-valid") && allSiteInputs.some(isChecked) && allCamps.some(isChecked)) {
         return true;
     } else {
         let invalidItems = [];
@@ -922,7 +971,7 @@ function isSiteInfoValid() {
             invalidItems.push(lastName);
             showThis(invalidFeedbackLastName);
         }
-        
+
         if (allSiteInputs.every(isUnchecked)) {
             //invalidItems.push(allSiteInputs);
             showThis(invalidFeedbackSite);
@@ -932,7 +981,7 @@ function isSiteInfoValid() {
             //invalidItems.push(allCamps);
             showThis(invalidFeedbackCamp);
         }
-        
+
         return invalidItems;
     }
 }
@@ -951,6 +1000,26 @@ function checkName() {
         this.classList.remove("state-valid");
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1063,4 +1132,265 @@ function setBlank() {
     });
     dateMonth.value = "";
     dateDay.value = "";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// FORM
+
+const scriptURL = 'https://script.google.com/macros/s/AKfycbyaZdP8ZLdRG-8EqKqO5ceqeaWJEH2y3HDJFjV5LlFv4V6_FkQ/exec';
+const form = document.forms['submit-to-google-sheet'];
+const loading = document.querySelector('.loading-form');
+const successMessage = document.querySelector('.js-success-message');
+const errorMessage = document.querySelector('.js-error-message');
+const againButton = document.querySelector('.again-button');
+const formBody = new FormData();
+
+
+function createData() {
+    // Names
+    formBody.append('firstName', firstName.value);
+    formBody.append('lastName', lastName.value);
+
+    // Date
+    formBody.append('month', dateMonth.value);
+    formBody.append('day', dateDay.value);
+
+    // Site
+    formBody.append('site', chosenSite);
+
+    // Camp
+    formBody.append('camp', currentCamp);
+
+    // Non-Sick Team Leaders
+    tlCheckboxes.forEach(function (checkbox) {
+        if (checkbox.checked === true) {
+            workingTLs.push(checkbox.name);
+        } else {
+            exceptionTLs.push(checkbox.name);
+        }
+    });
+    JSON.stringify(workingTLs);
+    JSON.stringify(exceptionTLs);
+    formBody.append('workingTLs (Reg)', workingTLs);
+    formBody.append('exceptionTLs', exceptionTLs);
+
+    // Go through the exceptions container - Team Leaders
+    exceptionsTLContainer.childNodes.forEach(function (nodeBig) {
+        // If the child node is an input group 
+        if (nodeBig.classList.contains("input-group")) {
+            let execptionHoursTL = "";
+            let exceptionMinutesTL = "";
+            let exceptionNameTL = nodeBig.name;
+            // Go through the div's child nodes
+            nodeBig.childNodes.forEach(function (nodeSmall) {
+                // If the child is a form control
+                if (nodeSmall.classList.contains("form-control")) {
+                    if (nodeSmall.max === "24") {
+                        execptionHoursTL = nodeSmall.value;
+                    } else if (nodeSmall.max === "45") {
+                        exceptionMinutesTL = nodeSmall.value;
+                    }                    
+                }
+            });
+            // Push object to info array
+            exceptionTLsInfo.push({
+                name: exceptionNameTL,
+                hours: execptionHoursTL,
+                minutes: exceptionMinutesTL
+            });
+        }
+    });
+    var unparsedExceptionTLsInfo = Papa.unparse(exceptionTLsInfo);
+    formBody.append('exceptionTLsInfo', unparsedExceptionTLsInfo);
+
+    // Go through the exceptions container - LCWP
+    exceptionsLCWPContainer.childNodes.forEach(function (nodeBig) {
+        // If the child node is an input group 
+        if (nodeBig.classList.contains("input-group")) {
+            let execptionHoursLCWP = "";
+            let exceptionMinutesLCWP = "";
+            let exceptionNameLCWP = nodeBig.name;
+            // Go through the div's child nodes
+            nodeBig.childNodes.forEach(function (nodeSmall) {
+                // If the child is a form control
+                if (nodeSmall.classList.contains("form-control")) {
+                    if (nodeSmall.max === "24") {
+                        execptionHoursLCWP = nodeSmall.value;
+                    } else if (nodeSmall.max === "45") {
+                        exceptionMinutesLCWP = nodeSmall.value;
+                    }                    
+                }
+            });
+            // Push object to info array
+            exceptionLCWPsInfo.push({
+                name: exceptionNameLCWP,
+                hours: execptionHoursLCWP,
+                minutes: exceptionMinutesLCWP
+            });
+        }
+    });
+    var unparsedExceptionLCWPsInfo = Papa.unparse(exceptionLCWPsInfo);
+    formBody.append('exceptionLCWPsInfo', unparsedExceptionLCWPsInfo);
+
+    // Go through the exceptions container - Office Coordinators
+    exceptionsOCContainer.childNodes.forEach(function (nodeBig) {
+        // If the child node is an input group 
+        if (nodeBig.classList.contains("input-group")) {
+            let execptionHoursOC = "";
+            let exceptionMinutesOC = "";
+            let exceptionNameOC = nodeBig.name;
+            // Go through the div's child nodes
+            nodeBig.childNodes.forEach(function (nodeSmall) {
+                // If the child is a form control
+                if (nodeSmall.classList.contains("form-control")) {
+                    if (nodeSmall.max === "24") {
+                        execptionHoursOC = nodeSmall.value;
+                    } else if (nodeSmall.max === "45") {
+                        exceptionMinutesOC = nodeSmall.value;
+                    }                    
+                }
+            });
+            // Push object to info array
+            exceptionOCsInfo.push({
+                name: exceptionNameOC,
+                hours: execptionHoursOC,
+                minutes: exceptionMinutesOC
+            });
+        }
+    });
+    var unparsedExceptionOCsInfo = Papa.unparse(exceptionOCsInfo);
+    formBody.append('exceptionOCsInfo', unparsedExceptionOCsInfo);
+    
+
+
+
+    // Non-Sick Logistics Coordinators
+    lcCheckboxes.forEach(function (checkbox) {
+        if (checkbox.checked === true) {
+            workingLCs.push(checkbox.name);
+        } else {
+            exceptionLCs.push(checkbox.name);
+        }
+    });
+    JSON.stringify(workingLCs);
+    JSON.stringify(exceptionLCs);
+    formBody.append('workingLCs (Reg)', workingLCs);
+    formBody.append('exceptionLCs', exceptionLCs);
+
+    // Non-Sick Wellness Person
+    wpCheckboxes.forEach(function (checkbox) {
+        if (checkbox.checked === true) {
+            workingWPs.push(checkbox.name);
+        } else {
+            exceptionWPs.push(checkbox.name);
+        }
+    });
+    JSON.stringify(workingWPs);
+    JSON.stringify(exceptionWPs);
+    formBody.append('workingWPs (Reg)', workingWPs);
+    formBody.append('exceptionWPs', exceptionWPs);
+
+    // Non-Sick Office Coordinators
+    ocCheckboxes.forEach(function (checkbox) {
+        if (checkbox.checked === true) {
+            workingOCs.push(checkbox.name);
+        } else {
+            exceptionOCs.push(checkbox.name);
+        }
+    });
+    JSON.stringify(workingOCs);
+    JSON.stringify(exceptionOCs);
+    formBody.append('workingOCs (Reg)', workingOCs);
+    formBody.append('exceptionOCs', exceptionOCs);
+
+    // Regular working hours by position
+    formBody.append('hoursTLReg', hoursWorkedTL.value);
+    formBody.append('hoursLCWPReg', hoursWorkedLCWP.value);
+    formBody.append('hoursOCReg', hoursWorkedOC.value);
+
+    // Sick Team Leaders
+    formBody.append('tlIsSick', tlIsSick);
+    sickTLCheckboxes.forEach(function (checkbox) {
+        if (checkbox.checked === true) {
+            sickTLs.push(checkbox.name);
+        }
+    });
+    JSON.stringify(sickTLs);
+    formBody.append('sickTLs', sickTLs);
+
+    // Sick Logistics Coordinators & Wellness Person
+    formBody.append('lcwpIsSick', lcwpIsSick);
+    sickLCWPCheckboxes.forEach(function (checkbox) {
+        if (checkbox.checked === true) {
+            sickLCWPs.push(checkbox.name);
+        }
+    });
+    JSON.stringify(sickLCWPs);
+    formBody.append('sickLCWPs', sickLCWPs);
+
+    // Sick Office Coordinators
+    formBody.append('ocIsSick', ocIsSick);
+    sickOCCheckboxes.forEach(function (checkbox) {
+        if (checkbox.checked === true) {
+            sickOCs.push(checkbox.name);
+        }
+    });
+    JSON.stringify(sickOCs);
+    formBody.append('sickOCs', sickOCs);
+    
+
+
+
+
+
+
+
+}
+
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    showLoadingIndicator();
+    createData();
+    fetch(scriptURL, {
+            method: 'POST',
+            body: formBody
+        })
+        .then(response => showSuccessMessage(response))
+        .catch(error => showErrorMessage(error));
+});
+
+function showLoadingIndicator() {
+    form.classList.add('is-hidden-form');
+    loading.classList.remove('is-hidden-form');
+}
+
+function showSuccessMessage(response) {
+    console.log('Success!', response);
+    setTimeout(() => {
+        successMessage.classList.remove('is-hidden-form');
+        loading.classList.add('is-hidden-form');
+        againButton.classList.remove('is-hidden-form');
+    }, 500);
+}
+
+function showErrorMessage(error) {
+    console.error('Error!', error.message);
+    setTimeout(() => {
+        errorMessage.classList.remove('is-hidden-form');
+        loading.classList.add('is-hidden-form');
+    }, 500);
 }

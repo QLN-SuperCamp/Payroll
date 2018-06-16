@@ -19,26 +19,30 @@
   <title>SuperCamp Payroll</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
+  <!--
   <script src="./assets/js/require.min.js"></script>
   <script>
     requirejs.config({
       baseUrl: '.'
     });
   </script>
+  -->
   <!-- Dashboard Core -->
   <link href="./assets/css/dashboard.css" rel="stylesheet" />
-  <script src="./assets/js/dashboard.js"></script>
+  <!-- <script src="./assets/js/dashboard.js"></script> -->
   <!-- c3.js Charts Plugin -->
   <link href="./assets/plugins/charts-c3/plugin.css" rel="stylesheet" />
-  <script src="./assets/plugins/charts-c3/plugin.js"></script>
+  <!-- <script src="./assets/plugins/charts-c3/plugin.js"></script> -->
   <!-- Google Maps Plugin -->
   <link href="./assets/plugins/maps-google/plugin.css" rel="stylesheet" />
   <script src="./assets/plugins/maps-google/plugin.js"></script>
   <!-- Input Mask Plugin -->
-  <script src="./assets/plugins/input-mask/plugin.js"></script>
+  <!-- <script src="./assets/plugins/input-mask/plugin.js"></script> -->
   <link rel="stylesheet" href="assets/css/main.css">
   <!-- Animate.CSS -->
   <link rel="stylesheet" href="assets/css/animate.css/animate.css">
+  <!-- Font Awesome 5.0.13 -->
+  <script defer src="assets/js/fontawesome-all.min.js"></script>
 
 </head>
 
@@ -200,379 +204,429 @@
               <div class="row">
                 <div class="col-12">
 
-                  <form name="submit-to-google-sheet"id="site-info-card" class="card">
-                    <div class="card-header">
-                      <h3 class="card-title">Site Information</h3>
-                    </div>
-                    <div class="card-body">
-
-                      <!-- Basic Information -->
-                      <div class="row">
-                        <div class="col-md-3">
-                          <div class="form-group">
-                            <label class="form-label">First Name<span class="form-required">*</span></label>
-                            <input id="firstName" type="text" class="form-control" name="example-text-input" placeholder="John" title="Please enter your first name.">
-                            <div id="invalid-feedback-first-name" class="invalid-feedback hidden">Please enter your first name.</div>
-                            <label class="form-label">Last Name<span class="form-required">*</span></label>
-                            <input id="lastName" type="text" class="form-control" name="example-text-input" placeholder="Smith" title="Please enter your last name.">
-                            <div id="invalid-feedback-last-name" class="invalid-feedback hidden">Please enter your last name.</div>
-                          </div>
-                        </div>
-                        <div class="col-md-3">
-                          <div class="form-group">
-                            <div class="form-label">Site<span class="form-required">*</span></div>
-                            <div class="custom-controls-stacked">
-                              <label class="custom-control custom-radio">
-                                <input id="site-sw" type="radio" class="custom-control-input" name="siteSW" value="sw">
-                                <div class="custom-control-label">Southwestern University</div>
-                              </label>
-                              <label class="custom-control custom-radio">
-                                <input id="site-stan" type="radio" class="custom-control-input" name="siteSTAN" value="stan">
-                                <div class="custom-control-label">Stanford University</div>
-                              </label>
-                              <label class="custom-control custom-radio">
-                                <input id="site-ucf" type="radio" class="custom-control-input" name="siteUCF" value="ucf">
-                                <div class="custom-control-label">University of Central Florida</div>
-                              </label>
-                              <label class="custom-control custom-radio">
-                                <input id="site-villa" type="radio" class="custom-control-input" name="siteVILLA" value="villa">
-                                <div class="custom-control-label">Villanova University</div>
-                              </label>
-                            </div>
-                            <div id="invalid-feedback-site" class="invalid-feedback-custom hidden">Please select a site.</div>
-                          </div>
-                        </div>
-                        <div class="col-md-3">
-                          <div class="form-label">Camp<span class="form-required">*</span></div>
-                          <p id="no-site-text">
-                            <em>Please select a site.</em>
-                          </p>
-                          <div id="sw-camps" class="form-group hidden">
-                            <div class="custom-controls-stacked">
-                              <label class="custom-control custom-radio">
-                                <input id="sw-camp1" type="radio" class="custom-control-input" name="campSW1" value="sw-camp1">
-                                <div class="custom-control-label">Camp 1 (TXS118 / TXJ118)</div>
-                              </label>
-                              <label class="custom-control custom-radio">
-                                <input id="sw-camp2" type="radio" class="custom-control-input" name="campSW2" value="sw-camp2">
-                                <div class="custom-control-label">Camp 2 (TXQA118)</div>
-                              </label>
-                            </div>
-                          </div>
-                          <div id="stan-camps" class="form-group hidden">
-                            <div class="custom-controls-stacked">
-                              <label class="custom-control custom-radio">
-                                <input id="stan-camp1" type="radio" class="custom-control-input" name="campSTAN1" value="stan-camp1">
-                                <div class="custom-control-label">Camp 1 (STS118)</div>
-                              </label>
-                              <label class="custom-control custom-radio">
-                                <input id="stan-camp2" type="radio" class="custom-control-input" name="campSTAN2" value="stan-camp2">
-                                <div class="custom-control-label">Camp 2 (STJ118)</div>
-                              </label>
-                              <label class="custom-control custom-radio">
-                                <input id="stan-camp3" type="radio" class="custom-control-input" name="campSTAN3" value="stan-camp3">
-                                <div class="custom-control-label">Camp 3 (STS218)</div>
-                              </label>
-                              <label class="custom-control custom-radio">
-                                <input id="stan-camp4" type="radio" class="custom-control-input" name="campSTAN4" value="stan-camp4">
-                                <div class="custom-control-label">Camp 4 (STJ218)</div>
-                              </label>
-                              <label class="custom-control custom-radio">
-                                <input id="stan-camp5" type="radio" class="custom-control-input" name="campSTAN5" value="stan-camp5">
-                                <div class="custom-control-label">Camp 5 (STS318)</div>
-                              </label>
-                              <label class="custom-control custom-radio">
-                                <input id="stan-camp6" type="radio" class="custom-control-input" name="campSTAN6" value="stan-camp6">
-                                <div class="custom-control-label">Camp 6 (STS418)</div>
-                              </label>
-                            </div>
-                          </div>
-                          <div id="ucf-camps" class="form-group hidden">
-                            <div class="custom-controls-stacked">
-                              <label class="custom-control custom-radio">
-                                <input id="ucf-camp1" type="radio" class="custom-control-input" name="campUCF1" value="ucf-camp1">
-                                <div class="custom-control-label">Camp 1 (FLJ118)</div>
-                              </label>
-                              <label class="custom-control custom-radio">
-                                <input id="ucf-camp2" type="radio" class="custom-control-input" name="campUCF2" value="ucf-camp2">
-                                <div class="custom-control-label">Camp 2 (FLS118)</div>
-                              </label>
-                            </div>
-                          </div>
-                          <div id="villa-camps" class="form-group hidden">
-                            <div class="custom-controls-stacked">
-                              <label class="custom-control custom-radio">
-                                <input id="villa-camp1" type="radio" class="custom-control-input" name="campVILLA1" value="villa-camp1">
-                                <div class="custom-control-label">Camp 1 (PAS118)</div>
-                              </label>
-                              <label class="custom-control custom-radio">
-                                <input id="villa-camp2" type="radio" class="custom-control-input" name="campVILLA2" value="villa-camp2">
-                                <div class="custom-control-label">Camp 2 (PAJ118)</div>
-                              </label>
-                            </div>
-                          </div>
-                          <div id="invalid-feedback-camp" class="invalid-feedback-custom hidden">Please select a camp.</div>
-                        </div>
-                        <div class="col-md-3">
-                          <div class="form-group">
-                            <label class="form-label">Date<span class="form-required">*</span></label>
-                            <div class="row gutters-xs">
-                              <div class="col-8">
-                                <select id="date-month" name="date-month" class="form-control custom-select">
-                                  <option value="">Month</option>
-                                  <option value="6">June</option>
-                                  <option value="7">July</option>
-                                  <option value="8">August</option>
-                                </select>
-                              </div>
-                              <div class="col-4">
-                                <select id="date-day" name="user-day" class="form-control custom-select">
-                                  <option value="">Day</option>
-                                  <option value="1">1</option>
-                                  <option value="2">2</option>
-                                  <option value="3">3</option>
-                                  <option value="4">4</option>
-                                  <option value="5">5</option>
-                                  <option value="6">6</option>
-                                  <option value="7">7</option>
-                                  <option value="8">8</option>
-                                  <option value="9">9</option>
-                                  <option value="10">10</option>
-                                  <option value="11">11</option>
-                                  <option value="12">12</option>
-                                  <option value="13">13</option>
-                                  <option value="14">14</option>
-                                  <option value="15">15</option>
-                                  <option value="16">16</option>
-                                  <option value="17">17</option>
-                                  <option value="18">18</option>
-                                  <option value="19">19</option>
-                                  <option value="20">20</option>
-                                  <option value="21">21</option>
-                                  <option value="22">22</option>
-                                  <option value="23">23</option>
-                                  <option value="24">24</option>
-                                  <option value="25">25</option>
-                                  <option value="26">26</option>
-                                  <option value="27">27</option>
-                                  <option value="28">28</option>
-                                  <option value="29">29</option>
-                                  <option value="30">30</option>
-                                  <option value="31">31</option>
-                                </select>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        
+                  <form name="submit-to-google-sheet">
+                    <div id="site-info-card" class="card">
+                      <div class="card-header">
+                        <h3 class="card-title">Site Information</h3>
                       </div>
-                      
+                      <div class="card-body">
 
-                    </div>
-                    <div id="continue-button-container" class="card-footer text-right">
+                        <!-- Basic Information -->
+                        <div class="row">
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label class="form-label">First Name
+                                <span class="form-required">*</span>
+                              </label>
+                              <input id="firstName" type="text" class="form-control" name="firstName" placeholder="John" title="Please enter your first name.">
+                              <div id="invalid-feedback-first-name" class="invalid-feedback hidden">Please enter your first name.</div>
+                              <label class="form-label">Last Name
+                                <span class="form-required">*</span>
+                              </label>
+                              <input id="lastName" type="text" class="form-control" name="lastName" placeholder="Smith" title="Please enter your last name.">
+                              <div id="invalid-feedback-last-name" class="invalid-feedback hidden">Please enter your last name.</div>
+                            </div>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <div class="form-label">Site
+                                <span class="form-required">*</span>
+                              </div>
+                              <div class="custom-controls-stacked">
+                                <label class="custom-control custom-radio">
+                                  <input id="site-sw" type="radio" class="custom-control-input" name="site" value="sw">
+                                  <div class="custom-control-label">Southwestern University</div>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="site-stan" type="radio" class="custom-control-input" name="site" value="stan">
+                                  <div class="custom-control-label">Stanford University</div>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="site-ucf" type="radio" class="custom-control-input" name="site" value="ucf">
+                                  <div class="custom-control-label">University of Central Florida</div>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="site-villa" type="radio" class="custom-control-input" name="site" value="villa">
+                                  <div class="custom-control-label">Villanova University</div>
+                                </label>
+                              </div>
+                              <div id="invalid-feedback-site" class="invalid-feedback-custom hidden">Please select a site.</div>
+                            </div>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="form-label">Camp
+                              <span class="form-required">*</span>
+                            </div>
+                            <p id="no-site-text">
+                              <em>Please select a site.</em>
+                            </p>
+                            <div id="sw-camps" class="form-group hidden">
+                              <div class="custom-controls-stacked">
+                                <label class="custom-control custom-radio">
+                                  <input id="sw-camp1" type="radio" class="custom-control-input" name="camp" value="sw-camp1">
+                                  <div class="custom-control-label">Camp 1 (TXS118 / TXJ118)</div>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="sw-camp2" type="radio" class="custom-control-input" name="camp" value="sw-camp2">
+                                  <div class="custom-control-label">Camp 2 (TXQA118)</div>
+                                </label>
+                              </div>
+                            </div>
+                            <div id="stan-camps" class="form-group hidden">
+                              <div class="custom-controls-stacked">
+                                <label class="custom-control custom-radio">
+                                  <input id="stan-camp1" type="radio" class="custom-control-input" name="camp" value="stan-camp1">
+                                  <div class="custom-control-label">Camp 1 (STS118)</div>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="stan-camp2" type="radio" class="custom-control-input" name="camp" value="stan-camp2">
+                                  <div class="custom-control-label">Camp 2 (STJ118)</div>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="stan-camp3" type="radio" class="custom-control-input" name="camp" value="stan-camp3">
+                                  <div class="custom-control-label">Camp 3 (STS218)</div>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="stan-camp4" type="radio" class="custom-control-input" name="camp" value="stan-camp4">
+                                  <div class="custom-control-label">Camp 4 (STJ218)</div>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="stan-camp5" type="radio" class="custom-control-input" name="camp" value="stan-camp5">
+                                  <div class="custom-control-label">Camp 5 (STS318)</div>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="stan-camp6" type="radio" class="custom-control-input" name="camp" value="stan-camp6">
+                                  <div class="custom-control-label">Camp 6 (STS418)</div>
+                                </label>
+                              </div>
+                            </div>
+                            <div id="ucf-camps" class="form-group hidden">
+                              <div class="custom-controls-stacked">
+                                <label class="custom-control custom-radio">
+                                  <input id="ucf-camp1" type="radio" class="custom-control-input" name="camp" value="ucf-camp1">
+                                  <div class="custom-control-label">Camp 1 (FLJ118)</div>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="ucf-camp2" type="radio" class="custom-control-input" name="camp" value="ucf-camp2">
+                                  <div class="custom-control-label">Camp 2 (FLS118)</div>
+                                </label>
+                              </div>
+                            </div>
+                            <div id="villa-camps" class="form-group hidden">
+                              <div class="custom-controls-stacked">
+                                <label class="custom-control custom-radio">
+                                  <input id="villa-camp1" type="radio" class="custom-control-input" name="camp" value="villa-camp1">
+                                  <div class="custom-control-label">Camp 1 (PAS118)</div>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="villa-camp2" type="radio" class="custom-control-input" name="camp" value="villa-camp2">
+                                  <div class="custom-control-label">Camp 2 (PAJ118)</div>
+                                </label>
+                              </div>
+                            </div>
+                            <div id="invalid-feedback-camp" class="invalid-feedback-custom hidden">Please select a camp.</div>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label class="form-label">Date
+                                <span class="form-required">*</span>
+                              </label>
+                              <div class="row gutters-xs">
+                                <div class="col-8">
+                                  <select id="date-month" name="date-month" class="form-control custom-select">
+                                    <option value="">Month</option>
+                                    <option value="6">June</option>
+                                    <option value="7">July</option>
+                                    <option value="8">August</option>
+                                  </select>
+                                </div>
+                                <div class="col-4">
+                                  <select id="date-day" name="date-day" class="form-control custom-select">
+                                    <option value="">Day</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+
+
+                      </div>
+                      <div id="continue-button-container" class="card-footer text-right">
                         <div class="d-flex">
                           <button type="button" id="site-info-continue-button" class="btn btn-primary ml-auto">Continue</button>
-                          <button type="submit" class="btn btn-primary ml-auto">Send data</button>
                         </div>
                       </div>
+                    </div>
+
+
+
+
+                    <div id="tl-card" class="card hidden">
+                      <div class="card-header">
+                        <h3 class="card-title">Team Leaders</h3>
+                      </div>
+                      <div class="card-body">
+                        <!-- Team Leaders -->
+                        <div id="tl-row-1" class="row">
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div class="form-label">Hours Worked</div>
+                            </div>
+                            <input disabled id="hours-worked-tl" type="number" class="form-control">
+                            <!--<div title="This is help text from title" class="help-tip"><p>These are predefined hours. If the value shown is not accurate to what was worked, see section [INSERT SECTION TITLE]</p></div>-->
+                          </div>
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div class="form-label">Staff Members</div>
+                              <div id="staff-members-tl-container" class="custom-controls-stacked">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div class="form-group">
+                              <div id="exceptions-title-tl" class="form-label hidden">Exceptions</div>
+                              <div class="custom-controls-stacked">
+                                <div id="exceptions-container-tl" class="form-group">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="tl-row-2" class="row extra-space-top">
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div class="form-label">Was any Team Leader sick during this day?</div>
+                              <label class="custom-switch">
+                                <input id="tl-sick-switch-input" type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" data-position="TL">
+                                <span class="custom-switch-indicator"></span>
+                                <span id="tl-sick-switch-span" class="custom-switch-description">No</span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div id="sick-staff-tl-title" class="form-label hidden">Who was sick?</div>
+                              <div id="sick-staff-tl-container" class="custom-controls-stacked">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div class="form-group">
+                              <div id="sick-exceptions-title-tl" class="form-label hidden">Exceptions</div>
+                              <div class="custom-controls-stacked">
+                                <div id="sick-exceptions-container-tl" class="form-group">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+
+
+                    <div id="lcwp-card" class="card hidden">
+                      <div class="card-header">
+                        <h3 class="card-title">Logistics Coordinator and Wellness Person</h3>
+                      </div>
+                      <div class="card-body">
+
+                        <!-- Logistics Coordinator and Wellness Person -->
+                        <div id="lc-wp-row-1" class="row">
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div class="form-label">Hours Worked</div>
+                            </div>
+                            <input disabled id="hours-worked-lc-wp" type="number" class="form-control">
+                            <!--<div title="This is help text from title" class="help-tip"><p>These are predefined hours. If the value shown is not accurate to what was worked, see section [INSERT SECTION TITLE]</p></div>-->
+                          </div>
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div class="form-label">Staff Members</div>
+                              <div id="staff-members-lc-wp-container" class="custom-controls-stacked">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div class="form-group">
+                              <div id="exceptions-title-lc-wp" class="form-label hidden">Exceptions</div>
+                              <div class="custom-controls-stacked">
+                                <div id="exceptions-container-lc-wp" class="form-group">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="lc-wp-row-2" class="row extra-space-top">
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div class="form-label">Was a LC / WP sick during this day?</div>
+                              <label class="custom-switch">
+                                <input id="lc-wp-sick-switch-input" type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" data-position="LCWP">
+                                <span class="custom-switch-indicator"></span>
+                                <span id="lc-wp-sick-switch-span" class="custom-switch-description">No</span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div id="sick-staff-lc-wp-title" class="form-label hidden">Who was sick?</div>
+                              <div id="sick-staff-lc-wp-container" class="custom-controls-stacked">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div class="form-group">
+                              <div id="sick-exceptions-title-lc-wp" class="form-label hidden">Exceptions</div>
+                              <div class="custom-controls-stacked">
+                                <div id="sick-exceptions-container-lc-wp" class="form-group">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+                      </div>
+                    </div>
+
+
+
+
+                    <div id="oc-card" class="card hidden">
+                      <div class="card-header">
+                        <h3 class="card-title">Office Coordinator</h3>
+                      </div>
+                      <div class="card-body">
+
+                        <!-- Office Coordinator -->
+                        <div id="oc-row-1" class="row">
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div class="form-label">Hours Worked</div>
+                            </div>
+                            <input disabled id="hours-worked-oc" type="number" class="form-control">
+                            <!--<div title="This is help text from title" class="help-tip"><p>These are predefined hours. If the value shown is not accurate to what was worked, see section [INSERT SECTION TITLE]</p></div>-->
+                          </div>
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div class="form-label">Staff Members</div>
+                              <div id="staff-members-oc-container" class="custom-controls-stacked">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div class="form-group">
+                              <div id="exceptions-title-oc" class="form-label hidden">Exceptions</div>
+                              <div class="custom-controls-stacked">
+                                <div id="exceptions-container-oc" class="form-group">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="oc-row-2" class="row extra-space-top">
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div class="form-label">Was the OC sick during this day?</div>
+                              <label class="custom-switch">
+                                <input id="oc-sick-switch-input" type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" data-position="OC">
+                                <span class="custom-switch-indicator"></span>
+                                <span id="oc-sick-switch-span" class="custom-switch-description">No</span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div id="sick-staff-oc-title" class="form-label hidden">Who was sick?</div>
+                              <div id="sick-staff-oc-container" class="custom-controls-stacked">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div class="form-group">
+                              <div id="sick-exceptions-title-oc" class="form-label hidden">Exceptions</div>
+                              <div class="custom-controls-stacked">
+                                <div id="sick-exceptions-container-oc" class="form-group">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+                      </div>
+                      <div class="card-footer text-right">
+                        <div class="d-flex">
+                          <button type="submit" id="send-data-button" class="btn btn-primary ml-auto">Send data</button>
+                        </div>
+                      </div>
+                    </div>
+
+
                   </form>
 
-                  <form id="tl-card" class="card hidden">
-                    <div class="card-header">
-                      <h3 class="card-title">Team Leaders</h3>
+                  <div id="verification" class="container hidden">
+                    <div class="page-header">
+                      <h1 class="page-title">Verification</h1>
                     </div>
-                    <div class="card-body">
-                      <!-- Team Leaders -->
-                      <div id="tl-row-1" class="row">
-                        <div class="col-sm-6 col-lg-4">
-                          <div class="form-group">
-                            <label class="form-label">Hours Worked</div>
-                          </label>
-                          <input disabled id="hours-worked-tl" type="number" class="form-control">
-                          <!--<div title="This is help text from title" class="help-tip"><p>These are predefined hours. If the value shown is not accurate to what was worked, see section [INSERT SECTION TITLE]</p></div>-->
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="alert alert-icon alert-primary" role="alert">
+                            <i class="fas fa-exclamation-triangle"></i><span>Please look through the following information, and verify that it is correct.</span>
                         </div>
-                        <div class="col-sm-6 col-lg-4">
-                          <div class="form-group">
-                            <div class="form-label">Staff Members</div>
-                            <div id="staff-members-tl-container" class="custom-controls-stacked">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-4">
-                          <div class="form-group">
-                            <div id="exceptions-title-tl" class="form-label hidden">Exceptions</div>
-                            <div class="custom-controls-stacked">
-                              <div id="exceptions-container-tl" class="form-group">
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div id="tl-row-2" class="row extra-space-top">
-                        <div class="col-sm-6 col-lg-4">
-                          <div class="form-group">
-                            <div class="form-label">Was any Team Leader sick during this day?</div>
-                            <label class="custom-switch">
-                              <input id="tl-sick-switch-input" type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" data-position="TL">
-                              <span class="custom-switch-indicator"></span>
-                              <span id="tl-sick-switch-span" class="custom-switch-description">No</span>
-                            </label>
-                          </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-4">
-                          <div class="form-group">
-                            <div id="sick-staff-tl-title" class="form-label hidden">Who was sick?</div>
-                            <div id="sick-staff-tl-container" class="custom-controls-stacked">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-4">
-                          <div class="form-group">
-                            <div id="sick-exceptions-title-tl" class="form-label hidden">Exceptions</div>
-                            <div class="custom-controls-stacked">
-                              <div id="sick-exceptions-container-tl" class="form-group">
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        <div id="verification-body"></div>
                       </div>
                     </div>
-                  </form>
-
-                  <form id="lcwp-card" class="card hidden">
-                    <div class="card-header">
-                      <h3 class="card-title">Logistics Coordinator and Wellness Person</h3>
-                    </div>
-                    <div class="card-body">
-
-                      <!-- Logistics Coordinator and Wellness Person -->
-                      <div id="lc-wp-row-1" class="row">
-                        <div class="col-sm-6 col-lg-4">
-                          <div class="form-group">
-                            <label class="form-label">Hours Worked</div>
-                          </label>
-                          <input disabled id="hours-worked-lc-wp" type="number" class="form-control">
-                          <!--<div title="This is help text from title" class="help-tip"><p>These are predefined hours. If the value shown is not accurate to what was worked, see section [INSERT SECTION TITLE]</p></div>-->
-                        </div>
-                        <div class="col-sm-6 col-lg-4">
-                          <div class="form-group">
-                            <div class="form-label">Staff Members</div>
-                            <div id="staff-members-lc-wp-container" class="custom-controls-stacked">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-4">
-                          <div class="form-group">
-                            <div id="exceptions-title-lc-wp" class="form-label hidden">Exceptions</div>
-                            <div class="custom-controls-stacked">
-                              <div id="exceptions-container-lc-wp" class="form-group">
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div id="lc-wp-row-2" class="row extra-space-top">
-                        <div class="col-sm-6 col-lg-4">
-                          <div class="form-group">
-                            <div class="form-label">Was a LC / WP sick during this day?</div>
-                            <label class="custom-switch">
-                              <input id="lc-wp-sick-switch-input" type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" data-position="LCWP">
-                              <span class="custom-switch-indicator"></span>
-                              <span id="lc-wp-sick-switch-span" class="custom-switch-description">No</span>
-                            </label>
-                          </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-4">
-                          <div class="form-group">
-                            <div id="sick-staff-lc-wp-title" class="form-label hidden">Who was sick?</div>
-                            <div id="sick-staff-lc-wp-container" class="custom-controls-stacked">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-4">
-                          <div class="form-group">
-                            <div id="sick-exceptions-title-lc-wp" class="form-label hidden">Exceptions</div>
-                            <div class="custom-controls-stacked">
-                              <div id="sick-exceptions-container-lc-wp" class="form-group">
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                  </div>
 
 
-                    </div>
-                  </form>
-
-                  <form id="oc-card" class="card hidden">
-                    <div class="card-header">
-                      <h3 class="card-title">Office Coordinator</h3>
-                    </div>
-                    <div class="card-body">
-
-                      <!-- Office Coordinator -->
-                      <div id="oc-row-1" class="row">
-                        <div class="col-sm-6 col-lg-4">
-                          <div class="form-group">
-                            <label class="form-label">Hours Worked</div>
-                          </label>
-                          <input disabled id="hours-worked-oc" type="number" class="form-control">
-                          <!--<div title="This is help text from title" class="help-tip"><p>These are predefined hours. If the value shown is not accurate to what was worked, see section [INSERT SECTION TITLE]</p></div>-->
-                        </div>
-                        <div class="col-sm-6 col-lg-4">
-                          <div class="form-group">
-                            <div class="form-label">Staff Members</div>
-                            <div id="staff-members-oc-container" class="custom-controls-stacked">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-4">
-                          <div class="form-group">
-                            <div id="exceptions-title-oc" class="form-label hidden">Exceptions</div>
-                            <div class="custom-controls-stacked">
-                              <div id="exceptions-container-oc" class="form-group">
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div id="oc-row-2" class="row extra-space-top">
-                        <div class="col-sm-6 col-lg-4">
-                          <div class="form-group">
-                            <div class="form-label">Was the OC sick during this day?</div>
-                            <label class="custom-switch">
-                              <input id="oc-sick-switch-input" type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" data-position="OC">
-                              <span class="custom-switch-indicator"></span>
-                              <span id="oc-sick-switch-span" class="custom-switch-description">No</span>
-                            </label>
-                          </div>
-                        </div>
-                        <div class="col-sm-6 col-lg-4">
-                          <div class="form-group">
-                            <div id="sick-staff-oc-title" class="form-label hidden">Who was sick?</div>
-                            <div id="sick-staff-oc-container" class="custom-controls-stacked">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-4">
-                          <div class="form-group">
-                            <div id="sick-exceptions-title-oc" class="form-label hidden">Exceptions</div>
-                            <div class="custom-controls-stacked">
-                              <div id="sick-exceptions-container-oc" class="form-group">
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
 
 
-                    </div>
-                    <div class="card-footer text-right">
-                      <div class="d-flex">
-                        <button type="submit" class="btn btn-primary ml-auto">Send data</button>
-                      </div>
-                    </div>
-                  </form>
+
+
+                  <div class="loading-form is-hidden-form">
+                    <i class="fas fa-5x fa-circle-notch fa-spin"></i>
+                  </div>
+                  <p class="js-success-message is-hidden-form">Success! QLN has received your data. Thank you for being you!</p>
+                  <p class="js-error-message is-hidden-form">Error! There was an issue, and the data was not sent. Refresh the page to try again.</p>
+                  <button type="button" onclick='location.reload();' class="btn btn-info is-hidden-form again-button">Send Another Form</button>
+                  <!--
                   <script>
                     require(['jquery', 'selectize'], function ($, selectize) {
                       $(document).ready(function () {
@@ -625,6 +679,7 @@
                       });
                     });
                   </script>
+                -->
                 </div>
               </div>
             </div>
@@ -661,26 +716,21 @@
     </footer>
   </div>
   <!-- Javascript -->
+  <!-- Smoothscroll Polyfill -->
+  <script src="assets/js/smoothscroll.min.js"></script>
+  <!-- Papa Parse -->
+  <script src="assets/js/papaparse.js"></script>
   <!-- Staff Members -->
   <script src="assets/js/staffmembers.js"></script>
   <script src="assets/js/main-compiled.js"></script>
 
-  <!-- Polyfills? -->
+  <!-- Polyfills? -
   <script src="https://wzrd.in/standalone/formdata-polyfill"></script>
   <script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
   <script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
 
-  <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyaZdP8ZLdRG-8EqKqO5ceqeaWJEH2y3HDJFjV5LlFv4V6_FkQ/exec'
-    const form = document.forms['submit-to-google-sheet']
-  
-    form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => console.log('Success!', response))
-        .catch(error => console.error('Error!', error.message))
-    })
-  </script>
+  -->
+
 </body>
 
 </html>
