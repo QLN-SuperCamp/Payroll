@@ -217,6 +217,7 @@ function siteChosen() {
 
 
     resetInfo();
+    checkEmptyPositions();
 }
 
 function campChosen() {
@@ -358,8 +359,18 @@ function dateChanged() {
             // Day 1, 2, 3, 5, 6
             setHoursWorked(15, 11, 9);
         }
+    } else if (currentCamp === "stan-camp1") {
+        if (dateMonth.value === 6 && dateDay.value === 22) {
+            // Day -5
+            setHoursWorked(0, 0, 0);
+        } else if (dateMonth.value === 6 && dateDay.value === 23) {
+            // Day -4
+            setHoursWorked(10, 10, 9);
+        } else {
+            // Todo: fill out other days
+        }
     } else {
-        // Do other camps
+        // TODO: Do other camps
     }
 }
 
@@ -935,7 +946,12 @@ function setHoursWorked(tlHours, lcwpHours, ocHours) {
 function showPositionCards() {
     // First, make sure all info is entered
     if (isSiteInfoValid() === true) {
-        showThis(tlCard, lcwpCard, ocCard);
+        // SW has no OC. Hide the OC form
+        if (chosenSite === "sw") {
+            showThis(tlCard, lcwpCard);
+        } else {
+            showThis(tlCard, lcwpCard, ocCard);
+        }
         allPositionCards.forEach(function (card) {
             card.classList.add("animated", "slideInUp");
         });
@@ -1001,30 +1017,14 @@ function checkName() {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function checkEmptyPositions() {
+    // There is no OC at SW, UCF, or VILLA
+    if (chosenSite === "sw" || chosenSite === "ucf" || chosenSite === "villa") {
+        hideThis(ocCard);
+    } else if (chosenSite === "stan") {
+        showThis(ocCard);
+    }
+}
 
 
 // Helper functions
@@ -1133,6 +1133,11 @@ function setBlank() {
     dateMonth.value = "";
     dateDay.value = "";
 }
+
+
+
+
+
 
 
 
