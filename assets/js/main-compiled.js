@@ -929,8 +929,11 @@ function showPositionCards() {
         // SW has no OC. Hide the OC form
         if (chosenSite === "sw") {
             showThis(tlCard, lcwpCard);
+            // Need to show "Send Data" button
+            addSendDataButton(lcwpCard);
         } else {
             showThis(tlCard, lcwpCard, ocCard);
+            addSendDataButton(ocCard);
         }
         allPositionCards.forEach(function (card) {
             card.classList.add("animated", "slideInUp");
@@ -1003,6 +1006,25 @@ function checkEmptyPositions() {
     } else if (chosenSite === "stan") {
         showThis(ocCard);
     }
+}
+
+function addSendDataButton(location) {
+    var footerDiv = document.createElement('div');
+    footerDiv.classList.add('card-footer', 'text-right');
+
+    var buttonContainer = document.createElement('div');
+    buttonContainer.classList.add('d-flex');
+
+    var button = document.createElement('button');
+    button.type = "submit";
+    button.id = "send-data-button";
+    button.classList.add("btn", "btn-primary", "ml-auto");
+    button.innerHTML = "Send Data";
+
+    footerDiv.appendChild(buttonContainer);
+    buttonContainer.appendChild(button);
+
+    location.appendChild(footerDiv);
 }
 
 // Helper functions
