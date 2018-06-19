@@ -258,122 +258,129 @@ var staffMembersAll = [{
         position2: ''
     },
     {
-    firstName: "Alexis",
-    lastName: "Hagan",
-    campsWorking: ["ucf-camp1", "ucf-camp2"],
-    position1: "STL",
-    position2: ''
+        firstName: "Alexis",
+        lastName: "Hagan",
+        campsWorking: ["ucf-camp1", "ucf-camp2"],
+        position1: "STL",
+        position2: ''
     },
     {
-    firstName: "Alex",
-    lastName: "Abbott",
-    campsWorking: ["ucf-camp1", "ucf-camp2"],
-    position1: "TL",
-    position2: ''
+        firstName: "Alexis",
+        lastName: "Hagan",
+        campsWorking: ["sw-camp1"],
+        position1: "TL",
+        position2: ''
     },
     {
-    firstName: "Charles",
-    lastName: "Garza",
-    campsWorking: ["ucf-camp1", "ucf-camp2"],
-    position1: "TL",
-    position2: ''
+        firstName: "Alex",
+        lastName: "Abbott",
+        campsWorking: ["ucf-camp1", "ucf-camp2"],
+        position1: "TL",
+        position2: ''
     },
     {
-    firstName: "Laci",
-    lastName: "Jackson",
-    campsWorking: ["ucf-camp1", "ucf-camp2"],
-    position1: "TL",
-    position2: ''
+        firstName: "Charles",
+        lastName: "Garza",
+        campsWorking: ["ucf-camp1", "ucf-camp2"],
+        position1: "TL",
+        position2: ''
     },
     {
-    firstName: "Kayla",
-    lastName: "Jackson",
-    campsWorking: ["ucf-camp1", "ucf-camp2"],
-    position1: "TL",
-    position2: ''
+        firstName: "Laci",
+        lastName: "Jackson",
+        campsWorking: ["ucf-camp1", "ucf-camp2"],
+        position1: "TL",
+        position2: ''
     },
     {
-    firstName: "Alicyn",
-    lastName: "Kitamura",
-    campsWorking: ["ucf-camp1", "ucf-camp2"],
-    position1: "LC",
-    position2: ''
+        firstName: "Kayla",
+        lastName: "Jackson",
+        campsWorking: ["ucf-camp1", "ucf-camp2"],
+        position1: "TL",
+        position2: ''
     },
     {
-    firstName: "Luzmaria",
-    lastName: "Estalla",
-    campsWorking: ["ucf-camp1", "ucf-camp2"],
-    position1: "WP",
-    position2: ''
+        firstName: "Alicyn",
+        lastName: "Kitamura",
+        campsWorking: ["ucf-camp1", "ucf-camp2"],
+        position1: "LC",
+        position2: ''
     },
     {
-    firstName: "Isabella",
-    lastName: "Stenz",
-    campsWorking: ["villa-camp1", "villa-camp2"],
-    position1: "STL",
-    position2: ''
+        firstName: "Luzmaria",
+        lastName: "Estalla",
+        campsWorking: ["ucf-camp1", "ucf-camp2"],
+        position1: "WP",
+        position2: ''
     },
     {
-    firstName: "Trace",
-    lastName: "Craver",
-    campsWorking: ["villa-camp1", "villa-camp2"],
-    position1: "TL",
-    position2: ''
+        firstName: "Isabella",
+        lastName: "Stenz",
+        campsWorking: ["villa-camp1", "villa-camp2"],
+        position1: "STL",
+        position2: ''
     },
     {
-    firstName: "Adam",
-    lastName: "Chan",
-    campsWorking: ["villa-camp1", "villa-camp2"],
-    position1: "TL",
-    position2: ''
+        firstName: "Trace",
+        lastName: "Craver",
+        campsWorking: ["villa-camp1", "villa-camp2"],
+        position1: "TL",
+        position2: ''
     },
     {
-    firstName: "Maxwell",
-    lastName: "Little",
-    campsWorking: ["villa-camp1"],
-    position1: "TL",
-    position2: ''
+        firstName: "Adam",
+        lastName: "Chan",
+        campsWorking: ["villa-camp1", "villa-camp2"],
+        position1: "TL",
+        position2: ''
     },
     {
-    firstName: "Katrina",
-    lastName: "Hoefflinger",
-    campsWorking: ["villa-camp1", "villa-camp2"],
-    position1: "TL",
-    position2: ''
+        firstName: "Maxwell",
+        lastName: "Little",
+        campsWorking: ["villa-camp1"],
+        position1: "TL",
+        position2: ''
     },
     {
-    firstName: "Deja",
-    lastName: "Washington",
-    campsWorking: ["villa-camp1", "villa-camp2"],
-    position1: "TL",
-    position2: ''
+        firstName: "Katrina",
+        lastName: "Hoefflinger",
+        campsWorking: ["villa-camp1", "villa-camp2"],
+        position1: "TL",
+        position2: ''
     },
     {
-    firstName: "Rachel",
-    lastName: "Dillman",
-    campsWorking: ["villa-camp1"],
-    position1: "TL",
-    position2: ''
+        firstName: "Deja",
+        lastName: "Washington",
+        campsWorking: ["villa-camp1", "villa-camp2"],
+        position1: "TL",
+        position2: ''
     },
     {
-    firstName: "Kelly",
-    lastName: "Castleberry",
-    campsWorking: ["villa-camp1"],
-    position1: "TL",
-    position2: ''
+        firstName: "Rachel",
+        lastName: "Dillman",
+        campsWorking: ["villa-camp1"],
+        position1: "TL",
+        position2: ''
     },
     {
-    firstName: "Viva",
-    lastName: "Sandoval",
-    campsWorking: ["villa-camp1"],
-    position1: "TL",
-    position2: ''
+        firstName: "Kelly",
+        lastName: "Castleberry",
+        campsWorking: ["villa-camp1"],
+        position1: "TL",
+        position2: ''
     },
     {
-    firstName: "Jordan",
-    lastName: "Wesson",
-    campsWorking: ["villa-camp1", "villa-camp2"],
-    position1: "WP",
-    position2: ''
+        firstName: "Viva",
+        lastName: "Sandoval",
+        campsWorking: ["villa-camp1"],
+        position1: "TL",
+        position2: ''
+    },
+    {
+        firstName: "Jordan",
+        lastName: "Wesson",
+        campsWorking: ["villa-camp1", "villa-camp2"],
+        position1: "WP",
+        position2: ''
     }
 ];
