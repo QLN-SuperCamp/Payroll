@@ -44,6 +44,27 @@
   <!-- Font Awesome 5.0.13 -->
   <script defer src="assets/js/fontawesome-all.min.js"></script>
 
+  <!-- Begin SessionStack code -->
+  <script type="text/javascript">
+    ! function (a, b) {
+      var c = window;
+      c.SessionStackKey = a, c[a] = c[a] || {
+        t: b,
+        q: []
+      };
+      for (var d = ["start", "stop", "identify", "getSessionId", "log"], e = 0; e < d.length; e++) ! function (b) {
+        c[a][b] = c[a][b] || function () {
+          c[a].q.push([b].concat([].slice.call(arguments, 0)));
+        }
+      }(d[e]);
+      var f = document.createElement("script");
+      f.async = 1, f.src = "https://cdn.sessionstack.com/sessionstack.js";
+      var g = document.getElementsByTagName("script")[0];
+      g.parentNode.insertBefore(f, g);
+    }("SessionStack", "7d5aeb9670c342bd8814c6b637d16167");
+  </script>
+  <!-- End SessionStack Code -->
+
 </head>
 
 <body class="">
@@ -52,7 +73,7 @@
       <div class="header py-4">
         <div class="container">
           <div class="d-flex">
-            <a class="header-brand" href="#">
+            <a class="header-brand" href="./">
               <img src="./demo/brand/supercamp.svg" class="header-brand-img" alt="SuperCamp logo">
             </a>
             <div class="d-flex order-lg-2 ml-auto">
@@ -204,7 +225,8 @@
               <div class="row">
                 <div class="col-12">
 
-                    <div class="alert alert-primary">Need help? <a href="./guide.html" class="alert-link">Read our guide</a> for more information.</div>
+                  <div class="alert alert-primary">Need help?
+                    <a target="_blank" href="./guide.html" class="alert-link">Read our guide</a> for more information.</div>
 
                   <form name="submit-to-google-sheet">
                     <div id="site-info-card" class="card">
@@ -217,12 +239,12 @@
                         <div class="row">
                           <div class="col-md-3">
                             <div class="form-group">
-                              <label class="form-label">First Name
+                              <label class="form-label">Site Administrator (Your) First Name
                                 <span class="form-required">*</span>
                               </label>
                               <input id="firstName" type="text" class="form-control" name="firstName" placeholder="John" title="Please enter your first name.">
                               <div id="invalid-feedback-first-name" class="invalid-feedback hidden">Please enter your first name.</div>
-                              <label class="form-label">Last Name
+                              <label class="form-label">Site Administrator (Your) Last Name
                                 <span class="form-required">*</span>
                               </label>
                               <input id="lastName" type="text" class="form-control" name="lastName" placeholder="Smith" title="Please enter your last name.">
@@ -610,7 +632,8 @@
                     <div class="row">
                       <div class="col-12">
                         <div class="alert alert-icon alert-primary" role="alert">
-                            <i class="fas fa-exclamation-triangle"></i><span>Please look through the following information, and verify that it is correct.</span>
+                          <i class="fas fa-exclamation-triangle"></i>
+                          <span>Please look through the following information, and verify that it is correct.</span>
                         </div>
                         <div id="verification-body"></div>
                       </div>
@@ -700,7 +723,7 @@
               <div class="col-auto">
                 <ul class="list-inline list-inline-dots mb-0">
                   <li class="list-inline-item">
-                    <a href="./guide.html">Guide</a>
+                    <a target="_blank" href="./guide.html">Guide</a>
                   </li>
                 </ul>
               </div>
