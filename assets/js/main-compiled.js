@@ -1,6 +1,8 @@
 // Declare the current camp variable
 var currentCamp = "none";
 
+var guideAlert = document.getElementById('guide-alert');
+
 // Data to send through FormBody
 var workingTLs = [];
 var workingLCs = [];
@@ -26,6 +28,10 @@ var chosenSite = "";
 var tlIsSick = false;
 var lcwpIsSick = false;
 var ocIsSick = false;
+
+var sickTLsInfo = [];
+var sickLCWPsInfo = [];
+var sickOCsInfo = [];
 
 var checkedSickTLCheckboxes = [];
 var checkedSickLCWPCheckboxes = [];
@@ -639,10 +645,21 @@ function createSickStaff(positionType) {
     // Don't clear the containers regardless. Set up logic to check if the switch
     // was toggled, and if you need to clear out that sick container.
 
+    /* Test logic 6/19 */
+    if (positionType === "TL") {
+        exceptionsTLContainer.innerHTML = "";
+    } else if (positionType === "LCWP") {
+        exceptionsLCWPContainer.innerHTML = "";
+    } else {
+        exceptionsOCContainer.innerHTML = "";
+    }
+
+    /*
     // Clear list of Sick Staff
     allSickExceptionsContainers.forEach(function (container) {
         container.innerHTML = "";
     });
+    */
 
     // Who is working this particular camp
     var staffMembersWorking = [];
@@ -683,6 +700,7 @@ function createSickStaff(positionType) {
                 checkbox.value = "" + person.firstName + ("" + person.lastName);
                 checkbox.id = ("" + person.firstName).toLowerCase() + "-" + ("" + person.lastName).toLowerCase() + "-sick";
                 checkbox.checked = false;
+                checkbox.dataset.positiontype = "TL";
                 checkbox.addEventListener("change", checkSick);
 
                 var span = document.createElement("span");
@@ -712,6 +730,7 @@ function createSickStaff(positionType) {
                 checkbox.value = "" + person.firstName + ("" + person.lastName);
                 checkbox.id = ("" + person.firstName).toLowerCase() + "-" + ("" + person.lastName).toLowerCase() + "-sick";
                 checkbox.checked = false;
+                checkbox.dataset.positiontype = "LCWP";
                 checkbox.addEventListener("change", checkSick);
 
                 var span = document.createElement("span");
@@ -741,6 +760,7 @@ function createSickStaff(positionType) {
                 checkbox.value = "" + person.firstName + ("" + person.lastName);
                 checkbox.id = ("" + person.firstName).toLowerCase() + "-" + ("" + person.lastName).toLowerCase() + "-sick";
                 checkbox.checked = false;
+                checkbox.dataset.positionType = "OC";
                 checkbox.addEventListener("change", checkSick);
 
                 var span = document.createElement("span");
@@ -762,10 +782,23 @@ function createSickStaff(positionType) {
 }
 
 function checkSick() {
+
+    if (this.dataset.positiontype === "TL") {
+        sickExceptionsTLContainer.innerHTML = "";
+        checkedSickTLCheckboxes = [];
+    } else if (this.dataset.positiontype === "LCWP") {
+        sickExceptionsLCWPContainer.innerHTML = "";
+        checkedSickLCWPCheckboxes = [];
+    } else {
+        sickExceptionsOCContainer.innerHTML = "";
+        checkedSickOCCheckboxes = [];
+    }
+    /*
     // Clear list of exceptions
     allSickExceptionsContainers.forEach(function (container) {
         container.innerHTML = "";
     });
+    */
 
     var allSickCheckboxes = [sickTLCheckboxes, sickLCWPCheckboxes, sickOCCheckboxes];
 
@@ -777,26 +810,32 @@ function checkSick() {
 
             if (checkboxGroup[0].dataset.position === "TL") {
                 // Show the Title and the Container itself
-                //showThis(sickExceptionsTitleTL, sickExceptionsTLContainer);
+                showThis(sickExceptionsTitleTL, sickExceptionsTLContainer);
                 tlIsSick = true;
+                checkedSickTLCheckboxes = [];
             } else if (checkboxGroup[0].dataset.position === "LCWP") {
                 // Show the Title and the Container itself
-                //showThis(sickExceptionsTitleLCWP, sickExceptionsLCWPContainer);
+                showThis(sickExceptionsTitleLCWP, sickExceptionsLCWPContainer);
                 lcwpIsSick = true;
+                checkedSickLCWPCheckboxes = [];
             } else {
                 // Show the Title and the Container itself
-                //showThis(sickExceptionsTitleOC, sickExceptionsOCContainer);
+                showThis(sickExceptionsTitleOC, sickExceptionsOCContainer);
                 ocIsSick = true;
+                checkedSickOCCheckboxes = [];
             }
 
             // Go through checkboxes, if one is checked, add it to the array
             checkboxes.forEach(function (checkbox) {
                 if (checkbox.checked === true) {
                     if (checkboxGroup[0].dataset.position === "TL") {
+                        //checkedSickTLCheckboxes = [];
                         checkedSickTLCheckboxes.push(checkbox);
                     } else if (checkboxGroup[0].dataset.position === "LCWP") {
+                        //checkedSickLCWPCheckboxes = [];
                         checkedSickLCWPCheckboxes.push(checkbox);
                     } else {
+                        //checkedSickOCCheckboxes = [];
                         checkedSickOCCheckboxes.push(checkbox);
                     }
                 }
@@ -806,8 +845,11 @@ function checkSick() {
             STOPPING SICK HOUR CHECKS.
             IF NEEDED, PUT BACK IN. FOR NOW, JUST ADD THE SICK STAFF MEMBER TO THE
             CORRESPONDING ARRAY
-             let checkedCheckboxesGroup = [checkedSickTLCheckboxes, checkedSickLCWPCheckboxes, checkedSickOCCheckboxes];
-             // Go through checked staff array, and in the container, add a label and input boxes
+            */
+
+            var checkedCheckboxesGroup = [checkedSickTLCheckboxes, checkedSickLCWPCheckboxes, checkedSickOCCheckboxes];
+
+            // Go through checked staff array, and in the container, add a label and input boxes
             checkedCheckboxesGroup.forEach(function (group) {
                 if (group.length > 0) {
                     if (group[0].dataset.position === "TL") {
@@ -820,39 +862,49 @@ function checkSick() {
                         // TESTING - Clear container first
                         sickExceptionsOCContainer.innerHTML = "";
                     }
-                     group.forEach(function (checkbox) {
-                        let formLabel = document.createElement("div");
+
+                    group.forEach(function (checkbox) {
+                        var formLabel = document.createElement("div");
                         formLabel.classList.add("form-label");
                         formLabel.innerHTML = "How long was " + checkbox.name + " sick for?";
-                         let inputGroup = document.createElement("div");
+
+                        var inputGroup = document.createElement("div");
                         inputGroup.classList.add("input-group");
-                         let hoursInput = document.createElement("input");
+                        inputGroup.name = checkbox.name;
+
+                        var hoursInput = document.createElement("input");
                         hoursInput.type = "number";
                         hoursInput.min = "0";
                         hoursInput.max = "8";
                         hoursInput.classList.add("form-control");
                         //hoursInput.placeholder = "How many hours were worked?";
                         // Need to add 'aria-describedby?'
-                         let hoursSpanGroup = document.createElement("span");
+
+                        var hoursSpanGroup = document.createElement("span");
                         hoursSpanGroup.classList.add("input-group-append");
                         hoursSpanGroup.id = "hours-span-group-" + group.indexOf(checkbox);
-                         let hoursSpan = document.createElement("span");
+
+                        var hoursSpan = document.createElement("span");
                         hoursSpan.classList.add("input-group-text");
                         hoursSpan.innerHTML = "hours";
-                         let minutesInput = document.createElement("input");
+
+                        var minutesInput = document.createElement("input");
                         minutesInput.type = "number";
                         minutesInput.min = "0";
-                        minutesInput.max = "60";
+                        minutesInput.max = "45";
                         minutesInput.step = "15";
                         minutesInput.classList.add("form-control");
                         //minutesInput.placeholder = "How many minutes were worked?";
-                         let minutesSpanGroup = document.createElement("span");
+
+                        var minutesSpanGroup = document.createElement("span");
                         minutesSpanGroup.classList.add("input-group-append");
                         minutesSpanGroup.id = "minutes-span-group-" + group.indexOf(checkbox);
-                         let minutesSpan = document.createElement("span");
+
+                        var minutesSpan = document.createElement("span");
                         minutesSpan.classList.add("input-group-text");
                         minutesSpan.innerHTML = "minutes";
-                         if (checkbox.dataset.position === "TL") {
+
+                        if (checkbox.dataset.position === "TL") {
                             sickExceptionsTLContainer.appendChild(formLabel);
                             sickExceptionsTLContainer.appendChild(inputGroup);
                         } else if (checkbox.dataset.position === "LCWP") {
@@ -862,7 +914,8 @@ function checkSick() {
                             sickExceptionsOCContainer.appendChild(formLabel);
                             sickExceptionsOCContainer.appendChild(inputGroup);
                         }
-                          inputGroup.appendChild(hoursInput);
+
+                        inputGroup.appendChild(hoursInput);
                         inputGroup.appendChild(hoursSpanGroup);
                         hoursSpanGroup.appendChild(hoursSpan);
                         inputGroup.appendChild(minutesInput);
@@ -871,12 +924,11 @@ function checkSick() {
                     });
                 }
             });
-            */
         } else {
-                //hideThis(allExceptionsTitles);
-                //hideThis(allExceptionsContainers);
-                // Possibly need to worry about clearing those values!?
-            }
+            //hideThis(allExceptionsTitles);
+            //hideThis(allExceptionsContainers);
+            // Possibly need to worry about clearing those values!?
+        }
     });
 }
 
@@ -950,7 +1002,9 @@ function showPositionCards() {
 }
 
 function scrollToTLCard() {
-    tlCard.scrollIntoView({ behavior: 'smooth' });
+    tlCard.scrollIntoView({
+        behavior: 'smooth'
+    });
 }
 
 function isSiteInfoValid() {
@@ -1330,10 +1384,102 @@ function createData() {
     });
     JSON.stringify(sickOCs);
     formBody.append('sickOCs', sickOCs);
+
+    // Go through the sick exceptions container - Team Leaders
+    sickExceptionsTLContainer.childNodes.forEach(function (nodeBig) {
+        // If the child node is an input group 
+        if (nodeBig.classList.contains("input-group")) {
+            var sickHoursTL = "";
+            var sickMinutesTL = "";
+            var sickNameTL = nodeBig.name;
+            // Go through the div's child nodes
+            nodeBig.childNodes.forEach(function (nodeSmall) {
+                // If the child is a form control
+                if (nodeSmall.classList.contains("form-control")) {
+                    if (nodeSmall.max === "8") {
+                        sickHoursTL = nodeSmall.value;
+                    } else if (nodeSmall.max === "45") {
+                        sickMinutesTL = nodeSmall.value;
+                    }
+                }
+            });
+            // Push object to info array
+            sickTLsInfo.push({
+                name: sickNameTL,
+                hours: sickHoursTL,
+                minutes: sickMinutesTL
+            });
+        }
+    });
+    console.log("sickTLsInfo before PapaParse:");
+    console.log(sickTLsInfo);
+    var unparsedSickTLsInfo = Papa.unparse(sickTLsInfo);
+    formBody.append('sickTLsInfo', unparsedSickTLsInfo);
+    console.log("sickTLsInfo after PapaParse:");
+    console.log(unparsedSickTLsInfo);
+
+    // Go through the sick exceptions container - LCWPs
+    sickExceptionsLCWPContainer.childNodes.forEach(function (nodeBig) {
+        // If the child node is an input group 
+        if (nodeBig.classList.contains("input-group")) {
+            var sickHoursLCWP = "";
+            var sickMinutesLCWP = "";
+            var sickNameLCWP = nodeBig.name;
+            // Go through the div's child nodes
+            nodeBig.childNodes.forEach(function (nodeSmall) {
+                // If the child is a form control
+                if (nodeSmall.classList.contains("form-control")) {
+                    if (nodeSmall.max === "8") {
+                        sickHoursLCWP = nodeSmall.value;
+                    } else if (nodeSmall.max === "45") {
+                        sickMinutesLCWP = nodeSmall.value;
+                    }
+                }
+            });
+            // Push object to info array
+            sickLCWPsInfo.push({
+                name: sickNameLCWP,
+                hours: sickHoursLCWP,
+                minutes: sickMinutesLCWP
+            });
+        }
+    });
+    var unparsedSickLCWPsInfo = Papa.unparse(sickLCWPsInfo);
+    formBody.append('sickLCWPsInfo', unparsedSickLCWPsInfo);
+
+    // Go through the sick exceptions container - Office Coordinators
+    sickExceptionsOCContainer.childNodes.forEach(function (nodeBig) {
+        // If the child node is an input group 
+        if (nodeBig.classList.contains("input-group")) {
+            var sickHoursOC = "";
+            var sickMinutesOC = "";
+            var sickNameOC = nodeBig.name;
+            // Go through the div's child nodes
+            nodeBig.childNodes.forEach(function (nodeSmall) {
+                // If the child is a form control
+                if (nodeSmall.classList.contains("form-control")) {
+                    if (nodeSmall.max === "8") {
+                        sickHoursOC = nodeSmall.value;
+                    } else if (nodeSmall.max === "45") {
+                        sickMinutesOC = nodeSmall.value;
+                    }
+                }
+            });
+            // Push object to info array
+            sickOCsInfo.push({
+                name: sickNameOC,
+                hours: sickHoursOC,
+                minutes: sickMinutesOC
+            });
+        }
+    });
+    var unparsedSickOCsInfo = Papa.unparse(sickOCsInfo);
+    formBody.append('sickOCsInfo', unparsedSickOCsInfo);
 }
 
 form.addEventListener('submit', function (e) {
     e.preventDefault();
+    hideThis(guideAlert);
     showLoadingIndicator();
     createData();
     fetch(scriptURL, {
