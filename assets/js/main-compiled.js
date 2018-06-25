@@ -1,7 +1,23 @@
 // Declare the current camp variable
 var currentCamp = "none";
+var currentCampValue = "";
 
-var guideAlert = document.getElementById('guide-alert');
+var mainForm = document.getElementById('main-form');
+
+// Create initial alert
+var alert = document.getElementById('alert');
+var span1 = document.createElement("span");
+span1.innerHTML = "Need help? ";
+var alertLink = document.createElement("a");
+alertLink.target = "_blank";
+alertLink.href = "./guide.html";
+alertLink.classList.add("alert-link");
+alertLink.innerHTML = "Read our guide";
+var span2 = document.createElement("span");
+span2.innerHTML = " for more information.";
+alert.appendChild(span1);
+alert.appendChild(alertLink);
+alert.appendChild(span2);
 
 // Data to send through FormBody
 var workingTLs = [];
@@ -194,6 +210,11 @@ var sickExceptionsTitleTL = document.getElementById('sick-exceptions-title-tl');
 var sickExceptionsTitleLCWP = document.getElementById('sick-exceptions-title-lc-wp');
 var sickExceptionsTitleOC = document.getElementById('sick-exceptions-title-oc');
 
+// Warnings for sick exceptions
+var exceptionsWarningTL = document.getElementById('exceptions-warning-tl');
+var exceptionsWarningLCWP = document.getElementById('exceptions-warning-lcwp');
+var exceptionsWarningOC = document.getElementById('exceptions-warning-oc');
+
 // Make sure that switches and checkboxes and radios are blank when the page first loads
 document.addEventListener("DOMContentLoaded", setBlank);
 
@@ -322,6 +343,8 @@ function campChosen() {
         disableDates(monthsToDisable, daysToDisable);
     }
 
+    currentCampValue = this.parentNode.lastElementChild.textContent;
+
     resetInfo();
     dateChanged();
     addStaffMembers();
@@ -363,18 +386,105 @@ function dateChanged() {
             setHoursWorked(15, 11, 9);
         }
     } else if (currentCamp === "stan-camp1") {
-        if (dateMonth.value === 6 && dateDay.value === 22) {
-            // Day -5
+        if (dateMonth.value === "6") {
+            if (dateDay.value === "22") {
+                // Day -5
+                setHoursWorked(0, 0, 0);
+            } else if (dateDay.value === "23") {
+                // Day -4
+                setHoursWorked(10, 10, 9);
+            } else if (dateDay.value === "24" || dateDay.value === "25" || dateDay.value === "26" || dateDay.value === "27" || dateDay.value === "28" || dateDay.value === "30") {
+                // Day -3, -2, -1, 1, 2, 4
+                setHoursWorked(11, 11, 9);
+            } else if (dateDay.value === "28") {
+                // Day 3
+                setHoursWorked(11, 11, 0);
+            }
+        } else if (dateMonth.value === "7") {
+            if (dateDay.value === "1" || dateDay.value === "2" || dateDay.value === "3" || dateDay.value === "4" || dateDay.value === 5) {
+                // Day 5, 6, 7, 8, 9
+                setHoursWorked(11, 11, 9);
+            } else if (dateDay.value === "6") {
+                // Day 10
+                setHoursWorked(10, 10, 9);
+            }
+        }
+    } else if (currentCamp === "stan-camp2") {
+        if (dateDay.value === "7") {
+            // Day -2
+            setHoursWorked(0, 0, 5);
+        } else if (dateDay.value === "8") {
+            // Day -1
             setHoursWorked(0, 0, 0);
-        } else if (dateMonth.value === 6 && dateDay.value === 23) {
-            // Day -4
-            setHoursWorked(10, 10, 9);
-        } else {
-            // Todo: fill out other days
+        } else if (dateDay.value === "9" || dateDay.value === "10" || dateDay.value === "11" || dateDay.value === "13" || dateDay.value === "14") {
+            // Day 1, 2, 3, 5, 6
+            setHoursWorked(11, 11, 9);
+        } else if (dateDay.value === "12") {
+            // Day 4
+            setHoursWorked(11, 11, 0);
         }
-    } else {
-            // TODO: Do other camps
+    } else if (currentCamp === "stan-camp3") {
+        if (dateDay.value === "15") {
+            // Day -2
+            setHoursWorked(0, 0, 5);
+        } else if (dateDay.value === "16") {
+            // Day -1
+            setHoursWorked(0, 0, 0);
+        } else if (dateDay.value === "17" || dateDay.value === "18" || dateDay.value === "19" || dateDay.value === "20" || dateDate.value === "21" || dateDay.value === "22") {
+            // Day 1, 2, 3, 4, 5, 6
+            setHoursWorked(11, 11, 9);
         }
+    } else if (currentCamp === "stan-camp4") {
+        if (dateDay.value === "23") {
+            // Day -2
+            setHoursWorked(0, 0, 9);
+        } else if (dateDay.value === "24") {
+            // Day -1
+            setHoursWorked(4, 4, 9);
+        } else if (dateDay.value === "25" || dateDay.value === "26" || dateDay.value === "27" || dateDay.value === "29" || dateDay.value === "30") {
+            // Day 1, 2, 3, 5, 6
+            setHoursWorked(11, 11, 9);
+        } else if (dateDay.value === "28") {
+            // Day 4
+            setHoursWorked(11, 11, 0);
+        }
+    } else if (currentCamp === "stan-camp5") {
+        if (dateMonth.value === "7") {
+            if (dateDay.value === "31") {
+                // Day -2
+                setHoursWorked(0, 0, 5);
+            }
+        } else if (dateMonth.value === "8") {
+            if (dateDay.value === "1") {
+                // Day -1
+                setHoursWorked(0, 0, 0);
+            } else if (dateDay.value === "2" || dateDay.value === "5" || dateDay.value === "6" || dateDay.value === "7" || dateDay.value === "8" || dateDay.value === "9" || dateDay.value === "10") {
+                // Day 1, 4, 5, 6, 7, 8, 9
+                setHoursWorked(11, 11, 9);
+            } else if (dateDay.value === "3") {
+                // Day 2
+                setHoursWorked(11, 11, 0);
+            } else if (dateDay.value === "4") {
+                // Day 3
+                setHoursWorked(11, 11, 5);
+            } else if (dateDay.value === "11") {
+                // Day 10
+                setHoursWorked(10, 10, 9);
+            }
+        }
+    } else if (currentCamp === "stan-camp6") {
+        if (dateDay.value === "12") {
+            // Day -2
+            setHoursWorked(0, 0, 5);
+        } else if (dateDay.value === "13") {
+            // Day -1
+            setHoursWorked(0, 0, 0);
+        } else if (dateDay.value === "14" || dateDay.value === "15" || dateDay.value === "16" || dateDay.value === "17" || dateDay.value === "18" || dateDay.value === "19") {
+            // Day 1, 2, 3, 4 ,5, 6
+            setHoursWorked(11, 11, 9);
+        }
+    }
+    // Todo: UCF and VILLA
 }
 
 function disableDates(months, days) {
@@ -494,13 +604,13 @@ function checkExceptions() {
 
             if (checkboxGroup[0].dataset.position === "TL") {
                 // Show the Title and the Container itself
-                showThis(exceptionsTitleTL, exceptionsTLContainer);
+                showThis(exceptionsTitleTL, exceptionsWarningTL, exceptionsTLContainer);
             } else if (checkboxGroup[0].dataset.position === "LCWP") {
                 // Show the Title and the Container itself
-                showThis(exceptionsTitleLCWP, exceptionsLCWPContainer);
+                showThis(exceptionsTitleLCWP, exceptionsWarningLCWP, exceptionsLCWPContainer);
             } else {
                 // Show the Title and the Container itself
-                showThis(exceptionsTitleOC, exceptionsOCContainer);
+                showThis(exceptionsTitleOC, exceptionsWarningOC, exceptionsOCContainer);
             }
 
             // Go through checkboxes, if one is unchecked, add it to the array
@@ -593,6 +703,16 @@ function checkExceptions() {
                     });
                 }
             });
+        } else if (checkboxGroup.every(isChecked)) {
+            // No exceptions
+            // Hide the title and the warning
+            if (checkboxGroup[0].dataset.position === "TL") {
+                hideThis(exceptionsTitleTL, exceptionsWarningTL, exceptionsTLContainer);
+            } else if (checkboxGroup[0].dataset.position === "LCWP") {
+                hideThis(exceptionsTitleLCWP, exceptionsWarningLCWP, exceptionsLCWPContainer);
+            } else {
+                hideThis(exceptionsTitleOC, exceptionsWarningOC, exceptionsOCContainer);
+            }
         } else {
             //hideThis(allExceptionsTitles);
             //hideThis(allExceptionsContainers);
@@ -622,18 +742,21 @@ function sickSwitched() {
             hideThis(sickStaffTLTitle);
             // Clear list of sick Team Leaders
             sickStaffTLContainer.innerHTML = "";
+            sickExceptionsTLContainer.innerHTML = "";
             sickTLCheckboxes = [];
         } else if (this.dataset.position === "LCWP") {
             lcwpSickSwitchSpan.innerHTML = "No";
             hideThis(sickStaffLCWPTitle);
             // Clear list of sick LC/WP's
             sickStaffLCWPContainer.innerHTML = "";
+            sickExceptionsLCWPContainer.innerHTML = "";
             sickLCWPCheckboxes = [];
         } else {
             ocSickSwitchSpan.innerHTML = "No";
             hideThis(sickStaffOCTitle);
             // Clear list of sick Office Coordinators
             sickStaffOCContainer.innerHTML = "";
+            sickExceptionsOCContainer.innerHTML = "";
             sickOCCheckboxes = [];
         }
     }
@@ -645,7 +768,8 @@ function createSickStaff(positionType) {
     // Don't clear the containers regardless. Set up logic to check if the switch
     // was toggled, and if you need to clear out that sick container.
 
-    /* Test logic 6/19 */
+    // Todo: Fix this issue.
+    /* Test logic 6/19 
     if (positionType === "TL") {
         exceptionsTLContainer.innerHTML = "";
     } else if (positionType === "LCWP") {
@@ -653,6 +777,7 @@ function createSickStaff(positionType) {
     } else {
         exceptionsOCContainer.innerHTML = "";
     }
+    */
 
     /*
     // Clear list of Sick Staff
@@ -924,6 +1049,27 @@ function checkSick() {
                     });
                 }
             });
+        } else if (checkboxGroup.every(isUnchecked)) {
+            // No sick staff
+            var sickCheckList = [tlSickSwitchInput, lcwpSickSwitchInput, ocSickSwitchInput];
+
+            sickCheckList.forEach(function (sickSwitch) {
+                if (sickSwitch.checked === false) {
+                    if (sickSwitch.dataset.position === "TL") {
+                        hideThis(sickExceptionsTitleTL, sickExceptionsTLContainer);
+                        tlIsSick = false;
+                        checkedSickTLCheckboxes = [];
+                    } else if (sickSwitch.dataset.position === "LCWP") {
+                        hideThis(sickExceptionsTitleLCWP, sickExceptionsLCWPContainer);
+                        lcwpIsSick = false;
+                        checkedSickLCWPCheckboxes = [];
+                    } else {
+                        hideThis(sickExceptionsTitleOC, sickExceptionsOCContainer);
+                        ocIsSick = false;
+                        checkedSickOCCheckboxes = [];
+                    }
+                }
+            });
         } else {
             //hideThis(allExceptionsTitles);
             //hideThis(allExceptionsContainers);
@@ -982,10 +1128,10 @@ function showPositionCards() {
         if (chosenSite === "sw") {
             showThis(tlCard, lcwpCard);
             // Need to show "Send Data" button
-            addSendDataButton(lcwpCard);
+            addPreviewButton(lcwpCard);
         } else {
             showThis(tlCard, lcwpCard, ocCard);
-            addSendDataButton(ocCard);
+            addPreviewButton(ocCard);
         }
         allPositionCards.forEach(function (card) {
             card.classList.add("animated", "slideInUp");
@@ -1056,13 +1202,25 @@ function checkName() {
 function checkEmptyPositions() {
     // There is no OC at SW, UCF, or VILLA
     if (chosenSite === "sw" || chosenSite === "ucf" || chosenSite === "villa") {
-        hideThis(ocCard);
+        if (tlCard.classList.contains("hidden")) {
+            // Cards have not yet been shown
+            // No need to hide the OC card
+        } else {
+            // Cards are visible, need to hide OC card
+            hideThis(ocCard);
+        }
     } else if (chosenSite === "stan") {
-        showThis(ocCard);
+        if (tlCard.classList.contains("hidden")) {
+            // Cards have not yet been shown
+            // No need to show the OC card
+        } else {
+            // Cards are visible, need to show the OC card
+            showThis(ocCard);
+        }
     }
 }
 
-function addSendDataButton(location) {
+function addPreviewButton(location) {
     var footerDiv = document.createElement('div');
     footerDiv.classList.add('card-footer', 'text-right');
 
@@ -1070,15 +1228,81 @@ function addSendDataButton(location) {
     buttonContainer.classList.add('d-flex');
 
     var button = document.createElement('button');
-    button.type = "submit";
-    button.id = "send-data-button";
+    button.type = "button";
+    button.id = "preview-button";
     button.classList.add("btn", "btn-primary", "ml-auto");
-    button.innerHTML = "Send Data";
+    button.innerHTML = "Preview Data";
+    button.addEventListener("click", previewData);
 
     footerDiv.appendChild(buttonContainer);
     buttonContainer.appendChild(button);
 
     location.appendChild(footerDiv);
+}
+
+function addFinalButtons(location) {
+    var footerDiv = document.createElement('div');
+    footerDiv.classList.add('card-footer', 'text-right');
+
+    var submitButton = document.createElement('button');
+    submitButton.type = "submit";
+    submitButton.id = "send-data-button";
+    submitButton.classList.add("btn", "btn-primary");
+    submitButton.innerHTML = "Submit";
+
+    var cancelButton = document.createElement("button");
+    cancelButton.type = "button";
+    cancelButton.id = "cancel-button";
+    cancelButton.classList.add("btn", "btn-secondary");
+    cancelButton.innerHTML = "Cancel";
+    cancelButton.style.marginRight = "10px";
+    cancelButton.addEventListener("click", goBackToForm);
+
+    footerDiv.appendChild(cancelButton);
+    footerDiv.appendChild(submitButton);
+    location.appendChild(footerDiv);
+}
+
+function goBackToForm() {
+    // Scroll to top
+    window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    });
+    setTimeout(slideInItems, 500);
+
+    function slideInItems() {
+        // First, slide out the preview card contents
+        alert.classList.add("animated", "slideOutRight");
+        mainForm.firstChild.classList.add("animated", "slideOutRight");
+        mainForm.firstChild.remove();
+
+        // Recreate initial alert
+        span1.innerHTML = "Need help? ";
+        alert.appendChild(span1);
+        alert.appendChild(alertLink);
+        alert.appendChild(span2);
+        alert.classList.remove("slideOutRight", "slideInRight");
+        alert.classList.add("animated", "slideInLeft");
+
+        showThis(siteInfoCard);
+        siteInfoCard.classList.remove("slideOutLeft");
+        siteInfoCard.classList.add("animated", "slideInLeft");
+        allPositionCards.forEach(function (card) {
+            if (chosenSite !== "sw") {
+                showThis(card);
+                card.classList.remove("slideOutLeft");
+                card.classList.add("animated", "slideInLeft");
+            } else {
+                if (card !== ocCard) {
+                    showThis(card);
+                    card.classList.remove("slideOutLeft");
+                    card.classList.add("animated", "slideInLeft");
+                }
+            }
+        });
+    }
 }
 
 // Helper functions
@@ -1186,6 +1410,574 @@ function setBlank() {
     dateDay.value = "";
 }
 
+function clearThis(thingsToClear) {
+    thingsToClear.forEach(function (thingToClear) {
+        thingToClear.length = 0;
+    });
+}
+
+function previewData() {
+    // Build preview card
+    var previewCardDiv = document.createElement("div");
+    previewCardDiv.id = "preview-card";
+    previewCardDiv.classList.add("card", "hidden");
+
+    // Header Div
+    var headerDiv = document.createElement("div");
+    headerDiv.classList.add("card-header");
+    previewCardDiv.appendChild(headerDiv);
+
+    // Header
+    var header = document.createElement("h3");
+    header.classList.add("card-title");
+    header.innerHTML = "Preview Information";
+    headerDiv.appendChild(header);
+
+    // Body Div
+    var body = document.createElement("div");
+    body.classList.add("card-body");
+    previewCardDiv.appendChild(body);
+
+    // Information Row
+    var infoRow = document.createElement("div");
+    infoRow.id = "info-row";
+    infoRow.classList.add("row", "justify-content-center", "text-center");
+    body.appendChild(infoRow);
+
+    // Centered Info Column
+    var infoColumn = document.createElement("div");
+    infoColumn.classList.add("col-sm-10");
+    infoColumn.id = "info-column";
+    infoRow.appendChild(infoColumn);
+
+    // General Information Heading Container
+    var infoHeadingDiv = document.createElement("div");
+    infoHeadingDiv.classList.add("form-group", "text-center");
+    infoHeadingDiv.id = "general-info-heading-div";
+    infoColumn.appendChild(infoHeadingDiv);
+
+    // General Information Heading
+    var infoHeading = document.createElement("h4");
+    infoHeading.innerHTML = "General Information";
+    infoHeadingDiv.appendChild(infoHeading);
+
+    // General Information Inner Row
+    var infoInnerRow = document.createElement("div");
+    infoInnerRow.id = "general-information-inner-row";
+    infoInnerRow.classList.add("row", "justify-content-center", "text-center");
+    infoColumn.appendChild(infoInnerRow);
+
+    // General Information Form Group 1
+    var infoFormGroup1 = document.createElement("div");
+    infoFormGroup1.id = "info-form-group-1";
+    infoFormGroup1.classList.add("form-group", "col-md-6");
+    infoInnerRow.appendChild(infoFormGroup1);
+
+    // General Information Form Group 2
+    var infoFormGroup2 = document.createElement("div");
+    infoFormGroup2.id = "info-form-group-1";
+    infoFormGroup2.classList.add("form-group", "col-md-6");
+    infoInnerRow.appendChild(infoFormGroup2);
+
+    // Name
+    var nameLabel = document.createElement("div");
+    nameLabel.id = "name-label";
+    nameLabel.classList.add("form-label");
+    nameLabel.innerHTML = "Your Name";
+    infoFormGroup1.appendChild(nameLabel);
+    var nameValue = document.createElement("div");
+    nameValue.id = "name-value";
+    nameValue.classList.add("form-control-plaintext");
+    nameValue.innerHTML = firstName.value + " " + lastName.value;
+    infoFormGroup1.appendChild(nameValue);
+
+    // Site
+    var siteLabel = document.createElement("div");
+    siteLabel.id = "site-label";
+    siteLabel.classList.add("form-label");
+    siteLabel.innerHTML = "Site";
+    infoFormGroup1.appendChild(siteLabel);
+    var siteValue = document.createElement("div");
+    siteValue.id = "site-value";
+    siteValue.classList.add("form-control-plaintext");
+    if (chosenSite === "sw") {
+        siteValue.innerHTML = "Southwestern University";
+    } else if (chosenSite === "stan") {
+        siteValue.innerHTML = "Stanford University";
+    } else if (chosenSite === "ucf") {
+        siteValue.innerHTML = "University of Central Florida";
+    } else {
+        siteValue.innerHTML = "Villanova University";
+    }
+    infoFormGroup1.appendChild(siteValue);
+
+    // Date
+    var dateLabel = document.createElement("div");
+    dateLabel.id = "date-label";
+    dateLabel.classList.add("form-label");
+    dateLabel.innerHTML = "Date";
+    infoFormGroup2.appendChild(dateLabel);
+    var dateValue = document.createElement("div");
+    dateValue.id = "date-value";
+    dateValue.classList.add("form-control-plaintext");
+    var monthValue = "";
+    if (dateMonth.value === "6") {
+        monthValue = "June";
+    } else if (dateMonth.value === "7") {
+        monthValue = "July";
+    } else {
+        monthValue = "August";
+    }
+    dateValue.innerHTML = monthValue + " " + dateDay.value;
+    infoFormGroup2.appendChild(dateValue);
+
+    // Camp
+    var campLabel = document.createElement("div");
+    campLabel.id = "camp-label";
+    campLabel.classList.add("form-label");
+    campLabel.innerHTML = "Camp";
+    infoFormGroup2.appendChild(campLabel);
+    var campValue = document.createElement("div");
+    campValue.id = "camp-value";
+    campValue.classList.add("form-control-plaintext");
+    campValue.innerHTML = currentCampValue;
+    infoFormGroup2.appendChild(campValue);
+
+    // Positions Row
+    var positionsRow = document.createElement("div");
+    positionsRow.id = "positions-row";
+    positionsRow.classList.add("row", "justify-content-center");
+    body.appendChild(positionsRow);
+
+    // Centered Positions Column
+    var positionsColumn = document.createElement("div");
+    positionsColumn.classList.add("col-sm-10");
+    positionsColumn.id = "positions-column";
+    positionsRow.appendChild(positionsColumn);
+
+    // Positions Information Heading Container
+    var positionsHeadingDiv = document.createElement("div");
+    positionsHeadingDiv.classList.add("form-group", "text-center");
+    positionsHeadingDiv.id = "positions-heading-div";
+    positionsColumn.appendChild(positionsHeadingDiv);
+
+    // Position Information Heading
+    var positionHeading = document.createElement("h4");
+    positionHeading.innerHTML = "Position Information";
+    positionsHeadingDiv.appendChild(positionHeading);
+
+    // TL Column
+    var tlColumn = document.createElement("div");
+    tlColumn.id = "tl-column";
+    tlColumn.classList.add("col-sm-6", "col-lg-4", "text-center");
+    positionsRow.appendChild(tlColumn);
+
+    // LCWP Column
+    var lcwpColumn = document.createElement("div");
+    lcwpColumn.id = "lcwp-column";
+    lcwpColumn.classList.add("col-sm-6", "col-lg-4", "text-center");
+    positionsRow.appendChild(lcwpColumn);
+
+    // OC Column
+    var ocColumn = document.createElement("div");
+    ocColumn.id = "oc-column";
+    ocColumn.classList.add("col-sm-6", "col-lg-4", "text-center");
+    positionsRow.appendChild(ocColumn);
+
+    // Clear the list of staff members. This is to ensure that you don't have double values when
+    // a user goes back and fixes a mistake after "previewing" the first time.
+    clearThis([workingTLs, exceptionTLs, sickTLs, workingLCs, exceptionLCs, workingWPs, exceptionWPs, sickLCWPs, workingOCs, exceptionOCs, sickOCs]);
+
+    // Team Leaders
+    tlCheckboxes.forEach(function (checkbox) {
+        if (checkbox.checked === true) {
+            workingTLs.push(checkbox.name);
+        } else {
+            exceptionTLs.push(checkbox.name);
+        }
+    });
+
+    // Logistics Coordinators
+    lcCheckboxes.forEach(function (checkbox) {
+        if (checkbox.checked === true) {
+            workingLCs.push(checkbox.name);
+        } else {
+            exceptionLCs.push(checkbox.name);
+        }
+    });
+
+    // Wellness Person
+    wpCheckboxes.forEach(function (checkbox) {
+        if (checkbox.checked === true) {
+            workingWPs.push(checkbox.name);
+        } else {
+            exceptionWPs.push(checkbox.name);
+        }
+    });
+
+    // Office Coordinators
+    ocCheckboxes.forEach(function (checkbox) {
+        if (checkbox.checked === true) {
+            workingOCs.push(checkbox.name);
+        } else {
+            exceptionOCs.push(checkbox.name);
+        }
+    });
+
+    // Position Groups
+    var groups = ["TL", "LCWP", "OC"];
+
+    // Make column elements for each position
+    groups.forEach(function (group) {
+        var formGroup = document.createElement("div");
+        formGroup.classList.add("form-group");
+
+        var formLabel = document.createElement("div");
+        formLabel.classList.add("form-label");
+
+        formGroup.appendChild(formLabel);
+
+        if (group === "TL") {
+            formLabel.innerHTML = "Team Leaders";
+            formLabel.id = "tl-label";
+            tlColumn.appendChild(formGroup);
+            // Regular Team Leaders
+            var regTLValue = document.createElement("div");
+            regTLValue.id = "reg-tl-value";
+            regTLValue.classList.add("form-control-plaintext");
+            var workingTLString = workingTLs.join(", ");
+            var workingTLStringFinal = workingTLString.concat(" worked a total of ", hoursWorkedTL.value, " hours.");
+            regTLValue.innerHTML = workingTLStringFinal;
+            formGroup.appendChild(regTLValue);
+            // Go through the exceptions container - Team Leaders
+            exceptionsTLContainer.childNodes.forEach(function (nodeBig) {
+                // If the child node is an input group 
+                if (nodeBig.classList.contains("input-group")) {
+                    var execptionHoursTL = "";
+                    var exceptionMinutesTL = "";
+                    var exceptionNameTL = nodeBig.name;
+                    // Go through the div's child nodes
+                    nodeBig.childNodes.forEach(function (nodeSmall) {
+                        // If the child is a form control
+                        if (nodeSmall.classList.contains("form-control")) {
+                            if (nodeSmall.max === "24") {
+                                execptionHoursTL = nodeSmall.value;
+                            } else if (nodeSmall.max === "45") {
+                                exceptionMinutesTL = nodeSmall.value;
+                            }
+                        }
+                    });
+                    // Push object to info array
+                    exceptionTLsInfo.push({
+                        name: exceptionNameTL,
+                        hours: execptionHoursTL,
+                        minutes: exceptionMinutesTL
+                    });
+                }
+            });
+            // Create labels for each exception Team Leader
+            exceptionTLsInfo.forEach(function (person) {
+                var exceptionValue = document.createElement("div");
+                var stringID = ("" + person.name).replace(" ", "-");
+                exceptionValue.id = "exception-value-" + stringID;
+                exceptionValue.classList.add("form-control-plaintext");
+                exceptionValue.innerHTML = person.name + " worked for " + person.hours + " hours and " + person.minutes + " minutes.";
+                formGroup.appendChild(exceptionValue);
+            });
+            if (tlIsSick === true) {
+                // Go through the sick exceptions container - Team Leaders
+                sickExceptionsTLContainer.childNodes.forEach(function (nodeBig) {
+                    // If the child node is an input group 
+                    if (nodeBig.classList.contains("input-group")) {
+                        var sickHoursTL = "";
+                        var sickMinutesTL = "";
+                        var sickNameTL = nodeBig.name;
+                        // Go through the div's child nodes
+                        nodeBig.childNodes.forEach(function (nodeSmall) {
+                            // If the child is a form control
+                            if (nodeSmall.classList.contains("form-control")) {
+                                if (nodeSmall.max === "8") {
+                                    sickHoursTL = nodeSmall.value;
+                                } else if (nodeSmall.max === "45") {
+                                    sickMinutesTL = nodeSmall.value;
+                                }
+                            }
+                        });
+                        // Push object to info array
+                        sickTLsInfo.push({
+                            name: sickNameTL,
+                            hours: sickHoursTL,
+                            minutes: sickMinutesTL
+                        });
+                    }
+                });
+                // Create labels for each sick Team Leader
+                sickTLsInfo.forEach(function (person) {
+                    var sickValue = document.createElement("div");
+                    var stringID = ("" + person.name).replace(" ", "-");
+                    sickValue.id = "sick-value-" + stringID;
+                    sickValue.classList.add("form-control-plaintext");
+                    sickValue.innerHTML = person.name + " was sick for " + person.hours + " hours and " + person.minutes + " minutes.";
+                    formGroup.appendChild(sickValue);
+                });
+            } else {
+                // No Team Leader was sick.
+                var noSickValue = document.createElement("div");
+                noSickValue.id = "no-sick-tl";
+                noSickValue.classList.add("form-control-plaintext");
+                noSickValue.innerHTML = "No Team Leader was sick on this day.";
+                formGroup.appendChild(noSickValue);
+            }
+        } else if (group === "LCWP") {
+            formLabel.innerHTML = "Logistics Coordinator / Wellness Person";
+            formLabel.id = "lcwp-label";
+            lcwpColumn.appendChild(formGroup);
+            // Regular LCWP's
+            var regLCWPValue = document.createElement("div");
+            regLCWPValue.id = "reg-lcwp-value";
+            regLCWPValue.classList.add("form-control-plaintext");
+            var workingLCString = workingLCs.join(", ");
+            var workingWPString = workingWPs.join(", ");
+            var workingBothString = "";
+            if (workingWPs.length === 0 || workingLCs.length === 0) {
+                workingBothString = workingLCString.concat(workingWPString);
+            } else {
+                workingBothString = workingLCString.concat(" and ", workingWPString);
+            }
+            var workingLCWPStringFinal = workingBothString.concat(" worked a total of ", hoursWorkedLCWP.value, " hours.");
+            regLCWPValue.innerHTML = workingLCWPStringFinal;
+            formGroup.appendChild(regLCWPValue);
+            // Go through the exceptions container - LCWPs
+            exceptionsLCWPContainer.childNodes.forEach(function (nodeBig) {
+                // If the child node is an input group 
+                if (nodeBig.classList.contains("input-group")) {
+                    var execptionHoursLCWP = "";
+                    var exceptionMinutesLCWP = "";
+                    var exceptionNameLCWP = nodeBig.name;
+                    // Go through the div's child nodes
+                    nodeBig.childNodes.forEach(function (nodeSmall) {
+                        // If the child is a form control
+                        if (nodeSmall.classList.contains("form-control")) {
+                            if (nodeSmall.max === "24") {
+                                execptionHoursLCWP = nodeSmall.value;
+                            } else if (nodeSmall.max === "45") {
+                                exceptionMinutesLCWP = nodeSmall.value;
+                            }
+                        }
+                    });
+                    // Push object to info array
+                    exceptionLCWPsInfo.push({
+                        name: exceptionNameLCWP,
+                        hours: execptionHoursLCWP,
+                        minutes: exceptionMinutesLCWP
+                    });
+                }
+            });
+            // Create labels for each exception LCWP
+            exceptionLCWPsInfo.forEach(function (person) {
+                var exceptionValue = document.createElement("div");
+                var stringID = ("" + person.name).replace(" ", "-");
+                exceptionValue.id = "exception-value-" + stringID;
+                exceptionValue.classList.add("form-control-plaintext");
+                exceptionValue.innerHTML = person.name + " worked for " + person.hours + " hours and " + person.minutes + " minutes.";
+                formGroup.appendChild(exceptionValue);
+            });
+            if (lcwpIsSick === true) {
+                // Go through the sick exceptions container - LCWPs
+                sickExceptionsLCWPContainer.childNodes.forEach(function (nodeBig) {
+                    // If the child node is an input group 
+                    if (nodeBig.classList.contains("input-group")) {
+                        var sickHoursLCWP = "";
+                        var sickMinutesLCWP = "";
+                        var sickNameLCWP = nodeBig.name;
+                        // Go through the div's child nodes
+                        nodeBig.childNodes.forEach(function (nodeSmall) {
+                            // If the child is a form control
+                            if (nodeSmall.classList.contains("form-control")) {
+                                if (nodeSmall.max === "8") {
+                                    sickHoursLCWP = nodeSmall.value;
+                                } else if (nodeSmall.max === "45") {
+                                    sickMinutesLCWP = nodeSmall.value;
+                                }
+                            }
+                        });
+                        // Push object to info array
+                        sickLCWPsInfo.push({
+                            name: sickNameLCWP,
+                            hours: sickHoursLCWP,
+                            minutes: sickMinutesLCWP
+                        });
+                    }
+                });
+                // Create labels for each sick LCWP
+                sickLCWPsInfo.forEach(function (person) {
+                    var sickValue = document.createElement("div");
+                    var stringID = ("" + person.name).replace(" ", "-");
+                    sickValue.id = "sick-value-" + stringID;
+                    sickValue.classList.add("form-control-plaintext");
+                    sickValue.innerHTML = person.name + " was sick for " + person.hours + " hours and " + person.minutes + " minutes.";
+                    formGroup.appendChild(sickValue);
+                });
+            } else {
+                // No LCWP was sick.
+                var _noSickValue = document.createElement("div");
+                _noSickValue.id = "no-sick-lcwp";
+                _noSickValue.classList.add("form-control-plaintext");
+                _noSickValue.innerHTML = "No Logistics Coordinator or Wellness Person was sick on this day.";
+                formGroup.appendChild(_noSickValue);
+            }
+        } else {
+            formLabel.innerHTML = "Office Coordinator";
+            formLabel.id = "oc-label";
+            ocColumn.appendChild(formGroup);
+            // SW does not have an OC
+            if (chosenSite !== "sw") {
+                // Regular Office Coordinators
+                var regOCValue = document.createElement("div");
+                regOCValue.id = "reg-oc-value";
+                regOCValue.classList.add("form-control-plaintext");
+                var workingOCString = workingOCs.join(", ");
+                var workingOCStringFinal = workingOCString.concat(" worked a total of ", hoursWorkedOC.value, " hours.");
+                regOCValue.innerHTML = workingOCStringFinal;
+                formGroup.appendChild(regOCValue);
+                // Go through the exceptions container - Office Coordinators
+                exceptionsOCContainer.childNodes.forEach(function (nodeBig) {
+                    // If the child node is an input group 
+                    if (nodeBig.classList.contains("input-group")) {
+                        var execptionHoursOC = "";
+                        var exceptionMinutesOC = "";
+                        var exceptionNameOC = nodeBig.name;
+                        // Go through the div's child nodes
+                        nodeBig.childNodes.forEach(function (nodeSmall) {
+                            // If the child is a form control
+                            if (nodeSmall.classList.contains("form-control")) {
+                                if (nodeSmall.max === "24") {
+                                    execptionHoursOC = nodeSmall.value;
+                                } else if (nodeSmall.max === "45") {
+                                    exceptionMinutesOC = nodeSmall.value;
+                                }
+                            }
+                        });
+                        // Push object to info array
+                        exceptionOCsInfo.push({
+                            name: exceptionNameOC,
+                            hours: execptionHoursOC,
+                            minutes: exceptionMinutesOC
+                        });
+                    }
+                });
+                // Create labels for each exception Team Leader
+                exceptionOCsInfo.forEach(function (person) {
+                    var exceptionValue = document.createElement("div");
+                    var stringID = ("" + person.name).replace(" ", "-");
+                    exceptionValue.id = "exception-value-" + stringID;
+                    exceptionValue.classList.add("form-control-plaintext");
+                    exceptionValue.innerHTML = person.name + " worked for " + person.hours + " hours and " + person.minutes + " minutes.";
+                    formGroup.appendChild(exceptionValue);
+                });
+                if (ocIsSick === true) {
+                    // Go through the sick exceptions container - Office Coordinators
+                    sickExceptionsOCContainer.childNodes.forEach(function (nodeBig) {
+                        // If the child node is an input group 
+                        if (nodeBig.classList.contains("input-group")) {
+                            var sickHoursOC = "";
+                            var sickMinutesOC = "";
+                            var sickNameOC = nodeBig.name;
+                            // Go through the div's child nodes
+                            nodeBig.childNodes.forEach(function (nodeSmall) {
+                                // If the child is a form control
+                                if (nodeSmall.classList.contains("form-control")) {
+                                    if (nodeSmall.max === "8") {
+                                        sickHoursOC = nodeSmall.value;
+                                    } else if (nodeSmall.max === "45") {
+                                        sickMinutesOC = nodeSmall.value;
+                                    }
+                                }
+                            });
+                            // Push object to info array
+                            sickOCsInfo.push({
+                                name: sickNameOC,
+                                hours: sickHoursOC,
+                                minutes: sickMinutesOC
+                            });
+                        }
+                    });
+                    // Create labels for each sick Team Leader
+                    sickOCsInfo.forEach(function (person) {
+                        var sickValue = document.createElement("div");
+                        var stringID = ("" + person.name).replace(" ", "-");
+                        sickValue.id = "sick-value-" + stringID;
+                        sickValue.classList.add("form-control-plaintext");
+                        sickValue.innerHTML = person.name + " was sick for " + person.hours + " hours and " + person.minutes + " minutes.";
+                        formGroup.appendChild(sickValue);
+                    });
+                } else {
+                    // No Office Coordinator was sick.
+                    var _noSickValue2 = document.createElement("div");
+                    _noSickValue2.id = "no-sick-oc";
+                    _noSickValue2.classList.add("form-control-plaintext");
+                    _noSickValue2.innerHTML = "No Office Coordinator was sick on this day.";
+                    formGroup.appendChild(_noSickValue2);
+                }
+            } else {
+                var noOCValue = document.createElement("div");
+                noOCValue.id = "no-oc-value";
+                noOCValue.classList.add("form-control-plaintext");
+                noOCValue.innerHTML = "<em>Southwestern University does not have an Office Coordinator.</em>";
+                formGroup.appendChild(noOCValue);
+            }
+        }
+    });
+
+    // Scroll to top
+    window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    });
+    setTimeout(slideOutItems, 500);
+
+    function slideOutItems() {
+        alert.classList.add("animated", "slideOutLeft");
+        siteInfoCard.classList.add("animated", "slideOutLeft");
+        allPositionCards.forEach(function (card) {
+            card.classList.add("animated", "slideOutLeft");
+        });
+        setTimeout(buildPreviewCard, 750);
+    }
+
+    showThis(previewCardDiv);
+    previewCardDiv.classList.add("animated", "slideInRight");
+
+    function buildPreviewCard() {
+        hideThis(siteInfoCard);
+        allPositionCards.forEach(function (card) {
+            hideThis(card);
+        });
+
+        previewCardDiv.appendChild(headerDiv);
+        headerDiv.appendChild(header);
+        previewCardDiv.appendChild(body);
+        body.appendChild(infoRow);
+        body.appendChild(positionsRow);
+        addFinalButtons(previewCardDiv);
+
+        alert.classList.remove("slideOutLeft");
+        alert.classList.add("animated", "slideInRight");
+
+        alert.classList.add("alert-icon");
+        alert.role = "alert";
+        alert.innerHTML = "";
+        var alertIcon = document.createElement("i");
+        alertIcon.classList.add("fas", "fa-exclamation-triangle");
+        alert.appendChild(alertIcon);
+        span1.innerHTML = "Please look through the following information, and verify that it is correct.";
+        alert.appendChild(span1);
+
+        mainForm.prepend(previewCardDiv);
+    }
+}
+
 // FORM
 
 var scriptURL = 'https://script.google.com/macros/s/AKfycbyaZdP8ZLdRG-8EqKqO5ceqeaWJEH2y3HDJFjV5LlFv4V6_FkQ/exec';
@@ -1211,14 +2003,6 @@ function createData() {
     // Camp
     formBody.append('camp', currentCamp);
 
-    // Non-Sick Team Leaders
-    tlCheckboxes.forEach(function (checkbox) {
-        if (checkbox.checked === true) {
-            workingTLs.push(checkbox.name);
-        } else {
-            exceptionTLs.push(checkbox.name);
-        }
-    });
     JSON.stringify(workingTLs);
     JSON.stringify(exceptionTLs);
     formBody.append('workingTLs (Reg)', workingTLs);
@@ -1479,7 +2263,7 @@ function createData() {
 
 form.addEventListener('submit', function (e) {
     e.preventDefault();
-    hideThis(guideAlert);
+    hideThis(alert);
     showLoadingIndicator();
     createData();
     fetch(scriptURL, {
