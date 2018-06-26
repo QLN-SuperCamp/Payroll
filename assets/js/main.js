@@ -486,8 +486,38 @@ function dateChanged() {
             // Day 1, 2, 3, 4 ,5, 6
             setHoursWorked(11, 11, 9);
         }
+    } else if (currentCamp === "ucf-camp1" || currentCamp === "villa-camp1") {
+        if (dateDay.value === "3") {
+            // Day -6
+            setHoursWorked(0, 8, 9);
+        } else if (dateDay.value === "4") {
+            // Day -5
+            setHoursWorked(0, 10, 9);
+        } else if (dateDay.value === "5") {
+            // Day -4
+            setHoursWorked(10, 11, 9);
+        } else if (dateDay.value === "6" || dateDay.value === "7" || dateDay.value === "8" || dateDay.value === "9" || dateDay.value === "10" || dateDay.value === "11" || dateDay.value === "13" || dateDay.value === "14") {
+            // Day -3, -2, -1, 1, 2, 3, 5, 6
+            setHoursWorked(11, 11, 9);
+        } else if (dateDay.value === "12") {
+            // Day 4
+            setHoursWorked(11, 11, 0);
+        }
+    } else if (currentCamp === "ucf-camp2" || currentCamp === "villa-camp2") {
+        if (dateDay.value === "15") {
+            // Day -2
+            setHoursWorked(0, 0, 0);
+        } else if (dateDay.value === "16") {
+            // Day -1
+            setHoursWorked(0, 0, 4);
+        } else if (dateDay.value === "17" || dateDay.value === "18" || dateDay.value === "19" || dateDay.value === "21" || dateDay.value === "22") {
+            // Day 1, 2, 3, 5, 6
+            setHoursWorked(11, 11, 9);
+        } else if (dateDay.value === "20") {
+            // Day 4
+            setHoursWorked(11, 11, 0);
+        }
     }
-    // Todo: UCF and VILLA
 }
 
 function disableDates(months, days) {
@@ -1127,6 +1157,7 @@ function resetInfo() {
     });
 }
 
+
 function setHoursWorked(tlHours, lcwpHours, ocHours) {
     hoursWorkedTL.value = tlHours;
     hoursWorkedLCWP.value = lcwpHours;
@@ -1136,14 +1167,13 @@ function setHoursWorked(tlHours, lcwpHours, ocHours) {
 function showPositionCards() {
     // First, make sure all info is entered
     if (isSiteInfoValid() === true) {
-        // SW has no OC. Hide the OC form
-        if (chosenSite === "sw") {
-            showThis(tlCard, lcwpCard);
-            // Need to show "Send Data" button
-            addPreviewButton(lcwpCard);
-        } else {
+        // SW, UCF, and VILLA have no OC. Hide the OC form
+        if (chosenSite === "stan") {
             showThis(tlCard, lcwpCard, ocCard);
             addPreviewButton(ocCard);
+        } else {
+            showThis(tlCard, lcwpCard);
+            addPreviewButton(lcwpCard);
         }
         allPositionCards.forEach(function (card) {
             card.classList.add("animated", "slideInUp");
@@ -1152,8 +1182,6 @@ function showPositionCards() {
         setTimeout(scrollToTLCard, 1500);
     } else {
         let invalidItems = isSiteInfoValid();
-
-
         invalidItems.forEach(function (invalidItem) {
             invalidItem.classList.add("is-invalid");
         });
