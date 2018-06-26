@@ -401,7 +401,7 @@ function dateChanged() {
                 setHoursWorked(11, 11, 0);
             }
         } else if (dateMonth.value === "7") {
-            if (dateDay.value === "1" || dateDay.value === "2" || dateDay.value === "3" || dateDay.value === "4" || dateDay.value === 5) {
+            if (dateDay.value === "1" || dateDay.value === "2" || dateDay.value === "3" || dateDay.value === "4" || dateDay.value === "5") {
                 // Day 5, 6, 7, 8, 9
                 setHoursWorked(11, 11, 9);
             } else if (dateDay.value === "6") {
