@@ -328,6 +328,13 @@ var staffMembersAll = [{
         position2: ''
     },
     {
+    firstName: "Trace",
+    lastName: "Craver",
+    campsWorking: ["sw-camp1"],
+    position1: "TL",
+    position2: ''
+    },
+    {
         firstName: "Adam",
         lastName: "Chan",
         campsWorking: ["villa-camp1", "villa-camp2"],
