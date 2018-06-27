@@ -2,3 +2,4 @@ node_modules
 tabler-dev
 tlapse
 EDITING\.HTML
+cypress/

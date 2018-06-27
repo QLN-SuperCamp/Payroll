@@ -7,7 +7,9 @@
     "build": "babel src -d lib",
     "start-server": "ws",
     "babel-watch-main": "npx babel assets/js/main.js -o assets/js/main-compiled.js --watch",
-    "startup": "ws && npm run babel-watch-main"
+    "startup": "ws && npm run babel-watch-main",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,9 @@
   "homepage": "https://github.com/QLN-SuperCamp/Payroll#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
+    "babel-preset-env": "^1.7.0",
+    "cypress": "^3.0.1",
+    "npx": "^10.2.0"
   },
   "dependencies": {
     "animate.css": "^3.6.1"
