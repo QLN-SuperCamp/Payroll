@@ -1,6 +1,6 @@
 var staffMembersAll = [{
         firstName: "Jules",
-        lastName: "Damey",
+        lastName: "Damey-Fernandez",
         campsWorking: ["sw-camp1", "sw-camp2"],
         position1: "STL",
         position2: ""
@@ -83,7 +83,7 @@ var staffMembersAll = [{
         position2: ""
     },
     {
-        firstName: "Jimmy",
+        firstName: "James",
         lastName: "McDonald",
         campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3"],
         position1: "TL",
@@ -111,7 +111,7 @@ var staffMembersAll = [{
         position2: ""
     },
     {
-        firstName: "Alina (Tete)",
+        firstName: "Alina",
         lastName: "Briley",
         campsWorking: ["stan-camp1", "stan-camp2"],
         position1: "TL",
@@ -328,11 +328,11 @@ var staffMembersAll = [{
         position2: ''
     },
     {
-    firstName: "Trace",
-    lastName: "Craver",
-    campsWorking: ["sw-camp1"],
-    position1: "TL",
-    position2: ''
+        firstName: "Trace",
+        lastName: "Craver",
+        campsWorking: ["sw-camp1"],
+        position1: "TL",
+        position2: ''
     },
     {
         firstName: "Adam",
