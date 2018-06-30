@@ -1,393 +1,122 @@
-var staffMembersAll = [{
-        firstName: "Jules",
-        lastName: "Damey",
-        campsWorking: ["sw-camp1", "sw-camp2"],
-        position1: "STL",
-        position2: ""
-    },
-    {
-        firstName: "Gary",
-        lastName: "Clack",
-        campsWorking: ["sw-camp1", "sw-camp2"],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Kayla",
-        lastName: "Miller",
-        campsWorking: ["sw-camp1", "sw-camp2"],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Yolanda",
-        lastName: "Drew",
-        campsWorking: ["sw-camp1", "sw-camp2", "stan-camp5", "stan-camp6"],
-        position1: "LC",
-        position2: ""
-    },
-    {
-        firstName: "Jordan",
-        lastName: "Wesson",
-        campsWorking: ["sw-camp1"],
-        position1: "WP",
-        position2: ""
-    },
-    {
-        firstName: "Jamila",
-        lastName: "Ford",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3", "stan-camp4", "stan-camp5"],
-        position1: "STL",
-        position2: ""
-    },
-    {
-        firstName: "Divine",
-        lastName: "Rolle",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3", "stan-camp4", "stan-camp5", "stan-camp6"],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Noah",
-        lastName: "Fedler",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3", "stan-camp4"],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Trenton",
-        lastName: "Barnett",
-        campsWorking: ["stan-camp1", "stan-camp3", "stan-camp5", "stan-camp6"],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Desmond",
-        lastName: "Yalom",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3", "stan-camp4", "stan-camp5"],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Douglas",
-        lastName: "Hearns",
-        campsWorking: ["stan-camp1"],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Derrick",
-        lastName: "Celestine",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3", "stan-camp4"],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Jimmy",
-        lastName: "McDonald",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3"],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Claire",
-        lastName: "Levenson",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3", "stan-camp4", "stan-camp5", "stan-camp6"],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Elise",
-        lastName: "Simmons",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3", "stan-camp4", "stan-camp5", "stan-camp6"],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Nina",
-        lastName: "Fleck",
-        campsWorking: ['stan-camp1', 'stan-camp2', 'stan-camp3', 'stan-camp4', 'stan-camp5', 'stan-camp6'],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Alina (Tete)",
-        lastName: "Briley",
-        campsWorking: ["stan-camp1", "stan-camp2"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Kate",
-        lastName: "Ward",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3", "stan-camp4", "stan-camp5"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Erin",
-        lastName: "Janov",
-        campsWorking: ["stan-camp1", "stan-camp3", "stan-camp4", "stan-camp5"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Frederique",
-        lastName: "Desrosiers",
-        campsWorking: ["stan-camp1"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Alexandra",
-        lastName: "Desrosiers",
-        campsWorking: ["stan-camp1"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Nikta",
-        lastName: "Shahbaz",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3", "stan-camp5", "stan-camp6"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Raqqayah",
-        lastName: "Simmons",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3", "stan-camp4"],
-        position1: "LC",
-        position2: ''
-    },
-    {
-        firstName: "Flora",
-        lastName: "Moore",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3"],
-        position1: "OC",
-        position2: ''
-    },
-    {
-        firstName: "Elizabeth",
-        lastName: "Fung",
-        campsWorking: ["stan-camp4", "stan-camp5", "stan-camp6"],
-        position1: "OC",
-        position2: ''
-    },
-    {
-        firstName: "Shayla",
-        lastName: "Nary",
-        campsWorking: ['stan-camp1', 'stan-camp2', 'stan-camp3', 'stan-camp4', 'stan-camp5'],
-        position1: "WP",
-        position2: ''
-    },
-    {
-        firstName: "Luis",
-        lastName: "Luevanos",
-        campsWorking: ["stan-camp2", "stan-camp3", "stan-camp4", "stan-camp5"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Michael",
-        lastName: "Andrade",
-        campsWorking: ['stan-camp2', 'stan-camp3', 'stan-camp4', 'stan-camp5', 'stan-camp6'],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Molly",
-        lastName: "Brantingham",
-        campsWorking: ["stan-camp2", "stan-camp3", "stan-camp4"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Isabella",
-        lastName: "Borbolla",
-        campsWorking: ["stan-camp2", "stan-camp3"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Lauren",
-        lastName: "Ihle",
-        campsWorking: ["stan-camp2", "stan-camp3", "stan-camp4"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Laci",
-        lastName: "Jackson",
-        campsWorking: ["stan-camp4", "stan-camp5", "stan-camp6"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Nathan",
-        lastName: "Tung",
-        campsWorking: ["stan-camp4", "stan-camp5"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Nathan",
-        lastName: "Tung",
-        campsWorking: ["stan-camp6"],
-        position1: "STL",
-        position2: ''
-    },
-    {
-        firstName: "Jennifer",
-        lastName: "Gerardi",
-        campsWorking: ["stan-camp3", "stan-camp4", "stan-camp5", "stan-camp6"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Alexis",
-        lastName: "Hagan",
-        campsWorking: ["stan-camp5"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Isabella",
-        lastName: "Stenz",
-        campsWorking: ["stan-camp5", "stan-camp6"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Alexis",
-        lastName: "Hagan",
-        campsWorking: ["ucf-camp1", "ucf-camp2"],
-        position1: "STL",
-        position2: ''
-    },
-    {
-        firstName: "Alexis",
-        lastName: "Hagan",
-        campsWorking: ["sw-camp1"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Alex",
-        lastName: "Abbott",
-        campsWorking: ["ucf-camp1", "ucf-camp2"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Charles",
-        lastName: "Garza",
-        campsWorking: ["ucf-camp1", "ucf-camp2"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Laci",
-        lastName: "Jackson",
-        campsWorking: ["ucf-camp1", "ucf-camp2"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Kayla",
-        lastName: "Jackson",
-        campsWorking: ["ucf-camp1", "ucf-camp2"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Alicyn",
-        lastName: "Kitamura",
-        campsWorking: ["ucf-camp1", "ucf-camp2"],
-        position1: "LC",
-        position2: ''
-    },
-    {
-        firstName: "Luzmaria",
-        lastName: "Estalla",
-        campsWorking: ["ucf-camp1", "ucf-camp2"],
-        position1: "WP",
-        position2: ''
-    },
-    {
-        firstName: "Isabella",
-        lastName: "Stenz",
-        campsWorking: ["villa-camp1", "villa-camp2"],
-        position1: "STL",
-        position2: ''
-    },
-    {
-        firstName: "Trace",
-        lastName: "Craver",
-        campsWorking: ["villa-camp1", "villa-camp2"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Trace",
-        lastName: "Craver",
-        campsWorking: ["sw-camp1"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Adam",
-        lastName: "Chan",
-        campsWorking: ["villa-camp1", "villa-camp2"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Maxwell",
-        lastName: "Little",
-        campsWorking: ["villa-camp1"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Katrina",
-        lastName: "Hoefflinger",
-        campsWorking: ["villa-camp1", "villa-camp2"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Deja",
-        lastName: "Washington",
-        campsWorking: ["villa-camp1", "villa-camp2"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Rachel",
-        lastName: "Dillman",
-        campsWorking: ["villa-camp1"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Kelly",
-        lastName: "Castleberry",
-        campsWorking: ["villa-camp1"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Viva",
-        lastName: "Sandoval",
-        campsWorking: ["villa-camp1"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Jordan",
-        lastName: "Wesson",
-        campsWorking: ["villa-camp1", "villa-camp2"],
-        position1: "WP",
-        position2: ''
+// Regular Hours
+var hoursTLReg = Number(entry.hoursTLReg);
+var hoursLCWPReg = Number(entry.hoursLCWPReg);
+var hoursOCReg = Number(entry.hoursOCReg);
+
+// Regular Team Leaders
+let workingTLPapaObject = Papa.parse(entry["workingTLs (Reg)"]);
+let regTLArray = workingTLPapaObject.data[0];
+
+countHours(regTLArray, "TL");
+
+function countHours(positionArray, positionType) {
+    let hoursType = "";
+
+    if (positionType === "TL") {
+        hoursType = hoursTLReg;
+    } else if (positionType === "LCWP") {
+        hoursType = hoursLCWPReg;
+    } else {
+        hoursType = hoursOCReg;
     }
-];
+
+    positionArray.forEach(function (person) {
+        // Todo: I think this personData object is needed outside of this. Not sure it's needed here.
+        let personData = {
+            firstName: "",
+            lastName: "",
+            regHours: "",
+            otHours: "",
+            sickHours: "",
+            deduction: "",
+            stipend: "",
+            location: ""
+        };
+
+        let nameArray = person.split(" ");
+        let firstName = nameArray[0];
+        let lastName = nameArray[1];
+        personData.firstName = firstName;
+        personData.lastName = lastName;
+        let fullName = firstName.concat(" ", lastName);
+        personData.fullName = fullName;
+    });
+
+    var correspondingPersonObject = reportArray.data.find(function (object) {
+        return object.fullName === fullName;
+    });
+    var correspondingPayPeriodArray = correspondingPersonObject[`${payPeriod}`];
+    var week1Array = correspondingPayPeriodArray[0];
+    var week2Array = correspondingPayPeriodArray[1];
+
+    // Info objects
+    var correspondingPayPeriodInfoObject = correspondingPayPeriodArray[2][0];
+    var week1InfoObject = week1Array.find(function (object) {
+        return object.id === "week1";
+    });
+    var week2InfoObject = week2Array.find(function (object) {
+        return object.id === "week2";
+    });
+
+    // Logic to see which week the date falls under
+    var dateObjectLocation = "";
+    var inWeek1 = false;
+    var inWeek2 = false;
+    var correspondingDateObject = "";
+    var weekInfoObject = "";
+    var hoursObject = "";
+    var totalHoursThisWeek = "";
+
+    if (week1Array.find(function (object) {
+            return object.Day === entryDate;
+        }) !== undefined) {
+        inWeek1 = true;
+    } else if (week2Array.find(function (object) {
+            return object.Day === entryDate;
+        }) !== undefined) {
+        inWeek2 = true;
+    }
+
+    if (inWeek1 === true) {
+        correspondingDateObject = week1Array.find(function (object) {
+            return object.Day === entryDate;
+        });
+        weekInfoObject = week1Array.find(function (object) {
+            return object.id === "week1";
+        });
+        // Add how many hours already worked this week
+        totalHoursThisWeek = weekInfoObject.totalHours;
+        hoursObject = splitHours(site, hoursType, totalHoursThisWeek);
+    } else {
+        correspondingDateObject = week2Array.find(function (object) {
+            return object.Day === entryDate;
+        });
+        weekInfoObject = week2Array.find(function (object) {
+            return object.id === "week2";
+        });
+        // Add how many hours already worked this week
+        totalHoursThisWeek = weekInfoObject.totalHours;
+        hoursObject = splitHours(site, hoursType, totalHoursThisWeek);
+    }
+
+    // Assign the split hours to the corresponding date object
+    correspondingDateObject.regHours = hoursObject.regHours;
+    correspondingDateObject.otHours = hoursObject.otHours;
+    correspondingDateObject.dtHours = hoursObject.dtHours;
+
+    // Add today's hours to the weekly total
+    weekInfoObject.totalHours += hoursType;
+    weekInfoObject.regHours += hoursObject.regHours;
+    weekInfoObject.otHours += hoursObject.otHours;
+    weekInfoObject.dtHours += hoursObject.dtHours;
+    weekInfoObject.sickHours += hoursObject.sickHours;
+
+    // Add hours to the payperiod info object
+    correspondingPayPeriodInfoObject.totalHours = week1InfoObject.totalHours + week2InfoObject.totalHours;
+    correspondingPayPeriodInfoObject.regHours = week1InfoObject.regHours + week2InfoObject.regHours;
+    correspondingPayPeriodInfoObject.otHours = week1InfoObject.otHours + week2InfoObject.otHours;
+    correspondingPayPeriodInfoObject.dtHours = week1InfoObject.dtHours + week2InfoObject.dtHours;
+    correspondingPayPeriodInfoObject.sickHours = week1InfoObject.sickHours + week2InfoObject.sickHours;
+
+    staffData.push(personData);
+}
