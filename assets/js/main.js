@@ -688,6 +688,7 @@ function checkExceptions() {
                         hoursInput.type = "number";
                         hoursInput.min = "0";
                         hoursInput.max = "24";
+                        hoursInput.id = `exception-hours-${checkbox.value}`;
                         hoursInput.classList.add("form-control");
                         //hoursInput.placeholder = "How many hours were worked?";
                         // Need to add 'aria-describedby?'
@@ -705,6 +706,7 @@ function checkExceptions() {
                         minutesInput.min = "0";
                         minutesInput.max = "45";
                         minutesInput.step = "15";
+                        minutesInput.id = `exception-minutes-${checkbox.value}`;
                         minutesInput.classList.add("form-control");
                         //minutesInput.placeholder = "How many minutes were worked?";
 
@@ -2089,12 +2091,14 @@ function createData() {
                     }
                 }
             });
+            /* Possible reason for doubles
             // Push object to info array
             exceptionTLsInfo.push({
                 name: exceptionNameTL,
                 hours: execptionHoursTL,
                 minutes: exceptionMinutesTL
             });
+            */
         }
     });
     var unparsedExceptionTLsInfo = Papa.unparse(exceptionTLsInfo);
@@ -2118,12 +2122,14 @@ function createData() {
                     }
                 }
             });
+            /* Possible reason for doubles
             // Push object to info array
             exceptionLCWPsInfo.push({
                 name: exceptionNameLCWP,
                 hours: execptionHoursLCWP,
                 minutes: exceptionMinutesLCWP
             });
+            */
         }
     });
     var unparsedExceptionLCWPsInfo = Papa.unparse(exceptionLCWPsInfo);
@@ -2147,12 +2153,14 @@ function createData() {
                     }
                 }
             });
+            /* Possible reason for doubles
             // Push object to info array
             exceptionOCsInfo.push({
                 name: exceptionNameOC,
                 hours: execptionHoursOC,
                 minutes: exceptionMinutesOC
             });
+            */
         }
     });
     var unparsedExceptionOCsInfo = Papa.unparse(exceptionOCsInfo);
@@ -2161,6 +2169,7 @@ function createData() {
 
 
 
+    /* Possibly reason for double inputs
     // Non-Sick Logistics Coordinators
     lcCheckboxes.forEach(function (checkbox) {
         if (checkbox.checked === true) {
@@ -2169,11 +2178,13 @@ function createData() {
             exceptionLCs.push(checkbox.name);
         }
     });
+    */
     JSON.stringify(workingLCs);
     JSON.stringify(exceptionLCs);
     formBody.append('workingLCs (Reg)', workingLCs);
     formBody.append('exceptionLCs', exceptionLCs);
 
+    /* Possibly reason for double inputs
     // Non-Sick Wellness Person
     wpCheckboxes.forEach(function (checkbox) {
         if (checkbox.checked === true) {
@@ -2182,6 +2193,7 @@ function createData() {
             exceptionWPs.push(checkbox.name);
         }
     });
+    */
     JSON.stringify(workingWPs);
     JSON.stringify(exceptionWPs);
     formBody.append('workingWPs (Reg)', workingWPs);
