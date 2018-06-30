@@ -11,7 +11,7 @@
             "url": "http://alex-laptop:8000",
             "webRoot": "${workspaceFolder}",
             "skipFiles": [
-                "fontawesome-all.min.js", "sessionstack.js"
+                "fontawesome-all.min.js", "sessionstack.js", "papaparse.js", "tabletop.min.js"
             ]
         }
     ]
