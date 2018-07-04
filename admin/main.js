@@ -66,7 +66,7 @@ var bodyTexas5 = document.getElementById('texas-body5');
 window.addEventListener('DOMContentLoaded', init);
 
 // CampMinder Report - All 2018 Staff Members
-var report = "admin/2018staff.csv";
+var report = "./2018staff.csv";
 var reportArray = [];
 $.get(report, function (data) {
     var csvdata = Papa.parse(data, {
@@ -1346,7 +1346,7 @@ function splitHours(site, hoursWorked, totalHoursThisWeek, consecutiveDayCount, 
         // ! 3. DT for any hours over 12 in a workday
         // ! 4. DT for any hours greater than 8 on the 7th day of a workweek
 
-        if (correspondingPersonObject.fullName === "James McDonald") {
+        if (correspondingPersonObject.fullName === "Douglas Hearns") {
             // Check for what day it fucks up
             let weekInfoObject = reportArray.data[36].payPeriod1[1][7];
             if (consecutiveDayCount === 0) {
