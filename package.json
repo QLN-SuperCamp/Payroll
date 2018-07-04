@@ -8,7 +8,7 @@
     "start-server": "ws",
     "babel-watch-main": "npx babel assets/js/main.js -o assets/js/main-compiled.js --watch",
     "babel-watch-admin": "npx babel admin/main.js -o admin/main-compiled.js --watch",
-    "startup": "ws && npm run babel-watch-main",
+    "startup": "ws && npm run babel-watch-main && npm run babel-watch-admin",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run"
   },
