@@ -1287,7 +1287,7 @@ function displayData() {
         });
     });
 
-    // TODO: Display data from reportArray in the corresponding tables
+    // * Assign data to table cells
     // For each object (person) in the reportArray.data
     // Look at each payPeriod
     // Look at the 3rd array in that array (this is the info object)
@@ -1346,9 +1346,9 @@ function splitHours(site, hoursWorked, totalHoursThisWeek, consecutiveDayCount, 
         // ! 3. DT for any hours over 12 in a workday
         // ! 4. DT for any hours greater than 8 on the 7th day of a workweek
 
-        if (correspondingPersonObject.fullName === "Flora Moore") {
+        if (correspondingPersonObject.fullName === "Douglas Hearns") {
             // Check for what day it fucks up
-            let weekInfoObject = reportArray.data[88].payPeriod1[1][7];
+            let weekInfoObject = reportArray.data[36].payPeriod1[1][7];
             if (consecutiveDayCount === 0) {
                 console.log("Day 0");
                 console.log("     hoursWorked: " + hoursWorked);
@@ -1449,7 +1449,7 @@ function splitHours(site, hoursWorked, totalHoursThisWeek, consecutiveDayCount, 
                     sickHours = 0;
                 } else if (hoursWorked > 12) {
                     regHours = 0;
-                    otHours = 8;
+                    otHours = 12;
                     dtHours = hoursWorked - 12;
                     sickHours = 0;
                 } else if (hoursWorked <= 8) {
