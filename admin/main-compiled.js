@@ -1231,9 +1231,9 @@ function splitHours(site, hoursWorked, totalHoursThisWeek, consecutiveDayCount, 
         // ! 3. DT for any hours over 12 in a workday
         // ! 4. DT for any hours greater than 8 on the 7th day of a workweek
 
-        if (correspondingPersonObject.fullName === "Douglas Hearns") {
+        if (correspondingPersonObject.fullName === "James McDonald") {
             // Check for what day it fucks up
-            var weekInfoObject = reportArray.data[88].payPeriod1[1][7];
+            var weekInfoObject = reportArray.data[36].payPeriod1[1][7];
             if (consecutiveDayCount === 0) {
                 console.log("Day 0");
                 console.log("     hoursWorked: " + hoursWorked);
@@ -1333,7 +1333,7 @@ function splitHours(site, hoursWorked, totalHoursThisWeek, consecutiveDayCount, 
                     sickHours = 0;
                 } else if (hoursWorked > 12) {
                     regHours = 0;
-                    otHours = 8;
+                    otHours = 12;
                     dtHours = hoursWorked - 12;
                     sickHours = 0;
                 } else if (hoursWorked <= 8) {
