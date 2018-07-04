@@ -399,7 +399,7 @@ function dateChanged() {
             } else if (dateDay.value === "24" || dateDay.value === "25" || dateDay.value === "26" || dateDay.value === "27" || dateDay.value === "28" || dateDay.value === "30") {
                 // Day -3, -2, -1, 1, 2, 4
                 setHoursWorked(11, 11, 9);
-            } else if (dateDay.value === "28") {
+            } else if (dateDay.value === "29") {
                 // Day 3
                 setHoursWorked(11, 11, 0);
             }
@@ -2199,6 +2199,7 @@ function createData() {
     formBody.append('workingWPs (Reg)', workingWPs);
     formBody.append('exceptionWPs', exceptionWPs);
 
+    /* Possibly reason for double inputs
     // Non-Sick Office Coordinators
     ocCheckboxes.forEach(function (checkbox) {
         if (checkbox.checked === true) {
@@ -2207,6 +2208,7 @@ function createData() {
             exceptionOCs.push(checkbox.name);
         }
     });
+    */
     JSON.stringify(workingOCs);
     JSON.stringify(exceptionOCs);
     formBody.append('workingOCs (Reg)', workingOCs);
@@ -2266,11 +2268,14 @@ function createData() {
                 }
             });
             // Push object to info array
+            // ! This is where you are getting double sick TLs
+            /*
             sickTLsInfo.push({
                 name: sickNameTL,
                 hours: sickHoursTL,
                 minutes: sickMinutesTL
             });
+            */
         }
     });
     console.log("sickTLsInfo before PapaParse:");
@@ -2298,12 +2303,15 @@ function createData() {
                     }
                 }
             });
+            // ! This is where you are getting double sick LCWPs
             // Push object to info array
+            /*
             sickLCWPsInfo.push({
                 name: sickNameLCWP,
                 hours: sickHoursLCWP,
                 minutes: sickMinutesLCWP
             });
+            */
         }
     });
     var unparsedSickLCWPsInfo = Papa.unparse(sickLCWPsInfo);
@@ -2327,12 +2335,15 @@ function createData() {
                     }
                 }
             });
+            // ! This is where you are getting double sick OCsInfo
             // Push object to info array
+            /*
             sickOCsInfo.push({
                 name: sickNameOC,
                 hours: sickHoursOC,
                 minutes: sickMinutesOC
             });
+            */
         }
     });
     var unparsedSickOCsInfo = Papa.unparse(sickOCsInfo);
