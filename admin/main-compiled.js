@@ -64,7 +64,7 @@ var bodyTexas5 = document.getElementById('texas-body5');
 window.addEventListener('DOMContentLoaded', init);
 
 // CampMinder Report - All 2018 Staff Members
-var report = "admin/2018staff.csv";
+var report = "./2018staff.csv";
 var reportArray = [];
 $.get(report, function (data) {
     var csvdata = Papa.parse(data, {
@@ -1233,7 +1233,7 @@ function splitHours(site, hoursWorked, totalHoursThisWeek, consecutiveDayCount, 
 
         if (correspondingPersonObject.fullName === "Flora Moore") {
             // Check for what day it fucks up
-            var weekInfoObject = reportArray.data[28].payPeriod1[1][7];
+            var weekInfoObject = reportArray.data[88].payPeriod1[1][7];
             if (consecutiveDayCount === 0) {
                 console.log("Day 0");
                 console.log("     hoursWorked: " + hoursWorked);

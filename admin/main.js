@@ -66,7 +66,7 @@ var bodyTexas5 = document.getElementById('texas-body5');
 window.addEventListener('DOMContentLoaded', init);
 
 // CampMinder Report - All 2018 Staff Members
-var report = "admin/2018staff.csv";
+var report = "./2018staff.csv";
 var reportArray = [];
 $.get(report, function (data) {
     var csvdata = Papa.parse(data, {
