@@ -33,7 +33,7 @@ var body1TXSalary = document.getElementById('body-payPeriod1-TX-salary');
 window.addEventListener('DOMContentLoaded', init);
 
 // Write the time of the CampMinder report
-var file = "admin/reportInfo.JSON";
+var file = "reportInfo.JSON";
 var date = "";
 
 $.get(file, function (info) {
@@ -42,7 +42,7 @@ $.get(file, function (info) {
 });
 
 // CampMinder Report - All 2018 Staff Members
-var report = "admin/2018staff.csv";
+var report = "2018staff.csv";
 var reportArray = [];
 $.get(report, function (data) {
     var csvdata = Papa.parse(data, {
