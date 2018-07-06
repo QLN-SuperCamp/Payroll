@@ -44,13 +44,22 @@
   <!-- Font Awesome 5.0.13 -->
   <script defer src="../assets/js/fontawesome-all.min.js"></script>
   <!-- Data Tables Style -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+  <!-- Datatables Style - Semantic UI -->
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/se/jszip-2.5.0/dt-1.10.18/b-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/datatables.min.css"/> -->
+  <!-- Original? Taken from 'Staffing' -->
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/r-2.2.1/datatables.min.css" /> -->
   <!-- Datatables Style - JQuery -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css"> -->
+  <!-- Datatables Style - Bootstrap 4 (Real?) -->
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/datatables.min.css"/> -->
   <!-- Datatables Style - Bootstrap 4 -->
   <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/r-2.2.2/sc-1.5.0/datatables.min.css"/> -->
   <!-- Datatables Style - Default -->
   <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/b-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/r-2.2.2/sc-1.5.0/datatables.min.css"/> -->
 
+  <!-- Custom Style -->
+  <link rel="stylesheet" href="custom.css">
 </head>
 
 <body class="">
@@ -201,9 +210,13 @@
       <div class="my-3 my-md-5">
         <div class="container">
           <div class="card">
-            <div class="card-header">
+            <div id="main-card-header" class="card-header">
               <h3 class="card-title">SuperCamp Stateside Payroll Report</h3>
-              <div class="card-options">
+              <span id="report-time-parent-span" style="margin-left: 20px" class="tag tag-dark">
+                Report generated on:
+                <span id="reportTime" class="tag-addon tag-info">DATE</span>
+              </span>
+              <div id="main-card-header-options" class="card-options">
                 <button type="button" class="btn btn-primary" onclick="printThis();">
                   <i class="fas fa-print"></i>&nbsp;&nbsp; Print Report</button>
               </div>
@@ -216,31 +229,35 @@
                   <div class="col-sm-12">
 
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
-                      <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#payPeriod1" role="tab" aria-controls="payPeriod1" aria-selected="true">Pay Period 1</a>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" id="payPeriod1-tab" data-toggle="dropdown" href="javascript:void(0)" role="tab"
+                          aria-haspopup="false" aria-expanded="true" aria-controls="payPeriod1" aria-selected="true">Pay Period 1</a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" data-toggle="tab" role="tab" aria-controls="payPeriod1Hourly" href="#payPeriod1Hourly">Hourly</a>
+                          <a class="dropdown-item" data-toggle="tab" role="tab" aria-controls="payPeriod1Salary" href="#payPeriod1Salary">Salary</a>
+                        </div>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#payPeriod2" role="tab" aria-controls="payPeriod2" aria-selected="false">Pay Period 2</a>
+                      <!-- Uncomment this when Pay Period 2 data is available 
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="payPeriod2-tab" data-toggle="dropdown" href="javascript:void(0)" role="tab" aria-haspopup="false"
+                          aria-expanded="true" aria-controls="payPeriod2" aria-selected="true">Pay Period 2</a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" data-toggle="tab" role="tab" aria-controls="payPeriod2Hourly" href="#payPeriod2Hourly">Hourly</a>
+                          <a class="dropdown-item" data-toggle="tab" role="tab" aria-controls="payPeriod2Salary" href="#payPeriod2Salary">Salary</a>
+                        </div>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#payPeriod3" role="tab" aria-controls="payPeriod3" aria-selected="false">Pay Period 3</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#payPeriod4" role="tab" aria-controls="payPeriod4" aria-selected="false">Pay Period 4</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#payPeriod5" role="tab" aria-controls="payPeriod5" aria-selected="false">Pay Period 5</a>
-                      </li>
+                    -->
                     </ul>
+                    <!-- Holds ALL content -->
                     <div class="tab-content" id="myTabContent">
-                      <div class="tab-pane fade show active" id="payPeriod1" role="tabpanel" aria-labelledby="payPeriod1-tab">
+                      <!-- PayPeriod1 Hourly -->
+                      <div class="tab-pane fade show active" id="payPeriod1Hourly" role="tabpanel" aria-labelledby="payPeriod1Hourly-tab">
                         <div class="row">
                           <div class="col-8" style="margin-top: 20px; margin-bottom: 20px">
+                            <h4>Hourly Employees</h4>
                             <p>6/18/2018 - 7/1/2018</p>
                           </div>
                         </div>
-
-
                         <div class="card">
                           <div class="card-status bg-blue"></div>
                           <div class="card-header">
@@ -252,7 +269,7 @@
                           <div class="row justify-content-center">
                             <div class="col-sm-12">
                               <div class="card-body">
-                                <table id="table-california1" class="display">
+                                <table id="table-payPeriod1-CA-hourly" class="display">
                                   <thead>
                                     <tr>
                                       <th title="First Name">First Name</th>
@@ -267,73 +284,7 @@
                                       <th title="Location to Send Check/Paystub">Location</th>
                                     </tr>
                                   </thead>
-                                  <tbody id="california-body1">
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row justify-content-center">
-                          <div class="col-sm-12">
-                            <div class="card">
-                              <div class="card-status bg-green"></div>
-                              <div class="card-header">
-                                <h3 class="card-title">Florida</h3>
-                                <div class="card-options">
-                                  <h3 class="card-title">Hourly Rate: $8.25 / hr</h3>
-                                </div>
-                              </div>
-                              <div class="card-body">
-                                <table id="table-florida1" class="display">
-                                  <thead>
-                                    <tr>
-                                      <th title="First Name">First Name</th>
-                                      <th title="Last Name">Last Name</th>
-                                      <th title="Regular Hours">Reg Hours</th>
-                                      <th title="Overtime Hours">OT Hours</th>
-                                      <th title="DoubleTime Hours">DT Hours</th>
-                                      <th title="Sick Hours">Sick Hours</th>
-                                      <th title="Total Hours">Total Hours</th>
-                                      <th title="Room and Board Deduction">Deduction</th>
-                                      <th title="Travel Stipend">Travel Stipend</th>
-                                      <th title="Location to Send Check/Paystub">Location</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody id="florida-body1">
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row justify-content-center">
-                          <div class="col-sm-12">
-                            <div class="card">
-                              <div class="card-status bg-orange"></div>
-                              <div class="card-header">
-                                <h3 class="card-title">Pennsylvania</h3>
-                                <div class="card-options">
-                                  <h3 class="card-title">Hourly Rate: $7.25 / hr</h3>
-                                </div>
-                              </div>
-                              <div class="card-body">
-                                <table id="table-pennsylvania1" class="display">
-                                  <thead>
-                                    <tr>
-                                      <th title="First Name">First Name</th>
-                                      <th title="Last Name">Last Name</th>
-                                      <th title="Regular Hours">Reg Hours</th>
-                                      <th title="Overtime Hours">OT Hours</th>
-                                      <th title="DoubleTime Hours">DT Hours</th>
-                                      <th title="Sick Hours">Sick Hours</th>
-                                      <th title="Total Hours">Total Hours</th>
-                                      <th title="Room and Board Deduction">Deduction</th>
-                                      <th title="Travel Stipend">Travel Stipend</th>
-                                      <th title="Location to Send Check/Paystub">Location</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody id="pennsylvania-body1">
+                                  <tbody id="body-payPeriod1-CA-hourly">
                                   </tbody>
                                 </table>
                               </div>
@@ -351,7 +302,7 @@
                                 </div>
                               </div>
                               <div class="card-body">
-                                <table id="table-texas1" class="display">
+                                <table id="table-payPeriod1-TX-hourly" class="display">
                                   <thead>
                                     <tr>
                                       <th title="First Name">First Name</th>
@@ -366,7 +317,7 @@
                                       <th title="Location to Send Check/Paystub">Location</th>
                                     </tr>
                                   </thead>
-                                  <tbody id="texas-body1">
+                                  <tbody id="body-payPeriod1-TX-hourly">
                                   </tbody>
                                 </table>
                               </div>
@@ -374,14 +325,79 @@
                           </div>
                         </div>
                       </div>
-                      <div class="tab-pane fade" id="payPeriod2" role="tabpanel" aria-labelledby="payPeriod2-tab">
+                      <!-- PayPeriod1 Salary -->
+                      <div class="tab-pane" id="payPeriod1Salary" role="tabpanel" aria-labelledby="payPeriod1Salary-tab">
                         <div class="row">
                           <div class="col-8" style="margin-top: 20px; margin-bottom: 20px">
+                            <h4>Salary Employees</h4>
+                            <p>6/18/2018 - 7/1/2018</p>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="card-status bg-blue"></div>
+                          <div class="card-header">
+                            <h3 class="card-title">California</h3>
+                            <div class="card-options">
+                              <h3 class="card-title">Salary</h3>
+                            </div>
+                          </div>
+                          <div class="row justify-content-center">
+                            <div class="col-sm-12">
+                              <div class="card-body">
+                                <table id="table-payPeriod1-CA-salary" class="display">
+                                  <thead>
+                                    <tr>
+                                      <th title="First Name">First Name</th>
+                                      <th title="Last Name">Last Name</th>
+                                      <th title="Pay">Pay</th>
+                                      <th title="Travel Stipend">Travel Stipend</th>
+                                      <th title="Location to Send Check/Paystub">Location</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody id="body-payPeriod1-CA-salary">
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row justify-content-center">
+                          <div class="col-sm-12">
+                            <div class="card">
+                              <div class="card-status bg-red"></div>
+                              <div class="card-header">
+                                <h3 class="card-title">Texas</h3>
+                                <div class="card-options">
+                                  <h3 class="card-title">Salary</h3>
+                                </div>
+                              </div>
+                              <div class="card-body">
+                                <table id="table-payPeriod1-TX-salary" class="display">
+                                  <thead>
+                                    <tr>
+                                      <th title="First Name">First Name</th>
+                                      <th title="Last Name">Last Name</th>
+                                      <th title="Pay">Pay</th>
+                                      <th title="Travel Stipend">Travel Stipend</th>
+                                      <th title="Location to Send Check/Paystub">Location</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody id="body-payPeriod1-TX-salary">
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- PayPeriod2 Hourly -->
+                      <div class="tab-pane" id="payPeriod2Hourly" role="tabpanel" aria-labelledby="payPeriod2Hourly-tab">
+                        <div class="row">
+                          <div class="col-8" style="margin-top: 20px; margin-bottom: 20px">
+                            <h4>Hourly Employees</h4>
                             <p>7/2/2018 - 7/16/2018</p>
                           </div>
                         </div>
-
-
                         <div class="card">
                           <div class="card-status bg-blue"></div>
                           <div class="card-header">
@@ -409,7 +425,6 @@
                                     </tr>
                                   </thead>
                                   <tbody id="california-body2">
-                                    <tr>
                                   </tbody>
                                 </table>
                               </div>
@@ -443,7 +458,6 @@
                                     </tr>
                                   </thead>
                                   <tbody id="florida-body2">
-                                    <tr>
                                   </tbody>
                                 </table>
                               </div>
@@ -477,7 +491,6 @@
                                     </tr>
                                   </thead>
                                   <tbody id="pennsylvania-body2">
-                                    <tr>
                                   </tbody>
                                 </table>
                               </div>
@@ -491,7 +504,7 @@
                               <div class="card-header">
                                 <h3 class="card-title">Texas</h3>
                                 <div class="card-options">
-                                  <h3 class="card-title">Hourly Rate: 7.25 / hr</h3>
+                                  <h3 class="card-title">Hourly Rate: $7.25 / hr</h3>
                                 </div>
                               </div>
                               <div class="card-body">
@@ -511,7 +524,6 @@
                                     </tr>
                                   </thead>
                                   <tbody id="texas-body2">
-                                    <tr>
                                   </tbody>
                                 </table>
                               </div>
@@ -519,42 +531,36 @@
                           </div>
                         </div>
                       </div>
-                      <div class="tab-pane fade" id="payPeriod3" role="tabpanel" aria-labelledby="payPeriod3-tab">
+                      <!-- PayPeriod2 Salary -->
+                      <div class="tab-pane" id="payPeriod2Salary" role="tabpanel" aria-labelledby="payPeriod2Salary-tab">
                         <div class="row">
                           <div class="col-8" style="margin-top: 20px; margin-bottom: 20px">
-                            <p>7/17/2018 - 7/31/2018</p>
+                            <h4>Salary Employees</h4>
+                            <p>7/2/2018 - 7/16/2018</p>
                           </div>
                         </div>
-
-
                         <div class="card">
                           <div class="card-status bg-blue"></div>
                           <div class="card-header">
                             <h3 class="card-title">California</h3>
                             <div class="card-options">
-                              <h3 class="card-title">Hourly Rate: $11.00 / hr</h3>
+                              <h3 class="card-title">Salary</h3>
                             </div>
                           </div>
                           <div class="row justify-content-center">
                             <div class="col-sm-12">
                               <div class="card-body">
-                                <table id="table-california3" class="display">
+                                <table id="table-california-salary2" class="display">
                                   <thead>
                                     <tr>
                                       <th title="First Name">First Name</th>
                                       <th title="Last Name">Last Name</th>
-                                      <th title="Regular Hours">Reg Hours</th>
-                                      <th title="Overtime Hours">OT Hours</th>
-                                      <th title="DoubleTime Hours">DT Hours</th>
-                                      <th title="Sick Hours">Sick Hours</th>
-                                      <th title="Total Hours">Total Hours</th>
-                                      <th title="Room and Board Deduction">Deduction</th>
+                                      <th title="Pay">Pay</th>
                                       <th title="Travel Stipend">Travel Stipend</th>
                                       <th title="Location to Send Check/Paystub">Location</th>
                                     </tr>
                                   </thead>
-                                  <tbody id="california-body3">
-                                    <tr>
+                                  <tbody id="california-salary-body2">
                                   </tbody>
                                 </table>
                               </div>
@@ -568,27 +574,21 @@
                               <div class="card-header">
                                 <h3 class="card-title">Florida</h3>
                                 <div class="card-options">
-                                  <h3 class="card-title">Hourly Rate: $8.25 / hr</h3>
+                                  <h3 class="card-title">Salary</h3>
                                 </div>
                               </div>
                               <div class="card-body">
-                                <table id="table-florida3" class="display">
+                                <table id="table-florida-salary2" class="display">
                                   <thead>
                                     <tr>
                                       <th title="First Name">First Name</th>
                                       <th title="Last Name">Last Name</th>
-                                      <th title="Regular Hours">Reg Hours</th>
-                                      <th title="Overtime Hours">OT Hours</th>
-                                      <th title="DoubleTime Hours">DT Hours</th>
-                                      <th title="Sick Hours">Sick Hours</th>
-                                      <th title="Total Hours">Total Hours</th>
-                                      <th title="Room and Board Deduction">Deduction</th>
+                                      <th title="Pay">Pay</th>
                                       <th title="Travel Stipend">Travel Stipend</th>
                                       <th title="Location to Send Check/Paystub">Location</th>
                                     </tr>
                                   </thead>
-                                  <tbody id="florida-body3">
-                                    <tr>
+                                  <tbody id="florida-salary-body2">
                                   </tbody>
                                 </table>
                               </div>
@@ -602,27 +602,21 @@
                               <div class="card-header">
                                 <h3 class="card-title">Pennsylvania</h3>
                                 <div class="card-options">
-                                  <h3 class="card-title">Hourly Rate: $7.25 / hr</h3>
+                                  <h3 class="card-title">Salary</h3>
                                 </div>
                               </div>
                               <div class="card-body">
-                                <table id="table-pennsylvania3" class="display">
+                                <table id="table-pennsylvania-salary2" class="display">
                                   <thead>
                                     <tr>
                                       <th title="First Name">First Name</th>
                                       <th title="Last Name">Last Name</th>
-                                      <th title="Regular Hours">Reg Hours</th>
-                                      <th title="Overtime Hours">OT Hours</th>
-                                      <th title="DoubleTime Hours">DT Hours</th>
-                                      <th title="Sick Hours">Sick Hours</th>
-                                      <th title="Total Hours">Total Hours</th>
-                                      <th title="Room and Board Deduction">Deduction</th>
+                                      <th title="Pay">Pay</th>
                                       <th title="Travel Stipend">Travel Stipend</th>
                                       <th title="Location to Send Check/Paystub">Location</th>
                                     </tr>
                                   </thead>
-                                  <tbody id="pennsylvania-body3">
-                                    <tr>
+                                  <tbody id="pennsylvania-salary-body2">
                                   </tbody>
                                 </table>
                               </div>
@@ -636,317 +630,21 @@
                               <div class="card-header">
                                 <h3 class="card-title">Texas</h3>
                                 <div class="card-options">
-                                  <h3 class="card-title">Hourly Rate: 7.25 / hr</h3>
+                                  <h3 class="card-title">Salary</h3>
                                 </div>
                               </div>
                               <div class="card-body">
-                                <table id="table-texas3" class="display">
+                                <table id="table-texas-salary1" class="display">
                                   <thead>
                                     <tr>
                                       <th title="First Name">First Name</th>
                                       <th title="Last Name">Last Name</th>
-                                      <th title="Regular Hours">Reg Hours</th>
-                                      <th title="Overtime Hours">OT Hours</th>
-                                      <th title="DoubleTime Hours">DT Hours</th>
-                                      <th title="Sick Hours">Sick Hours</th>
-                                      <th title="Total Hours">Total Hours</th>
-                                      <th title="Room and Board Deduction">Deduction</th>
+                                      <th title="Pay">Pay</th>
                                       <th title="Travel Stipend">Travel Stipend</th>
                                       <th title="Location to Send Check/Paystub">Location</th>
                                     </tr>
                                   </thead>
-                                  <tbody id="texas-body3">
-                                    <tr>
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="tab-pane fade" id="payPeriod4" role="tabpanel" aria-labelledby="payPeriod4-tab">
-                        <div class="row">
-                          <div class="col-8" style="margin-top: 20px; margin-bottom: 20px">
-                            <p>7/17/2018 - 7/31/2018</p>
-                          </div>
-                        </div>
-
-
-                        <div class="card">
-                          <div class="card-status bg-blue"></div>
-                          <div class="card-header">
-                            <h3 class="card-title">California</h3>
-                            <div class="card-options">
-                              <h3 class="card-title">Hourly Rate: $11.00 / hr</h3>
-                            </div>
-                          </div>
-                          <div class="row justify-content-center">
-                            <div class="col-sm-12">
-                              <div class="card-body">
-                                <table id="table-california4" class="display">
-                                  <thead>
-                                    <tr>
-                                      <th title="First Name">First Name</th>
-                                      <th title="Last Name">Last Name</th>
-                                      <th title="Regular Hours">Reg Hours</th>
-                                      <th title="Overtime Hours">OT Hours</th>
-                                      <th title="DoubleTime Hours">DT Hours</th>
-                                      <th title="Sick Hours">Sick Hours</th>
-                                      <th title="Total Hours">Total Hours</th>
-                                      <th title="Room and Board Deduction">Deduction</th>
-                                      <th title="Travel Stipend">Travel Stipend</th>
-                                      <th title="Location to Send Check/Paystub">Location</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody id="california-body4">
-                                    <tr>
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row justify-content-center">
-                          <div class="col-sm-12">
-                            <div class="card">
-                              <div class="card-status bg-green"></div>
-                              <div class="card-header">
-                                <h3 class="card-title">Florida</h3>
-                                <div class="card-options">
-                                  <h3 class="card-title">Hourly Rate: $8.25 / hr</h3>
-                                </div>
-                              </div>
-                              <div class="card-body">
-                                <table id="table-florida4" class="display">
-                                  <thead>
-                                    <tr>
-                                      <th title="First Name">First Name</th>
-                                      <th title="Last Name">Last Name</th>
-                                      <th title="Regular Hours">Reg Hours</th>
-                                      <th title="Overtime Hours">OT Hours</th>
-                                      <th title="DoubleTime Hours">DT Hours</th>
-                                      <th title="Sick Hours">Sick Hours</th>
-                                      <th title="Total Hours">Total Hours</th>
-                                      <th title="Room and Board Deduction">Deduction</th>
-                                      <th title="Travel Stipend">Travel Stipend</th>
-                                      <th title="Location to Send Check/Paystub">Location</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody id="florida-body4">
-                                    <tr>
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row justify-content-center">
-                          <div class="col-sm-12">
-                            <div class="card">
-                              <div class="card-status bg-orange"></div>
-                              <div class="card-header">
-                                <h3 class="card-title">Pennsylvania</h3>
-                                <div class="card-options">
-                                  <h3 class="card-title">Hourly Rate: $7.25 / hr</h3>
-                                </div>
-                              </div>
-                              <div class="card-body">
-                                <table id="table-pennsylvania4" class="display">
-                                  <thead>
-                                    <tr>
-                                      <th title="First Name">First Name</th>
-                                      <th title="Last Name">Last Name</th>
-                                      <th title="Regular Hours">Reg Hours</th>
-                                      <th title="Overtime Hours">OT Hours</th>
-                                      <th title="DoubleTime Hours">DT Hours</th>
-                                      <th title="Sick Hours">Sick Hours</th>
-                                      <th title="Total Hours">Total Hours</th>
-                                      <th title="Room and Board Deduction">Deduction</th>
-                                      <th title="Travel Stipend">Travel Stipend</th>
-                                      <th title="Location to Send Check/Paystub">Location</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody id="pennsylvania-body4">
-                                    <tr>
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row justify-content-center">
-                          <div class="col-sm-12">
-                            <div class="card">
-                              <div class="card-status bg-red"></div>
-                              <div class="card-header">
-                                <h3 class="card-title">Texas</h3>
-                                <div class="card-options">
-                                  <h3 class="card-title">Hourly Rate: 7.25 / hr</h3>
-                                </div>
-                              </div>
-                              <div class="card-body">
-                                <table id="table-texas4" class="display">
-                                  <thead>
-                                    <tr>
-                                      <th title="First Name">First Name</th>
-                                      <th title="Last Name">Last Name</th>
-                                      <th title="Regular Hours">Reg Hours</th>
-                                      <th title="Overtime Hours">OT Hours</th>
-                                      <th title="DoubleTime Hours">DT Hours</th>
-                                      <th title="Sick Hours">Sick Hours</th>
-                                      <th title="Total Hours">Total Hours</th>
-                                      <th title="Room and Board Deduction">Deduction</th>
-                                      <th title="Travel Stipend">Travel Stipend</th>
-                                      <th title="Location to Send Check/Paystub">Location</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody id="texas-body4">
-                                    <tr>
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="tab-pane fade" id="payPeriod5" role="tabpanel" aria-labelledby="payPeriod5-tab">
-                        <div class="row">
-                          <div class="col-8" style="margin-top: 20px; margin-bottom: 20px">
-                            <p>7/17/2018 - 7/31/2018</p>
-                          </div>
-                        </div>
-
-
-                        <div class="card">
-                          <div class="card-status bg-blue"></div>
-                          <div class="card-header">
-                            <h3 class="card-title">California</h3>
-                            <div class="card-options">
-                              <h3 class="card-title">Hourly Rate: $11.00 / hr</h3>
-                            </div>
-                          </div>
-                          <div class="row justify-content-center">
-                            <div class="col-sm-12">
-                              <div class="card-body">
-                                <table id="table-california5" class="display">
-                                  <thead>
-                                    <tr>
-                                      <th title="First Name">First Name</th>
-                                      <th title="Last Name">Last Name</th>
-                                      <th title="Regular Hours">Reg Hours</th>
-                                      <th title="Overtime Hours">OT Hours</th>
-                                      <th title="DoubleTime Hours">DT Hours</th>
-                                      <th title="Sick Hours">Sick Hours</th>
-                                      <th title="Total Hours">Total Hours</th>
-                                      <th title="Room and Board Deduction">Deduction</th>
-                                      <th title="Travel Stipend">Travel Stipend</th>
-                                      <th title="Location to Send Check/Paystub">Location</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody id="california-body5">
-                                    <tr>
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row justify-content-center">
-                          <div class="col-sm-12">
-                            <div class="card">
-                              <div class="card-status bg-green"></div>
-                              <div class="card-header">
-                                <h3 class="card-title">Florida</h3>
-                                <div class="card-options">
-                                  <h3 class="card-title">Hourly Rate: $8.25 / hr</h3>
-                                </div>
-                              </div>
-                              <div class="card-body">
-                                <table id="table-florida5" class="display">
-                                  <thead>
-                                    <tr>
-                                      <th title="First Name">First Name</th>
-                                      <th title="Last Name">Last Name</th>
-                                      <th title="Regular Hours">Reg Hours</th>
-                                      <th title="Overtime Hours">OT Hours</th>
-                                      <th title="DoubleTime Hours">DT Hours</th>
-                                      <th title="Sick Hours">Sick Hours</th>
-                                      <th title="Total Hours">Total Hours</th>
-                                      <th title="Room and Board Deduction">Deduction</th>
-                                      <th title="Travel Stipend">Travel Stipend</th>
-                                      <th title="Location to Send Check/Paystub">Location</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody id="florida-body5">
-                                    <tr>
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row justify-content-center">
-                          <div class="col-sm-12">
-                            <div class="card">
-                              <div class="card-status bg-orange"></div>
-                              <div class="card-header">
-                                <h3 class="card-title">Pennsylvania</h3>
-                                <div class="card-options">
-                                  <h3 class="card-title">Hourly Rate: $7.25 / hr</h3>
-                                </div>
-                              </div>
-                              <div class="card-body">
-                                <table id="table-pennsylvania5" class="display">
-                                  <thead>
-                                    <tr>
-                                      <th title="First Name">First Name</th>
-                                      <th title="Last Name">Last Name</th>
-                                      <th title="Regular Hours">Reg Hours</th>
-                                      <th title="Overtime Hours">OT Hours</th>
-                                      <th title="DoubleTime Hours">DT Hours</th>
-                                      <th title="Sick Hours">Sick Hours</th>
-                                      <th title="Total Hours">Total Hours</th>
-                                      <th title="Room and Board Deduction">Deduction</th>
-                                      <th title="Travel Stipend">Travel Stipend</th>
-                                      <th title="Location to Send Check/Paystub">Location</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody id="pennsylvania-body5">
-                                    <tr>
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row justify-content-center">
-                          <div class="col-sm-12">
-                            <div class="card">
-                              <div class="card-status bg-red"></div>
-                              <div class="card-header">
-                                <h3 class="card-title">Texas</h3>
-                                <div class="card-options">
-                                  <h3 class="card-title">Hourly Rate: 7.25 / hr</h3>
-                                </div>
-                              </div>
-                              <div class="card-body">
-                                <table id="table-texas5" class="display">
-                                  <thead>
-                                    <tr>
-                                      <th title="First Name">First Name</th>
-                                      <th title="Last Name">Last Name</th>
-                                      <th title="Regular Hours">Reg Hours</th>
-                                      <th title="Overtime Hours">OT Hours</th>
-                                      <th title="DoubleTime Hours">DT Hours</th>
-                                      <th title="Sick Hours">Sick Hours</th>
-                                      <th title="Total Hours">Total Hours</th>
-                                      <th title="Room and Board Deduction">Deduction</th>
-                                      <th title="Travel Stipend">Travel Stipend</th>
-                                      <th title="Location to Send Check/Paystub">Location</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody id="texas-body5">
-                                    <tr>
+                                  <tbody id="texas-salary-body1">
                                   </tbody>
                                 </table>
                               </div>
@@ -993,6 +691,9 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <!-- Javascript -->
+  <!-- Popper.JS for Bootstrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
   <!-- Bootstrap -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
     crossorigin="anonymous"></script>
@@ -1022,6 +723,7 @@
 
   <iframe name="empty admin auth" title="empty admin auth" src="https://c0ace648.caspio.com/dp/355760005933a0dd9d994f6b84ed">Sorry, but your browser does not support frames.</iframe>
 
+
   <script>
     // Hide iFrame
     document.addEventListener("DOMContentLoaded", hideiFrame);
@@ -1043,75 +745,7 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 
   <!-- Main -->
-  <script src="./main-compiled.js"></script>
-
-
-
-  <!--
-                  <table id="info-table" class="table table-bordered table-hover">
-                  <tr>
-                    <th class="text-center" style="width: 1%"></th>
-                    <th>Product</th>
-                    <th class="text-center" style="width: 1%">Qnt</th>
-                    <th class="text-right" style="width: 1%">Unit</th>
-                    <th class="text-right" style="width: 1%">Amount</th>
-                  </tr>
-                  <tr>
-                    <td class="text-center">1</td>
-                    <td>
-                      <p class="font-w600 mb-1">Logo Creation</p>
-                      <div class="text-muted">Logo and business cards design</div>
-                    </td>
-                    <td class="text-center">
-                      1
-                    </td>
-                    <td class="text-right">$1.800,00</td>
-                    <td class="text-right">$1.800,00</td>
-                  </tr>
-                  <tr>
-                    <td class="text-center">2</td>
-                    <td>
-                      <p class="font-w600 mb-1">Online Store Design &amp; Development</p>
-                      <div class="text-muted">Design/Development for all popular modern browsers</div>
-                    </td>
-                    <td class="text-center">
-                      1
-                    </td>
-                    <td class="text-right">$20.000,00</td>
-                    <td class="text-right">$20.000,00</td>
-                  </tr>
-                  <tr>
-                    <td class="text-center">3</td>
-                    <td>
-                      <p class="font-w600 mb-1">App Design</p>
-                      <div class="text-muted">Promotional mobile application</div>
-                    </td>
-                    <td class="text-center">
-                      1
-                    </td>
-                    <td class="text-right">$3.200,00</td>
-                    <td class="text-right">$3.200,00</td>
-                  </tr>
-                  <tr>
-                    <td colspan="4" class="font-w600 text-right">Subtotal</td>
-                    <td class="text-right">$25.000,00</td>
-                  </tr>
-                  <tr>
-                    <td colspan="4" class="font-w600 text-right">Vat Rate</td>
-                    <td class="text-right">20%</td>
-                  </tr>
-                  <tr>
-                    <td colspan="4" class="font-w600 text-right">Vat Due</td>
-                    <td class="text-right">$5.000,00</td>
-                  </tr>
-                  <tr>
-                    <td colspan="4" class="font-weight-bold text-uppercase text-right">Total Due</td>
-                    <td class="font-weight-bold text-right">$30.000,00</td>
-                  </tr>
-                </table>
-              -->
-
-
+  <script src="admin/main-compiled.js"></script>
 </body>
 
 </html>
