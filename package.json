@@ -1,6 +1,6 @@
 {
   "name": "payroll",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "SuperCamp Payroll",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,8 @@
     "babel-watch-admin": "npx babel admin/main.js -o admin/main-compiled.js --watch",
     "startup": "ws && npm run babel-watch-main && npm run babel-watch-admin",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "reportTime": "cd admin && cat reportInfo.JSON | jq --raw-output --arg RIGHTNOW \"`date`\" '.creationTime |= $RIGHTNOW' > reportInfo.tmp && mv reportInfo.tmp reportInfo.JSON"
   },
   "repository": {
     "type": "git",
