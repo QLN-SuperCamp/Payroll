@@ -3,6 +3,9 @@ var formData = [];
 
 var staffData = [];
 
+// Tag displays when the CampMinder report was generated
+var reportTime = document.getElementById('reportTime');
+
 // Arrays to hold entry objects by site
 var swData = [];
 var stanData = [];
@@ -11,62 +14,37 @@ var villaData = [];
 var siteDataArrays = [swData, stanData, ucfData, villaData];
 
 // Tables (by State)
-var tableCalifornia1 = document.getElementById('table-california1');
-var tableCalifornia2 = document.getElementById('table-california2');
-var tableCalifornia3 = document.getElementById('table-california3');
-var tableCalifornia4 = document.getElementById('table-california4');
-var tableCalifornia5 = document.getElementById('table-california5');
+// CA
+var table1CAHourly = document.getElementById('table-payPeriod1-CA-hourly');
+var table1CASalary = document.getElementById('table-payPeriod1-CA-salary');
+// TX
+var table1TXHourly = document.getElementById('table-payPeriod1-TX-hourly');
+var table1TXSalary = document.getElementById('table-payPeriod1-TX-salary');
 
-var tableFlorida1 = document.getElementById('table-florida1');
-var tableFlorida2 = document.getElementById('table-florida2');
-var tableFlorida3 = document.getElementById('table-florida3');
-var tableFlorida4 = document.getElementById('table-florida4');
-var tableFlorida5 = document.getElementById('table-florida5');
-
-var tablePennsylvania1 = document.getElementById('table-pennsylvania1');
-var tablePennsylvania2 = document.getElementById('table-pennsylvania2');
-var tablePennsylvania3 = document.getElementById('table-pennsylvania3');
-var tablePennsylvania4 = document.getElementById('table-pennsylvania4');
-var tablePennsylvania5 = document.getElementById('table-pennsylvania5');
-
-var tableTexas1 = document.getElementById('table-texas1');
-var tableTexas2 = document.getElementById('table-texas2');
-var tableTexas3 = document.getElementById('table-texas3');
-var tableTexas4 = document.getElementById('table-texas4');
-var tableTexas5 = document.getElementById('table-texas5');
-
-
-// Table Bodies
-var bodyCalifornia1 = document.getElementById('california-body1');
-var bodyCalifornia2 = document.getElementById('california-body2');
-var bodyCalifornia3 = document.getElementById('california-body3');
-var bodyCalifornia4 = document.getElementById('california-body4');
-var bodyCalifornia5 = document.getElementById('california-body5');
-
-var bodyFlorida1 = document.getElementById('florida-body1');
-var bodyFlorida2 = document.getElementById('florida-body2');
-var bodyFlorida3 = document.getElementById('florida-body3');
-var bodyFlorida4 = document.getElementById('florida-body4');
-var bodyFlorida5 = document.getElementById('florida-body5');
-
-var bodyPennsylvania1 = document.getElementById('pennsylvania-body1');
-var bodyPennsylvania2 = document.getElementById('pennsylvania-body2');
-var bodyPennsylvania3 = document.getElementById('pennsylvania-body3');
-var bodyPennsylvania4 = document.getElementById('pennsylvania-body4');
-var bodyPennsylvania5 = document.getElementById('pennsylvania-body5');
-
-var bodyTexas1 = document.getElementById('texas-body1');
-var bodyTexas2 = document.getElementById('texas-body2');
-var bodyTexas3 = document.getElementById('texas-body3');
-var bodyTexas4 = document.getElementById('texas-body4');
-var bodyTexas5 = document.getElementById('texas-body5');
+// Table Bodies (by State)
+// CA
+var body1CAHourly = document.getElementById('body-payPeriod1-CA-hourly');
+var body1CASalary = document.getElementById('body-payPeriod1-CA-salary');
+// TX
+var body1TXHourly = document.getElementById('body-payPeriod1-TX-hourly');
+var body1TXSalary = document.getElementById('body-payPeriod1-TX-salary');
 
 
 // Get data from Google spreadsheet when the DOM loads
 window.addEventListener('DOMContentLoaded', init);
 
+// Write the time of the CampMinder report
+var file = "admin/reportInfo.JSON";
+var date = "";
+
+$.get(file, function (info) {
+    date = info.creationTime;
+    reportTime.innerHTML = info.creationTime;
+});
+
+
 // CampMinder Report - All 2018 Staff Members
-var report = "./2018staff.csv";
+var report = "admin/2018staff.csv";
 var reportArray = [];
 $.get(report, function (data) {
     var csvdata = Papa.parse(data, {
@@ -1025,7 +1003,6 @@ function displayData() {
                             // ? I think it should just be regular hours though, not "total" hours
                             // totalHoursThisWeek = weekInfoObject.totalHours;
                             totalHoursThisWeek = weekInfoObject.regHours;
-                            
                             // Day Count
                             let daysInARow = weekInfoObject.consecutiveDayCount;
 
@@ -1130,7 +1107,6 @@ function displayData() {
                             // ? I think it should just be regular hours though, not "total" hours
                             // totalHoursThisWeek = weekInfoObject.totalHours;
                             totalHoursThisWeek = weekInfoObject.regHours;
-                            
                             // Day Count
                             let daysInARow = weekInfoObject.consecutiveDayCount;
 
@@ -1154,7 +1130,6 @@ function displayData() {
                             // ? I think it should just be regular hours though, not "total" hours
                             // totalHoursThisWeek = weekInfoObject.totalHours;
                             totalHoursThisWeek = weekInfoObject.regHours;
-                            
                             // Day Count
                             let daysInARow = weekInfoObject.consecutiveDayCount;
 
@@ -1296,8 +1271,17 @@ function displayData() {
 
     reportArray.data.forEach(function (person) {
         let payPeriods = [person.payPeriod1, person.payPeriod2, person.payPeriod3, person.payPeriod4, person.payPeriod5];
+        let deductionDayFields = [person.PayPeriod1DeductionDays, person.PayPeriod2DeductionDays, person.PayPeriod3DeductionDays, person.PayPeriod4DeductionDays, person.PayPeriod5DeductionDays];
+        let deductionWeekFields = [person.PayPeriod1DeductionWeeks, person.PayPeriod2DeductionWeeks, person.PayPeriod3DeductionWeeks, person.PayPeriod4DeductionWeeks, person.PayPeriod5DeductionWeeks];
+        let checkLocationFields = [person.PayPeriod1Location, person.PayPeriod2Location, person.PayPeriod3Location, person.PayPeriod4Location, person.PayPeriod5Location];
+        let salaryDayFields = [person.PayPeriod1SalaryDays, person.PayPeriod2SalaryDays, person.PayPeriod3SalaryDays, person.PayPeriod4SalaryDays, person.PayPeriod5SalaryDays];
+        let salaryWeekFields = [person.PayPeriod1SalaryWeeks, person.PayPeriod2SalaryWeeks, person.PayPeriod3SalaryWeeks, person.PayPeriod4SalaryWeeks, person.PayPeriod5SalaryWeeks];
+        let isSalaryFields = [person.PayPeriod1isSalary, person.PayPeriod2isSalary, person.PayPeriod3isSalary, person.PayPeriod4isSalary, person.PayPeriod5isSalary];
 
         payPeriods.forEach(function (payPeriod) {
+            let firstName = person["First Name"];
+            let lastName = person["Last Name"];
+
             // TODO: Assign the actual payperiod into the payperiod table tabs
             let payPeriodInfoObject = payPeriod[2][0];
             let site = payPeriodInfoObject.site;
@@ -1310,13 +1294,49 @@ function displayData() {
             // ! totalHours does not include sick hours
             // ? Don't know if that should be changed...
             let totalHours = payPeriodInfoObject.totalHours;
+            // Deductions
+            let deductionDayRate = 0;
+            let deductionWeekRate = 0;
+            let thisIndex = payPeriods.indexOf(payPeriod);
+            let deductionDays = Number(deductionDayFields[thisIndex]);
+            let deductionWeeks = Number(deductionWeekFields[thisIndex]);
+            let checkLocation = checkLocationFields[thisIndex];
+            // Assign deduction rates based on site
+            if (site === "ucf") {
+                deductionDayRate = 12.57;
+                deductionWeekRate = 120;
+            } else if (site === "sw") {
+                deductionDayRate = 11.06;
+                deductionWeekRate = 105.00;
+            } else if (site === "stan") {
+                deductionDayRate = 16.76;
+                deductionWeekRate = 160.00;
+            } else if (site === "villa") {
+                deductionDayRate = 11.06;
+                deductionWeekRate = 105.00;
+            }
+            // Assign a string for the deduction
+            let deductionTotal = moneyString((deductionDayRate * deductionDays) + (deductionWeekRate * deductionWeeks));
 
-            let firstName = person["First Name"];
-            let lastName = person["Last Name"];
+            // Salary Staff Only
+            let isSalaryEmployee = isSalaryFields[thisIndex];
 
-            table = assignTable(site, payPeriodNumber);
-
-            createTableEntry(table, firstName, lastName, regHours, otHours, dtHours, sickHours, totalHours);
+            if (isSalaryEmployee === "Yes") {
+                let weeklyPayRate = Number(person.WeeklyPay.replace(/[^0-9\.-]+/g, ""));
+                let dailyPayRateUnRounded = weeklyPayRate / 6;
+                let dailyPayRate = Math.ceil(dailyPayRateUnRounded * 100) / 100;
+                let salaryDays = Number(salaryDayFields[thisIndex]);
+                let salaryWeeks = Number(salaryWeekFields[thisIndex]);
+                let salaryDayPay = salaryDays * dailyPayRate;
+                let salaryWeekPay = salaryWeeks * weeklyPayRate;
+                let salaryPayTotal = moneyString(salaryDayPay + salaryWeekPay);
+                let state = person.PayPeriod1State;
+                table = assignTable(site, payPeriodNumber, isSalaryEmployee, state);
+                createTableEntrySalary(table, firstName, lastName, salaryPayTotal, checkLocation);
+            } else {
+                table = assignTable(site, payPeriodNumber, isSalaryEmployee);
+                createTableEntryHourly(table, firstName, lastName, regHours, otHours, dtHours, sickHours, totalHours, deductionTotal, checkLocation);
+            }
         });
     });
     constructTables();
@@ -1345,84 +1365,6 @@ function splitHours(site, hoursWorked, totalHoursThisWeek, consecutiveDayCount, 
         // ! 2. OT for the 1st 8 hours if the day is the 7th consecutive day
         // ! 3. DT for any hours over 12 in a workday
         // ! 4. DT for any hours greater than 8 on the 7th day of a workweek
-
-        if (correspondingPersonObject.fullName === "Douglas Hearns") {
-            // Check for what day it fucks up
-            let weekInfoObject = reportArray.data[36].payPeriod1[1][7];
-            if (consecutiveDayCount === 0) {
-                console.log("Day 0");
-                console.log("     hoursWorked: " + hoursWorked);
-                console.log("     weekInfo:");
-                console.log("          regHours: " + weekInfoObject.regHours);
-                console.log("          otHours: " + weekInfoObject.otHours);
-                console.log("          dtHours: " + weekInfoObject.dtHours);
-                console.log("          consecutiveDayCount: " + weekInfoObject.consecutiveDayCount);
-            } else if (consecutiveDayCount === 1) {
-                console.log("Day 1");
-                console.log("     hoursWorked: " + hoursWorked);
-                console.log("     weekInfo:");
-                console.log("          regHours: " + weekInfoObject.regHours);
-                console.log("          otHours: " + weekInfoObject.otHours);
-                console.log("          dtHours: " + weekInfoObject.dtHours);
-                console.log("          consecutiveDayCount: " + weekInfoObject.consecutiveDayCount);
-            } else if (consecutiveDayCount === 2) {
-                console.log("Day 2");
-                console.log("     hoursWorked: " + hoursWorked);
-                console.log("     weekInfo:");
-                console.log("          regHours: " + weekInfoObject.regHours);
-                console.log("          otHours: " + weekInfoObject.otHours);
-                console.log("          dtHours: " + weekInfoObject.dtHours);
-                console.log("          consecutiveDayCount: " + weekInfoObject.consecutiveDayCount);
-            } else if (consecutiveDayCount === 3) {
-                console.log("Day 3");
-                console.log("     hoursWorked: " + hoursWorked);
-                console.log("     weekInfo:");
-                console.log("          regHours: " + weekInfoObject.regHours);
-                console.log("          otHours: " + weekInfoObject.otHours);
-                console.log("          dtHours: " + weekInfoObject.dtHours);
-                console.log("          consecutiveDayCount: " + weekInfoObject.consecutiveDayCount);
-            } else if (consecutiveDayCount === 4) {
-                console.log("Day 4");
-                console.log("     hoursWorked: " + hoursWorked);
-                console.log("     weekInfo:");
-                console.log("          regHours: " + weekInfoObject.regHours);
-                console.log("          otHours: " + weekInfoObject.otHours);
-                console.log("          dtHours: " + weekInfoObject.dtHours);
-                console.log("          consecutiveDayCount: " + weekInfoObject.consecutiveDayCount);
-            } else if (consecutiveDayCount === 5) {
-                console.log("Day 5");
-                console.log("     hoursWorked: " + hoursWorked);
-                console.log("     weekInfo:");
-                console.log("          regHours: " + weekInfoObject.regHours);
-                console.log("          otHours: " + weekInfoObject.otHours);
-                console.log("          dtHours: " + weekInfoObject.dtHours);
-                console.log("          consecutiveDayCount: " + weekInfoObject.consecutiveDayCount);
-            } else if (consecutiveDayCount === 6) {
-                console.log("Day 6");
-                console.log("     hoursWorked: " + hoursWorked);
-                console.log("     weekInfo:");
-                console.log("          regHours: " + weekInfoObject.regHours);
-                console.log("          otHours: " + weekInfoObject.otHours);
-                console.log("          dtHours: " + weekInfoObject.dtHours);
-                console.log("          consecutiveDayCount: " + weekInfoObject.consecutiveDayCount);
-            } else if (consecutiveDayCount === 7) {
-                console.log("Day 7");
-                console.log("     hoursWorked: " + hoursWorked);
-                console.log("     weekInfo:");
-                console.log("          regHours: " + weekInfoObject.regHours);
-                console.log("          otHours: " + weekInfoObject.otHours);
-                console.log("          dtHours: " + weekInfoObject.dtHours);
-                console.log("          consecutiveDayCount: " + weekInfoObject.consecutiveDayCount);
-            } else {
-                console.log("End of Period");
-                console.log("     weekInfo:");
-                console.log("          regHours: " + weekInfoObject.regHours);
-                console.log("          otHours: " + weekInfoObject.otHours);
-                console.log("          dtHours: " + weekInfoObject.dtHours);
-                console.log("          consecutiveDayCount: " + weekInfoObject.consecutiveDayCount);
-            }
-        }
-
 
         if (dayCount === 7) {
             if (hoursWorked < 8) {
@@ -1494,7 +1436,6 @@ function splitHours(site, hoursWorked, totalHoursThisWeek, consecutiveDayCount, 
                 }
             }
         }
-        
 
         return {
             regHours: regHours,
@@ -1549,14 +1490,16 @@ function mergeTime(hours, minutes) {
     return finalTime;
 }
 
-function createTableEntry(table, firstName, lastName, regHours, otHours, dtHours, sickHours, totalHours) {
+function createTableEntryHourly(table, firstName, lastName, regHours, otHours, dtHours, sickHours, totalHours, deductionTotal, checkLocation) {
     let tableBody = "";
 
     tableBody = assignTableBody(table);
 
     let row = document.createElement("tr");
     row.name = firstName.concat(" ", lastName);
-    tableBody.appendChild(row);
+    if (tableBody !== undefined) {
+        tableBody.appendChild(row);
+    }
 
     let firstNameCell = document.createElement("td");
     firstNameCell.innerHTML = firstName;
@@ -1591,17 +1534,60 @@ function createTableEntry(table, firstName, lastName, regHours, otHours, dtHours
     totalHoursCell.innerHTML = totalHours;
     row.appendChild(totalHoursCell);
 
-    // TODO: Create cell for dudection, and travel stipend, and location
     let deductionCell = document.createElement("td");
-    deductionCell.innerHTML = "-";
+    deductionCell.align = "center";
+    deductionCell.innerHTML = deductionTotal;
     row.appendChild(deductionCell);
 
+    // TODO: Create cell for travel stipend
     let stipendCell = document.createElement("td");
+    stipendCell.align = "center";
     stipendCell.innerHTML = "-";
     row.appendChild(stipendCell);
 
     let locationCell = document.createElement("td");
-    locationCell.innerHTML = "-";
+    locationCell.align = "center";
+    locationCell.innerHTML = checkLocation;
+    row.appendChild(locationCell);
+
+
+
+}
+
+function createTableEntrySalary(table, firstName, lastName, salaryPayTotal, checkLocation) {
+    let tableBody = "";
+
+    tableBody = assignTableBody(table);
+
+    let row = document.createElement("tr");
+    row.name = firstName.concat(" ", lastName);
+    tableBody.appendChild(row);
+
+    let firstNameCell = document.createElement("td");
+    firstNameCell.innerHTML = firstName;
+    row.appendChild(firstNameCell);
+
+    let lastNameCell = document.createElement("td");
+    lastNameCell.innerHTML = lastName;
+    row.appendChild(lastNameCell);
+
+    let totalPayCell = document.createElement("td");
+    totalPayCell.innerHTML = salaryPayTotal;
+    row.appendChild(totalPayCell);
+
+    // TODO: Create cell for travel stipend
+    let stipendCell = document.createElement("td");
+    stipendCell.align = "center";
+    if (lastName === "Borbolla") {
+        stipendCell.innerHTML = "$50.00";
+    } else {
+        stipendCell.innerHTML = "-";
+    }
+    row.appendChild(stipendCell);
+
+    let locationCell = document.createElement("td");
+    locationCell.align = "center";
+    locationCell.innerHTML = checkLocation;
     row.appendChild(locationCell);
 
 
@@ -1609,81 +1595,64 @@ function createTableEntry(table, firstName, lastName, regHours, otHours, dtHours
 }
 
 function constructTables() {
-    $('#table-california1').DataTable({});
-    // $('#table-california2').DataTable({});
-    // $('#table-california3').DataTable({});
-    // $('#table-california4').DataTable({});
-    // $('#table-california5').DataTable({});
-
-    $('#table-florida1').DataTable({});
-    // $('#table-florida2').DataTable({});
-    // $('#table-florida3').DataTable({});
-    // $('#table-florida4').DataTable({});
-    // $('#table-florida5').DataTable({});
-
-    $('#table-pennsylvania1').DataTable({});
-    // $('#table-pennsylvania2').DataTable({});
-    // $('#table-pennsylvania3').DataTable({});
-    // $('#table-pennsylvania4').DataTable({});
-    // $('#table-pennsylvania5').DataTable({});
-
-    $('#table-texas1').DataTable({});
-    // $('#table-texas2').DataTable({});
-    // $('#table-texas3').DataTable({});
-    // $('#table-texas4').DataTable({});
-    // $('#table-texas5').DataTable({});
+    $('#table-payPeriod1-CA-hourly').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'excel', 'pdf'
+        ]
+    });
+    $('#table-payPeriod1-CA-salary').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'excel', 'pdf'
+        ]
+    });
+    $('#table-payPeriod1-TX-hourly').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'excel', 'pdf'
+        ]
+    });
+    $('#table-payPeriod1-TX-salary').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'excel', 'pdf'
+        ]
+    });
 }
 
-function assignTable(site, payPeriodNumber) {
+function assignTable(site, payPeriodNumber, isSalaryEmployee, state) {
     let table = "";
 
     if (site === "stan") {
         if (payPeriodNumber === 1) {
-            table = tableCalifornia1;
-        } else if (payPeriodNumber === 2) {
-            table = tableCalifornia2;
-        } else if (payPeriodNumber === 3) {
-            table = tableCalifornia3;
-        } else if (payPeriodNumber === 4) {
-            table = tableCalifornia4;
+            if (isSalaryEmployee === "No") {
+                table = table1CAHourly;
+            } else {
+                table = table1CASalary;
+            }
         } else {
-            table = tableCalifornia5;
-        }
-    } else if (site === "ucf") {
-        if (payPeriodNumber === 1) {
-            table = tableFlorida1;
-        } else if (payPeriodNumber === 2) {
-            table = tableFlorida2;
-        } else if (payPeriodNumber === 3) {
-            table = tableFlorida3;
-        } else if (payPeriodNumber === 4) {
-            table = tableFlorida4;
-        } else {
-            table = tableFlorida5;
-        }
-    } else if (site === "villa") {
-        if (payPeriodNumber === 1) {
-            table = tablePennsylvania1;
-        } else if (payPeriodNumber === 2) {
-            table = tablePennsylvania2;
-        } else if (payPeriodNumber === 3) {
-            table = tablePennsylvania3;
-        } else if (payPeriodNumber === 4) {
-            table = tablePennsylvania4;
-        } else {
-            table = tablePennsylvania5;
+            // TODO: Write other 4 Pay Periods
         }
     } else if (site === "sw") {
         if (payPeriodNumber === 1) {
-            table = tableTexas1;
-        } else if (payPeriodNumber === 2) {
-            table = tableTexas2;
-        } else if (payPeriodNumber === 3) {
-            table = tableTexas3;
-        } else if (payPeriodNumber === 4) {
-            table = tableTexas4;
+            if (isSalaryEmployee === "No") {
+                table = table1TXHourly;
+            } else {
+                table = table1TXSalary;
+            }
         } else {
-            table = tableTexas5;
+            // TODO: Write other 4 Pay Periods
+        }
+    } else if (site === "") {
+        if (state === "California") {
+            table = table1CASalary;
+        } else if (state === "Florida") {
+            // TODO: Create Florida Salary Table
+        } else if (state === "Pennsylvania") {
+            // TODO: Create Pennsylvania Salary Table
+        } else if (state === "Texas") {
+            table = table1TXSalary;
         }
     }
 
@@ -1693,48 +1662,22 @@ function assignTable(site, payPeriodNumber) {
 function assignTableBody(table) {
     let tableBody = "";
 
-    if (table === tableCalifornia1) {
-        tableBody = bodyCalifornia1;
-    } else if (table === tableCalifornia2) {
-        tableBody = bodyCalifornia2;
-    } else if (table === tableCalifornia3) {
-        tableBody = bodyCalifornia3;
-    } else if (table === tableCalifornia4) {
-        tableBody = bodyCalifornia4;
-    } else if (table === tableCalifornia5) {
-        tableBody = bodyCalifornia5;
-    } else if (table === tableFlorida1) {
-        tableBody = bodyFlorida1;
-    } else if (table === tableFlorida2) {
-        tableBody = bodyFlorida2;
-    } else if (table === tableFlorida3) {
-        tableBody = bodyFlorida3;
-    } else if (table === tableFlorida4) {
-        tableBody = bodyFlorida4;
-    } else if (table === tableFlorida5) {
-        tableBody = bodyFlorida5;
-    } else if (table === tablePennsylvania1) {
-        tableBody = bodyPennsylvania1;
-    } else if (table === tablePennsylvania2) {
-        tableBody = bodyPennsylvania2;
-    } else if (table === tablePennsylvania3) {
-        tableBody = bodyPennsylvania3;
-    } else if (table === tablePennsylvania4) {
-        tableBody = bodyPennsylvania4;
-    } else if (table === tablePennsylvania5) {
-        tableBody = bodyPennsylvania5;
-    } else if (table === tableTexas1) {
-        tableBody = bodyTexas1;
-    } else if (table === tableTexas2) {
-        tableBody = bodyTexas2;
-    } else if (table === tableTexas3) {
-        tableBody = bodyTexas3;
-    } else if (table === tableTexas4) {
-        tableBody = bodyTexas4;
-    } else {
-        tableBody = bodyTexas5;
-    }
+    let tableArray = [table1CAHourly, table1CASalary, table1TXHourly, table1TXSalary];
+    let bodyArray = [body1CAHourly, body1CASalary, body1TXHourly, body1TXSalary];
 
+    let thisIndex = tableArray.indexOf(table);
+    tableBody = bodyArray[thisIndex];
 
     return tableBody;
+}
+
+function moneyString(value) {
+    let initialString = value.toLocaleString("us-US", {
+        style: "currency",
+        currency: "USD"
+    });
+    let numberString = initialString.slice(1, initialString.length);
+    let finalString = "$" + " " + numberString;
+
+    return finalString;
 }
