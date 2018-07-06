@@ -19,14 +19,12 @@
   <title>SuperCamp Payroll Report</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
-  <!--
-  <script src="../assets/js/require.min.js"></script>
-  <script>
-    requirejs.config({
-      baseUrl: '.'
-    });
-  </script>
-  -->
+
+  <!-- Please Wait Loading Screen -->
+  <link rel="stylesheet" href="../assets/css/please-wait.css">
+  <!-- Custom style for loading screen -->
+  <link rel="stylesheet" href="../assets/css/loading-screen-custom.css">
+
   <!-- Dashboard Core -->
   <link href="../assets/css/dashboard.css" rel="stylesheet" />
   <!-- <script src="../assets/js/dashboard.js"></script> -->
@@ -44,7 +42,7 @@
   <!-- Font Awesome 5.0.13 -->
   <script defer src="../assets/js/fontawesome-all.min.js"></script>
   <!-- Data Tables Style -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
   <!-- Datatables Style - Semantic UI -->
   <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/se/jszip-2.5.0/dt-1.10.18/b-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/datatables.min.css"/> -->
   <!-- Original? Taken from 'Staffing' -->
@@ -63,7 +61,7 @@
 </head>
 
 <body class="">
-  <div id="page" class="page">
+  <div id="page" class="page inner">
     <div class="page-main">
       <div class="header py-4">
         <div class="container">
@@ -687,6 +685,16 @@
       </div>
     </footer>
   </div>
+  <!-- Please Wait Loading Screen -->
+  <script src="../assets/js/please-wait.min.js"></script>
+  <script type="text/javascript">
+    window.loading_screen = window.pleaseWait({
+      logo: "../demo/brand/supercamp.svg",
+      backgroundColor: '#f5f7fb',
+      loadingHtml: "<p class='loading-message'>Preparing report...</p><div class='pixel-spinner'> <div class='pixel-spinner-inner'></div> </div>"
+    });
+  </script>
+
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
@@ -703,16 +711,6 @@
   <script src="../assets/js/papaparse.js"></script>
   <!-- Staff Members -->
   <script src="../assets/js/staffmembers.js"></script>
-  <!--
-   Cycle JSON data 
-  <script src="assets/js/cycle.js"></script>
-  jsPDF 
-  <script src="assets/js/jspdf.min.js"></script>
-  Script to generate pdf 
-  <script src="assets/js/generate-pdf.js"></script>
-  -->
-  <!-- Main Script -->
-  <!-- <script src="assets/js/main-compiled.js"></script> -->
 
   <!-- Polyfills? -
   <script src="https://wzrd.in/standalone/formdata-polyfill"></script>

@@ -1226,6 +1226,9 @@ function displayData() {
         });
     });
     constructTables();
+
+    // Close the loading screen
+    window.loading_screen.finish();
 }
 
 function splitHours(site, hoursWorked, totalHoursThisWeek, consecutiveDayCount, correspondingPersonObject, correspondingDateObject) {

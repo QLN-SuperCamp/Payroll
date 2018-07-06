@@ -1341,6 +1341,9 @@ function displayData() {
         });
     });
     constructTables();
+    
+    // Close the loading screen
+    window.loading_screen.finish();
 
 }
 

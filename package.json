@@ -30,6 +30,7 @@
     "npx": "^10.2.0"
   },
   "dependencies": {
-    "animate.css": "^3.6.1"
+    "animate.css": "^3.6.1",
+    "please-wait": "0.0.5"
   }
 }
