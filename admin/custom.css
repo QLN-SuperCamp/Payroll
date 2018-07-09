@@ -1,6 +1,10 @@
 .paginate_button {
-    padding: 0;
-    margin-left: 0;
-    border: none;
-    border-radius: 0;
+    padding: 0 !important;
+    margin-left: 0 important;
+    border: none important;
+    border-radius: 0 important;
+}
+
+.paginate_button:hover {
+    border: 0 !important;
 }
