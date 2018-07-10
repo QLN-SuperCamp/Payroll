@@ -583,7 +583,26 @@ function addStaffMembers() {
 
             var span = document.createElement("span");
             span.classList.add("custom-control-label");
-            span.innerHTML = "<em>(" + ("" + person.position1) + ")</em> " + ("" + person.firstName) + " " + ("" + person.lastName);
+            span.innerHTML = assignSpanLabel();
+
+            function assignSpanLabel() {
+                // If this person has a weird role thing
+                if (person.specialStaffMember !== undefined) {
+                    // If the current camp is the current person's weird camp
+                    var specificSpecialPerson = person.specialStaffMember.filter(function (staff) {
+                        return staff.id === person.firstName.concat(" ", person.lastName);
+                    });
+                    if (specificSpecialPerson[0].id === "Yolanda Drew") {
+                        if (currentCamp === "sw-camp1") {
+                            return "<em>(" + person.specialStaffMember[0].camps["sw-camp1"] + ")</em> " + person.firstName + " " + person.lastName;
+                        } else if (currentCamp === "villa-camp1") {
+                            return "<em>(" + person.specialStaffMember[0].camps["villa-camp1"] + ")</em> " + person.firstName + " " + person.lastName;
+                        }
+                    } else {
+                        return undefined;
+                    }
+                } else return "<em>(" + ("" + person.position1) + ")</em> " + ("" + person.firstName) + " " + ("" + person.lastName);
+            }
 
             if (group === staffMembersWorkingTL) {
                 checkbox.dataset.position = "TL";
@@ -1397,19 +1416,47 @@ function isChecked(checkbox) {
 }
 
 function isTL(person) {
-    return person.position1 === "TL" || person.position1 === "STL";
+    // Check to see if this person is a "Special Staff Member"
+    // * Special Staff Member would be someone working a different position at a different camp
+    // * See Yolanda Drew for a good example
+    if (person.specialStaffMember !== undefined) {
+        return person.specialStaffMember[0].camps["" + currentCamp] === "TL" || person.specialStaffMember[0].camps["" + currentCamp] === "STL";
+    } else {
+        return person.position1 === "TL" || person.position1 === "STL" || person.position2 === "TL" || person.position2 === "STL";
+    }
 }
 
 function isLC(person) {
-    return person.position1 === "LC";
+    // Check to see if this person is a "Special Staff Member"
+    // * Special Staff Member would be someone working a different position at a different camp
+    // * See Yolanda Drew for a good example
+    if (person.specialStaffMember !== undefined) {
+        return person.specialStaffMember[0].camps["" + currentCamp] === "LC";
+    } else {
+        return person.position1 === "LC";
+    }
 }
 
 function isWP(person) {
-    return person.position1 === "WP";
+    // Check to see if this person is a "Special Staff Member"
+    // * Special Staff Member would be someone working a different position at a different camp
+    // * See Yolanda Drew for a good example
+    if (person.specialStaffMember !== undefined) {
+        return person.specialStaffMember[0].camps["" + currentCamp] === "WP";
+    } else {
+        return person.position1 === "WP";
+    }
 }
 
 function isOC(person) {
-    return person.position1 === "OC";
+    // Check to see if this person is a "Special Staff Member"
+    // * Special Staff Member would be someone working a different position at a different camp
+    // * See Yolanda Drew for a good example
+    if (person.specialStaffMember !== undefined) {
+        return person.specialStaffMember[0].camps["" + currentCamp] === "OC";
+    } else {
+        return person.position1 === "OC";
+    }
 }
 
 function isInvalid(item) {
