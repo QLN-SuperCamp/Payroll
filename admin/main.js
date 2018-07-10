@@ -1,3 +1,6 @@
+// Log Rocket Store User Information
+var userInformation = {};
+
 // Variable to hold form data after DOM load
 var formData = [];
 
@@ -1341,7 +1344,10 @@ function displayData() {
         });
     });
     constructTables();
-    
+
+    // Get GeoLocation and Assign User Info
+    // assignUserInfo();
+
     // Close the loading screen
     window.loading_screen.finish();
 
@@ -1684,4 +1690,36 @@ function moneyString(value) {
     let finalString = "$" + " " + numberString;
 
     return finalString;
+}
+
+function assignUserInfo() {
+    function success(pos) {
+        var crd = pos.coords;
+
+        console.log('Your current position is:');
+        console.log(`Latitude : ${crd.latitude}`);
+        console.log(`Longitude: ${crd.longitude}`);
+        console.log(`More or less ${crd.accuracy} meters.`);
+    }
+
+    function error(err) {
+        console.warn(`ERROR(${err.code}): ${err.message}`);
+    }
+
+    navigator.geolocation.getCurrentPosition(success, error);
+
+
+    /*
+    userInformation.firstName = firstName.value;
+    userInformation.lastName = lastName.value;
+    userInformation.site = chosenSite;
+    userInformation.userName = firstName.value.concat(" ", lastName.value);
+
+    LogRocket.identify(userInformation.userName, {
+        userName: userInformation.userName,
+        firstName: userInformation.firstName,
+        lastName: userInformation.lastName,
+        site: userInformation.site
+    });
+    */
 }
