@@ -1218,6 +1218,13 @@ function assignUserInfo() {
     userInformation.lastName = lastName;
     userInformation.site = siteChosen;
     userInformation.userName = firstName.concat(" ", lastName);
+
+    LogRocket.identify(userInformation.userName, {
+        userName: userInformation.userName,
+        firstName: userInformation.firstName,
+        lastName: userInformation.lastName,
+        site: userInformation.site
+    });
 }
 
 function scrollToTLCard() {
