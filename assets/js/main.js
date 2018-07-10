@@ -1739,7 +1739,8 @@ function previewData() {
             regTLValue.id = "reg-tl-value";
             regTLValue.classList.add("form-control-plaintext");
             let workingTLString = workingTLs.join(", ");
-            let workingTLStringFinal = workingTLString.concat(" worked a total of ", hoursWorkedTL.value, " hours.");
+            // TODO: Change the rest of these things to <strong>
+            let workingTLStringFinal = "<strong>" + workingTLString.concat("</strong> worked a total of <strong>", hoursWorkedTL.value, "</strong> hours.");
             regTLValue.innerHTML = workingTLStringFinal;
             formGroup.appendChild(regTLValue);
             // Go through the exceptions container - Team Leaders
@@ -1810,7 +1811,7 @@ function previewData() {
                     let stringID = `${person.name}`.replace(" ", "-");
                     sickValue.id = `sick-value-${stringID}`;
                     sickValue.classList.add("form-control-plaintext");
-                    sickValue.innerHTML = person.name + " was sick for " + person.hours + " hours and " + person.minutes + " minutes.";
+                    sickValue.innerHTML = "<strong>" + person.name + "</strong> was sick for <strong>" + person.hours + "</strong> hours and <strong>" + person.minutes + "</strong> minutes.";
                     formGroup.appendChild(sickValue);
                 });
             } else {
@@ -1818,7 +1819,7 @@ function previewData() {
                 let noSickValue = document.createElement("div");
                 noSickValue.id = "no-sick-tl";
                 noSickValue.classList.add("form-control-plaintext");
-                noSickValue.innerHTML = "No Team Leader was sick on this day.";
+                noSickValue.innerHTML = "<em>No Team Leader was sick on this day</em>.";
                 formGroup.appendChild(noSickValue);
             }
         } else if (group === "LCWP") {
@@ -1837,7 +1838,7 @@ function previewData() {
             } else {
                 workingBothString = workingLCString.concat(" and ", workingWPString);
             }
-            let workingLCWPStringFinal = workingBothString.concat(" worked a total of ", hoursWorkedLCWP.value, " hours.");
+            let workingLCWPStringFinal = "<strong>" + workingBothString.concat("</strong> worked a total of <strong>", hoursWorkedLCWP.value, "</strong> hours.");
             regLCWPValue.innerHTML = workingLCWPStringFinal;
             formGroup.appendChild(regLCWPValue);
             // Go through the exceptions container - LCWPs
@@ -1908,7 +1909,7 @@ function previewData() {
                     let stringID = `${person.name}`.replace(" ", "-");
                     sickValue.id = `sick-value-${stringID}`;
                     sickValue.classList.add("form-control-plaintext");
-                    sickValue.innerHTML = person.name + " was sick for " + person.hours + " hours and " + person.minutes + " minutes.";
+                    sickValue.innerHTML = "<strong>" + person.name + "</strong> was sick for <strong>" + person.hours + "</strong> hours and <strong>" + person.minutes + "</strong> minutes.";
                     formGroup.appendChild(sickValue);
                 });
             } else {
@@ -1916,7 +1917,7 @@ function previewData() {
                 let noSickValue = document.createElement("div");
                 noSickValue.id = "no-sick-lcwp";
                 noSickValue.classList.add("form-control-plaintext");
-                noSickValue.innerHTML = "No Logistics Coordinator or Wellness Person was sick on this day.";
+                noSickValue.innerHTML = "<em>No Logistics Coordinator or Wellness Person was sick on this day</em>.";
                 formGroup.appendChild(noSickValue);
             }
         } else {
@@ -1924,13 +1925,13 @@ function previewData() {
             formLabel.id = "oc-label";
             ocColumn.appendChild(formGroup);
             // SW does not have an OC
-            if (chosenSite !== "sw") {
+            if (chosenSite === "stan") {
                 // Regular Office Coordinators
                 let regOCValue = document.createElement("div");
                 regOCValue.id = "reg-oc-value";
                 regOCValue.classList.add("form-control-plaintext");
                 let workingOCString = workingOCs.join(", ");
-                let workingOCStringFinal = workingOCString.concat(" worked a total of ", hoursWorkedOC.value, " hours.");
+                let workingOCStringFinal = "<strong>" + workingOCString.concat("</strong> worked a total of <strong>", hoursWorkedOC.value, "</strong> hours.");
                 regOCValue.innerHTML = workingOCStringFinal;
                 formGroup.appendChild(regOCValue);
                 // Go through the exceptions container - Office Coordinators
@@ -2001,7 +2002,7 @@ function previewData() {
                         let stringID = `${person.name}`.replace(" ", "-");
                         sickValue.id = `sick-value-${stringID}`;
                         sickValue.classList.add("form-control-plaintext");
-                        sickValue.innerHTML = person.name + " was sick for " + person.hours + " hours and " + person.minutes + " minutes.";
+                        sickValue.innerHTML = "<strong>" + person.name + "</strong> was sick for <strong>" + person.hours + "</strong> hours and <strong>" + person.minutes + "</strong> minutes.";
                         formGroup.appendChild(sickValue);
                     });
                 } else {
@@ -2009,14 +2010,26 @@ function previewData() {
                     let noSickValue = document.createElement("div");
                     noSickValue.id = "no-sick-oc";
                     noSickValue.classList.add("form-control-plaintext");
-                    noSickValue.innerHTML = "No Office Coordinator was sick on this day.";
+                    noSickValue.innerHTML = "<em>No Office Coordinator was sick on this day</em>.";
                     formGroup.appendChild(noSickValue);
                 }
-            } else {
+            } else if (chosenSite === "sw") {
                 let noOCValue = document.createElement("div");
                 noOCValue.id = "no-oc-value";
                 noOCValue.classList.add("form-control-plaintext");
                 noOCValue.innerHTML = `<em>Southwestern University does not have an Office Coordinator.</em>`;
+                formGroup.appendChild(noOCValue);
+            } else if (chosenSite === "villa") {
+                let noOCValue = document.createElement("div");
+                noOCValue.id = "no-oc-value";
+                noOCValue.classList.add("form-control-plaintext");
+                noOCValue.innerHTML = `<em>Villanova University does not have an Office Coordinator.</em>`;
+                formGroup.appendChild(noOCValue);
+            } else if (chosenSite === "ucf") {
+                let noOCValue = document.createElement("div");
+                noOCValue.id = "no-oc-value";
+                noOCValue.classList.add("form-control-plaintext");
+                noOCValue.innerHTML = `<em>University of Central Florida does not have an Office Coordinator.</em>`;
                 formGroup.appendChild(noOCValue);
             }
         }
