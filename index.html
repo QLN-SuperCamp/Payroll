@@ -2,11 +2,25 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <!-- Log Rocket -->
+  <!-- Log Rocket DEVELOPMENT -->
   <script src="https://cdn.logrocket.io/LogRocket.min.js" crossorigin="anonymous"></script>
   <script>
-    window.LogRocket && window.LogRocket.init('itdpxx/payroll-form-prod');
+    window.LogRocket && window.LogRocket.init('itdpxx/payroll-form-dev');
+    LogRocket.identify('90c6f703-38de-483d-ab08-a1021a70f77b', {
+      name: 'Alex Lee'
+    });
   </script>
+
+  <!-- Log Rocket PRODUCTION -->
+  <!--
+  <script>
+    window.LogRocket && window.LogRocket.init('itdpxx/payroll-form-prod');
+    LogRocket.identify('90c6f703-38de-483d-ab08-a1021a70f77b', {
+      name: 'Alex Lee'
+    });
+  </script>
+-->
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -753,6 +767,9 @@
     </footer>
   </div>
   <!-- Javascript -->
+   <!-- JQuery -->
+   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+   crossorigin="anonymous"></script>
   <!-- Smoothscroll Polyfill -->
   <script src="assets/js/smoothscroll.min.js"></script>
   <!-- Papa Parse -->
