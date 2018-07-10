@@ -1214,10 +1214,10 @@ function showPositionCards() {
 }
 
 function assignUserInfo() {
-    userInformation.firstName = firstName;
-    userInformation.lastName = lastName;
+    userInformation.firstName = firstName.value;
+    userInformation.lastName = lastName.value;
     userInformation.site = siteChosen;
-    userInformation.userName = firstName.concat(" ", lastName);
+    userInformation.userName = firstName.value.concat(" ", lastName.value);
 
     LogRocket.identify(userInformation.userName, {
         userName: userInformation.userName,
