@@ -1,393 +1,110 @@
-var staffMembersAll = [{
-        firstName: "Jules",
-        lastName: "Damey-Fernandez",
-        campsWorking: ["sw-camp1", "sw-camp2"],
-        position1: "STL",
-        position2: ""
-    },
-    {
-        firstName: "Gary",
-        lastName: "Clack",
-        campsWorking: ["sw-camp1", "sw-camp2"],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Kayla",
-        lastName: "Miller",
-        campsWorking: ["sw-camp1", "sw-camp2"],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Yolanda",
-        lastName: "Drew",
-        campsWorking: ["sw-camp1", "sw-camp2", "stan-camp5", "stan-camp6"],
-        position1: "LC",
-        position2: ""
-    },
-    {
-        firstName: "Jordan",
-        lastName: "Wesson",
-        campsWorking: ["sw-camp1"],
-        position1: "WP",
-        position2: ""
-    },
-    {
-        firstName: "Jamila",
-        lastName: "Ford",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3", "stan-camp4", "stan-camp5"],
-        position1: "STL",
-        position2: ""
-    },
-    {
-        firstName: "Divine",
-        lastName: "Rolle",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3", "stan-camp4", "stan-camp5", "stan-camp6"],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Noah",
-        lastName: "Fedler",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3", "stan-camp4"],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Trenton",
-        lastName: "Barnett",
-        campsWorking: ["stan-camp1", "stan-camp3", "stan-camp5", "stan-camp6"],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Desmond",
-        lastName: "Yalom",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3", "stan-camp4", "stan-camp5"],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Douglas",
-        lastName: "Hearns",
-        campsWorking: ["stan-camp1"],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Derrick",
-        lastName: "Celestine",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3", "stan-camp4"],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "James",
-        lastName: "McDonald",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3"],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Claire",
-        lastName: "Levenson",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3", "stan-camp4", "stan-camp5", "stan-camp6"],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Elise",
-        lastName: "Simmons",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3", "stan-camp4", "stan-camp5", "stan-camp6"],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Nina",
-        lastName: "Fleck",
-        campsWorking: ['stan-camp1', 'stan-camp2', 'stan-camp3', 'stan-camp4', 'stan-camp5', 'stan-camp6'],
-        position1: "TL",
-        position2: ""
-    },
-    {
-        firstName: "Alina",
-        lastName: "Briley",
-        campsWorking: ["stan-camp1", "stan-camp2"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Kate",
-        lastName: "Ward",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3", "stan-camp4", "stan-camp5"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Erin",
-        lastName: "Janov",
-        campsWorking: ["stan-camp1", "stan-camp3", "stan-camp4", "stan-camp5"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Frederique",
-        lastName: "Desrosiers",
-        campsWorking: ["stan-camp1"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Alexandra",
-        lastName: "Desrosiers",
-        campsWorking: ["stan-camp1"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Nikta",
-        lastName: "Shahbaz",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3", "stan-camp5", "stan-camp6"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Raqqayah",
-        lastName: "Simmons",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3", "stan-camp4"],
-        position1: "LC",
-        position2: ''
-    },
-    {
-        firstName: "Flora",
-        lastName: "Moore",
-        campsWorking: ["stan-camp1", "stan-camp2", "stan-camp3"],
-        position1: "OC",
-        position2: ''
-    },
-    {
-        firstName: "Elizabeth",
-        lastName: "Fung",
-        campsWorking: ["stan-camp4", "stan-camp5", "stan-camp6"],
-        position1: "OC",
-        position2: ''
-    },
-    {
-        firstName: "Shayla",
-        lastName: "Nary",
-        campsWorking: ['stan-camp1', 'stan-camp2', 'stan-camp3', 'stan-camp4', 'stan-camp5'],
-        position1: "WP",
-        position2: ''
-    },
-    {
-        firstName: "Luis",
-        lastName: "Luevanos",
-        campsWorking: ["stan-camp2", "stan-camp3", "stan-camp4", "stan-camp5"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Michael",
-        lastName: "Andrade",
-        campsWorking: ['stan-camp2', 'stan-camp3', 'stan-camp4', 'stan-camp5', 'stan-camp6'],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Molly",
-        lastName: "Brantingham",
-        campsWorking: ["stan-camp2", "stan-camp3", "stan-camp4"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Isabella",
-        lastName: "Borbolla",
-        campsWorking: ["stan-camp2", "stan-camp3"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Lauren",
-        lastName: "Ihle",
-        campsWorking: ["stan-camp2", "stan-camp3", "stan-camp4"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Laci",
-        lastName: "Jackson",
-        campsWorking: ["stan-camp4", "stan-camp5", "stan-camp6"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Nathan",
-        lastName: "Tung",
-        campsWorking: ["stan-camp4", "stan-camp5"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Nathan",
-        lastName: "Tung",
-        campsWorking: ["stan-camp6"],
-        position1: "STL",
-        position2: ''
-    },
-    {
-        firstName: "Jennifer",
-        lastName: "Gerardi",
-        campsWorking: ["stan-camp3", "stan-camp4", "stan-camp5", "stan-camp6"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Alexis",
-        lastName: "Hagan",
-        campsWorking: ["stan-camp5"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Isabella",
-        lastName: "Stenz",
-        campsWorking: ["stan-camp5", "stan-camp6"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Alexis",
-        lastName: "Hagan",
-        campsWorking: ["ucf-camp1", "ucf-camp2"],
-        position1: "STL",
-        position2: ''
-    },
-    {
-        firstName: "Alexis",
-        lastName: "Hagan",
-        campsWorking: ["sw-camp1"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Alex",
-        lastName: "Abbott",
-        campsWorking: ["ucf-camp1", "ucf-camp2"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Charles",
-        lastName: "Garza",
-        campsWorking: ["ucf-camp1", "ucf-camp2"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Laci",
-        lastName: "Jackson",
-        campsWorking: ["ucf-camp1", "ucf-camp2"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Kayla",
-        lastName: "Jackson",
-        campsWorking: ["ucf-camp1", "ucf-camp2"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Alicyn",
-        lastName: "Kitamura",
-        campsWorking: ["ucf-camp1", "ucf-camp2"],
-        position1: "LC",
-        position2: ''
-    },
-    {
-        firstName: "Luzmaria",
-        lastName: "Estalla",
-        campsWorking: ["ucf-camp1", "ucf-camp2"],
-        position1: "WP",
-        position2: ''
-    },
-    {
-        firstName: "Isabella",
-        lastName: "Stenz",
-        campsWorking: ["villa-camp1", "villa-camp2"],
-        position1: "STL",
-        position2: ''
-    },
-    {
-        firstName: "Trace",
-        lastName: "Craver",
-        campsWorking: ["villa-camp1", "villa-camp2"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Trace",
-        lastName: "Craver",
-        campsWorking: ["sw-camp1"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Adam",
-        lastName: "Chan",
-        campsWorking: ["villa-camp1", "villa-camp2"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Maxwell",
-        lastName: "Little",
-        campsWorking: ["villa-camp1"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Katrina",
-        lastName: "Hoefflinger",
-        campsWorking: ["villa-camp1", "villa-camp2"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Deja",
-        lastName: "Washington",
-        campsWorking: ["villa-camp1", "villa-camp2"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Rachel",
-        lastName: "Dillman",
-        campsWorking: ["villa-camp1"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Kelly",
-        lastName: "Castleberry",
-        campsWorking: ["villa-camp1"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Viva",
-        lastName: "Sandoval",
-        campsWorking: ["villa-camp1"],
-        position1: "TL",
-        position2: ''
-    },
-    {
-        firstName: "Jordan",
-        lastName: "Wesson",
-        campsWorking: ["villa-camp1", "villa-camp2"],
-        position1: "WP",
-        position2: ''
-    }
-];
+// * "staffmembers.js" is a file to hold data for each staff member and what camps they are working.
+// * This data is to be used in the creation of individual checkboxes in the Payroll Form
+// * Note: This is different than the Payroll Admin, where staff data is pulled from "2018staff.csv".
+// * "2018staff.csv" is used here to generate initial objects for each staff member
+
+
+// CampMinder Report - All 2018 Staff Members
+var allStaffReport = "admin/2018staff.csv";
+var allStaffReportArray = [];
+var staffMembersAll = [];
+$.get(allStaffReport, function (data) {
+    var csvDatasets = Papa.parse(data, {
+        header: true
+    });
+    allStaffReportArray = csvDatasets;
+    
+    // Each staff member
+    allStaffReportArray.data.forEach(function (staffMember) {
+        var personObject = {};
+        // Names
+        personObject.firstName = staffMember["First Name"];
+        personObject.lastName = staffMember["Last Name"];
+        // Camps Working
+        var camps = [staffMember.Camp1Code, staffMember["Camp1Code(2)"], staffMember.Camp2Code, staffMember["Camp2Code(2)"], staffMember.Camp3Code, staffMember.Camp4Code, staffMember.Camp5Code, staffMember.Camp6Code];
+        var campsWorkingCodes = camps.filter(camp => camp.length > 0);
+        var campsWorking = translateCampCodes(campsWorkingCodes);
+        personObject.campsWorking = campsWorking;
+        // Position(s)
+        var position1 = getPosition(staffMember, 1);
+        var position2 = getPosition(staffMember, 2);
+        personObject.position1 = position1;
+        personObject.position2 = position2;
+
+        var fullName = personObject.firstName.concat(" ", personObject.lastName);
+        checkSpecialCases(fullName);
+
+        function getPosition(staffMember, positionNumber) {
+            var positionDefinitions = {
+                "Team Leader": "TL",
+                "Senior Team Leader": "STL",
+                "Logistics Coordinator": "LC",
+                "Wellness Person": "WP",
+                "Office Coordinator": "OC",
+                "": ""
+            };
+
+            var positionProperty = "";
+            var abbreviatedPosition = "";
+
+            if (positionNumber === 1) {
+                positionProperty = staffMember.Position;
+            } else if (positionNumber === 2) {
+                positionProperty = staffMember["Position 2"];
+            }
+
+
+            abbreviatedPosition = positionDefinitions[`${positionProperty}`];
+
+            return abbreviatedPosition;
+        }
+
+        function translateCampCodes(campCodesArray) {
+            var campCodeDefinitions = {
+                "STS118": "stan-camp1",
+                "STJ118": "stan-camp2",
+                "STS218": "stan-camp3",
+                "STJ218": "stan-camp4",
+                "STS318": "stan-camp5",
+                "STS418": "stan-camp6",
+                "TXS118 / TXJ118": "sw-camp1",
+                "TXQA118": "sw-camp2",
+                "FLJ118": "ucf-camp1",
+                "FLS118": "ucf-camp2",
+                "PAS118": "villa-camp1",
+                "PAJ118": "villa-camp2"
+            };
+
+            var translatedCampCodes = [];
+
+            campCodesArray.forEach(function (campCode) {
+                var translatedCampCode = campCodeDefinitions[`${campCode}`];
+                translatedCampCodes.push(translatedCampCode);
+            });
+
+            return translatedCampCodes;
+        }
+
+        function checkSpecialCases(fullName) {
+            var specialCaseStaff = [
+                {
+                    id: "Yolanda Drew",
+                    camps: {
+                        "sw-camp1": "LC",
+                        "villa-camp1": "TL"
+                    }
+                }
+            ];
+        
+
+            var specialStaffMember = specialCaseStaff.filter(person => (person.id === fullName));
+
+            if (specialStaffMember.length > 0) {
+                // There was a match with the specailCaseStaff
+                personObject.specialStaffMember = specialStaffMember;
+            }
+        }
+
+        staffMembersAll.push(personObject);
+    });
+});
