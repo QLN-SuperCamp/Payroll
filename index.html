@@ -16,18 +16,11 @@
   <!-- Log Rocket PRODUCTION -->
   <script>
     window.LogRocket && window.LogRocket.init('itdpxx/payroll-form-prod');
-    LogRocket.identify('90c6f703-38de-483d-ab08-a1021a70f77b', {
-      name: 'Alex Lee'
-    });
-    LogRocket.identify('7c0d3d1a-dfcf-478c-8607-e6f7f2b3fcb6', {
-      name: 'Alex Lee'
-    });
-    LogRocket.identify('6aa14136-bfc6-4ae1-b716-1486ab6bf859', {
-      name: 'Kay Routh',
-      site: 'UCF'
-    });
-    LogRocket.identify('90c6f703-38de-483d-ab08-a1021a70f77b', {
-      name: 'Alex Lee'
+    LogRocket.identify(userInformation.userName, {
+      userName: userInformation.userName,
+      firstName: userInformation.firstName,
+      lastName: userInformation.lastName,
+      site: userInformation.site
     });
   </script>
 
@@ -777,9 +770,9 @@
     </footer>
   </div>
   <!-- Javascript -->
-   <!-- JQuery -->
-   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-   crossorigin="anonymous"></script>
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
   <!-- Smoothscroll Polyfill -->
   <script src="assets/js/smoothscroll.min.js"></script>
   <!-- Papa Parse -->

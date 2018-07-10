@@ -1,3 +1,6 @@
+// Log Rocket Store User Information
+var userInformation = {};
+
 // Declare the current camp variable
 var currentCamp = "none";
 var currentCampValue = "";
@@ -1201,12 +1204,20 @@ function showPositionCards() {
         });
         hideThis(continueButtonContainer);
         setTimeout(scrollToTLCard, 1500);
+        assignUserInfo();
     } else {
         let invalidItems = isSiteInfoValid();
         invalidItems.forEach(function (invalidItem) {
             invalidItem.classList.add("is-invalid");
         });
     }
+}
+
+function assignUserInfo() {
+    userInformation.firstName = firstName;
+    userInformation.lastName = lastName;
+    userInformation.site = siteChosen;
+    userInformation.userName = firstName.concat(" ", lastName);
 }
 
 function scrollToTLCard() {
