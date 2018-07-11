@@ -1,3 +1,5 @@
+// TODO: Switch out scroll library and replace with native browser scrollIntoView API
+
 // Log Rocket Store User Information
 var userInformation = {};
 
@@ -649,128 +651,148 @@ function checkExceptions() {
     var allCheckboxes = [tlCheckboxes, lcwpCheckboxes, ocCheckboxes];
 
     allCheckboxes.forEach(function (checkboxGroup) {
-        if (checkboxGroup.some(isUnchecked)) {
-            // Clear the array of unchecked checkboxes
-            // FIX?
-            var checkboxes = checkboxGroup;
+        var name = "";
+        if (checkboxGroup === tlCheckboxes) {
+            name = "tlCheckboxes";
+        } else if (checkboxGroup === lcwpCheckboxes) {
+            name = "lcwpCheckboxes";
+        } else if (checkboxGroup === ocCheckboxes) {
+            name = "ocCheckboxes";
+        }
+        // ! Current error of dataset is undefined
+        // ! Suspect it is happening because ocCheckboxes is an array of length = 0 for Villanova (and SW, UCF)
+        // * Adding check to see if the length is greater than 0
+        if (checkboxGroup.length > 0) {
+            if (checkboxGroup.some(isUnchecked)) {
+                // Clear the array of unchecked checkboxes
+                // FIX?
+                var checkboxes = checkboxGroup;
 
-            if (checkboxGroup[0].dataset.position === "TL") {
-                // Show the Title and the Container itself
-                showThis(exceptionsTitleTL, exceptionsWarningTL, exceptionsTLContainer);
-            } else if (checkboxGroup[0].dataset.position === "LCWP") {
-                // Show the Title and the Container itself
-                showThis(exceptionsTitleLCWP, exceptionsWarningLCWP, exceptionsLCWPContainer);
-            } else {
-                // Show the Title and the Container itself
-                showThis(exceptionsTitleOC, exceptionsWarningOC, exceptionsOCContainer);
-            }
-
-            // Go through checkboxes, if one is unchecked, add it to the array
-            checkboxes.forEach(function (checkbox) {
-                if (checkbox.checked === false) {
-                    if (checkboxGroup[0].dataset.position === "TL") {
-                        uncheckedTLCheckboxes.push(checkbox);
-                    } else if (checkboxGroup[0].dataset.position === "LCWP") {
-                        uncheckedLCWPCheckboxes.push(checkbox);
-                    } else {
-                        uncheckedOCCheckboxes.push(checkbox);
-                    }
+                if (checkboxGroup[0].dataset.position === "TL") {
+                    // Show the Title and the Container itself
+                    showThis(exceptionsTitleTL, exceptionsWarningTL, exceptionsTLContainer);
+                } else if (checkboxGroup[0].dataset.position === "LCWP") {
+                    // Show the Title and the Container itself
+                    showThis(exceptionsTitleLCWP, exceptionsWarningLCWP, exceptionsLCWPContainer);
+                } else {
+                    // Show the Title and the Container itself
+                    showThis(exceptionsTitleOC, exceptionsWarningOC, exceptionsOCContainer);
                 }
-            });
 
-            var uncheckedCheckboxesGroup = [uncheckedTLCheckboxes, uncheckedLCWPCheckboxes, uncheckedOCCheckboxes];
-
-            // Go through unchecked staff array, and in the container, add a label and input boxes
-            uncheckedCheckboxesGroup.forEach(function (group) {
-                if (group.length > 0) {
-                    if (group[0].dataset.position === "TL") {
-                        // TESTING - Clear container first
-                        exceptionsTLContainer.innerHTML = "";
-                    } else if (group[0].dataset.position === "LCWP") {
-                        // TESTING - Clear container first
-                        exceptionsLCWPContainer.innerHTML = "";
-                    } else {
-                        // TESTING - Clear container first
-                        exceptionsOCContainer.innerHTML = "";
-                    }
-
-                    group.forEach(function (checkbox) {
-                        var formLabel = document.createElement("div");
-                        formLabel.classList.add("form-label");
-                        formLabel.innerHTML = "How long did " + checkbox.name + " work for?";
-
-                        var inputGroup = document.createElement("div");
-                        inputGroup.classList.add("input-group");
-                        inputGroup.name = checkbox.name;
-
-                        var hoursInput = document.createElement("input");
-                        hoursInput.type = "number";
-                        hoursInput.min = "0";
-                        hoursInput.max = "24";
-                        hoursInput.id = "exception-hours-" + checkbox.value;
-                        hoursInput.classList.add("form-control");
-                        //hoursInput.placeholder = "How many hours were worked?";
-                        // Need to add 'aria-describedby?'
-
-                        var hoursSpanGroup = document.createElement("span");
-                        hoursSpanGroup.classList.add("input-group-append");
-                        hoursSpanGroup.id = "hours-span-group-" + group.indexOf(checkbox);
-
-                        var hoursSpan = document.createElement("span");
-                        hoursSpan.classList.add("input-group-text");
-                        hoursSpan.innerHTML = "hours";
-
-                        var minutesInput = document.createElement("input");
-                        minutesInput.type = "number";
-                        minutesInput.min = "0";
-                        minutesInput.max = "45";
-                        minutesInput.step = "15";
-                        minutesInput.id = "exception-minutes-" + checkbox.value;
-                        minutesInput.classList.add("form-control");
-                        //minutesInput.placeholder = "How many minutes were worked?";
-
-                        var minutesSpanGroup = document.createElement("span");
-                        minutesSpanGroup.classList.add("input-group-append");
-                        minutesSpanGroup.id = "minutes-span-group-" + group.indexOf(checkbox);
-
-                        var minutesSpan = document.createElement("span");
-                        minutesSpan.classList.add("input-group-text");
-                        minutesSpan.innerHTML = "minutes";
-
-                        if (checkbox.dataset.position === "TL") {
-                            exceptionsTLContainer.appendChild(formLabel);
-                            exceptionsTLContainer.appendChild(inputGroup);
-                        } else if (checkbox.dataset.position === "LCWP") {
-                            exceptionsLCWPContainer.appendChild(formLabel);
-                            exceptionsLCWPContainer.appendChild(inputGroup);
+                // Go through checkboxes, if one is unchecked, add it to the array
+                checkboxes.forEach(function (checkbox) {
+                    if (checkbox.checked === false) {
+                        if (checkboxGroup[0].dataset.position === "TL") {
+                            uncheckedTLCheckboxes.push(checkbox);
+                        } else if (checkboxGroup[0].dataset.position === "LCWP") {
+                            uncheckedLCWPCheckboxes.push(checkbox);
                         } else {
-                            exceptionsOCContainer.appendChild(formLabel);
-                            exceptionsOCContainer.appendChild(inputGroup);
+                            uncheckedOCCheckboxes.push(checkbox);
+                        }
+                    }
+                });
+
+                var uncheckedCheckboxesGroup = [uncheckedTLCheckboxes, uncheckedLCWPCheckboxes, uncheckedOCCheckboxes];
+
+                // Go through unchecked staff array, and in the container, add a label and input boxes
+                uncheckedCheckboxesGroup.forEach(function (group) {
+                    if (group.length > 0) {
+                        if (group[0].dataset.position === "TL") {
+                            // TESTING - Clear container first
+                            exceptionsTLContainer.innerHTML = "";
+                        } else if (group[0].dataset.position === "LCWP") {
+                            // TESTING - Clear container first
+                            exceptionsLCWPContainer.innerHTML = "";
+                        } else {
+                            // TESTING - Clear container first
+                            exceptionsOCContainer.innerHTML = "";
                         }
 
-                        inputGroup.appendChild(hoursInput);
-                        inputGroup.appendChild(hoursSpanGroup);
-                        hoursSpanGroup.appendChild(hoursSpan);
-                        inputGroup.appendChild(minutesInput);
-                        inputGroup.appendChild(minutesSpanGroup);
-                        minutesSpanGroup.appendChild(minutesSpan);
-                    });
+                        group.forEach(function (checkbox) {
+                            var formLabel = document.createElement("div");
+                            formLabel.classList.add("form-label");
+                            formLabel.innerHTML = "How long did " + checkbox.name + " work for?";
+
+                            var inputGroup = document.createElement("div");
+                            inputGroup.classList.add("input-group");
+                            inputGroup.name = checkbox.name;
+
+                            var hoursInput = document.createElement("input");
+                            hoursInput.type = "number";
+                            hoursInput.min = "0";
+                            hoursInput.max = "24";
+                            hoursInput.id = "exception-hours-" + checkbox.value;
+                            hoursInput.classList.add("form-control", "verify-this");
+                            hoursInput.required = "required";
+                            //hoursInput.placeholder = "How many hours were worked?";
+                            // Need to add 'aria-describedby?'
+
+                            var hoursSpanGroup = document.createElement("span");
+                            hoursSpanGroup.classList.add("input-group-append");
+                            hoursSpanGroup.id = "hours-span-group-" + group.indexOf(checkbox);
+
+                            var hoursSpan = document.createElement("span");
+                            hoursSpan.classList.add("input-group-text");
+                            hoursSpan.innerHTML = "hours";
+
+                            var minutesInput = document.createElement("input");
+                            minutesInput.type = "number";
+                            minutesInput.min = "0";
+                            minutesInput.max = "45";
+                            minutesInput.step = "15";
+                            minutesInput.id = "exception-minutes-" + checkbox.value;
+                            minutesInput.classList.add("form-control", "verify-this");
+                            minutesInput.required = "required";
+                            //minutesInput.placeholder = "How many minutes were worked?";
+
+                            var minutesSpanGroup = document.createElement("span");
+                            minutesSpanGroup.classList.add("input-group-append");
+                            minutesSpanGroup.id = "minutes-span-group-" + group.indexOf(checkbox);
+
+                            var minutesSpan = document.createElement("span");
+                            minutesSpan.classList.add("input-group-text");
+                            minutesSpan.innerHTML = "minutes";
+
+                            if (checkbox.dataset.position === "TL") {
+                                exceptionsTLContainer.appendChild(formLabel);
+                                exceptionsTLContainer.appendChild(inputGroup);
+                            } else if (checkbox.dataset.position === "LCWP") {
+                                exceptionsLCWPContainer.appendChild(formLabel);
+                                exceptionsLCWPContainer.appendChild(inputGroup);
+                            } else {
+                                exceptionsOCContainer.appendChild(formLabel);
+                                exceptionsOCContainer.appendChild(inputGroup);
+                            }
+
+                            inputGroup.appendChild(hoursInput);
+                            inputGroup.appendChild(hoursSpanGroup);
+                            hoursSpanGroup.appendChild(hoursSpan);
+                            inputGroup.appendChild(minutesInput);
+                            inputGroup.appendChild(minutesSpanGroup);
+                            minutesSpanGroup.appendChild(minutesSpan);
+                        });
+                    }
+                });
+            } else if (checkboxGroup.every(isChecked)) {
+                // No exceptions
+                // Hide the title and the warning
+                if (checkboxGroup[0].dataset.position === "TL") {
+                    hideThis(exceptionsTitleTL, exceptionsWarningTL, exceptionsTLContainer);
+                } else if (checkboxGroup[0].dataset.position === "LCWP") {
+                    hideThis(exceptionsTitleLCWP, exceptionsWarningLCWP, exceptionsLCWPContainer);
+                } else {
+                    hideThis(exceptionsTitleOC, exceptionsWarningOC, exceptionsOCContainer);
                 }
-            });
-        } else if (checkboxGroup.every(isChecked)) {
-            // No exceptions
-            // Hide the title and the warning
-            if (checkboxGroup[0].dataset.position === "TL") {
-                hideThis(exceptionsTitleTL, exceptionsWarningTL, exceptionsTLContainer);
-            } else if (checkboxGroup[0].dataset.position === "LCWP") {
-                hideThis(exceptionsTitleLCWP, exceptionsWarningLCWP, exceptionsLCWPContainer);
             } else {
-                hideThis(exceptionsTitleOC, exceptionsWarningOC, exceptionsOCContainer);
+                //hideThis(allExceptionsTitles);
+                //hideThis(allExceptionsContainers);
+                // Possibly need to worry about clearing those values!?
             }
         } else {
-            //hideThis(allExceptionsTitles);
-            //hideThis(allExceptionsContainers);
-            // Possibly need to worry about clearing those values!?
+            console.group("Empty CheckboxGroup");
+            console.warn("checkboxGroup is empty.");
+            console.log(name);
+            console.groupEnd();
         }
     });
 }
@@ -1055,7 +1077,8 @@ function checkSick() {
                         hoursInput.type = "number";
                         hoursInput.min = "0";
                         hoursInput.max = "8";
-                        hoursInput.classList.add("form-control");
+                        hoursInput.classList.add("form-control", "verify-this");
+                        hoursInput.required = "required";
                         //hoursInput.placeholder = "How many hours were worked?";
                         // Need to add 'aria-describedby?'
 
@@ -1072,7 +1095,8 @@ function checkSick() {
                         minutesInput.min = "0";
                         minutesInput.max = "45";
                         minutesInput.step = "15";
-                        minutesInput.classList.add("form-control");
+                        minutesInput.classList.add("form-control", "verify-this");
+                        minutesInput.required = "required";
                         //minutesInput.placeholder = "How many minutes were worked?";
 
                         var minutesSpanGroup = document.createElement("span");
@@ -1512,6 +1536,8 @@ function clearThis(thingsToClear) {
 }
 
 function previewData() {
+    // ! Issue with not pushing to exceptionTLs, exceptionTLsInfo (etc...)
+    // ! The exceptionTLs.push is called after the validInput() call
     // Build preview card
     var previewCardDiv = document.createElement("div");
     previewCardDiv.id = "preview-card";
@@ -1681,6 +1707,7 @@ function previewData() {
 
     // Clear the list of staff members. This is to ensure that you don't have double values when
     // a user goes back and fixes a mistake after "previewing" the first time.
+    // ? This may be where the Issue #3 stems from. Not sure.
     clearThis([workingTLs, exceptionTLs, sickTLs, workingLCs, exceptionLCs, workingWPs, exceptionWPs, sickLCWPs, workingOCs, exceptionOCs, sickOCs]);
 
     // Team Leaders
@@ -1741,7 +1768,6 @@ function previewData() {
             regTLValue.id = "reg-tl-value";
             regTLValue.classList.add("form-control-plaintext");
             var workingTLString = workingTLs.join(", ");
-            // TODO: Change the rest of these things to <strong>
             var workingTLStringFinal = "<strong>" + workingTLString.concat("</strong> worked a total of <strong>", hoursWorkedTL.value, "</strong> hours.");
             regTLValue.innerHTML = workingTLStringFinal;
             formGroup.appendChild(regTLValue);
@@ -1763,6 +1789,28 @@ function previewData() {
                             }
                         }
                     });
+                    // ? Possible fix: Check if invalid here, before you push it to the object
+                    nodeBig.childNodes.forEach(function (nodeSmall) {
+                        // If the child is a form control
+                        if (nodeSmall.classList.contains("form-control")) {
+                            if (nodeSmall.max === "24") {
+                                // Check if "Hours" is empty
+                                if (nodeSmall.value === "") {
+                                    nodeSmall.classList.add("is-invalid");
+                                } else {
+                                    nodeSmall.classList.remove("is-invalid");
+                                }
+                            } else if (nodeSmall.max === "45") {
+                                // Check if "Minutes" is empty
+                                if (nodeSmall.value === "") {
+                                    nodeSmall.classList.add("is-invalid");
+                                } else {
+                                    nodeSmall.classList.remove("is-invalid");
+                                }
+                            }
+                        }
+                    });
+
                     // Push object to info array
                     exceptionTLsInfo.push({
                         name: exceptionNameTL,
@@ -1796,6 +1844,27 @@ function previewData() {
                                     sickHoursTL = nodeSmall.value;
                                 } else if (nodeSmall.max === "45") {
                                     sickMinutesTL = nodeSmall.value;
+                                }
+                            }
+                        });
+                        // ? Possible fix: Check if invalid here, before you push it to the object
+                        nodeBig.childNodes.forEach(function (nodeSmall) {
+                            // If the child is a form control
+                            if (nodeSmall.classList.contains("form-control")) {
+                                if (nodeSmall.max === "8") {
+                                    // Check if "Hours" is empty
+                                    if (nodeSmall.value === "") {
+                                        nodeSmall.classList.add("is-invalid");
+                                    } else {
+                                        nodeSmall.classList.remove("is-invalid");
+                                    }
+                                } else if (nodeSmall.max === "45") {
+                                    // Check if "Minutes" is empty
+                                    if (nodeSmall.value === "") {
+                                        nodeSmall.classList.add("is-invalid");
+                                    } else {
+                                        nodeSmall.classList.remove("is-invalid");
+                                    }
                                 }
                             }
                         });
@@ -1861,6 +1930,27 @@ function previewData() {
                             }
                         }
                     });
+                    // ? Possible fix: Check if invalid here, before you push it to the object
+                    nodeBig.childNodes.forEach(function (nodeSmall) {
+                        // If the child is a form control
+                        if (nodeSmall.classList.contains("form-control")) {
+                            if (nodeSmall.max === "24") {
+                                // Check if "Hours" is empty
+                                if (nodeSmall.value === "") {
+                                    nodeSmall.classList.add("is-invalid");
+                                } else {
+                                    nodeSmall.classList.remove("is-invalid");
+                                }
+                            } else if (nodeSmall.max === "45") {
+                                // Check if "Minutes" is empty
+                                if (nodeSmall.value === "") {
+                                    nodeSmall.classList.add("is-invalid");
+                                } else {
+                                    nodeSmall.classList.remove("is-invalid");
+                                }
+                            }
+                        }
+                    });
                     // Push object to info array
                     exceptionLCWPsInfo.push({
                         name: exceptionNameLCWP,
@@ -1894,6 +1984,27 @@ function previewData() {
                                     sickHoursLCWP = nodeSmall.value;
                                 } else if (nodeSmall.max === "45") {
                                     sickMinutesLCWP = nodeSmall.value;
+                                }
+                            }
+                        });
+                        // ? Possible fix: Check if invalid here, before you push it to the object
+                        nodeBig.childNodes.forEach(function (nodeSmall) {
+                            // If the child is a form control
+                            if (nodeSmall.classList.contains("form-control")) {
+                                if (nodeSmall.max === "8") {
+                                    // Check if "Hours" is empty
+                                    if (nodeSmall.value === "") {
+                                        nodeSmall.classList.add("is-invalid");
+                                    } else {
+                                        nodeSmall.classList.remove("is-invalid");
+                                    }
+                                } else if (nodeSmall.max === "45") {
+                                    // Check if "Minutes" is empty
+                                    if (nodeSmall.value === "") {
+                                        nodeSmall.classList.add("is-invalid");
+                                    } else {
+                                        nodeSmall.classList.remove("is-invalid");
+                                    }
                                 }
                             }
                         });
@@ -1954,6 +2065,27 @@ function previewData() {
                                 }
                             }
                         });
+                        // ? Possible fix: Check if invalid here, before you push it to the object
+                        nodeBig.childNodes.forEach(function (nodeSmall) {
+                            // If the child is a form control
+                            if (nodeSmall.classList.contains("form-control")) {
+                                if (nodeSmall.max === "24") {
+                                    // Check if "Hours" is empty
+                                    if (nodeSmall.value === "") {
+                                        nodeSmall.classList.add("is-invalid");
+                                    } else {
+                                        nodeSmall.classList.remove("is-invalid");
+                                    }
+                                } else if (nodeSmall.max === "45") {
+                                    // Check if "Minutes" is empty
+                                    if (nodeSmall.value === "") {
+                                        nodeSmall.classList.add("is-invalid");
+                                    } else {
+                                        nodeSmall.classList.remove("is-invalid");
+                                    }
+                                }
+                            }
+                        });
                         // Push object to info array
                         exceptionOCsInfo.push({
                             name: exceptionNameOC,
@@ -1987,6 +2119,27 @@ function previewData() {
                                         sickHoursOC = nodeSmall.value;
                                     } else if (nodeSmall.max === "45") {
                                         sickMinutesOC = nodeSmall.value;
+                                    }
+                                }
+                            });
+                            // ? Possible fix: Check if invalid here, before you push it to the object
+                            nodeBig.childNodes.forEach(function (nodeSmall) {
+                                // If the child is a form control
+                                if (nodeSmall.classList.contains("form-control")) {
+                                    if (nodeSmall.max === "8") {
+                                        // Check if "Hours" is empty
+                                        if (nodeSmall.value === "") {
+                                            nodeSmall.classList.add("is-invalid");
+                                        } else {
+                                            nodeSmall.classList.remove("is-invalid");
+                                        }
+                                    } else if (nodeSmall.max === "45") {
+                                        // Check if "Minutes" is empty
+                                        if (nodeSmall.value === "") {
+                                            nodeSmall.classList.add("is-invalid");
+                                        } else {
+                                            nodeSmall.classList.remove("is-invalid");
+                                        }
                                     }
                                 }
                             });
@@ -2037,13 +2190,34 @@ function previewData() {
         }
     });
 
-    // Scroll to top
-    window.scroll({
-        top: 0,
-        left: 0,
-        behavior: 'smooth'
-    });
-    setTimeout(slideOutItems, 500);
+    if (validInput() === true) {
+        var listOfItemsToMakeGood = document.querySelectorAll(".is-invalid");
+
+        listOfItemsToMakeGood.forEach(function (itemToMakeGood) {
+            itemToMakeGood.classList.remove("is-invalid");
+        });
+        // Scroll to top
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+        setTimeout(slideOutItems, 500);
+
+        showThis(previewCardDiv);
+        previewCardDiv.classList.add("animated", "slideInRight");
+    } else {
+        console.warn("Input is not valid.");
+        var firstInvalidElement = document.querySelector(".is-invalid");
+        firstInvalidElement.scrollIntoView({
+            behavior: "smooth"
+        });
+        setTimeout(showInvalidModal, 500);
+    }
+
+    function showInvalidModal() {
+        $('#invalid-input-modal').modal();
+    }
 
     function slideOutItems() {
         alert.classList.add("animated", "slideOutLeft");
@@ -2053,9 +2227,6 @@ function previewData() {
         });
         setTimeout(buildPreviewCard, 750);
     }
-
-    showThis(previewCardDiv);
-    previewCardDiv.classList.add("animated", "slideInRight");
 
     function buildPreviewCard() {
         hideThis(siteInfoCard);
@@ -2083,6 +2254,24 @@ function previewData() {
         alert.appendChild(span1);
 
         mainForm.prepend(previewCardDiv);
+    }
+}
+
+function validInput() {
+    var inputsToCheck = document.querySelectorAll(".verify-this");
+
+    var emptyCount = 0;
+
+    inputsToCheck.forEach(function (input) {
+        if (input.value === "") {
+            emptyCount++;
+        }
+    });
+
+    if (emptyCount > 0) {
+        return false;
+    } else {
+        return true;
     }
 }
 
