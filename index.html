@@ -6,7 +6,7 @@
 
   <script>
     // Log Rocket Developement
-    // window.LogRocket && window.LogRocket.init('itdpxx/payroll-form-dev');
+    // indow.LogRocket && window.LogRocket.init('itdpxx/payroll-form-dev');
     // Log Rocket Production
     window.LogRocket && window.LogRocket.init('itdpxx/payroll-form-prod');
   </script>
@@ -730,6 +730,29 @@
         </div>
       </div>
     </div>
+
+    <!-- Invalid Input Modal -->
+    <div class="modal fade" id="invalid-input-modal" tabindex="-1" role="dialog" aria-labelledby="Invalid Input" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Empty Input</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <span>One or more input fields have been left blank. Please go back and enter in the correct information.</span>
+            <br><br>
+            <span><em>Note: All times must be entered. For example: </em>"5 hours and 15 minutes" <em>instead of </em>"5 hours"<em>.</em></span>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
     <!-- FOOTER -->
     <footer class="footer">
       <div class="container">
@@ -759,6 +782,9 @@
   <!-- Javascript -->
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <!-- Boostrap Javascript from CDN -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
     crossorigin="anonymous"></script>
   <!-- Smoothscroll Polyfill -->
   <script src="assets/js/smoothscroll.min.js"></script>
