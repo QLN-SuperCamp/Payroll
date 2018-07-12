@@ -727,6 +727,7 @@ function checkExceptions() {
                             hoursInput.id = `exception-hours-${checkbox.value}`;
                             hoursInput.classList.add("form-control", "verify-this");
                             hoursInput.required = "required";
+                            hoursInput.addEventListener("change", validInput);
                             //hoursInput.placeholder = "How many hours were worked?";
                             // Need to add 'aria-describedby?'
 
@@ -746,6 +747,7 @@ function checkExceptions() {
                             minutesInput.id = `exception-minutes-${checkbox.value}`;
                             minutesInput.classList.add("form-control", "verify-this");
                             minutesInput.required = "required";
+                            minutesInput.addEventListener("change", validInput);
                             //minutesInput.placeholder = "How many minutes were worked?";
 
                             let minutesSpanGroup = document.createElement("span");
@@ -1089,6 +1091,7 @@ function checkSick() {
                         hoursInput.max = "8";
                         hoursInput.classList.add("form-control", "verify-this");
                         hoursInput.required = "required";
+                        hoursInput.addEventListener("change", validInput);
                         //hoursInput.placeholder = "How many hours were worked?";
                         // Need to add 'aria-describedby?'
 
@@ -1107,6 +1110,7 @@ function checkSick() {
                         minutesInput.step = "15";
                         minutesInput.classList.add("form-control", "verify-this");
                         minutesInput.required = "required";
+                        minutesInput.addEventListener("change", validInput);
                         //minutesInput.placeholder = "How many minutes were worked?";
 
                         let minutesSpanGroup = document.createElement("span");
@@ -2276,20 +2280,36 @@ function previewData() {
 }
 
 function validInput() {
-    let inputsToCheck = document.querySelectorAll(".verify-this");
+    if (arguments .length > 0) {
+        if (this.value === "") {
+            if (this.classList.contains("is-invalid")) {
 
-    let emptyCount = 0;
-
-    inputsToCheck.forEach(function (input) {
-        if (input.value === "") {
-            emptyCount++;
+            } else {
+                this.classList.add("is-invalid");
+            }
+            return false;
+        } else {
+            if (this.classList.contains("is-invalid")) {
+                this.classList.remove("is-invalid");
+            }
+            return true;
         }
-    });
-
-    if (emptyCount > 0) {
-        return false;
     } else {
-        return true;
+        let inputsToCheck = document.querySelectorAll(".verify-this");
+
+        let emptyCount = 0;
+
+        inputsToCheck.forEach(function (input) {
+            if (input.value === "") {
+                emptyCount++;
+            }
+        });
+
+        if (emptyCount > 0) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
 
