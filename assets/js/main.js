@@ -657,6 +657,10 @@ function checkExceptions() {
 
     let allCheckboxes = [tlCheckboxes, lcwpCheckboxes, ocCheckboxes];
 
+    let inputsToKeep = [];
+    let allNewInputs = [];
+    let inputsToAppend = [];
+
     allCheckboxes.forEach(function (checkboxGroup) {
         let name = "";
         if (checkboxGroup === tlCheckboxes) {
@@ -699,12 +703,14 @@ function checkExceptions() {
                     }
                 });
 
+
+
+
                 let uncheckedCheckboxesGroup = [uncheckedTLCheckboxes, uncheckedLCWPCheckboxes, uncheckedOCCheckboxes];
 
                 // Go through unchecked staff array, and in the container, add a label and input boxes
                 uncheckedCheckboxesGroup.forEach(function (group) {
-                    let inputsToKeep = [];
-                    let allNewInputs = [];
+
 
                     if (group.length > 0) {
                         if (group[0].dataset.position === "TL") {
@@ -744,16 +750,75 @@ function checkExceptions() {
                                     inputsToKeep.push(object);
                                 }
                             });
-
                         } else if (group[0].dataset.position === "LCWP") {
-                            // TESTING - Clear container first
-                            exceptionsLCWPContainer.innerHTML = "";
+                            // Array to group labels with inputs
+                            let nodeGroups = [];
+
+                            // Go through each childNode in exceptionsContainer and separate based on label or input
+                            exceptionsLCWPContainer.childNodes.forEach(function (child) {
+                                // If the node is a label
+                                if (child.classList.contains("form-label")) {
+                                    // Create an object and put the label in it
+                                    let personInputObject = {
+                                        "label": child
+                                    };
+                                    // Push object to the nodeGroups Array
+                                    nodeGroups.push(personInputObject);
+                                } else {
+                                    // If the node is the input
+                                    // Find corresponding object in nodeGroups Array
+                                    let correspondingObject = nodeGroups.find(function (object) {
+                                        return object.label.name === child.name;
+                                    });
+                                    // Add on the inputGroup to the corresponding object
+                                    correspondingObject.inputGroup = child;
+                                }
+                            });
+
+                            // Go through each object in the nodeGroups Array
+                            // If the inputGroup has something written in either the "hours" or "minutes":
+                            // push that object to the inputsToKeep Array
+                            nodeGroups.forEach(function (object) {
+                                if (object.inputGroup.childNodes[0].value !== "" || object.inputGroup.childNodes[2].value !== "") {
+                                    inputsToKeep.push(object);
+                                }
+                            });
                         } else {
-                            // TESTING - Clear container first
-                            exceptionsOCContainer.innerHTML = "";
+                            // Array to group labels with inputs
+                            let nodeGroups = [];
+
+                            // Go through each childNode in exceptionsContainer and separate based on label or input
+                            exceptionsOCContainer.childNodes.forEach(function (child) {
+                                // If the node is a label
+                                if (child.classList.contains("form-label")) {
+                                    // Create an object and put the label in it
+                                    let personInputObject = {
+                                        "label": child
+                                    };
+                                    // Push object to the nodeGroups Array
+                                    nodeGroups.push(personInputObject);
+                                } else {
+                                    // If the node is the input
+                                    // Find corresponding object in nodeGroups Array
+                                    let correspondingObject = nodeGroups.find(function (object) {
+                                        return object.label.name === child.name;
+                                    });
+                                    // Add on the inputGroup to the corresponding object
+                                    correspondingObject.inputGroup = child;
+                                }
+                            });
+
+                            // Go through each object in the nodeGroups Array
+                            // If the inputGroup has something written in either the "hours" or "minutes":
+                            // push that object to the inputsToKeep Array
+                            nodeGroups.forEach(function (object) {
+                                if (object.inputGroup.childNodes[0].value !== "" || object.inputGroup.childNodes[2].value !== "") {
+                                    inputsToKeep.push(object);
+                                }
+                            });
                         }
 
-                        let inputsToAppend = [];
+                        
 
                         group.forEach(function (checkbox) {
                             // Check if checkbox in group's name is also the name of an object in the inputsToKeep Array
@@ -889,25 +954,6 @@ function checkExceptions() {
                                 inputsToAppend.push(inputObject);
                             }
                         });
-
-                        // Clear all exeptionContainers
-                        allExceptionsContainers.forEach(function (container) {
-                            container.innerHTML = "";
-                        });
-
-                        // Append the inputs from the inputsToAppend Array depending on positionType
-                        inputsToAppend.forEach(function (object) {
-                            if (object.positionType === "TL") {
-                                exceptionsTLContainer.appendChild(object.label);
-                                exceptionsTLContainer.appendChild(object.inputGroup);
-                            } else if (object.positionType === "LCWP") {
-                                exceptionsLCWPContainer.appendChild(object.label);
-                                exceptionsLCWPContainer.appendChild(object.inputGroup);
-                            } else if (object.positionType === "OC") {
-                                exceptionsOCContainer.appendChild(object.label);
-                                exceptionsOCContainer.appendChild(object.inputGroup);
-                            }
-                        });
                     }
                 });
             } else if (checkboxGroup.every(isChecked)) {
@@ -930,6 +976,25 @@ function checkExceptions() {
             console.warn("checkboxGroup is empty.");
             console.log(name);
             console.groupEnd();
+        }
+    });
+
+    // Clear all exeptionContainers
+    allExceptionsContainers.forEach(function (container) {
+        container.innerHTML = "";
+    });
+
+    // Append the inputs from the inputsToAppend Array depending on positionType
+    inputsToAppend.forEach(function (object) {
+        if (object.positionType === "TL") {
+            exceptionsTLContainer.appendChild(object.label);
+            exceptionsTLContainer.appendChild(object.inputGroup);
+        } else if (object.positionType === "LCWP") {
+            exceptionsLCWPContainer.appendChild(object.label);
+            exceptionsLCWPContainer.appendChild(object.inputGroup);
+        } else if (object.positionType === "OC") {
+            exceptionsOCContainer.appendChild(object.label);
+            exceptionsOCContainer.appendChild(object.inputGroup);
         }
     });
 }
