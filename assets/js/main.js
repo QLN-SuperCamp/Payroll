@@ -642,16 +642,24 @@ function addStaffMembers() {
 }
 
 function checkExceptions() {
+    // ! This is where you are running into trouble with Issue #3
+    // ? Try NOT clearing the list of exceptions?
+    /*
     // Clear list of exceptions
     allExceptionsContainers.forEach(function (container) {
         container.innerHTML = "";
     });
+    */
 
     var uncheckedTLCheckboxes = [];
     var uncheckedLCWPCheckboxes = [];
     var uncheckedOCCheckboxes = [];
 
     let allCheckboxes = [tlCheckboxes, lcwpCheckboxes, ocCheckboxes];
+
+    let inputsToKeep = [];
+    let allNewInputs = [];
+    let inputsToAppend = [];
 
     allCheckboxes.forEach(function (checkboxGroup) {
         let name = "";
@@ -695,87 +703,256 @@ function checkExceptions() {
                     }
                 });
 
+
+
+
                 let uncheckedCheckboxesGroup = [uncheckedTLCheckboxes, uncheckedLCWPCheckboxes, uncheckedOCCheckboxes];
 
                 // Go through unchecked staff array, and in the container, add a label and input boxes
                 uncheckedCheckboxesGroup.forEach(function (group) {
+
+
                     if (group.length > 0) {
                         if (group[0].dataset.position === "TL") {
+                            // ! This could also be where you are running into Issue #3
                             // TESTING - Clear container first
-                            exceptionsTLContainer.innerHTML = "";
+                            // exceptionsTLContainer.innerHTML = "";
+
+                            // Array to group labels with inputs
+                            let nodeGroups = [];
+
+                            // Go through each childNode in exceptionsContainer and separate based on label or input
+                            exceptionsTLContainer.childNodes.forEach(function (child) {
+                                // If the node is a label
+                                if (child.classList.contains("form-label")) {
+                                    // Create an object and put the label in it
+                                    let personInputObject = {
+                                        "label": child
+                                    };
+                                    // Push object to the nodeGroups Array
+                                    nodeGroups.push(personInputObject);
+                                } else {
+                                    // If the node is the input
+                                    // Find corresponding object in nodeGroups Array
+                                    let correspondingObject = nodeGroups.find(function (object) {
+                                        return object.label.name === child.name;
+                                    });
+                                    // Add on the inputGroup to the corresponding object
+                                    correspondingObject.inputGroup = child;
+                                }
+                            });
+
+                            // Go through each object in the nodeGroups Array
+                            // If the inputGroup has something written in either the "hours" or "minutes":
+                            // push that object to the inputsToKeep Array
+                            nodeGroups.forEach(function (object) {
+                                if (object.inputGroup.childNodes[0].value !== "" || object.inputGroup.childNodes[2].value !== "") {
+                                    inputsToKeep.push(object);
+                                }
+                            });
                         } else if (group[0].dataset.position === "LCWP") {
-                            // TESTING - Clear container first
-                            exceptionsLCWPContainer.innerHTML = "";
+                            // Array to group labels with inputs
+                            let nodeGroups = [];
+
+                            // Go through each childNode in exceptionsContainer and separate based on label or input
+                            exceptionsLCWPContainer.childNodes.forEach(function (child) {
+                                // If the node is a label
+                                if (child.classList.contains("form-label")) {
+                                    // Create an object and put the label in it
+                                    let personInputObject = {
+                                        "label": child
+                                    };
+                                    // Push object to the nodeGroups Array
+                                    nodeGroups.push(personInputObject);
+                                } else {
+                                    // If the node is the input
+                                    // Find corresponding object in nodeGroups Array
+                                    let correspondingObject = nodeGroups.find(function (object) {
+                                        return object.label.name === child.name;
+                                    });
+                                    // Add on the inputGroup to the corresponding object
+                                    correspondingObject.inputGroup = child;
+                                }
+                            });
+
+                            // Go through each object in the nodeGroups Array
+                            // If the inputGroup has something written in either the "hours" or "minutes":
+                            // push that object to the inputsToKeep Array
+                            nodeGroups.forEach(function (object) {
+                                if (object.inputGroup.childNodes[0].value !== "" || object.inputGroup.childNodes[2].value !== "") {
+                                    inputsToKeep.push(object);
+                                }
+                            });
                         } else {
-                            // TESTING - Clear container first
-                            exceptionsOCContainer.innerHTML = "";
+                            // Array to group labels with inputs
+                            let nodeGroups = [];
+
+                            // Go through each childNode in exceptionsContainer and separate based on label or input
+                            exceptionsOCContainer.childNodes.forEach(function (child) {
+                                // If the node is a label
+                                if (child.classList.contains("form-label")) {
+                                    // Create an object and put the label in it
+                                    let personInputObject = {
+                                        "label": child
+                                    };
+                                    // Push object to the nodeGroups Array
+                                    nodeGroups.push(personInputObject);
+                                } else {
+                                    // If the node is the input
+                                    // Find corresponding object in nodeGroups Array
+                                    let correspondingObject = nodeGroups.find(function (object) {
+                                        return object.label.name === child.name;
+                                    });
+                                    // Add on the inputGroup to the corresponding object
+                                    correspondingObject.inputGroup = child;
+                                }
+                            });
+
+                            // Go through each object in the nodeGroups Array
+                            // If the inputGroup has something written in either the "hours" or "minutes":
+                            // push that object to the inputsToKeep Array
+                            nodeGroups.forEach(function (object) {
+                                if (object.inputGroup.childNodes[0].value !== "" || object.inputGroup.childNodes[2].value !== "") {
+                                    inputsToKeep.push(object);
+                                }
+                            });
                         }
 
+                        
+
                         group.forEach(function (checkbox) {
-                            let formLabel = document.createElement("div");
-                            formLabel.classList.add("form-label");
-                            formLabel.innerHTML = "How long did " + checkbox.name + " work for?";
+                            // Check if checkbox in group's name is also the name of an object in the inputsToKeep Array
+                            // If the current checkbox also belongs to someone in the inputsToKeep Array:
+                            let correspondingObject = inputsToKeep.find(function (object) {
+                                return object.label.name === checkbox.name;
+                            });
+                            // If there was a match
+                            if (correspondingObject !== undefined) {
+                                if (checkbox.dataset.position === "TL") {
+                                    // Add a position type property to the object
+                                    correspondingObject.positionType = "TL";
+                                } else if (checkbox.dataset.position === "LCWP") {
+                                    // Add a position type property to the object
+                                    correspondingObject.positionType = "LCWP";
+                                } else if (checkbox.dataset.position === "OC") {
+                                    // Add a position type property to the object
+                                    correspondingObject.positionType = "OC";
+                                }
 
-                            let inputGroup = document.createElement("div");
-                            inputGroup.classList.add("input-group");
-                            inputGroup.name = checkbox.name;
+                                // Split up Names for later alphabetizing
+                                let nameArray = correspondingObject.label.name.split(" ");
+                                let firstName = nameArray[0];
+                                let lastName = nameArray[1];
+                                correspondingObject.firstName = firstName;
+                                correspondingObject.lastName = lastName;
 
-                            let hoursInput = document.createElement("input");
-                            hoursInput.type = "number";
-                            hoursInput.min = "0";
-                            hoursInput.max = "24";
-                            hoursInput.id = `exception-hours-${checkbox.value}`;
-                            hoursInput.classList.add("form-control", "verify-this");
-                            hoursInput.required = "required";
-                            hoursInput.addEventListener("change", validInput);
-                            //hoursInput.placeholder = "How many hours were worked?";
-                            // Need to add 'aria-describedby?'
-
-                            let hoursSpanGroup = document.createElement("span");
-                            hoursSpanGroup.classList.add("input-group-append");
-                            hoursSpanGroup.id = "hours-span-group-" + group.indexOf(checkbox);
-
-                            let hoursSpan = document.createElement("span");
-                            hoursSpan.classList.add("input-group-text");
-                            hoursSpan.innerHTML = "hours";
-
-                            let minutesInput = document.createElement("input");
-                            minutesInput.type = "number";
-                            minutesInput.min = "0";
-                            minutesInput.max = "45";
-                            minutesInput.step = "15";
-                            minutesInput.id = `exception-minutes-${checkbox.value}`;
-                            minutesInput.classList.add("form-control", "verify-this");
-                            minutesInput.required = "required";
-                            minutesInput.addEventListener("change", validInput);
-                            //minutesInput.placeholder = "How many minutes were worked?";
-
-                            let minutesSpanGroup = document.createElement("span");
-                            minutesSpanGroup.classList.add("input-group-append");
-                            minutesSpanGroup.id = "minutes-span-group-" + group.indexOf(checkbox);
-
-                            let minutesSpan = document.createElement("span");
-                            minutesSpan.classList.add("input-group-text");
-                            minutesSpan.innerHTML = "minutes";
-
-                            if (checkbox.dataset.position === "TL") {
-                                exceptionsTLContainer.appendChild(formLabel);
-                                exceptionsTLContainer.appendChild(inputGroup);
-                            } else if (checkbox.dataset.position === "LCWP") {
-                                exceptionsLCWPContainer.appendChild(formLabel);
-                                exceptionsLCWPContainer.appendChild(inputGroup);
+                                // Add this object to the inputsToAppend Array
+                                inputsToAppend.push(correspondingObject);
                             } else {
-                                exceptionsOCContainer.appendChild(formLabel);
-                                exceptionsOCContainer.appendChild(inputGroup);
+                                // There was not a match, so this new person needs new labels and inputs
+                                // Create them
+                                let inputObject = {};
+
+                                let formLabel = document.createElement("div");
+                                formLabel.classList.add("form-label");
+                                formLabel.innerHTML = "How long did " + checkbox.name + " work for?";
+                                formLabel.name = checkbox.name;
+
+                                let inputGroup = document.createElement("div");
+                                inputGroup.classList.add("input-group");
+                                inputGroup.name = checkbox.name;
+
+                                let hoursInput = document.createElement("input");
+                                hoursInput.type = "number";
+                                hoursInput.min = "0";
+                                hoursInput.max = "24";
+                                hoursInput.id = `exception-hours-${checkbox.value}`;
+                                hoursInput.classList.add("form-control", "verify-this");
+                                hoursInput.required = "required";
+                                hoursInput.addEventListener("change", validInput);
+                                //hoursInput.placeholder = "How many hours were worked?";
+                                // Need to add 'aria-describedby?'
+
+                                let hoursSpanGroup = document.createElement("span");
+                                hoursSpanGroup.classList.add("input-group-append");
+                                hoursSpanGroup.id = "hours-span-group-" + group.indexOf(checkbox);
+
+                                let hoursSpan = document.createElement("span");
+                                hoursSpan.classList.add("input-group-text");
+                                hoursSpan.innerHTML = "hours";
+
+                                let minutesInput = document.createElement("input");
+                                minutesInput.type = "number";
+                                minutesInput.min = "0";
+                                minutesInput.max = "45";
+                                minutesInput.step = "15";
+                                minutesInput.id = `exception-minutes-${checkbox.value}`;
+                                minutesInput.classList.add("form-control", "verify-this");
+                                minutesInput.required = "required";
+                                minutesInput.addEventListener("change", validInput);
+                                //minutesInput.placeholder = "How many minutes were worked?";
+
+                                let minutesSpanGroup = document.createElement("span");
+                                minutesSpanGroup.classList.add("input-group-append");
+                                minutesSpanGroup.id = "minutes-span-group-" + group.indexOf(checkbox);
+
+                                let minutesSpan = document.createElement("span");
+                                minutesSpan.classList.add("input-group-text");
+                                minutesSpan.innerHTML = "minutes";
+
+                                // ! Getting rid of this should stop it from displaying the boxes at all...?
+
+                                /*
+                                if (checkbox.dataset.position === "TL") {
+                                    exceptionsTLContainer.appendChild(formLabel);
+                                    exceptionsTLContainer.appendChild(inputGroup);
+                                } else if (checkbox.dataset.position === "LCWP") {
+                                    exceptionsLCWPContainer.appendChild(formLabel);
+                                    exceptionsLCWPContainer.appendChild(inputGroup);
+                                } else {
+                                    exceptionsOCContainer.appendChild(formLabel);
+                                    exceptionsOCContainer.appendChild(inputGroup);
+                                }
+                                */
+
+
+                                inputGroup.appendChild(hoursInput);
+                                inputGroup.appendChild(hoursSpanGroup);
+                                hoursSpanGroup.appendChild(hoursSpan);
+                                inputGroup.appendChild(minutesInput);
+                                inputGroup.appendChild(minutesSpanGroup);
+                                minutesSpanGroup.appendChild(minutesSpan);
+
+                                // Push the inputObject to the newInputs Array
+                                allNewInputs.push(inputObject);
+
+                                // Push the object to the inputsToKeep Array
+                                inputsToKeep.push(inputObject);
+
+                                // Push the label and inputGroup to the inputObject.
+                                inputObject.label = formLabel;
+                                inputObject.inputGroup = inputGroup;
+                                // Split up Names for later alphabetizing
+                                let nameArray = formLabel.name.split(" ");
+                                let firstName = nameArray[0];
+                                let lastName = nameArray[1];
+                                inputObject.firstName = firstName;
+                                inputObject.lastName = lastName;
+
+                                if (checkbox.dataset.position === "TL") {
+                                    // Add a position type property to the object
+                                    inputObject.positionType = "TL";
+                                } else if (checkbox.dataset.position === "LCWP") {
+                                    // Add a position type property to the object
+                                    inputObject.positionType = "LCWP";
+                                } else {
+                                    // Add a position type property to the object
+                                    inputObject.positionType = "OC";
+                                }
+
+                                // Add this object to the inputsToAppend Array
+                                inputsToAppend.push(inputObject);
                             }
-
-
-                            inputGroup.appendChild(hoursInput);
-                            inputGroup.appendChild(hoursSpanGroup);
-                            hoursSpanGroup.appendChild(hoursSpan);
-                            inputGroup.appendChild(minutesInput);
-                            inputGroup.appendChild(minutesSpanGroup);
-                            minutesSpanGroup.appendChild(minutesSpan);
                         });
                     }
                 });
@@ -799,6 +976,25 @@ function checkExceptions() {
             console.warn("checkboxGroup is empty.");
             console.log(name);
             console.groupEnd();
+        }
+    });
+
+    // Clear all exeptionContainers
+    allExceptionsContainers.forEach(function (container) {
+        container.innerHTML = "";
+    });
+
+    // Append the inputs from the inputsToAppend Array depending on positionType
+    inputsToAppend.forEach(function (object) {
+        if (object.positionType === "TL") {
+            exceptionsTLContainer.appendChild(object.label);
+            exceptionsTLContainer.appendChild(object.inputGroup);
+        } else if (object.positionType === "LCWP") {
+            exceptionsLCWPContainer.appendChild(object.label);
+            exceptionsLCWPContainer.appendChild(object.inputGroup);
+        } else if (object.positionType === "OC") {
+            exceptionsOCContainer.appendChild(object.label);
+            exceptionsOCContainer.appendChild(object.inputGroup);
         }
     });
 }
@@ -1080,6 +1276,7 @@ function checkSick() {
                         let formLabel = document.createElement("div");
                         formLabel.classList.add("form-label");
                         formLabel.innerHTML = "How long was " + checkbox.name + " sick for?";
+                        formLabel.name = checkbox.name;
 
                         let inputGroup = document.createElement("div");
                         inputGroup.classList.add("input-group");
@@ -2280,7 +2477,7 @@ function previewData() {
 }
 
 function validInput() {
-    if (arguments .length > 0) {
+    if (arguments.length > 0) {
         if (this.value === "") {
             if (this.classList.contains("is-invalid")) {
 
