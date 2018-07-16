@@ -1253,7 +1253,6 @@ function displayData() {
                 } else if (payPeriodNumber === 2) {
                     state = person.PayPeriod2State;
                 }
-                debugger;
                 table = assignTable(site, payPeriodNumber, isSalaryEmployee, state);
                 createTableEntrySalary(table, firstName, lastName, salaryPayTotal, checkLocation);
             } else {
@@ -1480,14 +1479,12 @@ function createTableEntryHourly(table, firstName, lastName, regHours, otHours, d
 
 function createTableEntrySalary(table, firstName, lastName, salaryPayTotal, checkLocation) {
     var tableBody = "";
-    debugger;
     tableBody = assignTableBody(table);
 
     var row = document.createElement("tr");
     row.name = firstName.concat(" ", lastName);
     if (tableBody === undefined) {
         console.error(firstName + " " + lastName + " " + table);
-        debugger;
     } else {
         tableBody.appendChild(row);
     }
