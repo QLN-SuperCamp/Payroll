@@ -72,7 +72,8 @@ $.get(allStaffReport, function (data) {
                 "FLJ118": "ucf-camp1",
                 "FLS118": "ucf-camp2",
                 "PAS118": "villa-camp1",
-                "PAJ118": "villa-camp2"
+                "PAJ118": "villa-camp2",
+                "Canada": "Canada"
             };
 
             var translatedCampCodes = [];
@@ -91,6 +92,7 @@ $.get(allStaffReport, function (data) {
                     id: "Yolanda Drew",
                     camps: {
                         "sw-camp1": "LC",
+                        "sw-camp2": "LC",
                         "villa-camp1": "TL"
                     }
                 }
