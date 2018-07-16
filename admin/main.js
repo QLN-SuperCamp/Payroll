@@ -20,17 +20,44 @@ var siteDataArrays = [swData, stanData, ucfData, villaData];
 // CA
 var table1CAHourly = document.getElementById('table-payPeriod1-CA-hourly');
 var table1CASalary = document.getElementById('table-payPeriod1-CA-salary');
+var table2CAHourly = document.getElementById('table-payPeriod2-CA-hourly');
+var table2CASalary = document.getElementById('table-payPeriod2-CA-salary');
+
+// FL
+var table2FLHourly = document.getElementById('table-payPeriod2-FL-hourly');
+var table2FLSalary = document.getElementById('table-payPeriod2-FL-salary');
+
+// PA
+var table2PAHourly = document.getElementById('table-payPeriod2-PA-hourly');
+var table2PASalary = document.getElementById('table-payPeriod2-PA-salary');
+
 // TX
 var table1TXHourly = document.getElementById('table-payPeriod1-TX-hourly');
 var table1TXSalary = document.getElementById('table-payPeriod1-TX-salary');
+var table2TXHourly = document.getElementById('table-payPeriod2-TX-hourly');
+var table2TXSalary = document.getElementById('table-payPeriod2-TX-salary');
+
 
 // Table Bodies (by State)
 // CA
 var body1CAHourly = document.getElementById('body-payPeriod1-CA-hourly');
 var body1CASalary = document.getElementById('body-payPeriod1-CA-salary');
+var body2CAHourly = document.getElementById('body-payPeriod2-CA-hourly');
+var body2CASalary = document.getElementById('body-payPeriod2-CA-salary');
+
+// FL
+var body2FLHourly = document.getElementById('body-payPeriod2-FL-hourly');
+var body2FLSalary = document.getElementById('body-payPeriod2-FL-salary');
+
+// PA
+var body2PAHourly = document.getElementById('body-payPeriod2-PA-hourly');
+var body2PASalary = document.getElementById('body-payPeriod2-PA-salary');
+
 // TX
 var body1TXHourly = document.getElementById('body-payPeriod1-TX-hourly');
 var body1TXSalary = document.getElementById('body-payPeriod1-TX-salary');
+var body2TXHourly = document.getElementById('body-payPeriod2-TX-hourly');
+var body2TXSalary = document.getElementById('body-payPeriod2-TX-salary');
 
 
 // Get data from Google spreadsheet when the DOM loads
@@ -791,10 +818,12 @@ function separateFormData() {
     });
 }
 
+/*
 // Print the window
 function printThis() {
     window.print();
 }
+*/
 
 function displayData() {
     // Manipulate incoming data to "count the hours"
@@ -1334,7 +1363,13 @@ function displayData() {
                 let salaryDayPay = salaryDays * dailyPayRate;
                 let salaryWeekPay = salaryWeeks * weeklyPayRate;
                 let salaryPayTotal = moneyString(salaryDayPay + salaryWeekPay);
-                let state = person.PayPeriod1State;
+                let state = "";
+                if (payPeriodNumber === 1) {
+                    state = person.PayPeriod1State;
+                } else if (payPeriodNumber === 2) {
+                    state = person.PayPeriod2State;
+                }
+                debugger;
                 table = assignTable(site, payPeriodNumber, isSalaryEmployee, state);
                 createTableEntrySalary(table, firstName, lastName, salaryPayTotal, checkLocation);
             } else {
@@ -1549,7 +1584,6 @@ function createTableEntryHourly(table, firstName, lastName, regHours, otHours, d
     deductionCell.innerHTML = deductionTotal;
     row.appendChild(deductionCell);
 
-    // TODO: Create cell for travel stipend
     let stipendCell = document.createElement("td");
     stipendCell.align = "center";
     stipendCell.innerHTML = "-";
@@ -1566,12 +1600,17 @@ function createTableEntryHourly(table, firstName, lastName, regHours, otHours, d
 
 function createTableEntrySalary(table, firstName, lastName, salaryPayTotal, checkLocation) {
     let tableBody = "";
-
+    debugger;
     tableBody = assignTableBody(table);
 
     let row = document.createElement("tr");
     row.name = firstName.concat(" ", lastName);
-    tableBody.appendChild(row);
+    if (tableBody === undefined) {
+        console.error(firstName + " " + lastName + " " + table);
+        debugger;
+    } else {
+        tableBody.appendChild(row);
+    }
 
     let firstNameCell = document.createElement("td");
     firstNameCell.innerHTML = firstName;
@@ -1629,6 +1668,54 @@ function constructTables() {
             'copy', 'excel', 'pdf'
         ]
     });
+    $('#table-payPeriod2-CA-hourly').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'excel', 'pdf'
+        ]
+    });
+    $('#table-payPeriod2-FL-hourly').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'excel', 'pdf'
+        ]
+    });
+    $('#table-payPeriod2-TX-hourly').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'excel', 'pdf'
+        ]
+    });
+    $('#table-payPeriod2-PA-hourly').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'excel', 'pdf'
+        ]
+    });
+    $('#table-payPeriod2-CA-salary').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'excel', 'pdf'
+        ]
+    });
+    $('#table-payPeriod2-FL-salary').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'excel', 'pdf'
+        ]
+    });
+    $('#table-payPeriod2-PA-salary').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'excel', 'pdf'
+        ]
+    });
+    $('#table-payPeriod2-TX-salary').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'excel', 'pdf'
+        ]
+    });
 }
 
 function assignTable(site, payPeriodNumber, isSalaryEmployee, state) {
@@ -1641,8 +1728,14 @@ function assignTable(site, payPeriodNumber, isSalaryEmployee, state) {
             } else {
                 table = table1CASalary;
             }
+        } else if (payPeriodNumber === 2) {
+            if (isSalaryEmployee === "No") {
+                table = table2CAHourly;
+            } else {
+                table = table2CASalary;
+            }
         } else {
-            // TODO: Write other 4 Pay Periods
+            // TODO: Write other 3 Pay Periods
         }
     } else if (site === "sw") {
         if (payPeriodNumber === 1) {
@@ -1651,18 +1744,56 @@ function assignTable(site, payPeriodNumber, isSalaryEmployee, state) {
             } else {
                 table = table1TXSalary;
             }
+        } else if (payPeriodNumber === 2) {
+            if (isSalaryEmployee === "No") {
+                table = table2TXHourly;
+            } else {
+                table = table2TXSalary;
+            }
         } else {
-            // TODO: Write other 4 Pay Periods
+            // TODO: Write other 3 Pay Periods
+        }
+    } else if (site === "ucf") {
+        if (payPeriodNumber === 2) {
+            if (isSalaryEmployee === "No") {
+                table = table2FLHourly;
+            } else {
+                table = table2FLSalary;
+            }
+        } else {
+            // TODO: Write other 3 Pay Periods
+        }
+    } else if (site === "villa") {
+        if (payPeriodNumber === 2) {
+            if (isSalaryEmployee === "No") {
+                table = table2PAHourly;
+            } else {
+                table = table2PASalary;
+            }
+        } else {
+            // TODO: Write other 3 Pay Periods
         }
     } else if (site === "") {
         if (state === "California") {
-            table = table1CASalary;
+            if (payPeriodNumber === 1) {
+                table = table1CASalary;
+            } else if (payPeriodNumber === 2) {
+                table = table2CASalary;
+            }
         } else if (state === "Florida") {
-            // TODO: Create Florida Salary Table
+            if (payPeriodNumber === 2) {
+                table = table2FLSalary;
+            }
         } else if (state === "Pennsylvania") {
-            // TODO: Create Pennsylvania Salary Table
+            if (payPeriodNumber === 2) {
+                table = table2PASalary;
+            }
         } else if (state === "Texas") {
-            table = table1TXSalary;
+            if (payPeriodNumber === 1) {
+                table = table1TXSalary;
+            } else if (payPeriodNumber === 2) {
+                table = table2TXSalary;
+            }
         }
     }
 
@@ -1672,8 +1803,8 @@ function assignTable(site, payPeriodNumber, isSalaryEmployee, state) {
 function assignTableBody(table) {
     let tableBody = "";
 
-    let tableArray = [table1CAHourly, table1CASalary, table1TXHourly, table1TXSalary];
-    let bodyArray = [body1CAHourly, body1CASalary, body1TXHourly, body1TXSalary];
+    let tableArray = [table1CAHourly, table1CASalary, table1TXHourly, table1TXSalary, table2CAHourly, table2FLHourly, table2TXHourly, table2PAHourly, table2CASalary, table2FLSalary, table2TXSalary, table2PASalary];
+    let bodyArray = [body1CAHourly, body1CASalary, body1TXHourly, body1TXSalary, body2CAHourly, body2FLHourly, body2TXHourly, body2PAHourly, body2CASalary, body2FLSalary, body2TXSalary, body2PASalary];
 
     let thisIndex = tableArray.indexOf(table);
     tableBody = bodyArray[thisIndex];
