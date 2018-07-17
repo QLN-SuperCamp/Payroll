@@ -95,6 +95,14 @@ $.get(allStaffReport, function (data) {
                         "sw-camp2": "LC",
                         "villa-camp1": "TL"
                     }
+                },
+                {
+                    id: "Nathan Tung",
+                    camps: {
+                        "stan-camp3": "Photo",
+                        "stan-camp4": "TL",
+                        "stan-camp5": "TL"
+                    }
                 }
             ];
         
