@@ -1667,7 +1667,7 @@ function isTL(person) {
     // * Special Staff Member would be someone working a different position at a different camp
     // * See Yolanda Drew for a good example
     if (person.specialStaffMember !== undefined) {
-        return person.specialStaffMember[0].camps["" + currentCamp] === "TL" || person.specialStaffMember[0].camps["" + currentCamp] === "STL";
+        return person.specialStaffMember[0].camps["" + currentCamp] === "TL" || person.specialStaffMember[0].camps["" + currentCamp] === "STL" || person.specialStaffMember[0].camps["" + currentCamp] === "Photo";
     } else {
         return person.position1 === "TL" || person.position1 === "STL" || person.position2 === "TL" || person.position2 === "STL";
     }
