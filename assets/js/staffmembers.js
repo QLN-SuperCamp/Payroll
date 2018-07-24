@@ -112,6 +112,14 @@ $.get(allStaffReport, function (data) {
                         "stan-camp5": "TL",
                         "stan-camp6": "TL"
                     }
+                },
+                {
+                    id: "Leslie Braff",
+                    camps: {
+                        "villa-camp1": "WP",
+                        "villa-camp2": "SA",
+                        "stan-camp4": "SC"
+                    }
                 }
             ];
         
