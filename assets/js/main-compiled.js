@@ -613,6 +613,16 @@ function addStaffMembers() {
                         } else if (currentCamp === "stan-camp5") {
                             return "<em>(" + person.specialStaffMember[0].camps["stan-camp5"] + ")</em> " + person.firstName + " " + person.lastName;
                         }
+                    } else if (specificSpecialPerson[0].id === "Isabella Stenz") {
+                        if (currentCamp === "villa-camp1") {
+                            return "<em>(" + person.specialStaffMember[0].camps["villa-camp1"] + ")</em> " + person.firstName + " " + person.lastName;
+                        } else if (currentCamp === "villa-camp2") {
+                            return "<em>(" + person.specialStaffMember[0].camps["villa-camp2"] + ")</em> " + person.firstName + " " + person.lastName;
+                        } else if (currentCamp === "stan-camp5") {
+                            return "<em>(" + person.specialStaffMember[0].camps["stan-camp5"] + ")</em> " + person.firstName + " " + person.lastName;
+                        } else if (currentCamp === "stan-camp6") {
+                            return "<em>(" + person.specialStaffMember[0].camps["stan-camp6"] + ")</em> " + person.firstName + " " + person.lastName;
+                        }
                     } else {
                         return undefined;
                     }

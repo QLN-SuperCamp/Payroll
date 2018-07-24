@@ -103,6 +103,15 @@ $.get(allStaffReport, function (data) {
                         "stan-camp4": "TL",
                         "stan-camp5": "TL"
                     }
+                },
+                {
+                    id: "Isabella Stenz",
+                    camps: {
+                        "villa-camp1": "STL",
+                        "villa-camp2": "WP",
+                        "stan-camp5": "TL",
+                        "stan-camp6": "TL"
+                    }
                 }
             ];
         
