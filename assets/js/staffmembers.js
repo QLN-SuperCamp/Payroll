@@ -5,7 +5,7 @@
 
 
 // CampMinder Report - All 2018 Staff Members
-var allStaffReport = "admin/2018staff.csv";
+var allStaffReport = "2018staff.csv";
 var allStaffReportArray = [];
 var staffMembersAll = [];
 $.get(allStaffReport, function (data) {
