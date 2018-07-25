@@ -1561,6 +1561,8 @@ function createTableEntryHourly(table, firstName, lastName, regHours, otHours, d
     row.name = firstName.concat(" ", lastName);
     if (tableBody !== undefined) {
         tableBody.appendChild(row);
+    } else {
+        console.error("'tableBody' is undefined at: " + firstName + " " + lastName);
     }
 
     let firstNameCell = document.createElement("td");
