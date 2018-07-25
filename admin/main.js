@@ -1563,6 +1563,7 @@ function createTableEntryHourly(table, firstName, lastName, regHours, otHours, d
         tableBody.appendChild(row);
     } else {
         console.error("'tableBody' is undefined at: " + firstName + " " + lastName);
+        return;
     }
 
     let firstNameCell = document.createElement("td");
