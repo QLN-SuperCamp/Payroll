@@ -1561,6 +1561,8 @@ function createTableEntryHourly(table, firstName, lastName, regHours, otHours, d
     row.name = firstName.concat(" ", lastName);
     if (tableBody !== undefined) {
         tableBody.appendChild(row);
+    } else if (table === "None") {
+        // The hourly employee did not work this pay period
     } else {
         console.error("'tableBody' is undefined at: " + firstName + " " + lastName);
         return;
@@ -1837,6 +1839,12 @@ function assignTable(site, payPeriodNumber, isSalaryEmployee, state) {
             } else if (payPeriodNumber === 2) {
                 table = table2TXSalary;
             }
+        } else {
+            // A few things may have happened:
+            // Either the info was not entered correctly in CampMinder, or:
+            // An hourly employee was not working during this specific pay period and the site = "" and the state = ""
+            // The table will be undefined
+            table = "None";
         }
     }
 
@@ -1852,7 +1860,13 @@ function assignTableBody(table) {
     let thisIndex = tableArray.indexOf(table);
     tableBody = bodyArray[thisIndex];
 
-    return tableBody;
+    if (tableBody !== undefined) {
+        return tableBody;
+    } else {
+        // Either an error has occured, or
+        // An hourly employee was not working during this pay period
+        return;
+    }
 }
 
 function moneyString(value) {
