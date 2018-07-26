@@ -11,7 +11,10 @@
     "startup": "ws && npm run babel-watch-main && npm run babel-watch-admin",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "reportTime": "cd admin && cat reportInfo.JSON | jq --raw-output --arg RIGHTNOW \"`date`\" '.creationTime |= $RIGHTNOW' > reportInfo.tmp && mv reportInfo.tmp reportInfo.JSON"
+    "reportTime": "cd admin && cat reportInfo.JSON | jq --raw-output --arg RIGHTNOW \"`date`\" '.creationTime |= $RIGHTNOW' > reportInfo.tmp && mv reportInfo.tmp reportInfo.JSON",
+    "browser-sync": "browser-sync start --directory --server --files \"*.css, *.html, *.js\" --http",
+    "development": "replace 'admin-prod' 'admin-dev' admin/backup.html && replace 'form-prod' 'form-dev' index.html",
+    "production": "replace 'admin-dev' 'admin-prod' admin/backup.html && replace 'form-dev' 'form-prod' index.html"
   },
   "repository": {
     "type": "git",
@@ -31,7 +34,6 @@
   },
   "dependencies": {
     "animate.css": "^3.6.1",
-    "please-wait": "0.0.5",
-    "replace": "^1.0.0"
+    "please-wait": "0.0.5"
   }
 }
