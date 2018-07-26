@@ -958,7 +958,7 @@ function displayData() {
                     }
 
                     positionArray.forEach(function (person) {
-                        // Todo: I think this personData object is needed outside of this. Not sure it's needed here.
+                        // Todo: Decide if this object is truly needed. Possibly delete.
                         let personData = {
                             firstName: "",
                             lastName: "",
@@ -1327,7 +1327,6 @@ function displayData() {
             let firstName = person["First Name"];
             let lastName = person["Last Name"];
 
-            // TODO: Assign the actual payperiod into the payperiod table tabs
             let payPeriodInfoObject = payPeriod[2][0];
             let site = payPeriodInfoObject.site;
             let table = "";
@@ -1366,13 +1365,21 @@ function displayData() {
             // Salary Staff Only
             let isSalaryEmployee = isSalaryFields[thisIndex];
 
+            function checkIfRound(days, rate, rateUnrounded) {
+                if (days === 1) {
+                    return days * rate;
+                } else {
+                    return days * rateUnrounded;
+                }
+            }
+
             if (isSalaryEmployee === "Yes") {
                 let weeklyPayRate = Number(person.WeeklyPay.replace(/[^0-9\.-]+/g, ""));
                 let dailyPayRateUnRounded = weeklyPayRate / 6;
                 let dailyPayRate = Math.ceil(dailyPayRateUnRounded * 100) / 100;
                 let salaryDays = Number(salaryDayFields[thisIndex]);
                 let salaryWeeks = Number(salaryWeekFields[thisIndex]);
-                let salaryDayPay = salaryDays * dailyPayRate;
+                let salaryDayPay = checkIfRound(salaryDays, dailyPayRate, dailyPayRateUnRounded);
                 let salaryWeekPay = salaryWeeks * weeklyPayRate;
                 let salaryPayTotal = moneyString(salaryDayPay + salaryWeekPay);
                 let state = "";
@@ -1407,8 +1414,7 @@ function displayData() {
 
 function splitHours(site, hoursWorked, totalHoursThisWeek, consecutiveDayCount, correspondingPersonObject, correspondingDateObject) {
     if (site === "stan") {
-        // Todo: CA 7th day laws logic
-        // Weird California laws
+        //  Weird California laws
         let overtimeThreshold = 8;
         let doubletimeThreshold = 12;
         let weekThreshold = 40;
@@ -1644,12 +1650,14 @@ function createTableEntrySalary(table, firstName, lastName, salaryPayTotal, chec
     totalPayCell.innerHTML = salaryPayTotal;
     row.appendChild(totalPayCell);
 
-    // TODO: Create cell for travel stipend
     let stipendCell = document.createElement("td");
     stipendCell.align = "center";
-    if (lastName === "Richardson" || lastName === "Comolli") {
+    let twentyFivePeople = ["Richardson", "Comolli", "Rogers"];
+    let fiftyPeople = ["McCloud", "Green", "Borbolla"];
+
+    if (twentyFivePeople.includes(lastName)) {
         stipendCell.innerHTML = "$25.00";
-    } else if (lastName === "McCloud" || lastName === "Green" || lastName === "Borbolla") {
+    } else if (fiftyPeople.includes(lastName)) {
         stipendCell.innerHTML = "$50.00";
     } else {
         stipendCell.innerHTML = "-";
@@ -1753,6 +1761,24 @@ function constructTables() {
             'copy', 'excel', 'pdf'
         ]
     });
+    $('#table-payPeriod3-CA-salary').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'excel', 'pdf'
+        ]
+    });
+    $('#table-payPeriod3-CA-hourly').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'excel', 'pdf'
+        ]
+    });
+    $('#table-payPeriod3-FL-hourly').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'excel', 'pdf'
+        ]
+    });
 }
 
 function assignTable(site, payPeriodNumber, isSalaryEmployee, state) {
@@ -1771,8 +1797,12 @@ function assignTable(site, payPeriodNumber, isSalaryEmployee, state) {
             } else {
                 table = table2CASalary;
             }
-        } else {
-            // TODO: Write other 3 Pay Periods
+        } else if (payPeriodNumber === 3) {
+            if (isSalaryEmployee === "No") {
+                table = table3CAHourly;
+            } else {
+                table = table3CASalary;
+            }
         }
     } else if (site === "sw") {
         if (payPeriodNumber === 1) {
@@ -1787,8 +1817,6 @@ function assignTable(site, payPeriodNumber, isSalaryEmployee, state) {
             } else {
                 table = table2TXSalary;
             }
-        } else {
-            // TODO: Write other 3 Pay Periods
         }
     } else if (site === "ucf") {
         if (payPeriodNumber === 2) {
@@ -1797,8 +1825,6 @@ function assignTable(site, payPeriodNumber, isSalaryEmployee, state) {
             } else {
                 table = table2FLSalary;
             }
-        } else {
-            // TODO: Write other 3 Pay Periods
         }
     } else if (site === "villa") {
         if (payPeriodNumber === 2) {
@@ -1820,6 +1846,8 @@ function assignTable(site, payPeriodNumber, isSalaryEmployee, state) {
                 table = table1CASalary;
             } else if (payPeriodNumber === 2) {
                 table = table2CASalary;
+            } else if (payPeriodNumber === 3) {
+                table = table3CASalary;
             }
         } else if (state === "Florida") {
             if (payPeriodNumber === 2) {
@@ -1854,8 +1882,8 @@ function assignTable(site, payPeriodNumber, isSalaryEmployee, state) {
 function assignTableBody(table) {
     let tableBody = "";
 
-    let tableArray = [table1CAHourly, table1CASalary, table1TXHourly, table1TXSalary, table2CAHourly, table2FLHourly, table2TXHourly, table2PAHourly, table2CASalary, table2FLSalary, table2TXSalary, table2PASalary, table3PAHourly, table3PASalary, table3FLSalary];
-    let bodyArray = [body1CAHourly, body1CASalary, body1TXHourly, body1TXSalary, body2CAHourly, body2FLHourly, body2TXHourly, body2PAHourly, body2CASalary, body2FLSalary, body2TXSalary, body2PASalary, body3PAHourly, body3PASalary, body3FLSalary];
+    let tableArray = [table1CAHourly, table1CASalary, table1TXHourly, table1TXSalary, table2CAHourly, table2FLHourly, table2TXHourly, table2PAHourly, table2CASalary, table2FLSalary, table2TXSalary, table2PASalary, table3PAHourly, table3PASalary, table3FLSalary, table3CASalary];
+    let bodyArray = [body1CAHourly, body1CASalary, body1TXHourly, body1TXSalary, body2CAHourly, body2FLHourly, body2TXHourly, body2PAHourly, body2CASalary, body2FLSalary, body2TXSalary, body2PASalary, body3PAHourly, body3PASalary, body3FLSalary, body3CASalary];
 
     let thisIndex = tableArray.indexOf(table);
     tableBody = bodyArray[thisIndex];
