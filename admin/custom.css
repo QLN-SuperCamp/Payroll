@@ -8,3 +8,75 @@
 .paginate_button:hover {
     border: 0 !important;
 }
+
+
+/* For Error Modal */
+.flexible-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.flexible-item {
+    min-width: 50px;
+    max-width: 150px;
+}
+
+.scoot-over {
+    margin-left: 15px;
+}
+
+.scoot-up {
+    margin-top: 15px;
+}
+
+.remove-person {
+    margin-left: 15px;
+    border: none;
+    background-color: transparent;
+}
+
+.hidden {
+    display: none;
+}
+
+.x-icon {
+    transition: 1s;
+}
+
+.remove-person:hover .x-icon {
+    font-size: 22px;
+}
+
+.maximize {
+    transition: 1s !important;
+    max-width: 90vw;
+    height: 90vh;
+}
+
+.height100 {
+    height: 100%;
+}
+
+.fade-out {
+    transition: 1s;
+    opacity: 0;
+}
+
+.fade-in {
+    opacity: 1 !important;
+}
+
+.report {
+    opacity: 0;
+    transition: 1s;
+}
+
+.report-tab {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.space-even {
+    justify-content: space-evenly;
+}
