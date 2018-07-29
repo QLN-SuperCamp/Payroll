@@ -1295,7 +1295,35 @@ function displayData() {
     window.loading_screen.finish();
 }
 
+// Empty Array to hold check objects
+var peopleObjects = [];
+
+function buildErrorArray(peopleToCheckArray) {
+    // Make an object for each person to check
+    // Push the object into a peopleObject Array
+    peopleToCheckArray.forEach(function (person) {
+        var emptyObject = {
+            id: person
+        };
+        peopleObjects.push(emptyObject);
+    });
+}
+
+function whyDisNotWork() {}
+
 function splitHours(site, hoursWorked, totalHoursThisWeek, consecutiveDayCount, correspondingPersonObject, correspondingDateObject) {
+    // If the current person has an object in the peopleObjects Array,
+    // we need to check them.
+    // Add the correspondingPersonObject to that peopleObject.
+    if (peopleObjects.find(function (object) {
+        return object.id === correspondingPersonObject.fullName;
+    })) {
+        var checkObj = peopleObjects.find(function (object) {
+            return object.id === correspondingPersonObject.fullName;
+        });
+        checkObj.info = correspondingPersonObject;
+    }
+
     if (site === "stan") {
         //  Weird California laws
         var overtimeThreshold = 8;

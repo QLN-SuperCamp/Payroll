@@ -761,16 +761,6 @@ $.get(report, function (data) {
 });
 
 
-
-
-
-
-
-
-
-
-
-
 // Use Tabletop to pull data from Google spreadsheet
 function init() {
     var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1SbGhrkqAb8Ej4mFn9HxcfbVlK6B0zhA_2eQLB7UfnU8/edit?usp=sharing';
@@ -1412,7 +1402,35 @@ function displayData() {
 
 }
 
+// Empty Array to hold check objects
+const peopleObjects = [];
+
+function buildErrorArray(peopleToCheckArray) {   
+    // Make an object for each person to check
+    // Push the object into a peopleObject Array
+    peopleToCheckArray.forEach((person) => {
+        let emptyObject = {
+            id: person
+        };
+        peopleObjects.push(emptyObject);
+    });
+}
+
+function whyDisNotWork() {
+    
+}
+
+
 function splitHours(site, hoursWorked, totalHoursThisWeek, consecutiveDayCount, correspondingPersonObject, correspondingDateObject) {
+    // If the current person has an object in the peopleObjects Array,
+    // we need to check them.
+    // Add the correspondingPersonObject to that peopleObject.
+    if (peopleObjects.find((object) => object.id === correspondingPersonObject.fullName)) {
+        const checkObj = peopleObjects.find((object) => object.id === correspondingPersonObject.fullName);
+        checkObj.info = correspondingPersonObject;
+    }
+
+
     if (site === "stan") {
         //  Weird California laws
         let overtimeThreshold = 8;
