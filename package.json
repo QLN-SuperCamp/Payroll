@@ -1,11 +1,10 @@
 {
-  "name": "payroll",
-  "version": "1.3.0",
+  "name": "Payroll",
+  "version": "1.5.0",
   "description": "SuperCamp Payroll",
-  "main": "index.js",
+  "main": "",
   "scripts": {
     "build": "babel src -d lib",
-    "start-server": "ws",
     "babel-watch-main": "npx babel assets/js/main.js -o assets/js/main-compiled.js --watch",
     "babel-watch-admin": "npx babel admin/main.js -o admin/main-compiled.js --watch",
     "startup": "ws && npm run babel-watch-main && npm run babel-watch-admin",
