@@ -1,0 +1,56 @@
+toc:
+  - name: Data Gathering
+    description: |
+      These functions take in raw data from the Payroll form and manipulate it.
+    children:
+      - countExceptionHours
+      - countHours
+      - countSickHours
+      - formData
+      - init
+      - separateFormData
+      - splitHours
+      - stanData
+      - swData
+      - ucfData
+      - villaData
+      - readDateInfo
+      - readCampMinderReport
+      - userInformation
+  - name: Data Displaying
+    description: |
+      These functions take data that has already been massaged, and displays it to the user in a variety of ways.
+    children:
+      - assignTable
+      - assignTableBody
+      - assignUserInfo
+      - constructTables
+      - createTableEntryHourly
+      - createTableEntrySalary
+      - displayData
+      - reportTime
+      - showInfo
+  - name: Error Checker 5000
+    description: |
+      A tool used to help check on any staff members we have questions about. This tool helps us to see individual calculated data.
+    children:
+      - addErrorPerson
+      - buildEC5Report
+      - buildErrorArray
+      - checkLastPerson
+      - displayTabContent
+      - editIcons
+      - editPeopleElements
+      - errorFormSubmit
+      - filterReportArray
+      - removeErrorPerson
+      - showEC5Report
+      - showErrorModal
+      - switchErrorPerson
+  - name: Helper Functions
+    description: |
+      These functions are either misc. or help in small handy ways.
+    children:
+      - checkIfRound
+      - mergeTime
+      - moneyString
