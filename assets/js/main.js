@@ -132,9 +132,7 @@ siteUCF.addEventListener("click", siteChosen);
 siteVILLA.addEventListener("click", siteChosen);
 
 // Listen for the user to select a camp
-allCamps.forEach(function (camp) {
-    camp.addEventListener("click", campChosen);
-});
+allCamps.forEach((camp) => {camp.addEventListener('click', campChosen);});
 
 // Dates
 var dateMonth = document.getElementById('date-month');
@@ -184,9 +182,7 @@ var allSickSwitchInputs = [tlSickSwitchInput, lcwpSickSwitchInput, ocSickSwitchI
 var allSickSwitchSpans = [tlSickSwitchSpan, lcwpSickSwitchSpan, ocSickSwitchSpan];
 
 // Listen if the user changes the switch
-allSickSwitchInputs.forEach(function (groupInput) {
-    groupInput.addEventListener("change", sickSwitched);
-});
+allSickSwitchInputs.forEach((groupInput) => {groupInput.addEventListener('change', sickSwitched);});
 
 // Sick Staff Containers
 var sickStaffTLContainer = document.getElementById('sick-staff-tl-container');
@@ -224,6 +220,9 @@ var exceptionsWarningOC = document.getElementById('exceptions-warning-oc');
 // Make sure that switches and checkboxes and radios are blank when the page first loads
 document.addEventListener("DOMContentLoaded", setBlank);
 
+/**
+ * Runs when a site has been chosen from the list of sites in the Payroll Form. Shows the corresponding camps for that site, and hides all other camps. Also calls resetInfo() and checkEmptyPositions().
+ */
 function siteChosen() {
     var value = this.value;
 
@@ -247,16 +246,17 @@ function siteChosen() {
         chosenSite = "villa";
     }
 
-
     resetInfo();
     checkEmptyPositions();
 }
 
+/**
+ * Runs when a camp has been selected from the list of camps in the Payroll Form. Enables the dates for that specific camp. Also calls resetInfo(), dateChanged() and addStaffMembers().
+ */
 function campChosen() {
     var value = this.value;
 
     hideThis(invalidFeedbackCamp);
-
 
     // Reset the date so that anything is enabled
     monthsToEnable = [0, 1, 2, 3];
@@ -358,6 +358,9 @@ function campChosen() {
     addStaffMembers();
 }
 
+/**
+ * Runs when the date is selected and changed in the Payroll Form. Sets hours worked for each position type for each day of that camp.
+ */
 function dateChanged() {
     if (currentCamp === "sw-camp1") {
         if (dateDay.value === "19") {
@@ -525,37 +528,40 @@ function dateChanged() {
     }
 }
 
+/**
+ * Disables specific months and days from being available to the user in the Payroll Form.
+ * @param {array} months - An array of numbers corresponding to months that should be disabled to the user. 
+ * @param {array} days - An array of numbers corresponding to days of the month that should be disabled to the user. 
+ * @see enableDates
+ */
 function disableDates(months, days) {
-    months.forEach(function (option) {
-        dateMonth.options[option].disabled = true;
-    });
-
-    days.forEach(function (option) {
-        dateDay.options[option].disabled = true;
-    });
+    months.forEach((option) => {dateMonth.options[option].disabled = true;});
+    days.forEach((option) => {dateDay.options[option].disabled = true;});
 }
 
+/**
+ * Enables specific months and days to be available to the user in the Payroll Form.
+ * @param {array} months - An array of numbers corresponding to months that should be enabled to the user.
+ * @param {array} days - An array of numbers corresponding to days of the month that should be enabled to the user.
+ * @see disableDates 
+ */
 function enableDates(months, days) {
-    months.forEach(function (option) {
-        dateMonth.options[option].disabled = false;
-    });
-
-    days.forEach(function (option) {
-        dateDay.options[option].disabled = false;
-    });
+    months.forEach((option) => {dateMonth.options[option].disabled = false;});
+    days.forEach((option) => {dateDay.options[option].disabled = false;});
 }
 
+/**
+ * Adds staff members alphabetically and by position type to the form. Separated by camp.
+ */
 function addStaffMembers() {
     // Clear staff list containers
-    allStaffMembersContainers.forEach(function (container) {
-        container.innerHTML = "";
-    });
+    allStaffMembersContainers.forEach((container) => {container.innerHTML = "";});
 
     // Who is working this particular camp
     let staffMembersWorking = [];
 
     // Go through list of all staff members, and add them to the list if they are working this camp
-    staffMembersAll.forEach(function (person) {
+    staffMembersAll.forEach((person) => {
         if (person.campsWorking.includes(currentCamp)) {
             staffMembersWorking.push(person);
         }
@@ -570,13 +576,11 @@ function addStaffMembers() {
     let staffMemberGroups = [staffMembersWorkingTL, staffMembersWorkingLC, staffMembersWorkingWP, staffMembersWorkingOC];
 
     // Sort each group of staff members alphabetically by last name
-    staffMemberGroups.forEach(function (group) {
-        group.sort(compareValues('lastName'));
-    });
+    staffMemberGroups.forEach((group) => {group.sort(compareValues('lastName'));});
 
     // For each staff member group, add a label, checkbox, and span for each person in the appropriate location
-    staffMemberGroups.forEach(function (group) {
-        group.forEach(function (person) {
+    staffMemberGroups.forEach((group) => {
+        group.forEach((person) => {
             let label = document.createElement('label');
             label.classList.add("custom-control", "custom-checkbox");
 
@@ -593,13 +597,15 @@ function addStaffMembers() {
             span.classList.add("custom-control-label");
             span.innerHTML = assignSpanLabel();
 
+            /**
+             * Assigns each staff member a specific span as a label, containing their position for the chosen camp, and their full name.
+             */
             function assignSpanLabel() {
                 // If this person has a weird role thing
                 if (person.specialStaffMember !== undefined) {
                     // If the current camp is the current person's weird camp
-                    var specificSpecialPerson = person.specialStaffMember.filter(function (staff) {
-                        return staff.id === person.firstName.concat(" ", person.lastName);
-                    });
+                    var specificSpecialPerson = person.specialStaffMember.filter((staff) => {return staff.id === person.firstName.concat(" ", person.lastName);});
+
                     if (specificSpecialPerson[0].id === "Yolanda Drew") {
                         if (currentCamp === "sw-camp1") {
                             return "<em>(" + person.specialStaffMember[0].camps["sw-camp1"] + ")</em> " + person.firstName + " " + person.lastName;
@@ -669,6 +675,9 @@ function addStaffMembers() {
     });
 }
 
+/**
+ * Checks the staff members who did not work the hours that were expected. Needs to be refactored.
+ */
 function checkExceptions() {
     // ! This is where you are running into trouble with Issue #3
     // ? Try NOT clearing the list of exceptions?
@@ -689,7 +698,7 @@ function checkExceptions() {
     let allNewInputs = [];
     let inputsToAppend = [];
 
-    allCheckboxes.forEach(function (checkboxGroup) {
+    allCheckboxes.forEach((checkboxGroup) => {
         let name = "";
         if (checkboxGroup === tlCheckboxes) {
             name = "tlCheckboxes";
@@ -719,7 +728,7 @@ function checkExceptions() {
                 }
 
                 // Go through checkboxes, if one is unchecked, add it to the array
-                checkboxes.forEach(function (checkbox) {
+                checkboxes.forEach((checkbox) => {
                     if (checkbox.checked === false) {
                         if (checkboxGroup[0].dataset.position === "TL") {
                             uncheckedTLCheckboxes.push(checkbox);
@@ -731,15 +740,10 @@ function checkExceptions() {
                     }
                 });
 
-
-
-
                 let uncheckedCheckboxesGroup = [uncheckedTLCheckboxes, uncheckedLCWPCheckboxes, uncheckedOCCheckboxes];
 
                 // Go through unchecked staff array, and in the container, add a label and input boxes
-                uncheckedCheckboxesGroup.forEach(function (group) {
-
-
+                uncheckedCheckboxesGroup.forEach((group) => {
                     if (group.length > 0) {
                         if (group[0].dataset.position === "TL") {
                             // ! This could also be where you are running into Issue #3
@@ -750,7 +754,7 @@ function checkExceptions() {
                             let nodeGroups = [];
 
                             // Go through each childNode in exceptionsContainer and separate based on label or input
-                            exceptionsTLContainer.childNodes.forEach(function (child) {
+                            exceptionsTLContainer.childNodes.forEach((child) => {
                                 // If the node is a label
                                 if (child.classList.contains("form-label")) {
                                     // Create an object and put the label in it
@@ -762,9 +766,7 @@ function checkExceptions() {
                                 } else {
                                     // If the node is the input
                                     // Find corresponding object in nodeGroups Array
-                                    let correspondingObject = nodeGroups.find(function (object) {
-                                        return object.label.name === child.name;
-                                    });
+                                    let correspondingObject = nodeGroups.find((object) => {return object.label.name === child.name;});
                                     // Add on the inputGroup to the corresponding object
                                     correspondingObject.inputGroup = child;
                                 }
@@ -773,7 +775,7 @@ function checkExceptions() {
                             // Go through each object in the nodeGroups Array
                             // If the inputGroup has something written in either the "hours" or "minutes":
                             // push that object to the inputsToKeep Array
-                            nodeGroups.forEach(function (object) {
+                            nodeGroups.forEach((object) => {
                                 if (object.inputGroup.childNodes[0].value !== "" || object.inputGroup.childNodes[2].value !== "") {
                                     inputsToKeep.push(object);
                                 }
@@ -783,7 +785,7 @@ function checkExceptions() {
                             let nodeGroups = [];
 
                             // Go through each childNode in exceptionsContainer and separate based on label or input
-                            exceptionsLCWPContainer.childNodes.forEach(function (child) {
+                            exceptionsLCWPContainer.childNodes.forEach((child) => {
                                 // If the node is a label
                                 if (child.classList.contains("form-label")) {
                                     // Create an object and put the label in it
@@ -795,9 +797,7 @@ function checkExceptions() {
                                 } else {
                                     // If the node is the input
                                     // Find corresponding object in nodeGroups Array
-                                    let correspondingObject = nodeGroups.find(function (object) {
-                                        return object.label.name === child.name;
-                                    });
+                                    let correspondingObject = nodeGroups.find((object) => {return object.label.name === child.name;});
                                     // Add on the inputGroup to the corresponding object
                                     correspondingObject.inputGroup = child;
                                 }
@@ -806,7 +806,7 @@ function checkExceptions() {
                             // Go through each object in the nodeGroups Array
                             // If the inputGroup has something written in either the "hours" or "minutes":
                             // push that object to the inputsToKeep Array
-                            nodeGroups.forEach(function (object) {
+                            nodeGroups.forEach((object) => {
                                 if (object.inputGroup.childNodes[0].value !== "" || object.inputGroup.childNodes[2].value !== "") {
                                     inputsToKeep.push(object);
                                 }
@@ -816,7 +816,7 @@ function checkExceptions() {
                             let nodeGroups = [];
 
                             // Go through each childNode in exceptionsContainer and separate based on label or input
-                            exceptionsOCContainer.childNodes.forEach(function (child) {
+                            exceptionsOCContainer.childNodes.forEach((child) => {
                                 // If the node is a label
                                 if (child.classList.contains("form-label")) {
                                     // Create an object and put the label in it
@@ -828,9 +828,7 @@ function checkExceptions() {
                                 } else {
                                     // If the node is the input
                                     // Find corresponding object in nodeGroups Array
-                                    let correspondingObject = nodeGroups.find(function (object) {
-                                        return object.label.name === child.name;
-                                    });
+                                    let correspondingObject = nodeGroups.find((object) => {return object.label.name === child.name;});
                                     // Add on the inputGroup to the corresponding object
                                     correspondingObject.inputGroup = child;
                                 }
@@ -839,21 +837,17 @@ function checkExceptions() {
                             // Go through each object in the nodeGroups Array
                             // If the inputGroup has something written in either the "hours" or "minutes":
                             // push that object to the inputsToKeep Array
-                            nodeGroups.forEach(function (object) {
+                            nodeGroups.forEach((object) => {
                                 if (object.inputGroup.childNodes[0].value !== "" || object.inputGroup.childNodes[2].value !== "") {
                                     inputsToKeep.push(object);
                                 }
                             });
                         }
 
-
-
-                        group.forEach(function (checkbox) {
+                        group.forEach((checkbox) => {
                             // Check if checkbox in group's name is also the name of an object in the inputsToKeep Array
                             // If the current checkbox also belongs to someone in the inputsToKeep Array:
-                            let correspondingObject = inputsToKeep.find(function (object) {
-                                return object.label.name === checkbox.name;
-                            });
+                            let correspondingObject = inputsToKeep.find((object) => {return object.label.name === checkbox.name;});
                             // If there was a match
                             if (correspondingObject !== undefined) {
                                 if (checkbox.dataset.position === "TL") {
@@ -1008,12 +1002,10 @@ function checkExceptions() {
     });
 
     // Clear all exeptionContainers
-    allExceptionsContainers.forEach(function (container) {
-        container.innerHTML = "";
-    });
+    allExceptionsContainers.forEach((container) => {container.innerHTML = "";});
 
     // Append the inputs from the inputsToAppend Array depending on positionType
-    inputsToAppend.forEach(function (object) {
+    inputsToAppend.forEach((object) => {
         if (object.positionType === "TL") {
             exceptionsTLContainer.appendChild(object.label);
             exceptionsTLContainer.appendChild(object.inputGroup);
@@ -1027,6 +1019,9 @@ function checkExceptions() {
     });
 }
 
+/**
+ * Runs when any sick switch is toggled. Changes the toggle and span of the sick switch, reveals the sick containers for that position type, and creates sick staff lists for that position type.
+ */
 function sickSwitched() {
     if (this.checked) {
         if (this.dataset.position === "TL") {
@@ -1068,6 +1063,9 @@ function sickSwitched() {
     }
 }
 
+/**
+ * Responsible for creating lists of staffmembers in the sick containers based on position type.
+ */
 function createSickStaff(positionType) {
     // Probably going to run into a problem right here. 
     // If you create sick staff individually based on the corresponding switch,
@@ -1098,7 +1096,7 @@ function createSickStaff(positionType) {
     let staffMembersWorking = [];
 
     // Go through list of all staff members, and add them to the list if they are working this camp
-    staffMembersAll.forEach(function (person) {
+    staffMembersAll.forEach((person) => {
         if (person.campsWorking.includes(currentCamp)) {
             staffMembersWorking.push(person);
         }
@@ -1113,17 +1111,15 @@ function createSickStaff(positionType) {
     let staffMemberGroups = [staffMembersWorkingTL, staffMembersWorkingLC, staffMembersWorkingWP, staffMembersWorkingOC];
 
     // Sort each group of staff members alphabetically by last name
-    staffMemberGroups.forEach(function (group) {
-        group.sort(compareValues('lastName'));
-    });
+    staffMemberGroups.forEach((group) => {group.sort(compareValues('lastName'));});
 
 
     // For each staff member group, add a label, checkbox, and span for each person in the appropriate location
     // IF THE CORRESPONDING SICK SWITCH WAS TOGGLED TO YES
-    staffMemberGroups.forEach(function (group) {
+    staffMemberGroups.forEach((group) => {
         if (group === staffMembersWorkingTL && positionType === "TL") {
             // Create sick TL's
-            group.forEach(function (person) {
+            group.forEach((person) => {
                 let label = document.createElement('label');
                 label.classList.add("custom-control", "custom-checkbox");
 
@@ -1153,7 +1149,7 @@ function createSickStaff(positionType) {
             });
         } else if ((group === staffMembersWorkingLC || group === staffMembersWorkingWP) && (positionType === "LCWP")) {
             // Create sick LC's and WP's
-            group.forEach(function (person) {
+            group.forEach((person) => {
                 let label = document.createElement('label');
                 label.classList.add("custom-control", "custom-checkbox");
 
@@ -1183,7 +1179,7 @@ function createSickStaff(positionType) {
             });
         } else if (group === staffMembersWorkingOC && positionType === "OC") {
             // Create sick OC's
-            group.forEach(function (person) {
+            group.forEach((person) => {
                 let label = document.createElement('label');
                 label.classList.add("custom-control", "custom-checkbox");
 
@@ -1215,6 +1211,9 @@ function createSickStaff(positionType) {
     });
 }
 
+/**
+ * Runs when a sick checkbox is clicked. Responsible for running the checks like checkExceptions() but on sick staff.
+ */
 function checkSick() {
 
     if (this.dataset.positiontype === "TL") {
@@ -1237,7 +1236,7 @@ function checkSick() {
 
     let allSickCheckboxes = [sickTLCheckboxes, sickLCWPCheckboxes, sickOCCheckboxes];
 
-    allSickCheckboxes.forEach(function (checkboxGroup) {
+    allSickCheckboxes.forEach((checkboxGroup) => {
         if (checkboxGroup.some(isChecked)) {
             // Clear the array of checked checkboxes
             // FIX?
@@ -1260,10 +1259,8 @@ function checkSick() {
                 checkedSickOCCheckboxes = [];
             }
 
-
-
             // Go through checkboxes, if one is checked, add it to the array
-            checkboxes.forEach(function (checkbox) {
+            checkboxes.forEach((checkbox) => {
                 if (checkbox.checked === true) {
                     if (checkboxGroup[0].dataset.position === "TL") {
                         //checkedSickTLCheckboxes = [];
@@ -1278,16 +1275,14 @@ function checkSick() {
                 }
             });
 
-            /*
-            STOPPING SICK HOUR CHECKS.
-            IF NEEDED, PUT BACK IN. FOR NOW, JUST ADD THE SICK STAFF MEMBER TO THE
-            CORRESPONDING ARRAY
-            */
+            // ! STOPPING SICK HOUR CHECKS.
+            // ! IF NEEDED, PUT BACK IN. FOR NOW, JUST ADD THE SICK STAFF MEMBER TO THE
+            // ! CORRESPONDING ARRAY
 
             let checkedCheckboxesGroup = [checkedSickTLCheckboxes, checkedSickLCWPCheckboxes, checkedSickOCCheckboxes];
 
             // Go through checked staff array, and in the container, add a label and input boxes
-            checkedCheckboxesGroup.forEach(function (group) {
+            checkedCheckboxesGroup.forEach((group) => {
                 if (group.length > 0) {
                     if (group[0].dataset.position === "TL") {
                         // TESTING - Clear container first
@@ -1300,7 +1295,7 @@ function checkSick() {
                         sickExceptionsOCContainer.innerHTML = "";
                     }
 
-                    group.forEach(function (checkbox) {
+                    group.forEach((checkbox) => {
                         let formLabel = document.createElement("div");
                         formLabel.classList.add("form-label");
                         formLabel.innerHTML = "How long was " + checkbox.name + " sick for?";
@@ -1357,7 +1352,6 @@ function checkSick() {
                             sickExceptionsOCContainer.appendChild(inputGroup);
                         }
 
-
                         inputGroup.appendChild(hoursInput);
                         inputGroup.appendChild(hoursSpanGroup);
                         hoursSpanGroup.appendChild(hoursSpan);
@@ -1367,12 +1361,11 @@ function checkSick() {
                     });
                 }
             });
-
         } else if (checkboxGroup.every(isUnchecked)) {
             // No sick staff
             let sickCheckList = [tlSickSwitchInput, lcwpSickSwitchInput, ocSickSwitchInput];
 
-            sickCheckList.forEach(function (sickSwitch) {
+            sickCheckList.forEach((sickSwitch) => {
                 if (sickSwitch.checked === false) {
                     if (sickSwitch.dataset.position === "TL") {
                         hideThis(sickExceptionsTitleTL, sickExceptionsTLContainer);
@@ -1397,6 +1390,9 @@ function checkSick() {
     });
 }
 
+/**
+ * Resets the lists of staff members, hours worked, sets sick toggles to "No". Resets all info.
+ */
 function resetInfo() {
     // Reset hours worked
     hoursWorkedTL.value = "";
@@ -1404,43 +1400,41 @@ function resetInfo() {
     hoursWorkedOC.value = "";
 
     // Clear lists
-    allStaffMembersContainers.forEach(function (container) {
-        container.innerHTML = "";
-    });
+    allStaffMembersContainers.forEach((container) => {container.innerHTML = "";});
+    // TODO: You can refactor a lot of code if you write a helper function to set innerHTML of an element to "".
 
-    allSickExceptionsContainers.forEach(function (container) {
-        container.innerHTML = "";
-    });
+    allSickExceptionsContainers.forEach((container) => {container.innerHTML = "";});
 
-    allExceptionsContainers.forEach(function (container) {
-        container.innerHTML = "";
-    });
+    allExceptionsContainers.forEach((container) => {container.innerHTML = "";});
 
     // Flip sick switches to "no"
-    allSickSwitchInputs.forEach(function (input) {
-        input.checked = false;
-    });
+    allSickSwitchInputs.forEach((input) => {input.checked = false;});
 
-    allSickSwitchSpans.forEach(function (span) {
-        span.innerHTML = "No";
-    });
+    allSickSwitchSpans.forEach((span) => {span.innerHTML = "No";});
 
     // Hide titles
     hideThis(allExceptionsTitles);
     hideThis(allSickTitles);
 
-    allTypesCheckboxes.forEach(function (checkboxArray) {
-        checkboxArray = [];
-    });
+    allTypesCheckboxes.forEach((checkboxArray) => {checkboxArray = [];});
 }
 
-
+/**
+ * Sets the amount of hours worked on the Payroll Form for the 3 different position types.
+ * @param {number} tlHours - Hours allowed on a specific day for the Team Leaders.
+ * @param {number} lcwpHours - Hours allowed on a specific day for the Logistics Coordinator and Wellness Person.
+ * @param {number} ocHours - Hours allowed on a specific day for the Office Coordinator.
+ */
 function setHoursWorked(tlHours, lcwpHours, ocHours) {
     hoursWorkedTL.value = tlHours;
     hoursWorkedLCWP.value = lcwpHours;
     hoursWorkedOC.value = ocHours;
 }
 
+/**
+ * Checks to see if isSiteInfoValid() returns true, then shows the position cards filled with the corresponding information.
+ * @see isSiteInfoValid
+ */
 function showPositionCards() {
     // First, make sure all info is entered
     if (isSiteInfoValid() === true) {
@@ -1452,20 +1446,19 @@ function showPositionCards() {
             showThis(tlCard, lcwpCard);
             addPreviewButton(lcwpCard);
         }
-        allPositionCards.forEach(function (card) {
-            card.classList.add("animated", "slideInUp");
-        });
+        allPositionCards.forEach((card) => {card.classList.add("animated", "slideInUp");});
         hideThis(continueButtonContainer);
         setTimeout(scrollToTLCard, 1500);
         assignUserInfo();
     } else {
         let invalidItems = isSiteInfoValid();
-        invalidItems.forEach(function (invalidItem) {
-            invalidItem.classList.add("is-invalid");
-        });
+        invalidItems.forEach((invalidItem) => {invalidItem.classList.add("is-invalid");});
     }
 }
 
+/**
+ * Assigns user information to Log Rocket.
+ */
 function assignUserInfo() {
     userInformation.firstName = firstName.value;
     userInformation.lastName = lastName.value;
@@ -1480,12 +1473,19 @@ function assignUserInfo() {
     });
 }
 
+/**
+ * When called, it will scroll the tlCard into view, using the browser's native ".scrollIntoView()" method.
+ */
 function scrollToTLCard() {
     tlCard.scrollIntoView({
         behavior: 'smooth'
     });
 }
 
+/**
+ * Checks to see if the information entered by the user before hitting "Continue" was valid. User must enter a first and last name, select a site, and select a camp.
+ * @returns {(boolean|Array)} - Returns either "true" if the information was entered correctly, or returns an array of the invalid items.
+ */
 function isSiteInfoValid() {
     // If everything in the Site Info card is valid
     if (firstName.classList.contains("is-valid") && lastName.classList.contains("is-valid") && allSiteInputs.some(isChecked) && allCamps.some(isChecked)) {
@@ -1517,6 +1517,9 @@ function isSiteInfoValid() {
     }
 }
 
+/**
+ * Checks the name field to make sure that the name is longer than 2 characters.
+ */
 function checkName() {
     let value = this.value;
 
@@ -1532,6 +1535,9 @@ function checkName() {
     }
 }
 
+/**
+ * Checks to see if there is an empty position at a specific site. For example, in 2018, many sites did not have OC's. The ocCard was not shown because of this function.
+ */
 function checkEmptyPositions() {
     // There is no OC at SW, UCF, or VILLA
     if (chosenSite === "sw" || chosenSite === "ucf" || chosenSite === "villa") {
@@ -1553,6 +1559,10 @@ function checkEmptyPositions() {
     }
 }
 
+/**
+ * Adds a "Preview" button to a position card in order for the user to preview the data before finally submitting it to QLN.
+ * @param {element} location - The position card where the "Preview" button is to be placed. 
+ */
 function addPreviewButton(location) {
     let footerDiv = document.createElement('div');
     footerDiv.classList.add('card-footer', 'text-right');
@@ -1573,6 +1583,10 @@ function addPreviewButton(location) {
     location.appendChild(footerDiv);
 }
 
+/**
+ * Adds "Submit" and "Cancel" buttons to the preview card.
+ * @param {element} location - The preview card element where the "Submit" and "Cancel" buttons should be placed.
+ */
 function addFinalButtons(location) {
     let footerDiv = document.createElement('div');
     footerDiv.classList.add('card-footer', 'text-right');
@@ -1596,6 +1610,10 @@ function addFinalButtons(location) {
     location.appendChild(footerDiv);
 }
 
+/**
+ * Runs when the user clicks on the "Cancel" button on the preview screen. Scrolls back to the top and goes back to the Payroll Form, away from the Preview Screen. Uses slideInItems() to do so.
+ * @see slideInItems
+ */
 function goBackToForm() {
     // Scroll to top
     window.scroll({
@@ -1605,6 +1623,9 @@ function goBackToForm() {
     });
     setTimeout(slideInItems, 500);
 
+    /**
+     * Slides in items, utilizing the "Animate.css" library. Recreates initial alert.
+     */
     function slideInItems() {
         // First, slide out the preview card contents
         alert.classList.add("animated", "slideOutRight");
@@ -1622,7 +1643,7 @@ function goBackToForm() {
         showThis(siteInfoCard);
         siteInfoCard.classList.remove("slideOutLeft");
         siteInfoCard.classList.add("animated", "slideInLeft");
-        allPositionCards.forEach(function (card) {
+        allPositionCards.forEach((card) => {
             if (chosenSite !== "sw") {
                 showThis(card);
                 card.classList.remove("slideOutLeft");
@@ -1639,7 +1660,12 @@ function goBackToForm() {
 }
 
 
-// Helper functions
+// * HELPER FUNCTIONS
+
+/**
+ * Shows any amount of elements by removing the class, "hidden" from its classList.
+ * @see hideThis
+ */
 function showThis() {
     let thingsToShow = arguments;
     for (let i = 0; i < thingsToShow.length; i++) {
@@ -1648,6 +1674,10 @@ function showThis() {
     }
 }
 
+/**
+ * Hides any amount of elements by adding the class, "hidden" to its classList.
+ * @see showThis
+ */
 function hideThis() {
     // If there is only one item to hide
     if (arguments[0].constructor === HTMLDivElement) {
@@ -1670,6 +1700,12 @@ function hideThis() {
     }
 }
 
+/**
+ * Used to compare values agains each other, in a sorting fashion. Great for alphabetizing. Optional order parameter as well.
+ * @param {string} key - The key in which the function will sort by. (ex. "Last Name").
+ * @param {string} order - Optional. Ascending or Descending order. Default is ascending. Either 'asc', or 'desc'.
+ * @returns {number} - Returns 0 if the values are the same, -1 if the second value is greater than the first value, and 1 if the second value is less than the first value.
+ */
 function compareValues(key, order = 'asc') {
     return function (a, b) {
         if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
@@ -1694,14 +1730,31 @@ function compareValues(key, order = 'asc') {
     };
 }
 
+/**
+ * Checks if a checkbox has been checked or not. Used for sorting. Specifically checks for un-checked checkboxes.
+ * @returns {boolean} - Returns true if the checkbox is not checked.
+ * @param {element} checkbox - Checkbox element.
+ * @see isChecked
+ */
 function isUnchecked(checkbox) {
     return checkbox.checked === false;
 }
 
+/**
+ * Checks if a checkbox has been checked or not. Used for sorting. Specifically checks for checked checkboxes.
+ * @returns {boolean} - Returns true if the checkbox is checked.
+ * @param {element} checkbox - Checkbox element.
+ * @see isUnchecked
+ */
 function isChecked(checkbox) {
     return checkbox.checked === true;
 }
 
+/**
+ * Checks if the person is a Team Leader or Senior Team Leader. Used for sorting. Also checks to see if they are a "special staff member". 
+ * @param {element} person - Person to check if is a TL or STL.
+ * @returns {boolean} - Returns true if the person is a TL or STL.
+ */
 function isTL(person) {
     // Check to see if this person is a "Special Staff Member"
     // * Special Staff Member would be someone working a different position at a different camp
@@ -1713,73 +1766,74 @@ function isTL(person) {
     }
 }
 
+/**
+ * Checks if the person is a Logistics Coordinator. Used for filtering. Also checks to see if they are a "special staff member". 
+ * @param {element} person - Person to check if is an LC.
+ * @returns {boolean} - Returns true if the person is an LC.
+ */
 function isLC(person) {
     // Check to see if this person is a "Special Staff Member"
     // * Special Staff Member would be someone working a different position at a different camp
     // * See Yolanda Drew for a good example
-    if (person.specialStaffMember !== undefined) {
-        return person.specialStaffMember[0].camps[`${currentCamp}`] === "LC";
-    } else {
-        return person.position1 === "LC";
-    }
+    return (person.specialStaffMember !== undefined) ? person.specialStaffMember[0].camps[`${currentCamp}`] === "LC" : person.position1 === "LC";
 }
 
+/**
+ * Checks if the person is a Wellness Person. Used for filtering. Also checks to see if they are a "special staff member". 
+ * @param {element} person - Person to check if is an WP.
+ * @returns {boolean} - Returns true if the person is an WP.
+ */
 function isWP(person) {
     // Check to see if this person is a "Special Staff Member"
     // * Special Staff Member would be someone working a different position at a different camp
     // * See Yolanda Drew for a good example
-    if (person.specialStaffMember !== undefined) {
-        return person.specialStaffMember[0].camps[`${currentCamp}`] === "WP";
-    } else {
-        return person.position1 === "WP";
-    }
+    return (person.specialStaffMember !== undefined) ? person.specialStaffMember[0].camps[`${currentCamp}`] === "WP" : person.position1 === "WP";
 }
 
+/**
+ * Checks if the person is a Office Coordinator. Used for filtering. Also checks to see if they are a "special staff member". 
+ * @param {element} person - Person to check if is an OC.
+ * @returns {boolean} - Returns true if the person is an OC.
+ */
 function isOC(person) {
     // Check to see if this person is a "Special Staff Member"
     // * Special Staff Member would be someone working a different position at a different camp
     // * See Yolanda Drew for a good example
-    if (person.specialStaffMember !== undefined) {
-        return person.specialStaffMember[0].camps[`${currentCamp}`] === "OC";
-    } else {
-        return person.position1 === "OC";
-    }
+    return (person.specialStaffMember !== undefined) ? person.specialStaffMember[0].camps[`${currentCamp}`] === "OC" : person.position1 === "OC";
 }
 
+/**
+ * Checks to see if the item has the class "is-invalid". Used in filtering.
+ * @param {element} item - Item to check if is valid or not.
+ */
 function isInvalid(item) {
     return item.classList.contains("is-invalid");
 }
 
-function logThis() {
-    let variablesToLog = arguments;
-    for (let i = 0; i < variablesToLog.length; i++) {
-        let currentVariable = variablesToLog[i];
-        console.log(currentVariable);
-    }
-}
-
+/**
+ * Sets all initial parts of the Payroll Form to have blank values.
+ */
 function setBlank() {
     firstName.value = "";
     lastName.value = "";
-    allSiteInputs.forEach(function (siteInput) {
-        siteInput.checked = false;
-    });
-    allSickSwitchInputs.forEach(function (switchInput) {
-        switchInput.checked = false;
-    });
-    allCamps.forEach(function (campInput) {
-        campInput.checked = false;
-    });
+    allSiteInputs.forEach((siteInput) => {siteInput.checked = false;});
+    allSickSwitchInputs.forEach((switchInput) => {switchInput.checked = false;});
+    allCamps.forEach((campInput) => {campInput.checked = false;});
     dateMonth.value = "";
     dateDay.value = "";
 }
 
+/**
+ * "Clears" things, by setting their length to 0. Upon a second look, I feel like there are better ways to do this.
+ * @param {array} thingsToClear - An array of things to be cleared.
+ */
 function clearThis(thingsToClear) {
-    thingsToClear.forEach(function (thingToClear) {
-        thingToClear.length = 0;
-    });
+    thingsToClear.forEach((thingToClear) => {thingToClear.length = 0;});
 }
 
+/**
+ * Used to generate and show the Preview Screen.
+ */
 function previewData() {
     // ! Issue with not pushing to exceptionTLs, exceptionTLsInfo (etc...)
     // ! The exceptionTLs.push is called after the validInput() call
@@ -1956,7 +2010,7 @@ function previewData() {
     clearThis([workingTLs, exceptionTLs, sickTLs, workingLCs, exceptionLCs, workingWPs, exceptionWPs, sickLCWPs, workingOCs, exceptionOCs, sickOCs]);
 
     // Team Leaders
-    tlCheckboxes.forEach(function (checkbox) {
+    tlCheckboxes.forEach((checkbox) => {
         if (checkbox.checked === true) {
             workingTLs.push(checkbox.name);
         } else {
@@ -1965,7 +2019,7 @@ function previewData() {
     });
 
     // Logistics Coordinators
-    lcCheckboxes.forEach(function (checkbox) {
+    lcCheckboxes.forEach((checkbox) => {
         if (checkbox.checked === true) {
             workingLCs.push(checkbox.name);
         } else {
@@ -1974,7 +2028,7 @@ function previewData() {
     });
 
     // Wellness Person
-    wpCheckboxes.forEach(function (checkbox) {
+    wpCheckboxes.forEach((checkbox) => {
         if (checkbox.checked === true) {
             workingWPs.push(checkbox.name);
         } else {
@@ -1983,7 +2037,7 @@ function previewData() {
     });
 
     // Office Coordinators
-    ocCheckboxes.forEach(function (checkbox) {
+    ocCheckboxes.forEach((checkbox) => {
         if (checkbox.checked === true) {
             workingOCs.push(checkbox.name);
         } else {
@@ -1995,7 +2049,7 @@ function previewData() {
     let groups = ["TL", "LCWP", "OC"];
 
     // Make column elements for each position
-    groups.forEach(function (group) {
+    groups.forEach((group) => {
         let formGroup = document.createElement("div");
         formGroup.classList.add("form-group");
 
@@ -2017,14 +2071,14 @@ function previewData() {
             regTLValue.innerHTML = workingTLStringFinal;
             formGroup.appendChild(regTLValue);
             // Go through the exceptions container - Team Leaders
-            exceptionsTLContainer.childNodes.forEach(function (nodeBig) {
+            exceptionsTLContainer.childNodes.forEach((nodeBig) => {
                 // If the child node is an input group 
                 if (nodeBig.classList.contains("input-group")) {
                     let execptionHoursTL = "";
                     let exceptionMinutesTL = "";
                     let exceptionNameTL = nodeBig.name;
                     // Go through the div's child nodes
-                    nodeBig.childNodes.forEach(function (nodeSmall) {
+                    nodeBig.childNodes.forEach((nodeSmall) => {
                         // If the child is a form control
                         if (nodeSmall.classList.contains("form-control")) {
                             if (nodeSmall.max === "24") {
@@ -2035,7 +2089,7 @@ function previewData() {
                         }
                     });
                     // ? Possible fix: Check if invalid here, before you push it to the object
-                    nodeBig.childNodes.forEach(function (nodeSmall) {
+                    nodeBig.childNodes.forEach((nodeSmall) => {
                         // If the child is a form control
                         if (nodeSmall.classList.contains("form-control")) {
                             if (nodeSmall.max === "24") {
@@ -2065,7 +2119,7 @@ function previewData() {
                 }
             });
             // Create labels for each exception Team Leader
-            exceptionTLsInfo.forEach(function (person) {
+            exceptionTLsInfo.forEach((person) => {
                 let exceptionValue = document.createElement("div");
                 let stringID = `${person.name}`.replace(" ", "-");
                 exceptionValue.id = `exception-value-${stringID}`;
@@ -2075,14 +2129,14 @@ function previewData() {
             });
             if (tlIsSick === true) {
                 // Go through the sick exceptions container - Team Leaders
-                sickExceptionsTLContainer.childNodes.forEach(function (nodeBig) {
+                sickExceptionsTLContainer.childNodes.forEach((nodeBig) => {
                     // If the child node is an input group 
                     if (nodeBig.classList.contains("input-group")) {
                         let sickHoursTL = "";
                         let sickMinutesTL = "";
                         let sickNameTL = nodeBig.name;
                         // Go through the div's child nodes
-                        nodeBig.childNodes.forEach(function (nodeSmall) {
+                        nodeBig.childNodes.forEach((nodeSmall) => {
                             // If the child is a form control
                             if (nodeSmall.classList.contains("form-control")) {
                                 if (nodeSmall.max === "8") {
@@ -2093,7 +2147,7 @@ function previewData() {
                             }
                         });
                         // ? Possible fix: Check if invalid here, before you push it to the object
-                        nodeBig.childNodes.forEach(function (nodeSmall) {
+                        nodeBig.childNodes.forEach((nodeSmall) => {
                             // If the child is a form control
                             if (nodeSmall.classList.contains("form-control")) {
                                 if (nodeSmall.max === "8") {
@@ -2122,7 +2176,7 @@ function previewData() {
                     }
                 });
                 // Create labels for each sick Team Leader
-                sickTLsInfo.forEach(function (person) {
+                sickTLsInfo.forEach((person) => {
                     let sickValue = document.createElement("div");
                     let stringID = `${person.name}`.replace(" ", "-");
                     sickValue.id = `sick-value-${stringID}`;
@@ -2158,14 +2212,14 @@ function previewData() {
             regLCWPValue.innerHTML = workingLCWPStringFinal;
             formGroup.appendChild(regLCWPValue);
             // Go through the exceptions container - LCWPs
-            exceptionsLCWPContainer.childNodes.forEach(function (nodeBig) {
+            exceptionsLCWPContainer.childNodes.forEach((nodeBig) => {
                 // If the child node is an input group 
                 if (nodeBig.classList.contains("input-group")) {
                     let execptionHoursLCWP = "";
                     let exceptionMinutesLCWP = "";
                     let exceptionNameLCWP = nodeBig.name;
                     // Go through the div's child nodes
-                    nodeBig.childNodes.forEach(function (nodeSmall) {
+                    nodeBig.childNodes.forEach((nodeSmall) => {
                         // If the child is a form control
                         if (nodeSmall.classList.contains("form-control")) {
                             if (nodeSmall.max === "24") {
@@ -2176,7 +2230,7 @@ function previewData() {
                         }
                     });
                     // ? Possible fix: Check if invalid here, before you push it to the object
-                    nodeBig.childNodes.forEach(function (nodeSmall) {
+                    nodeBig.childNodes.forEach((nodeSmall) => {
                         // If the child is a form control
                         if (nodeSmall.classList.contains("form-control")) {
                             if (nodeSmall.max === "24") {
@@ -2205,7 +2259,7 @@ function previewData() {
                 }
             });
             // Create labels for each exception LCWP
-            exceptionLCWPsInfo.forEach(function (person) {
+            exceptionLCWPsInfo.forEach((person) => {
                 let exceptionValue = document.createElement("div");
                 let stringID = `${person.name}`.replace(" ", "-");
                 exceptionValue.id = `exception-value-${stringID}`;
@@ -2215,14 +2269,14 @@ function previewData() {
             });
             if (lcwpIsSick === true) {
                 // Go through the sick exceptions container - LCWPs
-                sickExceptionsLCWPContainer.childNodes.forEach(function (nodeBig) {
+                sickExceptionsLCWPContainer.childNodes.forEach((nodeBig) => {
                     // If the child node is an input group 
                     if (nodeBig.classList.contains("input-group")) {
                         let sickHoursLCWP = "";
                         let sickMinutesLCWP = "";
                         let sickNameLCWP = nodeBig.name;
                         // Go through the div's child nodes
-                        nodeBig.childNodes.forEach(function (nodeSmall) {
+                        nodeBig.childNodes.forEach((nodeSmall) => {
                             // If the child is a form control
                             if (nodeSmall.classList.contains("form-control")) {
                                 if (nodeSmall.max === "8") {
@@ -2233,7 +2287,7 @@ function previewData() {
                             }
                         });
                         // ? Possible fix: Check if invalid here, before you push it to the object
-                        nodeBig.childNodes.forEach(function (nodeSmall) {
+                        nodeBig.childNodes.forEach((nodeSmall) => {
                             // If the child is a form control
                             if (nodeSmall.classList.contains("form-control")) {
                                 if (nodeSmall.max === "8") {
@@ -2262,7 +2316,7 @@ function previewData() {
                     }
                 });
                 // Create labels for each sick LCWP
-                sickLCWPsInfo.forEach(function (person) {
+                sickLCWPsInfo.forEach((person) => {
                     let sickValue = document.createElement("div");
                     let stringID = `${person.name}`.replace(" ", "-");
                     sickValue.id = `sick-value-${stringID}`;
@@ -2293,14 +2347,14 @@ function previewData() {
                 regOCValue.innerHTML = workingOCStringFinal;
                 formGroup.appendChild(regOCValue);
                 // Go through the exceptions container - Office Coordinators
-                exceptionsOCContainer.childNodes.forEach(function (nodeBig) {
+                exceptionsOCContainer.childNodes.forEach((nodeBig) => {
                     // If the child node is an input group 
                     if (nodeBig.classList.contains("input-group")) {
                         let execptionHoursOC = "";
                         let exceptionMinutesOC = "";
                         let exceptionNameOC = nodeBig.name;
                         // Go through the div's child nodes
-                        nodeBig.childNodes.forEach(function (nodeSmall) {
+                        nodeBig.childNodes.forEach((nodeSmall) => {
                             // If the child is a form control
                             if (nodeSmall.classList.contains("form-control")) {
                                 if (nodeSmall.max === "24") {
@@ -2311,7 +2365,7 @@ function previewData() {
                             }
                         });
                         // ? Possible fix: Check if invalid here, before you push it to the object
-                        nodeBig.childNodes.forEach(function (nodeSmall) {
+                        nodeBig.childNodes.forEach((nodeSmall) => {
                             // If the child is a form control
                             if (nodeSmall.classList.contains("form-control")) {
                                 if (nodeSmall.max === "24") {
@@ -2340,7 +2394,7 @@ function previewData() {
                     }
                 });
                 // Create labels for each exception Team Leader
-                exceptionOCsInfo.forEach(function (person) {
+                exceptionOCsInfo.forEach((person) => {
                     let exceptionValue = document.createElement("div");
                     let stringID = `${person.name}`.replace(" ", "-");
                     exceptionValue.id = `exception-value-${stringID}`;
@@ -2350,14 +2404,14 @@ function previewData() {
                 });
                 if (ocIsSick === true) {
                     // Go through the sick exceptions container - Office Coordinators
-                    sickExceptionsOCContainer.childNodes.forEach(function (nodeBig) {
+                    sickExceptionsOCContainer.childNodes.forEach((nodeBig) => {
                         // If the child node is an input group 
                         if (nodeBig.classList.contains("input-group")) {
                             let sickHoursOC = "";
                             let sickMinutesOC = "";
                             let sickNameOC = nodeBig.name;
                             // Go through the div's child nodes
-                            nodeBig.childNodes.forEach(function (nodeSmall) {
+                            nodeBig.childNodes.forEach((nodeSmall) => {
                                 // If the child is a form control
                                 if (nodeSmall.classList.contains("form-control")) {
                                     if (nodeSmall.max === "8") {
@@ -2368,7 +2422,7 @@ function previewData() {
                                 }
                             });
                             // ? Possible fix: Check if invalid here, before you push it to the object
-                            nodeBig.childNodes.forEach(function (nodeSmall) {
+                            nodeBig.childNodes.forEach((nodeSmall) => {
                                 // If the child is a form control
                                 if (nodeSmall.classList.contains("form-control")) {
                                     if (nodeSmall.max === "8") {
@@ -2397,7 +2451,7 @@ function previewData() {
                         }
                     });
                     // Create labels for each sick Team Leader
-                    sickOCsInfo.forEach(function (person) {
+                    sickOCsInfo.forEach((person) => {
                         let sickValue = document.createElement("div");
                         let stringID = `${person.name}`.replace(" ", "-");
                         sickValue.id = `sick-value-${stringID}`;
@@ -2438,9 +2492,7 @@ function previewData() {
     if (validInput() === true) {
         let listOfItemsToMakeGood = document.querySelectorAll(".is-invalid");
 
-        listOfItemsToMakeGood.forEach(function (itemToMakeGood) {
-            itemToMakeGood.classList.remove("is-invalid");
-        });
+        listOfItemsToMakeGood.forEach((itemToMakeGood) => {itemToMakeGood.classList.remove("is-invalid");});
         // Scroll to top
         window.scroll({
             top: 0,
@@ -2460,24 +2512,30 @@ function previewData() {
         setTimeout(showInvalidModal, 500);
     }
 
+    /**
+     * Shows a modal warning the user that the input was invalid.
+     */
     function showInvalidModal() {
         $('#invalid-input-modal').modal();
     }
 
+    /**
+     * Similar to slideInItems(), this function slides items out of the screen. Used on the Preview Screen animation.
+     * @see slideInItems
+     */
     function slideOutItems() {
         alert.classList.add("animated", "slideOutLeft");
         siteInfoCard.classList.add("animated", "slideOutLeft");
-        allPositionCards.forEach(function (card) {
-            card.classList.add("animated", "slideOutLeft");
-        });
+        allPositionCards.forEach((card) => {card.classList.add("animated", "slideOutLeft");});
         setTimeout(buildPreviewCard, 750);
     }
 
+    /**
+     * Builds the Preview Screen by appending elements to one another.
+     */
     function buildPreviewCard() {
         hideThis(siteInfoCard);
-        allPositionCards.forEach(function (card) {
-            hideThis(card);
-        });
+        allPositionCards.forEach((card) => {hideThis(card);});
 
         previewCardDiv.appendChild(headerDiv);
         headerDiv.appendChild(header);
@@ -2500,10 +2558,12 @@ function previewData() {
 
         mainForm.prepend(previewCardDiv);
     }
-
-
 }
 
+/**
+ * Checks the input times to see if they are valid. A valid item must not be empty.
+ * @returns {boolean} - Returns "true" if the input is valid, and "false" if it is invalid.
+ */
 function validInput() {
     if (arguments.length > 0) {
         if (this.value === "") {
@@ -2547,15 +2607,6 @@ function validInput() {
 
 
 
-
-
-
-
-
-
-
-
-
 // FORM
 
 const scriptURL = 'https://script.google.com/macros/s/AKfycbyaZdP8ZLdRG-8EqKqO5ceqeaWJEH2y3HDJFjV5LlFv4V6_FkQ/exec';
@@ -2566,7 +2617,9 @@ const errorMessage = document.querySelector('.js-error-message');
 const againButton = document.querySelector('.again-button');
 const formBody = new FormData();
 
-
+/**
+ * Creates the data that is sent to the Google Spreadsheet. Use of JSON and PapaParse throughout.
+ */
 function createData() {
     // Names
     formBody.append('firstName', firstName.value);
@@ -2588,14 +2641,14 @@ function createData() {
     formBody.append('exceptionTLs', exceptionTLs);
 
     // Go through the exceptions container - Team Leaders
-    exceptionsTLContainer.childNodes.forEach(function (nodeBig) {
+    exceptionsTLContainer.childNodes.forEach((nodeBig) => {
         // If the child node is an input group 
         if (nodeBig.classList.contains("input-group")) {
             let execptionHoursTL = "";
             let exceptionMinutesTL = "";
             let exceptionNameTL = nodeBig.name;
             // Go through the div's child nodes
-            nodeBig.childNodes.forEach(function (nodeSmall) {
+            nodeBig.childNodes.forEach((nodeSmall) => {
                 // If the child is a form control
                 if (nodeSmall.classList.contains("form-control")) {
                     if (nodeSmall.max === "24") {
@@ -2619,14 +2672,14 @@ function createData() {
     formBody.append('exceptionTLsInfo', unparsedExceptionTLsInfo);
 
     // Go through the exceptions container - LCWP
-    exceptionsLCWPContainer.childNodes.forEach(function (nodeBig) {
+    exceptionsLCWPContainer.childNodes.forEach((nodeBig) => {
         // If the child node is an input group 
         if (nodeBig.classList.contains("input-group")) {
             let execptionHoursLCWP = "";
             let exceptionMinutesLCWP = "";
             let exceptionNameLCWP = nodeBig.name;
             // Go through the div's child nodes
-            nodeBig.childNodes.forEach(function (nodeSmall) {
+            nodeBig.childNodes.forEach((nodeSmall) => {
                 // If the child is a form control
                 if (nodeSmall.classList.contains("form-control")) {
                     if (nodeSmall.max === "24") {
@@ -2650,14 +2703,14 @@ function createData() {
     formBody.append('exceptionLCWPsInfo', unparsedExceptionLCWPsInfo);
 
     // Go through the exceptions container - Office Coordinators
-    exceptionsOCContainer.childNodes.forEach(function (nodeBig) {
+    exceptionsOCContainer.childNodes.forEach((nodeBig) => {
         // If the child node is an input group 
         if (nodeBig.classList.contains("input-group")) {
             let execptionHoursOC = "";
             let exceptionMinutesOC = "";
             let exceptionNameOC = nodeBig.name;
             // Go through the div's child nodes
-            nodeBig.childNodes.forEach(function (nodeSmall) {
+            nodeBig.childNodes.forEach((nodeSmall) => {
                 // If the child is a form control
                 if (nodeSmall.classList.contains("form-control")) {
                     if (nodeSmall.max === "24") {
@@ -2735,7 +2788,7 @@ function createData() {
 
     // Sick Team Leaders
     formBody.append('tlIsSick', tlIsSick);
-    sickTLCheckboxes.forEach(function (checkbox) {
+    sickTLCheckboxes.forEach((checkbox) => {
         if (checkbox.checked === true) {
             sickTLs.push(checkbox.name);
         }
@@ -2745,7 +2798,7 @@ function createData() {
 
     // Sick Logistics Coordinators & Wellness Person
     formBody.append('lcwpIsSick', lcwpIsSick);
-    sickLCWPCheckboxes.forEach(function (checkbox) {
+    sickLCWPCheckboxes.forEach((checkbox) => {
         if (checkbox.checked === true) {
             sickLCWPs.push(checkbox.name);
         }
@@ -2755,7 +2808,7 @@ function createData() {
 
     // Sick Office Coordinators
     formBody.append('ocIsSick', ocIsSick);
-    sickOCCheckboxes.forEach(function (checkbox) {
+    sickOCCheckboxes.forEach((checkbox) => {
         if (checkbox.checked === true) {
             sickOCs.push(checkbox.name);
         }
@@ -2764,14 +2817,14 @@ function createData() {
     formBody.append('sickOCs', sickOCs);
 
     // Go through the sick exceptions container - Team Leaders
-    sickExceptionsTLContainer.childNodes.forEach(function (nodeBig) {
+    sickExceptionsTLContainer.childNodes.forEach((nodeBig) => {
         // If the child node is an input group 
         if (nodeBig.classList.contains("input-group")) {
             let sickHoursTL = "";
             let sickMinutesTL = "";
             let sickNameTL = nodeBig.name;
             // Go through the div's child nodes
-            nodeBig.childNodes.forEach(function (nodeSmall) {
+            nodeBig.childNodes.forEach((nodeSmall) => {
                 // If the child is a form control
                 if (nodeSmall.classList.contains("form-control")) {
                     if (nodeSmall.max === "8") {
@@ -2792,22 +2845,18 @@ function createData() {
             */
         }
     });
-    console.log("sickTLsInfo before PapaParse:");
-    console.log(sickTLsInfo);
     var unparsedSickTLsInfo = Papa.unparse(sickTLsInfo);
     formBody.append('sickTLsInfo', unparsedSickTLsInfo);
-    console.log("sickTLsInfo after PapaParse:");
-    console.log(unparsedSickTLsInfo);
 
     // Go through the sick exceptions container - LCWPs
-    sickExceptionsLCWPContainer.childNodes.forEach(function (nodeBig) {
+    sickExceptionsLCWPContainer.childNodes.forEach((nodeBig) => {
         // If the child node is an input group 
         if (nodeBig.classList.contains("input-group")) {
             let sickHoursLCWP = "";
             let sickMinutesLCWP = "";
             let sickNameLCWP = nodeBig.name;
             // Go through the div's child nodes
-            nodeBig.childNodes.forEach(function (nodeSmall) {
+            nodeBig.childNodes.forEach((nodeSmall) => {
                 // If the child is a form control
                 if (nodeSmall.classList.contains("form-control")) {
                     if (nodeSmall.max === "8") {
@@ -2832,14 +2881,14 @@ function createData() {
     formBody.append('sickLCWPsInfo', unparsedSickLCWPsInfo);
 
     // Go through the sick exceptions container - Office Coordinators
-    sickExceptionsOCContainer.childNodes.forEach(function (nodeBig) {
+    sickExceptionsOCContainer.childNodes.forEach((nodeBig) => {
         // If the child node is an input group 
         if (nodeBig.classList.contains("input-group")) {
             let sickHoursOC = "";
             let sickMinutesOC = "";
             let sickNameOC = nodeBig.name;
             // Go through the div's child nodes
-            nodeBig.childNodes.forEach(function (nodeSmall) {
+            nodeBig.childNodes.forEach((nodeSmall) => {
                 // If the child is a form control
                 if (nodeSmall.classList.contains("form-control")) {
                     if (nodeSmall.max === "8") {
@@ -2878,11 +2927,18 @@ form.addEventListener('submit', e => {
         .catch(error => showErrorMessage(error));
 });
 
+/**
+ * Shows a simple loading indicator after the user clicks "Submit" while the data is being sent and the browser is waiting for a response from Google.
+ */
 function showLoadingIndicator() {
     form.classList.add('is-hidden-form');
     loading.classList.remove('is-hidden-form');
 }
 
+/**
+ * Shows success message if the request to Google went through OK.
+ * @param {*} response - Reponse from Google.
+ */
 function showSuccessMessage(response) {
     console.log('Success!', response);
     setTimeout(() => {
@@ -2892,6 +2948,10 @@ function showSuccessMessage(response) {
     }, 500);
 }
 
+/**
+ * Shows error message if the request to Google did not go through OK.
+ * @param {*} error - Error from Google
+ */
 function showErrorMessage(error) {
     console.error('Error!', error.message);
     setTimeout(() => {

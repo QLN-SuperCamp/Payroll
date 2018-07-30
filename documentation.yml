@@ -3,10 +3,12 @@ toc:
     description: |
       These functions take in raw data from the Payroll form and manipulate it.
     children:
+      - buildCampMinderReportArray
       - countExceptionHours
       - countHours
       - countSickHours
       - formData
+      - getPosition
       - init
       - separateFormData
       - splitHours
@@ -16,6 +18,7 @@ toc:
       - villaData
       - readDateInfo
       - readCampMinderReport
+      - translateCampCodes
       - userInformation
   - name: Data Displaying
     description: |
@@ -52,5 +55,57 @@ toc:
       These functions are either misc. or help in small handy ways.
     children:
       - checkIfRound
+      - checkSpecialCases
+      - clearThis
+      - compareValues
+      - hideThis
+      - isChecked
+      - isInvalid
+      - isLC
+      - isOC
+      - isTL
+      - isUnchecked
+      - isWP
       - mergeTime
       - moneyString
+      - setBlank
+      - showThis
+  - name: Payroll Form
+    description: |
+      These functions are specifically pertaining to the Payroll Form itself.
+    children:
+      - addPreviewButton
+      - addStaffMembers
+      - assignSpanLabel
+      - campChosen
+      - checkEmptyPositions
+      - checkExceptions
+      - checkName
+      - checkSick
+      - createData
+      - createSickStaff
+      - dateChanged
+      - disableDates
+      - enableDates
+      - isSiteInfoValid
+      - resetInfo
+      - scrollToTLCard
+      - setHoursWorked
+      - showPositionCards
+      - sickSwitched
+      - siteChosen
+      - slideInItems
+      - slideOutItems
+      - validInput
+  - name: Preview Screen
+    description: |
+      These functions are specifically pertaining to the Preview Screen of the Payroll Form.
+    children:
+      - addFinalButtons
+      - buildPreviewCard
+      - goBackToForm
+      - previewData
+      - showErrorMessage
+      - showInvalidModal
+      - showLoadingIndicator
+      - showSuccessMessage

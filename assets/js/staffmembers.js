@@ -5,9 +5,13 @@
 
 
 // CampMinder Report - All 2018 Staff Members
-var allStaffReport = "2018staff.csv";
+var allStaffReport = "admin/2018staff.csv";
 var allStaffReportArray = [];
 var staffMembersAll = [];
+/**
+ * Takes in the CampMinder report - "2018.csv" and works the data into a final array that then is used by the entire program.
+ * @name buildCampMinderReportArray
+ */
 $.get(allStaffReport, function (data) {
     var csvDatasets = Papa.parse(data, {
         header: true
@@ -34,6 +38,15 @@ $.get(allStaffReport, function (data) {
         var fullName = personObject.firstName.concat(" ", personObject.lastName);
         checkSpecialCases(fullName);
 
+        /**
+         * Gets information about the position of the current staff member, and translates it to something the form can work with.
+         * @returns {string} An abbreviated position, from the list of positionDefinitions. (ex. "Team Leader" becomes "TL").
+         * @param {object} staffMember - The current staff member in the csv of all working staff members.
+         * @param {number} positionNumber - Refers to the first or second positon/title. Either "Team Leader", "Senior Team Leader", "Logistics Coordinator", "Wellness Person", "Office Coordinator", "Site Counselor", "Facilitator", "Lead Facilitator", or "Site Administrator".
+         * @example <caption>Use getPosition to get an abbreviated value for a staff member only working as a Logistics Coordinator.</caption>
+         * getPosition({staffMember}, 1);
+         * // returns "LC";
+         */
         function getPosition(staffMember, positionNumber) {
             var positionDefinitions = {
                 "Team Leader": "TL",
@@ -53,12 +66,19 @@ $.get(allStaffReport, function (data) {
                 positionProperty = staffMember["Position 2"];
             }
 
-
             abbreviatedPosition = positionDefinitions[`${positionProperty}`];
 
             return abbreviatedPosition;
         }
 
+        /**
+         * Translates the camp codes into a more human-readable format.
+         * @returns {array} - An array containing strings of readable formats of the camp codes.
+         * @example <caption>Translate an array of camp codes for someone working both camps at Texas.</caption>
+         * translateCampCodes(["TXS118 / TXJ118", "TXQA118"]);
+         * //returns ["sw-camp1", "sw-camp2"];
+         * @param {Array} campCodesArray - An array of camp codes that the staff member is working.
+         */
         function translateCampCodes(campCodesArray) {
             var campCodeDefinitions = {
                 "STS118": "stan-camp1",
@@ -86,6 +106,11 @@ $.get(allStaffReport, function (data) {
             return translatedCampCodes;
         }
 
+        /**
+         * Checks to see if the staff member the program is working on is a "special case" staff member - someone who has something out of the ordinary going on with their position, pay, location, etc. If the person is in the array of special cases, the function pushes the value from the array of special cases.
+         * @param {string} fullName - A string formed by concatonating the firstName and lastName of an employee.
+         * 
+         */
         function checkSpecialCases(fullName) {
             var specialCaseStaff = [
                 {

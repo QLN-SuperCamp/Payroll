@@ -132,7 +132,7 @@ siteVILLA.addEventListener("click", siteChosen);
 
 // Listen for the user to select a camp
 allCamps.forEach(function (camp) {
-    camp.addEventListener("click", campChosen);
+    camp.addEventListener('click', campChosen);
 });
 
 // Dates
@@ -184,7 +184,7 @@ var allSickSwitchSpans = [tlSickSwitchSpan, lcwpSickSwitchSpan, ocSickSwitchSpan
 
 // Listen if the user changes the switch
 allSickSwitchInputs.forEach(function (groupInput) {
-    groupInput.addEventListener("change", sickSwitched);
+    groupInput.addEventListener('change', sickSwitched);
 });
 
 // Sick Staff Containers
@@ -223,6 +223,9 @@ var exceptionsWarningOC = document.getElementById('exceptions-warning-oc');
 // Make sure that switches and checkboxes and radios are blank when the page first loads
 document.addEventListener("DOMContentLoaded", setBlank);
 
+/**
+ * Runs when a site has been chosen from the list of sites in the Payroll Form. Shows the corresponding camps for that site, and hides all other camps. Also calls resetInfo() and checkEmptyPositions().
+ */
 function siteChosen() {
     var value = this.value;
 
@@ -250,6 +253,9 @@ function siteChosen() {
     checkEmptyPositions();
 }
 
+/**
+ * Runs when a camp has been selected from the list of camps in the Payroll Form. Enables the dates for that specific camp. Also calls resetInfo(), dateChanged() and addStaffMembers().
+ */
 function campChosen() {
     var value = this.value;
 
@@ -355,6 +361,9 @@ function campChosen() {
     addStaffMembers();
 }
 
+/**
+ * Runs when the date is selected and changed in the Payroll Form. Sets hours worked for each position type for each day of that camp.
+ */
 function dateChanged() {
     if (currentCamp === "sw-camp1") {
         if (dateDay.value === "19") {
@@ -522,26 +531,39 @@ function dateChanged() {
     }
 }
 
+/**
+ * Disables specific months and days from being available to the user in the Payroll Form.
+ * @param {array} months - An array of numbers corresponding to months that should be disabled to the user. 
+ * @param {array} days - An array of numbers corresponding to days of the month that should be disabled to the user. 
+ * @see enableDates
+ */
 function disableDates(months, days) {
     months.forEach(function (option) {
         dateMonth.options[option].disabled = true;
     });
-
     days.forEach(function (option) {
         dateDay.options[option].disabled = true;
     });
 }
 
+/**
+ * Enables specific months and days to be available to the user in the Payroll Form.
+ * @param {array} months - An array of numbers corresponding to months that should be enabled to the user.
+ * @param {array} days - An array of numbers corresponding to days of the month that should be enabled to the user.
+ * @see disableDates 
+ */
 function enableDates(months, days) {
     months.forEach(function (option) {
         dateMonth.options[option].disabled = false;
     });
-
     days.forEach(function (option) {
         dateDay.options[option].disabled = false;
     });
 }
 
+/**
+ * Adds staff members alphabetically and by position type to the form. Separated by camp.
+ */
 function addStaffMembers() {
     // Clear staff list containers
     allStaffMembersContainers.forEach(function (container) {
@@ -590,6 +612,9 @@ function addStaffMembers() {
             span.classList.add("custom-control-label");
             span.innerHTML = assignSpanLabel();
 
+            /**
+             * Assigns each staff member a specific span as a label, containing their position for the chosen camp, and their full name.
+             */
             function assignSpanLabel() {
                 // If this person has a weird role thing
                 if (person.specialStaffMember !== undefined) {
@@ -597,6 +622,7 @@ function addStaffMembers() {
                     var specificSpecialPerson = person.specialStaffMember.filter(function (staff) {
                         return staff.id === person.firstName.concat(" ", person.lastName);
                     });
+
                     if (specificSpecialPerson[0].id === "Yolanda Drew") {
                         if (currentCamp === "sw-camp1") {
                             return "<em>(" + person.specialStaffMember[0].camps["sw-camp1"] + ")</em> " + person.firstName + " " + person.lastName;
@@ -666,6 +692,9 @@ function addStaffMembers() {
     });
 }
 
+/**
+ * Checks the staff members who did not work the hours that were expected. Needs to be refactored.
+ */
 function checkExceptions() {
     // ! This is where you are running into trouble with Issue #3
     // ? Try NOT clearing the list of exceptions?
@@ -732,7 +761,6 @@ function checkExceptions() {
 
                 // Go through unchecked staff array, and in the container, add a label and input boxes
                 uncheckedCheckboxesGroup.forEach(function (group) {
-
                     if (group.length > 0) {
                         if (group[0].dataset.position === "TL") {
                             // ! This could also be where you are running into Issue #3
@@ -1017,6 +1045,9 @@ function checkExceptions() {
     });
 }
 
+/**
+ * Runs when any sick switch is toggled. Changes the toggle and span of the sick switch, reveals the sick containers for that position type, and creates sick staff lists for that position type.
+ */
 function sickSwitched() {
     if (this.checked) {
         if (this.dataset.position === "TL") {
@@ -1058,6 +1089,9 @@ function sickSwitched() {
     }
 }
 
+/**
+ * Responsible for creating lists of staffmembers in the sick containers based on position type.
+ */
 function createSickStaff(positionType) {
     // Probably going to run into a problem right here. 
     // If you create sick staff individually based on the corresponding switch,
@@ -1202,6 +1236,9 @@ function createSickStaff(positionType) {
     });
 }
 
+/**
+ * Runs when a sick checkbox is clicked. Responsible for running the checks like checkExceptions() but on sick staff.
+ */
 function checkSick() {
 
     if (this.dataset.positiontype === "TL") {
@@ -1262,11 +1299,9 @@ function checkSick() {
                 }
             });
 
-            /*
-            STOPPING SICK HOUR CHECKS.
-            IF NEEDED, PUT BACK IN. FOR NOW, JUST ADD THE SICK STAFF MEMBER TO THE
-            CORRESPONDING ARRAY
-            */
+            // ! STOPPING SICK HOUR CHECKS.
+            // ! IF NEEDED, PUT BACK IN. FOR NOW, JUST ADD THE SICK STAFF MEMBER TO THE
+            // ! CORRESPONDING ARRAY
 
             var checkedCheckboxesGroup = [checkedSickTLCheckboxes, checkedSickLCWPCheckboxes, checkedSickOCCheckboxes];
 
@@ -1379,6 +1414,9 @@ function checkSick() {
     });
 }
 
+/**
+ * Resets the lists of staff members, hours worked, sets sick toggles to "No". Resets all info.
+ */
 function resetInfo() {
     // Reset hours worked
     hoursWorkedTL.value = "";
@@ -1389,6 +1427,7 @@ function resetInfo() {
     allStaffMembersContainers.forEach(function (container) {
         container.innerHTML = "";
     });
+    // TODO: You can refactor a lot of code if you write a helper function to set innerHTML of an element to "".
 
     allSickExceptionsContainers.forEach(function (container) {
         container.innerHTML = "";
@@ -1416,12 +1455,22 @@ function resetInfo() {
     });
 }
 
+/**
+ * Sets the amount of hours worked on the Payroll Form for the 3 different position types.
+ * @param {number} tlHours - Hours allowed on a specific day for the Team Leaders.
+ * @param {number} lcwpHours - Hours allowed on a specific day for the Logistics Coordinator and Wellness Person.
+ * @param {number} ocHours - Hours allowed on a specific day for the Office Coordinator.
+ */
 function setHoursWorked(tlHours, lcwpHours, ocHours) {
     hoursWorkedTL.value = tlHours;
     hoursWorkedLCWP.value = lcwpHours;
     hoursWorkedOC.value = ocHours;
 }
 
+/**
+ * Checks to see if isSiteInfoValid() returns true, then shows the position cards filled with the corresponding information.
+ * @see isSiteInfoValid
+ */
 function showPositionCards() {
     // First, make sure all info is entered
     if (isSiteInfoValid() === true) {
@@ -1447,6 +1496,9 @@ function showPositionCards() {
     }
 }
 
+/**
+ * Assigns user information to Log Rocket.
+ */
 function assignUserInfo() {
     userInformation.firstName = firstName.value;
     userInformation.lastName = lastName.value;
@@ -1461,12 +1513,19 @@ function assignUserInfo() {
     });
 }
 
+/**
+ * When called, it will scroll the tlCard into view, using the browser's native ".scrollIntoView()" method.
+ */
 function scrollToTLCard() {
     tlCard.scrollIntoView({
         behavior: 'smooth'
     });
 }
 
+/**
+ * Checks to see if the information entered by the user before hitting "Continue" was valid. User must enter a first and last name, select a site, and select a camp.
+ * @returns {(boolean|Array)} - Returns either "true" if the information was entered correctly, or returns an array of the invalid items.
+ */
 function isSiteInfoValid() {
     // If everything in the Site Info card is valid
     if (firstName.classList.contains("is-valid") && lastName.classList.contains("is-valid") && allSiteInputs.some(isChecked) && allCamps.some(isChecked)) {
@@ -1498,6 +1557,9 @@ function isSiteInfoValid() {
     }
 }
 
+/**
+ * Checks the name field to make sure that the name is longer than 2 characters.
+ */
 function checkName() {
     var value = this.value;
 
@@ -1513,6 +1575,9 @@ function checkName() {
     }
 }
 
+/**
+ * Checks to see if there is an empty position at a specific site. For example, in 2018, many sites did not have OC's. The ocCard was not shown because of this function.
+ */
 function checkEmptyPositions() {
     // There is no OC at SW, UCF, or VILLA
     if (chosenSite === "sw" || chosenSite === "ucf" || chosenSite === "villa") {
@@ -1534,6 +1599,10 @@ function checkEmptyPositions() {
     }
 }
 
+/**
+ * Adds a "Preview" button to a position card in order for the user to preview the data before finally submitting it to QLN.
+ * @param {element} location - The position card where the "Preview" button is to be placed. 
+ */
 function addPreviewButton(location) {
     var footerDiv = document.createElement('div');
     footerDiv.classList.add('card-footer', 'text-right');
@@ -1554,6 +1623,10 @@ function addPreviewButton(location) {
     location.appendChild(footerDiv);
 }
 
+/**
+ * Adds "Submit" and "Cancel" buttons to the preview card.
+ * @param {element} location - The preview card element where the "Submit" and "Cancel" buttons should be placed.
+ */
 function addFinalButtons(location) {
     var footerDiv = document.createElement('div');
     footerDiv.classList.add('card-footer', 'text-right');
@@ -1577,6 +1650,10 @@ function addFinalButtons(location) {
     location.appendChild(footerDiv);
 }
 
+/**
+ * Runs when the user clicks on the "Cancel" button on the preview screen. Scrolls back to the top and goes back to the Payroll Form, away from the Preview Screen. Uses slideInItems() to do so.
+ * @see slideInItems
+ */
 function goBackToForm() {
     // Scroll to top
     window.scroll({
@@ -1586,6 +1663,9 @@ function goBackToForm() {
     });
     setTimeout(slideInItems, 500);
 
+    /**
+     * Slides in items, utilizing the "Animate.css" library. Recreates initial alert.
+     */
     function slideInItems() {
         // First, slide out the preview card contents
         alert.classList.add("animated", "slideOutRight");
@@ -1619,7 +1699,12 @@ function goBackToForm() {
     }
 }
 
-// Helper functions
+// * HELPER FUNCTIONS
+
+/**
+ * Shows any amount of elements by removing the class, "hidden" from its classList.
+ * @see hideThis
+ */
 function showThis() {
     var thingsToShow = arguments;
     for (var i = 0; i < thingsToShow.length; i++) {
@@ -1628,6 +1713,10 @@ function showThis() {
     }
 }
 
+/**
+ * Hides any amount of elements by adding the class, "hidden" to its classList.
+ * @see showThis
+ */
 function hideThis() {
     // If there is only one item to hide
     if (arguments[0].constructor === HTMLDivElement) {
@@ -1650,6 +1739,12 @@ function hideThis() {
     }
 }
 
+/**
+ * Used to compare values agains each other, in a sorting fashion. Great for alphabetizing. Optional order parameter as well.
+ * @param {string} key - The key in which the function will sort by. (ex. "Last Name").
+ * @param {string} order - Optional. Ascending or Descending order. Default is ascending. Either 'asc', or 'desc'.
+ * @returns {number} - Returns 0 if the values are the same, -1 if the second value is greater than the first value, and 1 if the second value is less than the first value.
+ */
 function compareValues(key) {
     var order = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'asc';
 
@@ -1672,14 +1767,31 @@ function compareValues(key) {
     };
 }
 
+/**
+ * Checks if a checkbox has been checked or not. Used for sorting. Specifically checks for un-checked checkboxes.
+ * @returns {boolean} - Returns true if the checkbox is not checked.
+ * @param {element} checkbox - Checkbox element.
+ * @see isChecked
+ */
 function isUnchecked(checkbox) {
     return checkbox.checked === false;
 }
 
+/**
+ * Checks if a checkbox has been checked or not. Used for sorting. Specifically checks for checked checkboxes.
+ * @returns {boolean} - Returns true if the checkbox is checked.
+ * @param {element} checkbox - Checkbox element.
+ * @see isUnchecked
+ */
 function isChecked(checkbox) {
     return checkbox.checked === true;
 }
 
+/**
+ * Checks if the person is a Team Leader or Senior Team Leader. Used for sorting. Also checks to see if they are a "special staff member". 
+ * @param {element} person - Person to check if is a TL or STL.
+ * @returns {boolean} - Returns true if the person is a TL or STL.
+ */
 function isTL(person) {
     // Check to see if this person is a "Special Staff Member"
     // * Special Staff Member would be someone working a different position at a different camp
@@ -1691,51 +1803,53 @@ function isTL(person) {
     }
 }
 
+/**
+ * Checks if the person is a Logistics Coordinator. Used for filtering. Also checks to see if they are a "special staff member". 
+ * @param {element} person - Person to check if is an LC.
+ * @returns {boolean} - Returns true if the person is an LC.
+ */
 function isLC(person) {
     // Check to see if this person is a "Special Staff Member"
     // * Special Staff Member would be someone working a different position at a different camp
     // * See Yolanda Drew for a good example
-    if (person.specialStaffMember !== undefined) {
-        return person.specialStaffMember[0].camps["" + currentCamp] === "LC";
-    } else {
-        return person.position1 === "LC";
-    }
+    return person.specialStaffMember !== undefined ? person.specialStaffMember[0].camps["" + currentCamp] === "LC" : person.position1 === "LC";
 }
 
+/**
+ * Checks if the person is a Wellness Person. Used for filtering. Also checks to see if they are a "special staff member". 
+ * @param {element} person - Person to check if is an WP.
+ * @returns {boolean} - Returns true if the person is an WP.
+ */
 function isWP(person) {
     // Check to see if this person is a "Special Staff Member"
     // * Special Staff Member would be someone working a different position at a different camp
     // * See Yolanda Drew for a good example
-    if (person.specialStaffMember !== undefined) {
-        return person.specialStaffMember[0].camps["" + currentCamp] === "WP";
-    } else {
-        return person.position1 === "WP";
-    }
+    return person.specialStaffMember !== undefined ? person.specialStaffMember[0].camps["" + currentCamp] === "WP" : person.position1 === "WP";
 }
 
+/**
+ * Checks if the person is a Office Coordinator. Used for filtering. Also checks to see if they are a "special staff member". 
+ * @param {element} person - Person to check if is an OC.
+ * @returns {boolean} - Returns true if the person is an OC.
+ */
 function isOC(person) {
     // Check to see if this person is a "Special Staff Member"
     // * Special Staff Member would be someone working a different position at a different camp
     // * See Yolanda Drew for a good example
-    if (person.specialStaffMember !== undefined) {
-        return person.specialStaffMember[0].camps["" + currentCamp] === "OC";
-    } else {
-        return person.position1 === "OC";
-    }
+    return person.specialStaffMember !== undefined ? person.specialStaffMember[0].camps["" + currentCamp] === "OC" : person.position1 === "OC";
 }
 
+/**
+ * Checks to see if the item has the class "is-invalid". Used in filtering.
+ * @param {element} item - Item to check if is valid or not.
+ */
 function isInvalid(item) {
     return item.classList.contains("is-invalid");
 }
 
-function logThis() {
-    var variablesToLog = arguments;
-    for (var i = 0; i < variablesToLog.length; i++) {
-        var currentVariable = variablesToLog[i];
-        console.log(currentVariable);
-    }
-}
-
+/**
+ * Sets all initial parts of the Payroll Form to have blank values.
+ */
 function setBlank() {
     firstName.value = "";
     lastName.value = "";
@@ -1752,12 +1866,19 @@ function setBlank() {
     dateDay.value = "";
 }
 
+/**
+ * "Clears" things, by setting their length to 0. Upon a second look, I feel like there are better ways to do this.
+ * @param {array} thingsToClear - An array of things to be cleared.
+ */
 function clearThis(thingsToClear) {
     thingsToClear.forEach(function (thingToClear) {
         thingToClear.length = 0;
     });
 }
 
+/**
+ * Used to generate and show the Preview Screen.
+ */
 function previewData() {
     // ! Issue with not pushing to exceptionTLs, exceptionTLsInfo (etc...)
     // ! The exceptionTLs.push is called after the validInput() call
@@ -2438,10 +2559,17 @@ function previewData() {
         setTimeout(showInvalidModal, 500);
     }
 
+    /**
+     * Shows a modal warning the user that the input was invalid.
+     */
     function showInvalidModal() {
         $('#invalid-input-modal').modal();
     }
 
+    /**
+     * Similar to slideInItems(), this function slides items out of the screen. Used on the Preview Screen animation.
+     * @see slideInItems
+     */
     function slideOutItems() {
         alert.classList.add("animated", "slideOutLeft");
         siteInfoCard.classList.add("animated", "slideOutLeft");
@@ -2451,6 +2579,9 @@ function previewData() {
         setTimeout(buildPreviewCard, 750);
     }
 
+    /**
+     * Builds the Preview Screen by appending elements to one another.
+     */
     function buildPreviewCard() {
         hideThis(siteInfoCard);
         allPositionCards.forEach(function (card) {
@@ -2480,6 +2611,10 @@ function previewData() {
     }
 }
 
+/**
+ * Checks the input times to see if they are valid. A valid item must not be empty.
+ * @returns {boolean} - Returns "true" if the input is valid, and "false" if it is invalid.
+ */
 function validInput() {
     if (arguments.length > 0) {
         if (this.value === "") {
@@ -2522,6 +2657,9 @@ var errorMessage = document.querySelector('.js-error-message');
 var againButton = document.querySelector('.again-button');
 var formBody = new FormData();
 
+/**
+ * Creates the data that is sent to the Google Spreadsheet. Use of JSON and PapaParse throughout.
+ */
 function createData() {
     // Names
     formBody.append('firstName', firstName.value);
@@ -2744,12 +2882,8 @@ function createData() {
             */
         }
     });
-    console.log("sickTLsInfo before PapaParse:");
-    console.log(sickTLsInfo);
     var unparsedSickTLsInfo = Papa.unparse(sickTLsInfo);
     formBody.append('sickTLsInfo', unparsedSickTLsInfo);
-    console.log("sickTLsInfo after PapaParse:");
-    console.log(unparsedSickTLsInfo);
 
     // Go through the sick exceptions container - LCWPs
     sickExceptionsLCWPContainer.childNodes.forEach(function (nodeBig) {
@@ -2831,11 +2965,18 @@ form.addEventListener('submit', function (e) {
     });
 });
 
+/**
+ * Shows a simple loading indicator after the user clicks "Submit" while the data is being sent and the browser is waiting for a response from Google.
+ */
 function showLoadingIndicator() {
     form.classList.add('is-hidden-form');
     loading.classList.remove('is-hidden-form');
 }
 
+/**
+ * Shows success message if the request to Google went through OK.
+ * @param {*} response - Reponse from Google.
+ */
 function showSuccessMessage(response) {
     console.log('Success!', response);
     setTimeout(function () {
@@ -2845,6 +2986,10 @@ function showSuccessMessage(response) {
     }, 500);
 }
 
+/**
+ * Shows error message if the request to Google did not go through OK.
+ * @param {*} error - Error from Google
+ */
 function showErrorMessage(error) {
     console.error('Error!', error.message);
     setTimeout(function () {
