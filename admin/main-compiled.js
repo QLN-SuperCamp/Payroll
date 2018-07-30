@@ -1879,8 +1879,8 @@ function assignTable(site, payPeriodNumber, isSalaryEmployee, state) {
 function assignTableBody(table) {
     var tableBody = "";
 
-    var tableArray = [table1CAHourly, table1CASalary, table1TXHourly, table1TXSalary, table2CAHourly, table2FLHourly, table2TXHourly, table2PAHourly, table2CASalary, table2FLSalary, table2TXSalary, table2PASalary, table3PAHourly, table3PASalary, table3FLSalary, table3CASalary];
-    var bodyArray = [body1CAHourly, body1CASalary, body1TXHourly, body1TXSalary, body2CAHourly, body2FLHourly, body2TXHourly, body2PAHourly, body2CASalary, body2FLSalary, body2TXSalary, body2PASalary, body3PAHourly, body3PASalary, body3FLSalary, body3CASalary];
+    var tableArray = [table1CAHourly, table1CASalary, table1TXHourly, table1TXSalary, table2CAHourly, table2FLHourly, table2TXHourly, table2PAHourly, table2CASalary, table2FLSalary, table2TXSalary, table2PASalary, table3PAHourly, table3PASalary, table3FLSalary, table3CASalary, table3CAHourly];
+    var bodyArray = [body1CAHourly, body1CASalary, body1TXHourly, body1TXSalary, body2CAHourly, body2FLHourly, body2TXHourly, body2PAHourly, body2CASalary, body2FLSalary, body2TXSalary, body2PASalary, body3PAHourly, body3PASalary, body3FLSalary, body3CASalary, body3CAHourly];
 
     var thisIndex = tableArray.indexOf(table);
     tableBody = bodyArray[thisIndex];
