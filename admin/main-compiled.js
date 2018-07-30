@@ -1,18 +1,36 @@
-// Log Rocket Store User Information
+/**
+ * Stores User Information with Log Rocket
+ */
 var userInformation = {};
 
-// Variable to hold form data after DOM load
+/**
+ * Holds information from the Payroll Form Google Spreadsheet
+ */
 var formData = [];
 
 var staffData = [];
 
-// Tag displays when the CampMinder report was generated
+/**
+ * Displays the time that the CampMinder report was generated. Run from an NPM script.
+ * @see package.json
+ */
 var reportTime = document.getElementById('reportTime');
 
-// Arrays to hold entry objects by site
+/**
+ * Holds site information. Southwestern University
+ */
 var swData = [];
+/**
+ * Holds site information. Stanford University.
+ */
 var stanData = [];
+/**
+ * Holds site information. University of Central Florida.
+ */
 var ucfData = [];
+/**
+ * Holds site information. Villanova University.
+ */
 var villaData = [];
 var siteDataArrays = [swData, stanData, ucfData, villaData];
 
@@ -77,6 +95,10 @@ window.addEventListener('DOMContentLoaded', init);
 var file = "reportInfo.JSON";
 var date = "";
 
+/**
+ * Reads the date information for the CampMinder report from the "reportInfo.JSON" file.
+ * @name readDateInfo
+ */
 $.get(file, function (info) {
     date = info.creationTime;
     reportTime.innerHTML = info.creationTime;
@@ -85,6 +107,10 @@ $.get(file, function (info) {
 // CampMinder Report - All 2018 Staff Members
 var report = "2018staff.csv";
 var reportArray = [];
+/**
+ * Reads the CampMinder Report CSV and assigns 5 Pay Period Arrays for each person.
+ * @name readCampMinderReport
+ */
 $.get(report, function (data) {
     var csvdata = Papa.parse(data, {
         header: true
@@ -656,7 +682,9 @@ $.get(report, function (data) {
     });
 });
 
-// Use Tabletop to pull data from Google spreadsheet
+/**
+ * Uses Tabletop to pull information from the Payroll Form Google Shet
+ */
 function init() {
     var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1SbGhrkqAb8Ej4mFn9HxcfbVlK6B0zhA_2eQLB7UfnU8/edit?usp=sharing';
 
@@ -667,7 +695,15 @@ function init() {
     });
 }
 
-// Store the info for the Google spreadsheet in a variable
+/**
+ * Stores the form data from Tabletop. Calls separarteFormData()  to go through the formData array and separate it by site, and displayData() to display the info in tables on the page when the DOM loads.
+ * @see separarteFormData
+ * @see displayData
+ * @callback
+ * @param {array} data - Large array of data containing information on every person in the CampMinder Report 
+ * @param {any} tabletop - Not really used. Should consider removing this parameter.
+ * @todo Decide if you can remove the tabletop parameter.
+ */
 function showInfo(data, tabletop) {
     formData = data;
 
@@ -678,6 +714,9 @@ function showInfo(data, tabletop) {
     displayData();
 }
 
+/**
+ * Separates the formData by site, and pushes that information to each specific site variable.
+ */
 function separateFormData() {
     formData.forEach(function (entry) {
         var site = entry.site;
@@ -721,6 +760,9 @@ function printThis() {
 }
 */
 
+/**
+ * Displays data. This is a HUGE function and NEEDS to be restructured into smaller functions. 
+ */
 function displayData() {
     // Manipulate incoming data to "count the hours"
     siteDataArrays.forEach(function (dataArray) {
@@ -828,7 +870,12 @@ function displayData() {
             countSickHours(sickLCWPArray);
             countSickHours(sickOCArray);
 
-            // * This is to count the regular folks' hours
+            /**
+             * This function counts the hours of the "regular" working people. These are staff members that worked the amount of time they were supposed to originally work. This is another HUGE function, and should be refactored heavily.
+             * @todo refactor.
+             * @param {array} positionArray - An array of people for the specific position type.  
+             * @param {string} positionType - Either "TL", "LCWP", or "OC". A string that helps determine what will happen with the data.
+             */
             function countHours(positionArray, positionType) {
                 if (positionArray !== undefined) {
                     var hoursType = "";
@@ -975,7 +1022,12 @@ function displayData() {
                 }
             }
 
-            // * This is to count the hours of people who worked time outside of the normal hours
+            /**
+             * The function counts the hours for the people who worked time outside of the normal hours they were supposed to. Needs to be refactored.
+             * @see countHours
+             * @todo refactor.
+             * @param {array} positionArray - The array of people to work with. These people did not work the amount of time that they were supposed to.
+             */
             function countExceptionHours(positionArray) {
                 if (positionArray.length > 0) {
                     // There are actually exceptions in this array
@@ -1100,6 +1152,13 @@ function displayData() {
             }
 
             // * This is to count the hours of people who were sick
+            /**
+             * This function counts sick hours for people who were sick on a given day. Needs to be refactored, or possibly even simply deleted.
+             * @todo refactor.
+             * @see countHours
+             * @see countExceptionHours
+             * @param {array} positionArray - An array of people who were sick.
+             */
             function countSickHours(positionArray) {
                 if (positionArray.length > 0) {
                     // There are actually exceptions in this array
@@ -1249,12 +1308,22 @@ function displayData() {
             // Salary Staff Only
             var isSalaryEmployee = isSalaryFields[thisIndex];
 
+            /**
+             * This function is used for salary employees. It takes in the days, and 2 rates - a rounded and an unrounded rate. The function returns a dailyPayRate depending on the number of days.
+             * @returns {number} - The daily rate for the salary employee, rounded correctly so as not to deviate from the correct amount. The returned value will later be used by moneyString().
+             * @see moneyString
+             * @param {number} days - The amount of days the employee worked.
+             * @param {number} rate - The pay rate for the employee. (ex. $950 / week)
+             * @param {number} rateUnrounded - The unrounded rate.
+             * @example <caption>Check the rate for a 1st year FAC working 1 day.</caption>
+             * checkIfRound(1, 154.17, 154.166666667);
+             * // returns 154.17
+             * @example <caption>Check the rate for a 1st year FAC working 5 days.</caption>
+             * checkIfRound(5, 154.17, 154.166666667);
+             * // returns 770.8333333333;
+             */
             function checkIfRound(days, rate, rateUnrounded) {
-                if (days === 1) {
-                    return days * rate;
-                } else {
-                    return days * rateUnrounded;
-                }
+                return days === 1 ? days * rate : days * rateUnrounded;
             }
 
             if (isSalaryEmployee === "Yes") {
@@ -1298,6 +1367,10 @@ function displayData() {
 // Empty Array to hold check objects
 var peopleObjects = [];
 
+/**
+ * This function corresponds to the initial building of the Error Checker 5000. Not sure if this is still needed.
+ * @param {array} peopleToCheckArray - An array of people to check on.
+ */
 function buildErrorArray(peopleToCheckArray) {
     // Make an object for each person to check
     // Push the object into a peopleObject Array
@@ -1309,8 +1382,19 @@ function buildErrorArray(peopleToCheckArray) {
     });
 }
 
-function whyDisNotWork() {}
-
+/**
+ * Splits a sum of hours into regular, overtime, and double-time hours according to state. Then separates the data. This is done for each day in a pay period.
+ * @param {string} site - Site location. Either: "sw", "stan", "ucf", or "villa".
+ * @param {number} hoursWorked - Total number of hours worked.
+ * @param {number} totalHoursThisWeek - Total hours worked in the given work week.
+ * @param {object} correspondingPersonObject - An object corresponding to the staff member that is being worked on.
+ * @param {object} correspondingDateObject - A date object corresponding to what time this is. *Unused by the function. Need to refactor this.
+ * @todo - Refactor heavily.
+ * @returns {object} An object containing: regHours, otHours, dtHours, and sickHours.
+ * @example <caption>Split up the hours, if the staff member worked 11 hours in the day, 40 hours this week, has worked 5 days in a row, and worked at Villanova University.</caption>
+ * splitHours("villa", 11, 40, 5, {correspondingPersonObject});
+ * // Returns {regHours: 8, otHours: 3, dtHours: 0, sickHours: 0};
+ */
 function splitHours(site, hoursWorked, totalHoursThisWeek, consecutiveDayCount, correspondingPersonObject, correspondingDateObject) {
     // If the current person has an object in the peopleObjects Array,
     // we need to check them.
@@ -1457,18 +1541,37 @@ function splitHours(site, hoursWorked, totalHoursThisWeek, consecutiveDayCount, 
     }
 }
 
+/**
+ * The function takes in 2 values, and merges it into one time that can be worked with.
+ * @see countExceptionHours
+ * @see countSickHours
+ * @param {number} hours - Number of hours.
+ * @param {number} minutes - Number of minutes.
+ * @returns {number} A number combined with both the hours and the minutes.
+ * @example <caption>Use mergeTime to get a workable number if the employee worked 10 hours and 45 minutes.</caption>
+ * mergeTime(10, 45);
+ * // returns 10.75;
+ * @example <caption>Use mergeTime to get a workable number if the employee worked 15 hours and 0 minutes.</caption>
+ * mergeTime(15, 0);
+ * // returns 15;
+ */
 function mergeTime(hours, minutes) {
-    var finalTime = "";
-
-    if (minutes !== 0) {
-        finalTime = hours + minutes / 60;
-    } else {
-        finalTime = hours;
-    }
-
-    return finalTime;
+    return minutes !== 0 ? hours + minutes / 60 : hours;
 }
 
+/**
+ * Assigns a table element for an individual person. Appends the elements to the table. For hourly employees only.
+ * @param {element} table - The specific table in whcih to assign the table entry.
+ * @param {string} firstName - The staff member's first name.
+ * @param {string} lastName - The staff member's last name.
+ * @param {number} regHours - The final summed number of regular hours in the 2 week pay period.
+ * @param {number} otHours - The final summed number of overtime hours in the 2 week pay period.
+ * @param {number} dtHours - The final summed number of double-time hours in the 2 week pay period. 
+ * @param {number} sickHours - The final summed number of sick hours in the 2 week pay period.
+ * @param {number} totalHours - The number of regular, overtime, and double-time hours added together.
+ * @param {string} deductionTotal - The value that should be deducted for Room and Board, formatted by moneyString(). (ex. "$ 160.00").
+ * @param {string} checkLocation - The location where the check/paystub should be mailed. Either "Southwestern", "Stanford", "UCF", "Villanova", or "Home".
+ */
 function createTableEntryHourly(table, firstName, lastName, regHours, otHours, dtHours, sickHours, totalHours, deductionTotal, checkLocation) {
     var tableBody = "";
 
@@ -1534,6 +1637,14 @@ function createTableEntryHourly(table, firstName, lastName, regHours, otHours, d
     row.appendChild(locationCell);
 }
 
+/**
+ * Assigns a table element for an individual person. Appends the elements to the table. For salary employees only.
+ * @param {element} table - The specific table in whcih to assign the table entry.
+ * @param {string} firstName - The staff member's first name.
+ * @param {string} lastName - The staff member's last name.
+ * @param {string} salaryPayTotal - The value that should be paid out to the employee. Formatted by moneyString(). (ex. $ 925.00).
+ * @param {string} checkLocation - The location where the check/paystub should be mailed. Either "Southwestern", "Stanford", "UCF", "Villanova", or "Home".
+ */
 function createTableEntrySalary(table, firstName, lastName, salaryPayTotal, checkLocation) {
     var tableBody = "";
     tableBody = assignTableBody(table);
@@ -1578,6 +1689,9 @@ function createTableEntrySalary(table, firstName, lastName, salaryPayTotal, chec
     row.appendChild(locationCell);
 }
 
+/**
+ * Uses JQuery and DataTables to construct beautiful, interactive table elements by element ID.
+ */
 function constructTables() {
     $('#table-payPeriod1-CA-hourly').DataTable({
         dom: 'Bfrtip',
@@ -1653,6 +1767,13 @@ function constructTables() {
     });
 }
 
+/**
+ * Assigns the information to a specific table.
+ * @param {string} site - The site that was worked. Either "sw", "stan", "ucf", or "villa".
+ * @param {number} payPeriodNumber - The number of the pay period. For 2018, it is either 1, 2, 3, 4, or 5.
+ * @param {string} isSalaryEmployee - Let's the function know if the employee is a salary employee for this pay period, to do other calulations with the data. Either "Yes", or "No". Comes from CampMinder.param
+ * @param {string} state - Allows the data to be assigned by state as well. For 2018, it is either "California", "Florida", "Pennsylvania", or "Texas". Comes from CampMinder.
+ */
 function assignTable(site, payPeriodNumber, isSalaryEmployee, state) {
     var table = "";
 
@@ -1751,6 +1872,10 @@ function assignTable(site, payPeriodNumber, isSalaryEmployee, state) {
     return table;
 }
 
+/**
+ * Assigns a body to match up with the given table.
+ * @param {element} table - A table element in the report.
+ */
 function assignTableBody(table) {
     var tableBody = "";
 
@@ -1769,6 +1894,14 @@ function assignTableBody(table) {
     }
 }
 
+/**
+ * Takes in a number, and returns a nicely formatted string.
+ * @returns {string} - A nicely formatted string. (ex. $ 192.14).
+ * @example <caption>Use moneyString to format 152.189999999.</caption>
+ * moneyString(152.189999999);
+ * // returns "$ 152.19";
+ * @param {number} value - The value of currency that should be formatted. 
+ */
 function moneyString(value) {
     var initialString = value.toLocaleString("us-US", {
         style: "currency",
@@ -1780,6 +1913,10 @@ function moneyString(value) {
     return finalString;
 }
 
+/**
+ * Assigns user info with Log Rocket for the admin side. Not currently working. Should either refactor or remove.
+ * @todo refactor or remove.
+ */
 function assignUserInfo() {
     function success(pos) {
         var crd = pos.coords;
