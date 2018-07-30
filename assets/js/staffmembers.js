@@ -145,6 +145,22 @@ $.get(allStaffReport, function (data) {
                         "villa-camp2": "SA",
                         "stan-camp4": "SC"
                     }
+                },
+                {
+                    id: "Miguel Vieyra",
+                    camps: {
+                        "stan-camp1": "FAC",
+                        "stan-camp2": "FAC",
+                        "stan-camp3": "FAC",
+                        "stan-camp4": "TL"
+                    }
+                },
+                {
+                    id: "Stephanie Fung",
+                    camps: {
+                        "stan-camp1": "FAC",
+                        "stan-camp4": "OC"
+                    }
                 }
             ];
         
