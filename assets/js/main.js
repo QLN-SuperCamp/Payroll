@@ -441,7 +441,7 @@ function dateChanged() {
         } else if (dateDay.value === "16") {
             // Day -1
             setHoursWorked(0, 0, 0);
-        } else if (dateDay.value === "17" || dateDay.value === "18" || dateDay.value === "19" || dateDay.value === "20" || dateDate.value === "21" || dateDay.value === "22") {
+        } else if (dateDay.value === "17" || dateDay.value === "18" || dateDay.value === "19" || dateDay.value === "20" || dateDay.value === "21" || dateDay.value === "22") {
             // Day 1, 2, 3, 4, 5, 6
             setHoursWorked(11, 11, 9);
         }
@@ -639,6 +639,14 @@ function addStaffMembers() {
                             return "<em>(" + person.specialStaffMember[0].camps["villa-camp2"] + ")</em> " + person.firstName + " " + person.lastName;
                         } else if (currentCamp === "stan-camp4") {
                             return "<em>(" + person.specialStaffMember[0].camps["stan-camp5"] + ")</em> " + person.firstName + " " + person.lastName;
+                        }
+                    } else if (specificSpecialPerson[0].id === "Miguel Vieyra") {
+                        if (currentCamp === "stan-camp4") {
+                            return "<em>(" + person.specialStaffMember[0].camps["stan-camp4"] + ")</em> " + person.firstName + " " + person.lastName;
+                        }
+                    } else if (specificSpecialPerson[0].id === "Stephanie Fung") {
+                        if (currentCamp === "stan-camp4") {
+                            return "<em>(" + person.specialStaffMember[0].camps["stan-camp4"] + ")</em> " + person.firstName + " " + person.lastName;
                         }
                     } else {
                         return undefined;
