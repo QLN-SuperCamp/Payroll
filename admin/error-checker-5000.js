@@ -249,16 +249,166 @@ function buildEC5Report(info) {
         // Build 5 Pay Period Columns
         for (let index = 0; index < 5; index++) {
             const column = document.createElement('div');
-            column.innerHTML = index;
+            column.dataset.colNumber = index;
+            column.classList.add('custom-col');
             row1.appendChild(column);            
+
+            // Column Header
+            const header = document.createElement('h3');
+            header.innerHTML = `Pay Period ${index + 1}`;
+            column.appendChild(header);
         }
 
         // Build Card - How Much Did They Get Paid 
+        const payPeriod1 = info[personNumber - 1].payPeriod1;
+        const payPeriod2 = info[personNumber - 1].payPeriod2;
+        const payPeriod3 = info[personNumber - 1].payPeriod3;
+        const payPeriod4 = info[personNumber - 1].payPeriod4;
+        const payPeriod5 = info[personNumber - 1].payPeriod5;
+        const allPayPeriods = [payPeriod1, payPeriod2, payPeriod3, payPeriod4, payPeriod5];
+        const payPeriod1CheckLocation = info[personNumber - 1].PayPeriod1Location;
+        const payPeriod2CheckLocation = info[personNumber - 1].PayPeriod2Location;
+        const payPeriod3CheckLocation = info[personNumber - 1].PayPeriod3Location;
+        const payPeriod4CheckLocation = info[personNumber - 1].PayPeriod4Location;
+        const payPeriod5CheckLocation = info[personNumber - 1].PayPeriod5Location;
+        const allCheckLocations = [payPeriod1CheckLocation, payPeriod2CheckLocation, payPeriod3CheckLocation, payPeriod4CheckLocation, payPeriod5CheckLocation];
+
+        const columns = [...row1.childNodes];
+
+        allPayPeriods.forEach((payPeriod) => {
+            const index = allPayPeriods.indexOf(payPeriod);
+            const totalHours = payPeriod[2][0].totalHours;
+            const regHours = payPeriod[2][0].regHours;
+            const otHours = payPeriod[2][0].otHours;
+            const dtHours = payPeriod[2][0].dtHours;
+            const sickHours = payPeriod[2][0].sickHours;
+        
+            
+            // Current Pay Period Column
+            const column = columns.find((column) => column.dataset.colNumber === `${index}`);
+            // Holds "Total Hours"
+            createCustomTag(column, 'Total Hours', totalHours);
+            // Holds "Regular Hours"
+            createCustomTag(column, 'Reg Hours', regHours, 'dark', 'azure');
+            // Holds "Overtime Hours"
+            createCustomTag(column, 'OT Hours', otHours, 'dark', 'indigo');
+            // Holds "Double-Time Hours"
+            createCustomTag(column, 'DT Hours', dtHours, 'dark', 'purple');
+            // Holds "Sick Hours"
+            createCustomTag(column, 'Sick Hours', sickHours, 'dark', 'pink');
+
+            // Horizontal Line to Separate Pay Tags from Other Info Tags
+            const hr = document.createElement('hr');
+            hr.classList.add('smaller-hr');
+            column.appendChild(hr);
+
+            // Check Location
+            createCustomTag(column, 'Check Sent To', allCheckLocations[index], 'dark', 'orange');
+
+            // Each Day in the Pay Period - Week 1
+            const days1 = [...payPeriod[0]];
+            // Remove the Week Summary Object
+            days1.pop();
+            // Each Day in the Pay Period - Week 2
+            const days2 = [...payPeriod[1]];
+            // Remove the Week Summary Object
+            days2.pop();
+            // Each Day in the Pay Period - All
+            const daysAll = [...days1, ...days2];
+            // Holds Info For Each Day in the Pay Period
+            createCustomDayByDay(column, daysAll);
+        });      
     });
-
-
     // Display the EC5 Report
     showEC5Report();
+}
+
+function createCustomDayByDay(appendTo, days) {
+    const card = document.createElement('div');
+    card.classList.add('card');
+    card.style.maxWidth = '100%';
+    appendTo.appendChild(card);
+
+    const header = document.createElement('div');
+    header.classList.add('card-header');
+    card.appendChild(header);
+
+    const h3 = document.createElement('h3');
+    h3.classList.add('card-title');
+    h3.innerHTML = 'Day by Day';
+    header.appendChild(h3);
+
+    const body = document.createElement('div');
+    body.classList.add('card-body', 'o-auto');
+    body.style.height = '7rem';
+    card.appendChild(body);
+
+    const unstyledList = document.createElement('ul');
+    unstyledList.classList.add('list-unstyled', 'list-separated');
+    body.appendChild(unstyledList);
+
+    days.forEach((day) => {
+        const date = day.Day;
+        const li = document.createElement('li');
+        li.classList.add('list-separated-item');
+        unstyledList.appendChild(li);
+
+        const row = document.createElement('div');
+        row.classList.add('row', 'align-items-center');
+        row.style.flexWrap = 'nowrap';
+        li.appendChild(row);
+
+        const avatar = document.createElement('div');
+        avatar.classList.add('col-auto');
+        row.appendChild(avatar);
+
+        const avatarInner = document.createElement('span');
+        avatarInner.classList.add('avatar', 'avatar-blue', 'day-by-day-avatar');
+        avatarInner.innerHTML = date;
+        avatar.appendChild(avatarInner);
+
+        const infoCol = document.createElement('div');
+        infoCol.classList.add('col', 'day-by-day-col');
+        row.appendChild(infoCol);
+
+        const regHours = document.createElement('span');
+        regHours.innerHTML = `REG: ${day.regHours}`;
+        infoCol.appendChild(regHours);
+
+        const otHours = document.createElement('span');
+        otHours.innerHTML = `OT: ${day.otHours}`;
+        infoCol.appendChild(otHours);
+
+        const dtHours = document.createElement('span');
+        dtHours.innerHTML = `DT: ${day.dtHours}`;
+        infoCol.appendChild(dtHours);
+
+        const sickHours = document.createElement('span');
+        sickHours.innerHTML = `SICK: ${day.sickHours}`;
+        infoCol.appendChild(sickHours);
+    });
+}
+
+
+/**
+ * A helper function to create and append a custom tag to another element easily.
+ * @param {element} appendTo - The element which the tag will be appended to.
+ * @param {string} description - The inner description to the tag.
+ * @param {(number|string)} value - A value to be displayed in the tag addon.
+ * @param {string} tagColor - Color for the tag. Default = "dark".
+ * @param {string} tagAddonColor - Color for the inner tag addon. Default = "blue".
+ */
+function createCustomTag(appendTo, description, value, tagColor = `dark`, tagAddonColor = `blue`) {
+    const tag = document.createElement('span');
+    tag.classList.add('tag', 'up-down-marg-5', `tag-${tagColor}`);
+    tag.innerHTML = `${description}`;
+
+    const tagAddon = document.createElement('span');
+    tagAddon.classList.add('tag-addon', 'bold', `tag-${tagAddonColor}`);
+    tagAddon.innerHTML = value;
+    tag.appendChild(tagAddon);
+
+    appendTo.appendChild(tag);
 }
 
 /**

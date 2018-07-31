@@ -50,8 +50,8 @@
 
 .maximize {
     transition: 1s !important;
-    max-width: 90vw;
-    height: 90vh;
+    max-width: 95vw;
+    /* height: 90vh; */
 }
 
 .height100 {
@@ -79,4 +79,37 @@
 
 .space-even {
     justify-content: space-evenly;
+    flex-wrap: nowrap;
+}
+
+.custom-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.up-down-marg-5 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.smaller-hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.day-by-day-avatar {
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    white-space: pre;
+}
+
+.day-by-day-col {
+    display: flex;
+    flex-direction: column;
 }
