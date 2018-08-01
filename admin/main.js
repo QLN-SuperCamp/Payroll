@@ -52,7 +52,7 @@ var table3FLSalary = document.getElementById('table-payPeriod3-FL-salary');
 // PA
 var table2PAHourly = document.getElementById('table-payPeriod2-PA-hourly');
 var table2PASalary = document.getElementById('table-payPeriod2-PA-salary');
-var table3PAHourly = document.getElementById('table-payPeriod3-FL-hourly');
+var table3PAHourly = document.getElementById('table-payPeriod3-PA-hourly');
 var table3PASalary = document.getElementById('table-payPeriod3-PA-salary');
 
 // TX
@@ -1957,6 +1957,12 @@ function assignTable(site, payPeriodNumber, isSalaryEmployee, state) {
             } else {
                 table = table2FLSalary;
             }
+        } else if (payPeriodNumber === 3) {
+            if (isSalaryEmployee === "No") {
+                table = table3FLHourly;
+            } else {
+                table = table3FLSalary;
+            }
         }
     } else if (site === "villa") {
         if (payPeriodNumber === 2) {
@@ -2018,8 +2024,8 @@ function assignTable(site, payPeriodNumber, isSalaryEmployee, state) {
 function assignTableBody(table) {
     let tableBody = "";
 
-    let tableArray = [table1CAHourly, table1CASalary, table1TXHourly, table1TXSalary, table2CAHourly, table2FLHourly, table2TXHourly, table2PAHourly, table2CASalary, table2FLSalary, table2TXSalary, table2PASalary, table3PAHourly, table3PASalary, table3FLSalary, table3CASalary, table3CAHourly];
-    let bodyArray = [body1CAHourly, body1CASalary, body1TXHourly, body1TXSalary, body2CAHourly, body2FLHourly, body2TXHourly, body2PAHourly, body2CASalary, body2FLSalary, body2TXSalary, body2PASalary, body3PAHourly, body3PASalary, body3FLSalary, body3CASalary, body3CAHourly];
+    let tableArray = [table1CAHourly, table1CASalary, table1TXHourly, table1TXSalary, table2CAHourly, table2FLHourly, table2TXHourly, table2PAHourly, table2CASalary, table2FLSalary, table2TXSalary, table2PASalary, table3PAHourly, table3PASalary, table3FLSalary, table3CASalary, table3CAHourly, table3FLHourly];
+    let bodyArray = [body1CAHourly, body1CASalary, body1TXHourly, body1TXSalary, body2CAHourly, body2FLHourly, body2TXHourly, body2PAHourly, body2CASalary, body2FLSalary, body2TXSalary, body2PASalary, body3PAHourly, body3PASalary, body3FLSalary, body3CASalary, body3CAHourly, body3FLHourly];
 
     let thisIndex = tableArray.indexOf(table);
     tableBody = bodyArray[thisIndex];
