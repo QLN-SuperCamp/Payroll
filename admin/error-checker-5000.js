@@ -79,7 +79,7 @@ function errorFormSubmit() {
         const personObject = {};
 
         // Inputs narrowed down by personNumber
-        const inputs = allInputs.filter((input) => input.dataset.index === personNumber.toString());
+        const inputs = allInputs.filter((currentInput) => currentInput.dataset.index === personNumber.toString());
 
         // Assign first and last names to the person object
         personObject.firstName = inputs[0].value;
@@ -323,6 +323,11 @@ function buildEC5Report(info) {
     showEC5Report();
 }
 
+/**
+ * Creates a Day-by-Day breakdown card and appends it to an element in the DOM.
+ * @param {element} appendTo - Element to append the Day-by-Day breakdown card to.
+ * @param {array} days - Array of day objects that should be displayed in the Day-by-Day breakdown card.
+ */
 function createCustomDayByDay(appendTo, days) {
     const card = document.createElement('div');
     card.classList.add('card');
@@ -372,19 +377,23 @@ function createCustomDayByDay(appendTo, days) {
         row.appendChild(infoCol);
 
         const regHours = document.createElement('span');
-        regHours.innerHTML = `REG: ${day.regHours}`;
+        regHours.classList.add('one-line');
+        regHours.innerHTML = `REG: <strong>${day.regHours}</strong>`;
         infoCol.appendChild(regHours);
 
         const otHours = document.createElement('span');
-        otHours.innerHTML = `OT: ${day.otHours}`;
+        otHours.classList.add('one-line');
+        otHours.innerHTML = `OT: <strong>${day.otHours}</strong>`;
         infoCol.appendChild(otHours);
 
         const dtHours = document.createElement('span');
-        dtHours.innerHTML = `DT: ${day.dtHours}`;
+        dtHours.classList.add('one-line');
+        dtHours.innerHTML = `DT: <strong>${day.dtHours}</strong>`;
         infoCol.appendChild(dtHours);
 
         const sickHours = document.createElement('span');
-        sickHours.innerHTML = `SICK: ${day.sickHours}`;
+        sickHours.classList.add('one-line');
+        sickHours.innerHTML = `SICK: <strong>${day.sickHours}</strong>`;
         infoCol.appendChild(sickHours);
     });
 }
