@@ -41,6 +41,8 @@ toc:
       - buildEC5Report
       - buildErrorArray
       - checkLastPerson
+      - createCustomDayByDay
+      - createCustomTag
       - displayTabContent
       - editIcons
       - editPeopleElements

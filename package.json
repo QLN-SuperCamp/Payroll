@@ -1,5 +1,5 @@
 {
-  "name": "Payroll",
+  "name": "payroll",
   "version": "1.5.2",
   "description": "SuperCamp Payroll",
   "main": "",
@@ -13,7 +13,8 @@
     "reportTime": "cd admin && cat reportInfo.JSON | jq --raw-output --arg RIGHTNOW \"`date`\" '.creationTime |= $RIGHTNOW' > reportInfo.tmp && mv reportInfo.tmp reportInfo.JSON",
     "browser-sync": "browser-sync start --directory --server --files \"*.css, *.html, *.js\" --http",
     "development": "replace 'admin-prod' 'admin-dev' admin/backup.html && replace 'form-prod' 'form-dev' index.html",
-    "production": "replace 'admin-dev' 'admin-prod' admin/backup.html && replace 'form-dev' 'form-prod' index.html"
+    "production": "replace 'admin-dev' 'admin-prod' admin/backup.html && replace 'form-dev' 'form-prod' index.html",
+    "document": "documentation build admin/main-compiled.js admin/error-checker-5000.js assets/js/staffmembers.js assets/js/main-compiled.js -f html -o docs --sort-order alpha --config documentation.yml -g"
   },
   "repository": {
     "type": "git",
