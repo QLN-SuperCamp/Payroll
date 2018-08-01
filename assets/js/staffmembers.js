@@ -118,7 +118,8 @@ $.get(allStaffReport, function (data) {
                     camps: {
                         "sw-camp1": "LC",
                         "sw-camp2": "LC",
-                        "villa-camp1": "TL"
+                        "villa-camp1": "TL",
+                        "ucf-camp2": "TL"
                     }
                 },
                 {
