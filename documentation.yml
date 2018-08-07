@@ -85,7 +85,9 @@ toc:
       - checkName
       - checkSick
       - createData
+      - createNormalLabel
       - createSickStaff
+      - createSpecialLabel
       - dateChanged
       - disableDates
       - enableDates
