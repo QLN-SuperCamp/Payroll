@@ -120,6 +120,16 @@ $.get(allStaffReport, function (data) {
         function checkSpecialCases(fullName) {
             var specialCaseStaff = [
                 {
+                    id: "Lauren Ihle",
+                    camps: {
+                        "stan-camp2": "TL",
+                        "stan-camp3": "TL",
+                        "stan-camp4": "TL",
+                        "stan-camp5": "FAC",
+                        "stan-camp6": "FAC"
+                    }
+                },
+                {
                     id: "Yolanda Drew",
                     camps: {
                         "sw-camp1": "LC",
