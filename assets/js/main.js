@@ -598,64 +598,67 @@ function addStaffMembers() {
             span.innerHTML = assignSpanLabel();
 
             /**
+             * This function is used when a staff member has different position types for different camps. It creates a label based on the position type for the selected camp.
+             * @param {object} person - An object containing information on the current person who is working the selected camp.
+             * @param {string} currentCamp - A string detailing which camp the user has selected, in an easy-to-read format, as opposed to the sometimes more confusing Camp Code format. Ex. "stan-camp3" as opposed to "STS218".
+             * @returns {string} - Returns a string to later become HTML with the staff member's postiion type for the selected camp in parenthesis, followed by their first and last name.
+             * @example <caption>Staff Member John Smith is someone who has different positions for different camps. Use createSpecialLabel() to return a label for him.</caption>
+             * // person = {
+             * //       campsWorking: ["villa-camp1", "villa-camp2", "stan-camp5"],
+             * //       firstName: "John",
+             * //       lastName: "Smith",
+             * //       position1: "STL",
+             * //       position2: "TL",
+             * //       specialStaffMember: {
+             * //           id: "John Smith",
+             * //           camps: {
+             * //               villa-camp1: "STL",
+             * //               villa-camp2: "TL",
+             * //               stan-camp5: "WP"
+             * //           }
+             * //       }
+             * //   }
+             * createSpecialLabel(person, "stan-camp5");
+             * // returns '<em>(WP)</em> John Smith';
+             */
+            function createSpecialLabel(person, currentCamp) {
+                return `<em>(${person.specialStaffMember[0].camps[currentCamp]})</em> ${person.firstName} ${person.lastName}`;
+            }
+
+            /**
+             * This function is used when a staff member has the same position for all the camps they will be working. It creates a label containing their position type, first name, and last name.
+             * @param {object} person - An object containing information on the current person who is working the selected camp.
+             * @returns {string} - Returns a string to later become HTML with the staff member's postiion type in parenthesis, followed by their first and last name.
+             * @example <caption>Staff Member John Smith is someone who has the same positon type for all the camps he is working. Use createNormalLabel() to return a label for him.</caption>
+             * // person = {
+             * //       campsWorking: ["villa-camp1", "villa-camp2", "stan-camp5"],
+             * //       firstName: "John",
+             * //       lastName: "Smith",
+             * //       position1: "STL",
+             * //       position2: "TL",
+             * //   }
+             * createNormalLabel(person);
+             * // returns '<em>(STL)</em> John Smith';
+             */
+            function createNormalLabel(person) {
+                return `<em>(${person.position1})</em> ${person.firstName} ${person.lastName}`;
+            }
+
+            /**
              * Assigns each staff member a specific span as a label, containing their position for the chosen camp, and their full name.
+             * @returns {string} - Returns a string to later become HTML with the staff member's postiion type in parenthesis, followed by their first and last name.
              */
             function assignSpanLabel() {
                 // If this person has a weird role thing
                 if (person.specialStaffMember !== undefined) {
                     // If the current camp is the current person's weird camp
-                    var specificSpecialPerson = person.specialStaffMember.filter((staff) => {return staff.id === person.firstName.concat(" ", person.lastName);});
+                    // ? Is the following variable needed at all?
+                    // var specificSpecialPerson = person.specialStaffMember.filter((staff) => {return staff.id === person.firstName.concat(" ", person.lastName);});
 
-                    if (specificSpecialPerson[0].id === "Yolanda Drew") {
-                        if (currentCamp === "sw-camp1") {
-                            return "<em>(" + person.specialStaffMember[0].camps["sw-camp1"] + ")</em> " + person.firstName + " " + person.lastName;
-                        } else if (currentCamp === "villa-camp1") {
-                            return "<em>(" + person.specialStaffMember[0].camps["villa-camp1"] + ")</em> " + person.firstName + " " + person.lastName;
-                        } else if (currentCamp === "sw-camp2") {
-                            return "<em>(" + person.specialStaffMember[0].camps["sw-camp2"] + ")</em> " + person.firstName + " " + person.lastName;
-                        } else if (currentCamp === "ucf-camp2") {
-                            return "<em>(" + person.specialStaffMember[0].camps["ucf-camp2"] + ")</em> " + person.firstName + " " + person.lastName;
-                        } else if (currentCamp === "villa-camp2") {
-                            return "<em>(" + person.specialStaffMember[0].camps["villa-camp2"] + ")</em> " + person.firstName + " " + person.lastName;
-                        }
-                    } else if (specificSpecialPerson[0].id === "Nathan Tung") {
-                        if (currentCamp === "stan-camp3") {
-                            return "<em>(" + person.specialStaffMember[0].camps["stan-camp3"] + ")</em> " + person.firstName + " " + person.lastName;
-                        } else if (currentCamp === "stan-camp4") {
-                            return "<em>(" + person.specialStaffMember[0].camps["stan-camp4"] + ")</em> " + person.firstName + " " + person.lastName;
-                        } else if (currentCamp === "stan-camp5") {
-                            return "<em>(" + person.specialStaffMember[0].camps["stan-camp5"] + ")</em> " + person.firstName + " " + person.lastName;
-                        }
-                    } else if (specificSpecialPerson[0].id === "Isabella Stenz") {
-                        if (currentCamp === "villa-camp1") {
-                            return "<em>(" + person.specialStaffMember[0].camps["villa-camp1"] + ")</em> " + person.firstName + " " + person.lastName;
-                        } else if (currentCamp === "villa-camp2") {
-                            return "<em>(" + person.specialStaffMember[0].camps["villa-camp2"] + ")</em> " + person.firstName + " " + person.lastName;
-                        } else if (currentCamp === "stan-camp5") {
-                            return "<em>(" + person.specialStaffMember[0].camps["stan-camp5"] + ")</em> " + person.firstName + " " + person.lastName;
-                        } else if (currentCamp === "stan-camp6") {
-                            return "<em>(" + person.specialStaffMember[0].camps["stan-camp6"] + ")</em> " + person.firstName + " " + person.lastName;
-                        }
-                    } else if (specificSpecialPerson[0].id === "Leslie Braff") {
-                        if (currentCamp === "villa-camp1") {
-                            return "<em>(" + person.specialStaffMember[0].camps["villa-camp1"] + ")</em> " + person.firstName + " " + person.lastName;
-                        } else if (currentCamp === "villa-camp2") {
-                            return "<em>(" + person.specialStaffMember[0].camps["villa-camp2"] + ")</em> " + person.firstName + " " + person.lastName;
-                        } else if (currentCamp === "stan-camp4") {
-                            return "<em>(" + person.specialStaffMember[0].camps["stan-camp5"] + ")</em> " + person.firstName + " " + person.lastName;
-                        }
-                    } else if (specificSpecialPerson[0].id === "Miguel Vieyra") {
-                        if (currentCamp === "stan-camp4") {
-                            return "<em>(" + person.specialStaffMember[0].camps["stan-camp4"] + ")</em> " + person.firstName + " " + person.lastName;
-                        }
-                    } else if (specificSpecialPerson[0].id === "Stephanie Fung") {
-                        if (currentCamp === "stan-camp4") {
-                            return "<em>(" + person.specialStaffMember[0].camps["stan-camp4"] + ")</em> " + person.firstName + " " + person.lastName;
-                        }
-                    } else {
-                        return undefined;
-                    }
-                } else return "<em>(" + ("" + person.position1) + ")</em> " + ("" + person.firstName) + " " + ("" + person.lastName);
+                    return createSpecialLabel(person, currentCamp);
+                } else {
+                    return createNormalLabel(person);
+                }
             }
 
             if (group === staffMembersWorkingTL) {
