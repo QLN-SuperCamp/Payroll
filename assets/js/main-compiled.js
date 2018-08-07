@@ -632,6 +632,8 @@ function addStaffMembers() {
                             return "<em>(" + person.specialStaffMember[0].camps["sw-camp2"] + ")</em> " + person.firstName + " " + person.lastName;
                         } else if (currentCamp === "ucf-camp2") {
                             return "<em>(" + person.specialStaffMember[0].camps["ucf-camp2"] + ")</em> " + person.firstName + " " + person.lastName;
+                        } else if (currentCamp === "villa-camp2") {
+                            return "<em>(" + person.specialStaffMember[0].camps["villa-camp2"] + ")</em> " + person.firstName + " " + person.lastName;
                         }
                     } else if (specificSpecialPerson[0].id === "Nathan Tung") {
                         if (currentCamp === "stan-camp3") {

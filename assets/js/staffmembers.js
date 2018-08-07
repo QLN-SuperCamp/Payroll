@@ -26,6 +26,12 @@ $.get(allStaffReport, function (data) {
         personObject.lastName = staffMember["Last Name"];
         // Camps Working
         var camps = [staffMember.Camp1Code, staffMember["Camp1Code(2)"], staffMember.Camp2Code, staffMember["Camp2Code(2)"], staffMember.Camp3Code, staffMember.Camp4Code, staffMember.Camp5Code, staffMember.Camp6Code];
+        
+        // Fix to add Yolanda Drew to Villa Camp 2 for the 2 pre-camp days based on Leslie Braff's note
+        if (personObject.firstName === "Yolanda" && personObject.lastName === "Drew") {
+            camps.push("PAJ118");
+        }
+        
         var campsWorkingCodes = camps.filter(camp => camp.length > 0);
         var campsWorking = translateCampCodes(campsWorkingCodes);
         personObject.campsWorking = campsWorking;
@@ -119,6 +125,7 @@ $.get(allStaffReport, function (data) {
                         "sw-camp1": "LC",
                         "sw-camp2": "LC",
                         "villa-camp1": "TL",
+                        "villa-camp2": "TL",
                         "ucf-camp2": "TL"
                     }
                 },
