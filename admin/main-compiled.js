@@ -1352,10 +1352,10 @@ function displayData() {
                     state = person.PayPeriod5State;
                 }
                 table = assignTable(site, payPeriodNumber, isSalaryEmployee, state);
-                createTableEntrySalary(table, firstName, lastName, salaryPayTotal, checkLocation);
+                createTableEntrySalary(table, firstName, lastName, salaryPayTotal, checkLocation, payPeriodNumber);
             } else {
                 table = assignTable(site, payPeriodNumber, isSalaryEmployee);
-                createTableEntryHourly(table, firstName, lastName, regHours, otHours, dtHours, sickHours, totalHours, deductionTotal, checkLocation);
+                createTableEntryHourly(table, firstName, lastName, regHours, otHours, dtHours, sickHours, totalHours, deductionTotal, checkLocation, payPeriodNumber);
             }
         });
     });
@@ -1576,7 +1576,7 @@ function mergeTime(hours, minutes) {
  * @param {string} deductionTotal - The value that should be deducted for Room and Board, formatted by moneyString(). (ex. "$ 160.00").
  * @param {string} checkLocation - The location where the check/paystub should be mailed. Either "Southwestern", "Stanford", "UCF", "Villanova", or "Home".
  */
-function createTableEntryHourly(table, firstName, lastName, regHours, otHours, dtHours, sickHours, totalHours, deductionTotal, checkLocation) {
+function createTableEntryHourly(table, firstName, lastName, regHours, otHours, dtHours, sickHours, totalHours, deductionTotal, checkLocation, payPeriodNumber) {
     var tableBody = "";
 
     tableBody = assignTableBody(table);
@@ -1635,6 +1635,38 @@ function createTableEntryHourly(table, firstName, lastName, regHours, otHours, d
     stipendCell.innerHTML = "-";
     row.appendChild(stipendCell);
 
+    var stlStipend = [{
+        name: 'Jamila Ford',
+        finalPayPeriod: 4
+    }, {
+        name: 'Alexis Hagan',
+        finalPayPeriod: 4
+    }, {
+        name: 'Jules Damey-Fernandez',
+        finalPayPeriod: 3
+    }, {
+        name: 'Trace Craver',
+        finalPayPeriod: 3
+    }, {
+        name: 'Isabella Stenz',
+        finalPayPeriod: 5
+    }, {
+        name: 'Nathan Tung',
+        finalPayPeriod: 5
+    }];
+
+    var fullName = firstName.concat(' ', lastName);
+
+    if (stlStipend.find(function (object) {
+        return object.name === fullName;
+    })) {
+        if (payPeriodNumber === stlStipend.find(function (object) {
+            return object.name === fullName;
+        }).finalPayPeriod) {
+            stipendCell.innerHTML = '$ 150.00';
+        }
+    }
+
     var locationCell = document.createElement("td");
     locationCell.align = "center";
     locationCell.innerHTML = checkLocation;
@@ -1649,7 +1681,7 @@ function createTableEntryHourly(table, firstName, lastName, regHours, otHours, d
  * @param {string} salaryPayTotal - The value that should be paid out to the employee. Formatted by moneyString(). (ex. $ 925.00).
  * @param {string} checkLocation - The location where the check/paystub should be mailed. Either "Southwestern", "Stanford", "UCF", "Villanova", or "Home".
  */
-function createTableEntrySalary(table, firstName, lastName, salaryPayTotal, checkLocation) {
+function createTableEntrySalary(table, firstName, lastName, salaryPayTotal, checkLocation, payPeriodNumber) {
     var tableBody = "";
     tableBody = assignTableBody(table);
 
@@ -1675,22 +1707,93 @@ function createTableEntrySalary(table, firstName, lastName, salaryPayTotal, chec
 
     var stipendCell = document.createElement("td");
     stipendCell.align = "center";
-    var twentyFivePeople = ["Richardson", "Comolli", "Rogers"];
-    var fiftyPeople = ["McCloud", "Green", "Borbolla"];
 
-    if (twentyFivePeople.includes(lastName)) {
-        stipendCell.innerHTML = "$25.00";
-    } else if (fiftyPeople.includes(lastName)) {
-        stipendCell.innerHTML = "$50.00";
-    } else {
-        stipendCell.innerHTML = "-";
+    var travelStipends = [{
+        name: 'Ashley Richardson',
+        amount: '$ 25.00',
+        payPeriodNumber: 3
+    }, {
+        name: 'Dave Comolli',
+        amount: '$ 25.00',
+        payPeriodNumber: 3
+    }, {
+        name: 'LeSean Rogers',
+        amount: '$ 25.00',
+        payPeriodNumber: 3
+    }, {
+        name: 'Emily McCloud',
+        amount: '$ 50.00',
+        payPeriodNumber: 3
+    }, {
+        name: 'Kimberly Green',
+        amount: '$ 50.00',
+        payPeriodNumber: 3
+    }, {
+        name: 'Karen Borbolla',
+        amount: '$ 50.00',
+        payPeriodNumber: 1
+    }, {
+        name: 'Phillip Ellis',
+        amount: '$ 50.00',
+        payPeriodNumber: 4
+    }];
+
+    var fullName = firstName.concat(' ', lastName);
+
+    var correspondingStipendObject = travelStipends.find(function (object) {
+        return object.name === fullName;
+    });
+
+    if (correspondingStipendObject !== undefined) {
+        if (correspondingStipendObject.payPeriodNumber === payPeriodNumber) {
+            stipendCell.innerHTML = correspondingStipendObject.amount;
+        } else {
+            stipendCell.innerHTML = '-';
+        }
     }
+
     row.appendChild(stipendCell);
 
     var locationCell = document.createElement("td");
     locationCell.align = "center";
     locationCell.innerHTML = checkLocation;
     row.appendChild(locationCell);
+
+    var specialContracts = [{
+        name: 'Phillip Ellis',
+        payPeriods: [{
+            payPeriodNumber: 4,
+            totalPay: '$ 1,537.50'
+        }]
+    }];
+
+    // Weird Salary Contract Amounts
+
+    var correspondingSpecialContract = specialContracts.find(function (object) {
+        return object.name === fullName;
+    });
+    var correspondingTotalPay = '';
+    var correspondingPayPeriodObject = '';
+    // If the person is in the array of weird contracts
+    if (correspondingSpecialContract !== undefined) {
+        if (correspondingSpecialContract.payPeriods.find(function (object) {
+            return object.payPeriodNumber === payPeriodNumber;
+        })) {
+            correspondingPayPeriodObject = correspondingSpecialContract.payPeriods.find(function (object) {
+                return object.payPeriodNumber === payPeriodNumber;
+            });
+        }
+
+        if (correspondingPayPeriodObject !== '') {
+            correspondingTotalPay = correspondingSpecialContract.payPeriods.find(function (object) {
+                return object.payPeriodNumber === payPeriodNumber;
+            }).totalPay;
+        }
+    }
+
+    if (correspondingTotalPay !== '') {
+        totalPayCell.innerHTML = correspondingTotalPay;
+    }
 }
 
 /**
