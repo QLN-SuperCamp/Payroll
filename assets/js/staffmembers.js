@@ -5,7 +5,12 @@
 
 
 // CampMinder Report - All 2018 Staff Members
-var allStaffReport = "admin/2018staff.csv";
+var allStaffReport = '';
+if(window.location.href.indexOf("admin") > -1) {
+    allStaffReport = '2018staff.csv';
+} else {
+    allStaffReport = "admin/2018staff.csv";
+}
 var allStaffReportArray = [];
 var staffMembersAll = [];
 /**
@@ -136,7 +141,9 @@ $.get(allStaffReport, function (data) {
                         "sw-camp2": "LC",
                         "villa-camp1": "TL",
                         "villa-camp2": "TL",
-                        "ucf-camp2": "TL"
+                        "ucf-camp2": "TL",
+                        "stan-camp5": "LC",
+                        "stan-camp6": "LC"
                     }
                 },
                 {
