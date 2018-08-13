@@ -257,11 +257,19 @@
                         </div>
                       </li>
                       <li class="nav-item dropdown">
-                        <a class="nav-link active dropdown-toggle" id="payPeriod3-tab" data-toggle="dropdown" href="javascript:void(0)" role="tab"
-                          aria-haspopup="false" aria-expanded="true" aria-controls="payPeriod3" aria-selected="true">Pay Period 3</a>
+                        <a class="nav-link dropdown-toggle" id="payPeriod3-tab" data-toggle="dropdown" href="javascript:void(0)" role="tab" aria-haspopup="false"
+                          aria-expanded="true" aria-controls="payPeriod3" aria-selected="true">Pay Period 3</a>
                         <div class="dropdown-menu">
                           <a class="dropdown-item" data-toggle="tab" role="tab" aria-controls="payPeriod3Hourly" href="#payPeriod3Hourly">Hourly</a>
                           <a class="dropdown-item" data-toggle="tab" role="tab" aria-controls="payPeriod3Salary" href="#payPeriod3Salary">Salary</a>
+                        </div>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" id="payPeriod4-tab" data-toggle="dropdown" href="javascript:void(0)" role="tab"
+                          aria-haspopup="false" aria-expanded="true" aria-controls="payPeriod4" aria-selected="true">Pay Period 4</a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" data-toggle="tab" role="tab" aria-controls="payPeriod4Hourly" href="#payPeriod4Hourly">Hourly</a>
+                          <a class="dropdown-item" data-toggle="tab" role="tab" aria-controls="payPeriod4Salary" href="#payPeriod4Salary">Salary</a>
                         </div>
                       </li>
                     </ul>
@@ -670,7 +678,7 @@
                         </div>
                       </div>
                       <!-- PayPeriod3 Hourly -->
-                      <div class="tab-pane fade show active" id="payPeriod3Hourly" role="tabpanel" aria-labelledby="payPeriod3Hourly-tab">
+                      <div class="tab-pane" id="payPeriod3Hourly" role="tabpanel" aria-labelledby="payPeriod3Hourly-tab">
                         <div class="row">
                           <div class="col-8" style="margin-top: 20px; margin-bottom: 20px">
                             <h4>Hourly Employees</h4>
@@ -870,6 +878,85 @@
                           </div>
                         </div>
                       </div>
+                      <!-- PayPeriod4 Hourly -->
+                      <div class="tab-pane fade show active" id="payPeriod4Hourly" role="tabpanel" aria-labelledby="payPeriod4Hourly-tab">
+                        <div class="row">
+                          <div class="col-8" style="margin-top: 20px; margin-bottom: 20px">
+                            <h4>Hourly Employees</h4>
+                            <p>7/30/2018 - 8/12/2018</p>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="card-status bg-blue"></div>
+                          <div class="card-header">
+                            <h3 class="card-title">California</h3>
+                            <div class="card-options">
+                              <h3 class="card-title">Hourly Rate: $11.00 / hr</h3>
+                            </div>
+                          </div>
+                          <div class="row justify-content-center">
+                            <div class="col-sm-12">
+                              <div class="card-body">
+                                <table id="table-payPeriod4-CA-hourly" class="display">
+                                  <thead>
+                                    <tr>
+                                      <th title="First Name">First Name</th>
+                                      <th title="Last Name">Last Name</th>
+                                      <th title="Regular Hours">Reg Hours</th>
+                                      <th title="Overtime Hours">OT Hours</th>
+                                      <th title="DoubleTime Hours">DT Hours</th>
+                                      <th title="Sick Hours">Sick Hours</th>
+                                      <th title="Total Hours">Total Hours</th>
+                                      <th title="Room and Board Deduction">Deduction</th>
+                                      <th title="Travel Stipend">Travel Stipend</th>
+                                      <th title="Location to Send Check/Paystub">Location</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody id="body-payPeriod4-CA-hourly">
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- PayPeriod4 Salary -->
+                      <div class="tab-pane" id="payPeriod4Salary" role="tabpanel" aria-labelledby="payPeriod4Salary-tab">
+                        <div class="row">
+                          <div class="col-8" style="margin-top: 20px; margin-bottom: 20px">
+                            <h4>Salary Employees</h4>
+                            <p>7/30/2018 - 8/12/2018</p>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="card-status bg-blue"></div>
+                          <div class="card-header">
+                            <h3 class="card-title">California</h3>
+                            <div class="card-options">
+                              <h3 class="card-title">Salary</h3>
+                            </div>
+                          </div>
+                          <div class="row justify-content-center">
+                            <div class="col-sm-12">
+                              <div class="card-body">
+                                <table id="table-payPeriod4-CA-salary" class="display">
+                                  <thead>
+                                    <tr>
+                                      <th title="First Name">First Name</th>
+                                      <th title="Last Name">Last Name</th>
+                                      <th title="Pay">Pay</th>
+                                      <th title="Travel Stipend">Travel Stipend</th>
+                                      <th title="Location to Send Check/Paystub">Location</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody id="body-payPeriod4-CA-salary">
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -878,115 +965,114 @@
           </div>
         </div>
       </div>
-    </div>
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="container">
-        <div class="row align-items-center flex-row-reverse">
-          <div class="col-auto ml-lg-auto">
-            <div class="row align-items-center">
-              <div class="col-auto">
-                <ul class="list-inline list-inline-dots mb-0">
-                  <li class="list-inline-item">
-                    <a target="_blank" href="../guide.html">Guide</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-auto">
-                <a href="https://www.supercamp.com/staff/" class="btn btn-outline-primary btn-sm">SuperCamp</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
-            Copyright © 2018
-            <a href="https://www.QLN.com">Quantum Learning Network</a>. All rights reserved.
-          </div>
-          <button onclick="showErrorModal();" class="btn btn-outline-light">EC5000</button>
-        </div>
-      </div>
-    </footer>
-
-
-    <!-- Error Checking Input Modal -->
-    <div class="modal fade" id="error-modal" tabindex="-1" role="dialog" aria-labelledby="Error Checker 5000" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modal-title-top">Error Checker 5000 🔥</h5>
-            <div class="card-options">
-              <span style="margin-left: 20px" class="tag tag-dark">
-                Version:
-                <span class="tag-addon tag-warning">0.2.1</span>
-              </span>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-            </div>
-          </div>
-          <div class="modal-body">
-            <div id="ec5-pre">
-              <p>Use this tool to check on staff members that you aren't sure about!</p>
-              <p>Simply enter in any number of employees to look up information on, and hit the rocket ship!</p>
-              <form id="error-form">
-                <div id="error-form-group" class="form-group">
-                  <label id="person-label-1" class="form-label" data-index="1">Person</label>
-                  <div class="flexible-container" data-index="1">
-                    <input id="error-first-name-1" type="text" class="form-control flexible-item" placeholder="First Name" data-index="1">
-                    <input id="error-last-name-1" type="text" class="form-control flexible-item scoot-over" placeholder="Last Name" data-index="1">
-                    <button id="error-remove-button-1" type="button" class="btn btn-icon remove-person hidden" data-index="1">
-                      <i class="fa fa-times fa-lg"></i>
-                    </button>
-                  </div>
+      <!-- FOOTER -->
+      <footer class="footer">
+        <div class="container">
+          <div class="row align-items-center flex-row-reverse">
+            <div class="col-auto ml-lg-auto">
+              <div class="row align-items-center">
+                <div class="col-auto">
+                  <ul class="list-inline list-inline-dots mb-0">
+                    <li class="list-inline-item">
+                      <a target="_blank" href="../guide.html">Guide</a>
+                    </li>
+                  </ul>
                 </div>
-              </form>
+                <div class="col-auto">
+                  <a href="https://www.supercamp.com/staff/" class="btn btn-outline-primary btn-sm">SuperCamp</a>
+                </div>
+              </div>
             </div>
-            <div id="ec5-report" class="report hidden">
-              <ul id="ec5-report-nav" role="tablist" class="nav nav-pills mb-3"></ul>
-              <div class="tab-content" id="ec5-report-contents"></div>
+            <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
+              Copyright © 2018
+              <a href="https://www.QLN.com">Quantum Learning Network</a>. All rights reserved.
             </div>
+            <button onclick="showErrorModal();" class="btn btn-outline-light">EC5000</button>
           </div>
-          <div class="modal-footer">
-            <button id="add-person-button" type="button" class="btn btn-primary">
-              <i class="fa fa-plus"></i>&nbsp&nbspAdd Person</button>
-            <button id="error-submit-button" type="button" class="btn btn-green">
-              <i class="fa fa-rocket"></i>
-            </button>
-            <button id="error-back-button" type="button" class="btn btn-secondary hidden">Back</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </footer>
+
+
+      <!-- Error Checking Input Modal -->
+      <div class="modal fade" id="error-modal" tabindex="-1" role="dialog" aria-labelledby="Error Checker 5000" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modal-title-top">Error Checker 5000 🔥</h5>
+              <div class="card-options">
+                <span style="margin-left: 20px" class="tag tag-dark">
+                  Version:
+                  <span class="tag-addon tag-warning">0.2.1</span>
+                </span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+              </div>
+            </div>
+            <div class="modal-body">
+              <div id="ec5-pre">
+                <p>Use this tool to check on staff members that you aren't sure about!</p>
+                <p>Simply enter in any number of employees to look up information on, and hit the rocket ship!</p>
+                <form id="error-form">
+                  <div id="error-form-group" class="form-group">
+                    <label id="person-label-1" class="form-label" data-index="1">Person</label>
+                    <div class="flexible-container" data-index="1">
+                      <input id="error-first-name-1" type="text" class="form-control flexible-item" placeholder="First Name" data-index="1">
+                      <input id="error-last-name-1" type="text" class="form-control flexible-item scoot-over" placeholder="Last Name" data-index="1">
+                      <button id="error-remove-button-1" type="button" class="btn btn-icon remove-person hidden" data-index="1">
+                        <i class="fa fa-times fa-lg"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div id="ec5-report" class="report hidden">
+                <ul id="ec5-report-nav" role="tablist" class="nav nav-pills mb-3"></ul>
+                <div class="tab-content" id="ec5-report-contents"></div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button id="add-person-button" type="button" class="btn btn-primary">
+                <i class="fa fa-plus"></i>&nbsp&nbspAdd Person</button>
+              <button id="error-submit-button" type="button" class="btn btn-green">
+                <i class="fa fa-rocket"></i>
+              </button>
+              <button id="error-back-button" type="button" class="btn btn-secondary hidden">Back</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- Please Wait Loading Screen -->
-  <script src="../assets/js/please-wait.min.js"></script>
-  <script type="text/javascript">
-    window.loading_screen = window.pleaseWait({
-      logo: "../demo/brand/supercamp.svg",
-      backgroundColor: '#f5f7fb',
-      loadingHtml: "<p class='loading-message'>Preparing report...</p><div class='pixel-spinner'> <div class='pixel-spinner-inner'></div> </div>"
-    });
-  </script>
+    <!-- Please Wait Loading Screen -->
+    <script src="../assets/js/please-wait.min.js"></script>
+    <script type="text/javascript">
+      window.loading_screen = window.pleaseWait({
+        logo: "../demo/brand/supercamp.svg",
+        backgroundColor: '#f5f7fb',
+        loadingHtml: "<p class='loading-message'>Preparing report...</p><div class='pixel-spinner'> <div class='pixel-spinner-inner'></div> </div>"
+      });
+    </script>
 
-  <!-- JQuery -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-  <!-- Print This -->
-  <!-- Not needed until print button added 
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <!-- Print This -->
+    <!-- Not needed until print button added 
   <script src="../assets/js/printThis.js"></script> -->
-  <!-- Javascript -->
-  <!-- Popper.JS for Bootstrap -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <!-- Bootstrap -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-    crossorigin="anonymous"></script>
-  <!-- Smoothscroll Polyfill -->
-  <script src="../assets/js/smoothscroll.min.js"></script>
-  <!-- Papa Parse -->
-  <script src="../assets/js/papaparse.js"></script>
-  <!-- Staff Members -->
-  <script src="../assets/js/staffmembers.js"></script>
+    <!-- Javascript -->
+    <!-- Popper.JS for Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+      crossorigin="anonymous"></script>
+    <!-- Smoothscroll Polyfill -->
+    <script src="../assets/js/smoothscroll.min.js"></script>
+    <!-- Papa Parse -->
+    <script src="../assets/js/papaparse.js"></script>
+    <!-- Staff Members -->
+    <script src="../assets/js/staffmembers.js"></script>
 
-  <!-- Polyfills? -
+    <!-- Polyfills? -
   <script src="https://wzrd.in/standalone/formdata-polyfill"></script>
   <script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
   <script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
@@ -994,27 +1080,27 @@
   -->
 
 
-  <!-- Konami Code -->
-  <script src="konami.js"></script>
+    <!-- Konami Code -->
+    <script src="konami.js"></script>
 
 
-  <!-- Datatables -->
-  <!-- <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/r-2.2.1/datatables.min.js"></script> -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/r-2.2.2/sc-1.5.0/datatables.min.js"></script>
+    <!-- Datatables -->
+    <!-- <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/r-2.2.1/datatables.min.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/r-2.2.2/sc-1.5.0/datatables.min.js"></script>
 
-  <!-- Tabletop -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+    <!-- Tabletop -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 
 
-  <!-- DEVELOPMENT -->
-  <script src="main-compiled.js"></script>
-  <!-- PRODUCTION -->
-  <!-- Main -->
-  <!-- <script src="main-compiled.js"></script> -->
-  <!-- Error Checker 5000 -->
-  <script src="error-checker-5000.js"></script>
+    <!-- DEVELOPMENT -->
+    <script src="main-compiled.js"></script>
+    <!-- PRODUCTION -->
+    <!-- Main -->
+    <!-- <script src="main-compiled.js"></script> -->
+    <!-- Error Checker 5000 -->
+    <script src="error-checker-5000.js"></script>
 </body>
 
 </html>

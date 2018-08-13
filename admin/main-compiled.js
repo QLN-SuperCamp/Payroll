@@ -42,6 +42,8 @@ var table2CAHourly = document.getElementById('table-payPeriod2-CA-hourly');
 var table2CASalary = document.getElementById('table-payPeriod2-CA-salary');
 var table3CAHourly = document.getElementById('table-payPeriod3-CA-hourly');
 var table3CASalary = document.getElementById('table-payPeriod3-CA-salary');
+var table4CAHourly = document.getElementById('table-payPeriod4-CA-hourly');
+var table4CASalary = document.getElementById('table-payPeriod4-CA-salary');
 
 // FL
 var table2FLHourly = document.getElementById('table-payPeriod2-FL-hourly');
@@ -69,6 +71,8 @@ var body2CAHourly = document.getElementById('body-payPeriod2-CA-hourly');
 var body2CASalary = document.getElementById('body-payPeriod2-CA-salary');
 var body3CAHourly = document.getElementById('body-payPeriod3-CA-hourly');
 var body3CASalary = document.getElementById('body-payPeriod3-CA-salary');
+var body4CAHourly = document.getElementById('body-payPeriod4-CA-hourly');
+var body4CASalary = document.getElementById('body-payPeriod4-CA-salary');
 
 // FL
 var body2FLHourly = document.getElementById('body-payPeriod2-FL-hourly');
@@ -1765,6 +1769,14 @@ function constructTables() {
         dom: 'Bfrtip',
         buttons: ['copy', 'excel', 'pdf']
     });
+    $('#table-payPeriod4-CA-hourly').DataTable({
+        dom: 'Bfrtip',
+        buttons: ['copy', 'excel', 'pdf']
+    });
+    $('#table-payPeriod4-CA-salary').DataTable({
+        dom: 'Bfrtip',
+        buttons: ['copy', 'excel', 'pdf']
+    });
 }
 
 /**
@@ -1795,6 +1807,12 @@ function assignTable(site, payPeriodNumber, isSalaryEmployee, state) {
                 table = table3CAHourly;
             } else {
                 table = table3CASalary;
+            }
+        } else if (payPeriodNumber === 4) {
+            if (isSalaryEmployee === "No") {
+                table = table4CAHourly;
+            } else {
+                table = table4CASalary;
             }
         }
     } else if (site === "sw") {
@@ -1847,6 +1865,8 @@ function assignTable(site, payPeriodNumber, isSalaryEmployee, state) {
                 table = table2CASalary;
             } else if (payPeriodNumber === 3) {
                 table = table3CASalary;
+            } else if (payPeriodNumber === 4) {
+                table = table4CASalary;
             }
         } else if (state === "Florida") {
             if (payPeriodNumber === 2) {
@@ -1885,8 +1905,8 @@ function assignTable(site, payPeriodNumber, isSalaryEmployee, state) {
 function assignTableBody(table) {
     var tableBody = "";
 
-    var tableArray = [table1CAHourly, table1CASalary, table1TXHourly, table1TXSalary, table2CAHourly, table2FLHourly, table2TXHourly, table2PAHourly, table2CASalary, table2FLSalary, table2TXSalary, table2PASalary, table3PAHourly, table3PASalary, table3FLSalary, table3CASalary, table3CAHourly, table3FLHourly];
-    var bodyArray = [body1CAHourly, body1CASalary, body1TXHourly, body1TXSalary, body2CAHourly, body2FLHourly, body2TXHourly, body2PAHourly, body2CASalary, body2FLSalary, body2TXSalary, body2PASalary, body3PAHourly, body3PASalary, body3FLSalary, body3CASalary, body3CAHourly, body3FLHourly];
+    var tableArray = [table1CAHourly, table1CASalary, table1TXHourly, table1TXSalary, table2CAHourly, table2FLHourly, table2TXHourly, table2PAHourly, table2CASalary, table2FLSalary, table2TXSalary, table2PASalary, table3PAHourly, table3PASalary, table3FLSalary, table3CASalary, table3CAHourly, table3FLHourly, table4CAHourly, table4CASalary];
+    var bodyArray = [body1CAHourly, body1CASalary, body1TXHourly, body1TXSalary, body2CAHourly, body2FLHourly, body2TXHourly, body2PAHourly, body2CASalary, body2FLSalary, body2TXSalary, body2PASalary, body3PAHourly, body3PASalary, body3FLSalary, body3CASalary, body3CAHourly, body3FLHourly, body4CAHourly, body4CASalary];
 
     var thisIndex = tableArray.indexOf(table);
     tableBody = bodyArray[thisIndex];
