@@ -172,8 +172,13 @@ context("Generate Stanford Data", function () {
             it('July 30 (Day 6)', function () {
                 cy.fillSiteInfoBecca('site-stan', 'stan-camp4', '7', '30');
                 
-                // TODO: ! INPUT DATA !
-                
+                addStaff('Trenton Barnett', 'TL', 13, 15);
+                addStaff('Nathan Tung', 'TL', 16, 0);
+                addStaff('Jennifer Gerardi', 'TL', 16, 0);
+                addStaff('Flora Moore', 'OC', 0, 0);
+                addStaff('Stephanie Fung', 'OC', 0, 0);
+                addStaff('Derrick Celestine', 'TL', 0, 0);
+
                 uncheckStaff();
                 writeStaffValues();
                 
@@ -261,7 +266,7 @@ context("Generate Stanford Data", function () {
                 cy.fillSiteInfoBecca('site-stan', 'stan-camp5', '8', '3');
                 
                 addStaff('Michael Andrade', 'TL', 11, 30);
-                addStaff('Trenton Barnett', 'TL', 9, 0);
+                addStaff('Trenton Barnett', 'TL', 11, 0);
                 addStaff('Jamila Ford', 'TL', 11, 15);
                 addStaff('Katrina Hoefflinger', 'TL', 11, 45);
                 addStaff('Claire Levenson', 'TL', 10, 45);
@@ -298,7 +303,8 @@ context("Generate Stanford Data", function () {
                 addStaff('Shayla Nary', 'LCWP', 11, 0);
                 addStaff('Elizabeth Fung', 'LCWP', 9, 0);
                 addStaff('Rebecca Goldsmith', 'TL', 0, 0);
-                // TODO: CHECK -- Divine, Elise
+                addStaff('Divine Rolle', 'TL', 11, 15);
+                addStaff('Elise Simmons', 'TL', 12, 15);
 
                 uncheckStaff();
                 writeStaffValues();
@@ -329,6 +335,7 @@ context("Generate Stanford Data", function () {
                 addStaff('Elizabeth Fung', 'OC', 9, 30);
                 addStaff('Yolanda Drew', 'LCWP', 11, 30);
                 addStaff('Rebecca Goldsmith', 'TL', 0, 0);
+                addStaff('Trenton Barnett', 'TL', 12, 0);
 
                 uncheckStaff();
                 writeStaffValues();
@@ -422,7 +429,6 @@ context("Generate Stanford Data", function () {
                 addStaff('Elizabeth Fung', 'OC', 13, 0);
                 addStaff('Yolanda Drew', 'LCWP', 11, 30);
                 addStaff('Rebecca Goldsmith', 'TL', 12, 0);
-                // TODO: Check -- Casey, Divine
 
                 uncheckStaff();
                 writeStaffValues();
