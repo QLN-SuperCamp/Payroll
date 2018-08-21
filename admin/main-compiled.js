@@ -1611,7 +1611,12 @@ function createTableEntryHourly(table, firstName, lastName, regHours, otHours, d
 
 	var otHoursCell = document.createElement('td');
 	otHoursCell.align = 'right';
-	otHoursCell.innerHTML = otHours;
+	// ! Fix for Yolanda Drew having 3 additional OT Hours
+	if (firstName === 'Yolanda' && lastName === 'Drew' && payPeriodNumber === 5) {
+		otHoursCell.innerHTML = otHours + 3;
+	} else {
+		otHoursCell.innerHTML = otHours;
+	}
 	row.appendChild(otHoursCell);
 
 	var dtHoursCell = document.createElement('td');
@@ -1740,6 +1745,14 @@ function createTableEntrySalary(table, firstName, lastName, salaryPayTotal, chec
 		name: 'Phillip Ellis',
 		amount: '$ 50.00',
 		payPeriodNumber: 4
+	}, {
+		name: 'Claude Mitchell',
+		amount: '$ 25.00',
+		payPeriodNumber: 5
+	}, {
+		name: 'Lauren Ihle',
+		amount: '$ 50.00',
+		payPeriodNumber: 5
 	}];
 
 	var fullName = firstName.concat(' ', lastName);
@@ -1768,6 +1781,12 @@ function createTableEntrySalary(table, firstName, lastName, salaryPayTotal, chec
 		payPeriods: [{
 			payPeriodNumber: 4,
 			totalPay: '$ 1,537.50'
+		}]
+	}, {
+		name: 'Krystal Bouldin',
+		payPeriods: [{
+			payPeriodNumber: 5,
+			totalPay: '$ 965.00'
 		}]
 	}];
 
@@ -1884,7 +1903,6 @@ function constructTables() {
 		dom: 'Bfrtip',
 		buttons: ['copy', 'excel', 'pdf']
 	});
-
 	$('#table-payPeriod5-CA-hourly').DataTable({
 		dom: 'Bfrtip',
 		buttons: ['copy', 'excel', 'pdf']
@@ -1989,6 +2007,8 @@ function assignTable(site, payPeriodNumber, isSalaryEmployee, state) {
 				table = table3CASalary;
 			} else if (payPeriodNumber === 4) {
 				table = table4CASalary;
+			} else if (payPeriodNumber === 5) {
+				table = table5CASalary;
 			}
 		} else if (state === 'Florida') {
 			if (payPeriodNumber === 2) {
