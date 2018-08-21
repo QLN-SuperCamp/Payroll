@@ -151,7 +151,8 @@ $.get(allStaffReport, function (data) {
                     camps: {
                         "stan-camp3": "Photo",
                         "stan-camp4": "TL",
-                        "stan-camp5": "TL"
+                        "stan-camp5": "TL",
+                        "stan-camp6": "TL"
                     }
                 },
                 {
