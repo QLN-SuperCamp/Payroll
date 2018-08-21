@@ -167,12 +167,28 @@ context("Generate Stanford Data", function () {
     }
 
     context("Stanford University", function () {
-        // TODO: Input data from Becca
         context("Camp 6", function () {
+            it('August 12 (Day -2)', function () {
+                cy.fillSiteInfoBecca('site-stan', 'stan-camp6', '8', '12');
+                
+                addStaff('Elizabeth Fung', 'OC', 0, 0);
+                
+                uncheckStaff();
+                writeStaffValues();
+                
+                cy.get('#preview-button').click();
+                cy.get('#send-data-button').click();
+                cy.wait(5000);
+                cy.contains('Success');
+                
+                logDay(8, 12);
+                clearArrays();
+            });
             it('August 13 (Day -1)', function () {
                 cy.fillSiteInfoBecca('site-stan', 'stan-camp6', '8', '13');
                 
-                // ADD STAFF HERE
+                addStaff('Elizabeth Fung', 'OC', 9, 0);
+                addStaff('Yolanda Drew', 'LCWP', 6, 0);
                 
                 uncheckStaff();
                 writeStaffValues();
@@ -188,8 +204,16 @@ context("Generate Stanford Data", function () {
             it('August 14 (Day 1)', function () {
                 cy.fillSiteInfoBecca('site-stan', 'stan-camp6', '8', '14');
                 
-                // ADD STAFF HERE
-                
+                addStaff('Trenton Barnett', 'TL', 15, 0);
+                addStaff('Noah Fedler', 'TL', 13, 30);
+                addStaff('Jennifer Gerardi', 'TL', 14, 30);
+                addStaff('Casey Robinson', 'TL', 11, 30);
+                addStaff('Elise Simmons', 'TL', 8, 0);
+                addStaff('Isabella Stenz', 'TL', 13, 30);
+                addStaff('Nathan Tung', 'TL', 10, 30);
+                addStaff('Deja Washington', 'TL', 11, 45);
+                addStaff('Elizabeth Fung', 'OC', 11, 0);
+
                 uncheckStaff();
                 writeStaffValues();
                 
@@ -204,8 +228,18 @@ context("Generate Stanford Data", function () {
             it('August 15 (Day 2)', function () {
                 cy.fillSiteInfoBecca('site-stan', 'stan-camp6', '8', '15');
                 
-                // ADD STAFF HERE
-                
+                addStaff('Trenton Barnett', 'TL', 11, 30);
+                addStaff('Noah Fedler', 'TL', 11, 30);
+                addStaff('Casey Robinson', 'TL', 11, 30);
+                addStaff('Divine Rolle', 'TL', 11, 30);
+                addStaff('Nikta Shahbaz', 'TL', 11, 30);
+                addStaff('Elise Simmons', 'TL', 11, 30);
+                addStaff('Nathan Tung', 'TL', 12, 0);
+                addStaff('Deja Washington', 'TL', 11, 30);
+                addStaff('Elizabeth Fung', 'OC', 13, 30);
+                addStaff('Yolanda Drew', 'LCWP', 11, 30);
+                addStaff('Rebecca Goldsmith', 'TL', 11, 30);
+
                 uncheckStaff();
                 writeStaffValues();
                 
@@ -220,7 +254,13 @@ context("Generate Stanford Data", function () {
             it('August 16 (Day 3)', function () {
                 cy.fillSiteInfoBecca('site-stan', 'stan-camp6', '8', '16');
                 
-                // ADD STAFF HERE
+                addStaff('Nikta Shahbaz', 'TL', 11, 30);
+                addStaff('Elise Simmons', 'TL', 11, 30);
+                addStaff('Nathan Tung', 'TL', 11, 15);
+                addStaff('Deja Washington', 'TL', 12, 0);
+                addStaff('Elizabeth Fung', 'OC', 12, 0);
+                addStaff('Yolanda Drew', 'LCWP', 13, 30);
+                addStaff('Rebecca Goldsmith', 'TL', 10, 0);
                 
                 uncheckStaff();
                 writeStaffValues();
@@ -236,7 +276,15 @@ context("Generate Stanford Data", function () {
             it('August 17 (Day 4)', function () {
                 cy.fillSiteInfoBecca('site-stan', 'stan-camp6', '8', '17');
                 
-                // ADD STAFF HERE
+                addStaff('Trenton Barnett', 'TL', 11, 30);
+                addStaff('Noah Fedler', 'TL', 11, 30);
+                addStaff('Casey Robinson', 'TL', 11, 30);
+                addStaff('Nikta Shahbaz', 'TL', 11, 30);
+                addStaff('Elise Simmons', 'TL', 11, 30);
+                addStaff('Isabella Stenz', 'TL', 11, 30);
+                addStaff('Nathan Tung', 'TL', 14, 0);
+                addStaff('Elizabeth Fung', 'OC', 13, 30);
+                addStaff('Yolanda Drew', 'LCWP', 12, 30);
                 
                 uncheckStaff();
                 writeStaffValues();
@@ -252,7 +300,17 @@ context("Generate Stanford Data", function () {
             it('August 18 (Day 5)', function () {
                 cy.fillSiteInfoBecca('site-stan', 'stan-camp6', '8', '18');
                 
-                // ADD STAFF HERE
+                addStaff('Trenton Barnett', 'TL', 11, 30);
+                addStaff('Noah Fedler', 'TL', 12, 0);
+                addStaff('Casey Robinson', 'TL', 11, 30);
+                addStaff('Divine Rolle', 'TL', 12, 0);
+                addStaff('Nikta Shahbaz', 'TL', 12, 0);
+                addStaff('Elise Simmons', 'TL', 12, 0);
+                addStaff('Isabella Stenz', 'TL', 11, 45);
+                addStaff('Nathan Tung', 'TL', 12, 0);
+                addStaff('Deja Washington', 'TL', 11, 30);
+                addStaff('Elizabeth Fung', 'OC', 12, 0);
+                addStaff('Yolanda Drew', 'LCWP', 11, 30);
                 
                 uncheckStaff();
                 writeStaffValues();
@@ -268,7 +326,17 @@ context("Generate Stanford Data", function () {
             it('August 19 (Day 6)', function () {
                 cy.fillSiteInfoBecca('site-stan', 'stan-camp6', '8', '19');
                 
-                // ADD STAFF HERE
+                addStaff('Trenton Barnett', 'TL', 12, 0);
+                addStaff('Noah Fedler', 'TL', 11, 30);
+                addStaff('Jennifer Gerardi', 'TL', 11, 30);
+                addStaff('Casey Robinson', 'TL', 11, 30);
+                addStaff('Nikta Shahbaz', 'TL', 12, 45);
+                addStaff('Elise Simmons', 'TL', 11, 30);
+                addStaff('Isabella Stenz', 'TL', 16, 15);
+                addStaff('Nathan Tung', 'TL', 16, 15);
+                addStaff('Deja Washington', 'TL', 13, 30);
+                addStaff('Elizabeth Fung', 'OC', 15, 45);
+                addStaff('Yolanda Drew', 'LCWP', 12, 30);
                 
                 uncheckStaff();
                 writeStaffValues();
