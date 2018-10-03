@@ -818,7 +818,7 @@ $.get(report, function(data) {
  */
 function init() {
 	var publicSpreadsheetUrl =
-		'https://docs.google.com/spreadsheets/d/1SbGhrkqAb8Ej4mFn9HxcfbVlK6B0zhA_2eQLB7UfnU8/edit?usp=sharing';
+		'https://docs.google.com/spreadsheets/d/1QfblQjlk0hp71-z22wgzieXsTgMLOXQh5P4MiW0lhFg/edit?usp=sharing';
 
 	Tabletop.init({
 		key: publicSpreadsheetUrl,
