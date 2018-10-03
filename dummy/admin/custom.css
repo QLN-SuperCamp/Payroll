@@ -1,0 +1,119 @@
+.paginate_button {
+    padding: 0 !important;
+    margin-left: 0 important;
+    border: none important;
+    border-radius: 0 important;
+}
+
+.paginate_button:hover {
+    border: 0 !important;
+}
+
+
+/* For Error Modal */
+.flexible-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.flexible-item {
+    min-width: 50px;
+    max-width: 150px;
+}
+
+.scoot-over {
+    margin-left: 15px;
+}
+
+.scoot-up {
+    margin-top: 15px;
+}
+
+.remove-person {
+    margin-left: 15px;
+    border: none;
+    background-color: transparent;
+}
+
+.hidden {
+    display: none;
+}
+
+.x-icon {
+    transition: 1s;
+}
+
+.remove-person:hover .x-icon {
+    font-size: 22px;
+}
+
+.maximize {
+    transition: 1s !important;
+    max-width: 95vw;
+    /* height: 90vh; */
+}
+
+.height100 {
+    height: 100%;
+}
+
+.fade-out {
+    transition: 1s;
+    opacity: 0;
+}
+
+.fade-in {
+    opacity: 1 !important;
+}
+
+.report {
+    opacity: 0;
+    transition: 1s;
+}
+
+.report-tab {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.space-even {
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+}
+
+.custom-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.up-down-marg-5 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.smaller-hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.day-by-day-avatar {
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    white-space: pre;
+}
+
+.day-by-day-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.one-line {
+    white-space: pre;
+}
