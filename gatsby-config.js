@@ -23,6 +23,14 @@ module.exports = {
         path: path.join(__dirname, `src`, `images`)
       }
     },
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        google: {
+          families: ["Source Sans Pro"]
+        }
+      }
+    },
     "gatsby-plugin-sass",
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`
