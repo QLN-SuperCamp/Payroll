@@ -4,12 +4,23 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+const path = require("path");
+
 module.exports = {
   siteMetadata: {
     title: "Paayroll",
     author: "Alex Lee"
   },
   plugins: [
-    "gatsby-plugin-sass"
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, `src`, `images`)
+      }
+    },
+    "gatsby-plugin-sass",
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`
   ]
-}
+};

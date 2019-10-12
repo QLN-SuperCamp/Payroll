@@ -1,33 +1,16 @@
 import React from "react";
-import { AppBar, Button, Toolbar, Typography, Box } from "@material-ui/core";
+import { AppBar, Toolbar } from "@material-ui/core";
 import headerStyles from "./header.module.scss";
 import { Link } from "gatsby";
+import logo from "../images/supercamp.svg";
 
 const Header = () => {
   return (
-    <AppBar color="default" position="sticky">
+    <AppBar style={{ backgroundColor: "white" }} position="sticky">
       <Toolbar className={headerStyles.container}>
         <Link to="/" className={headerStyles.plainLink}>
-          <Typography variant="h6">Alex Lee</Typography>
+          <img alt="Logo" className={headerStyles.logo} src={logo} />
         </Link>
-
-        {/* <Box>
-          <Link className={headerStyles.plainLink} to="/">
-            <Button color="inherit" name="Home">
-              Home
-            </Button>
-          </Link>
-          <Link className={headerStyles.plainLink} to="/works">
-            <Button color="inherit" name="Works">
-              Works
-            </Button>
-          </Link>
-          <Link className={headerStyles.plainLink} to="/blog">
-            <Button color="inherit" name="Blog">
-              Blog
-            </Button>
-          </Link>
-        </Box> */}
       </Toolbar>
     </AppBar>
   );
