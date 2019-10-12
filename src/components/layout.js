@@ -2,17 +2,26 @@ import React from "react";
 import Header from "./header";
 import Footer from "./footer";
 import layoutStyles from "./layout.module.scss";
-import '../styles/index.scss'
+import "../styles/index.scss";
+import { createMuiTheme, MuiThemeProvider } from "@material-ui/core";
 
-const Layout = (props) => {
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: ["Source Sans Pro"]
+  }
+});
+
+const Layout = props => {
   return (
-    <div className={layoutStyles.container}>
-      <div className={layoutStyles.content}>
-        <Header />
-        {props.children}
+    <MuiThemeProvider theme={theme}>
+      <div className={layoutStyles.container}>
+        <div className={layoutStyles.content}>
+          <Header />
+          {props.children}
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </MuiThemeProvider>
   );
 };
 

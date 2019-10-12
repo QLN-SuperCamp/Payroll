@@ -5,7 +5,33 @@
   padding: 25px;
 }
 
+.copyright {
+  color: #9aa0ac;
+  font-size: 14px;
+
+  a {
+    color: #6e7687;
+    text-decoration: none;
+  }
+
+  div {
+    flex-grow: 1;
+  }
+}
+
 .plain-link {
   color: inherit;
   text-decoration: none;
+
+  span {
+    color: #9aa0ac;
+    font-size: 14px;
+    text-transform: none;
+  }
+}
+
+.secondary {
+  span {
+    color: #467fcf;
+  }
 }

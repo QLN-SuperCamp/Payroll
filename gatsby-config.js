@@ -9,7 +9,11 @@ const path = require("path");
 module.exports = {
   siteMetadata: {
     title: "Paayroll",
-    author: "Alex Lee"
+    author: "Alex Lee",
+    company: {
+      link: "https://www.qln.com/",
+      name: "Quantum Learning Network"
+    }
   },
   plugins: [
     {
