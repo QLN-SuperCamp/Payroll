@@ -1,0 +1,7436 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title>payroll 1.5.5 | Documentation</title>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <link href='assets/bass.css' type='text/css' rel='stylesheet' />
+  <link href='assets/style.css' type='text/css' rel='stylesheet' />
+  <link href='assets/github.css' type='text/css' rel='stylesheet' />
+  <link href='assets/split.css' type='text/css' rel='stylesheet' />
+  <meta name='description' content='SuperCamp Payroll'>
+</head>
+<body class='documentation m0'>
+    <div class='flex'>
+      <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
+        <div class='py1 px2'>
+          <h3 class='mb0 no-anchor'>payroll</h3>
+          <div class='mb1'><code>1.5.5</code></div>
+          <input
+            placeholder='Filter'
+            id='filter-input'
+            class='col12 block input'
+            type='text' />
+          <div id='toc'>
+            <ul class='list-reset h5 py1-ul'>
+              
+                
+                <li><a
+                  href='#data-gathering'
+                  class="h5 bold black caps toggle-sibling">
+                  Data Gathering
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#buildcampminderreportarray'
+                        class='regular pre-open'>
+                        .buildCampMinderReportArray
+                      </a></li>
+                    
+                      <li><a
+                        href='#countexceptionhours'
+                        class='regular pre-open'>
+                        .countExceptionHours
+                      </a></li>
+                    
+                      <li><a
+                        href='#counthours'
+                        class='regular pre-open'>
+                        .countHours
+                      </a></li>
+                    
+                      <li><a
+                        href='#countsickhours'
+                        class='regular pre-open'>
+                        .countSickHours
+                      </a></li>
+                    
+                      <li><a
+                        href='#formdata'
+                        class='regular pre-open'>
+                        .formData
+                      </a></li>
+                    
+                      <li><a
+                        href='#getposition'
+                        class='regular pre-open'>
+                        .getPosition
+                      </a></li>
+                    
+                      <li><a
+                        href='#init'
+                        class='regular pre-open'>
+                        .init
+                      </a></li>
+                    
+                      <li><a
+                        href='#separateformdata'
+                        class='regular pre-open'>
+                        .separateFormData
+                      </a></li>
+                    
+                      <li><a
+                        href='#splithours'
+                        class='regular pre-open'>
+                        .splitHours
+                      </a></li>
+                    
+                      <li><a
+                        href='#standata'
+                        class='regular pre-open'>
+                        .stanData
+                      </a></li>
+                    
+                      <li><a
+                        href='#swdata'
+                        class='regular pre-open'>
+                        .swData
+                      </a></li>
+                    
+                      <li><a
+                        href='#ucfdata'
+                        class='regular pre-open'>
+                        .ucfData
+                      </a></li>
+                    
+                      <li><a
+                        href='#villadata'
+                        class='regular pre-open'>
+                        .villaData
+                      </a></li>
+                    
+                      <li><a
+                        href='#readdateinfo'
+                        class='regular pre-open'>
+                        .readDateInfo
+                      </a></li>
+                    
+                      <li><a
+                        href='#readcampminderreport'
+                        class='regular pre-open'>
+                        .readCampMinderReport
+                      </a></li>
+                    
+                      <li><a
+                        href='#translatecampcodes'
+                        class='regular pre-open'>
+                        .translateCampCodes
+                      </a></li>
+                    
+                      <li><a
+                        href='#userinformation'
+                        class='regular pre-open'>
+                        .userInformation
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#data-displaying'
+                  class="h5 bold black caps toggle-sibling">
+                  Data Displaying
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#assigntable'
+                        class='regular pre-open'>
+                        .assignTable
+                      </a></li>
+                    
+                      <li><a
+                        href='#assigntablebody'
+                        class='regular pre-open'>
+                        .assignTableBody
+                      </a></li>
+                    
+                      <li><a
+                        href='#assignuserinfo'
+                        class='regular pre-open'>
+                        .assignUserInfo
+                      </a></li>
+                    
+                      <li><a
+                        href='#assignuserinfo'
+                        class='regular pre-open'>
+                        .assignUserInfo
+                      </a></li>
+                    
+                      <li><a
+                        href='#constructtables'
+                        class='regular pre-open'>
+                        .constructTables
+                      </a></li>
+                    
+                      <li><a
+                        href='#createtableentryhourly'
+                        class='regular pre-open'>
+                        .createTableEntryHourly
+                      </a></li>
+                    
+                      <li><a
+                        href='#createtableentrysalary'
+                        class='regular pre-open'>
+                        .createTableEntrySalary
+                      </a></li>
+                    
+                      <li><a
+                        href='#displaydata'
+                        class='regular pre-open'>
+                        .displayData
+                      </a></li>
+                    
+                      <li><a
+                        href='#reporttime'
+                        class='regular pre-open'>
+                        .reportTime
+                      </a></li>
+                    
+                      <li><a
+                        href='#showinfo'
+                        class='regular pre-open'>
+                        .showInfo
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#error-checker-5000'
+                  class="h5 bold black caps toggle-sibling">
+                  Error Checker 5000
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#adderrorperson'
+                        class='regular pre-open'>
+                        .addErrorPerson
+                      </a></li>
+                    
+                      <li><a
+                        href='#buildec5report'
+                        class='regular pre-open'>
+                        .buildEC5Report
+                      </a></li>
+                    
+                      <li><a
+                        href='#builderrorarray'
+                        class='regular pre-open'>
+                        .buildErrorArray
+                      </a></li>
+                    
+                      <li><a
+                        href='#checklastperson'
+                        class='regular pre-open'>
+                        .checkLastPerson
+                      </a></li>
+                    
+                      <li><a
+                        href='#createcustomdaybyday'
+                        class='regular pre-open'>
+                        .createCustomDayByDay
+                      </a></li>
+                    
+                      <li><a
+                        href='#createcustomtag'
+                        class='regular pre-open'>
+                        .createCustomTag
+                      </a></li>
+                    
+                      <li><a
+                        href='#displaytabcontent'
+                        class='regular pre-open'>
+                        .displayTabContent
+                      </a></li>
+                    
+                      <li><a
+                        href='#editicons'
+                        class='regular pre-open'>
+                        .editIcons
+                      </a></li>
+                    
+                      <li><a
+                        href='#editpeopleelements'
+                        class='regular pre-open'>
+                        .editPeopleElements
+                      </a></li>
+                    
+                      <li><a
+                        href='#errorformsubmit'
+                        class='regular pre-open'>
+                        .errorFormSubmit
+                      </a></li>
+                    
+                      <li><a
+                        href='#filterreportarray'
+                        class='regular pre-open'>
+                        .filterReportArray
+                      </a></li>
+                    
+                      <li><a
+                        href='#removeerrorperson'
+                        class='regular pre-open'>
+                        .removeErrorPerson
+                      </a></li>
+                    
+                      <li><a
+                        href='#showec5report'
+                        class='regular pre-open'>
+                        .showEC5Report
+                      </a></li>
+                    
+                      <li><a
+                        href='#showerrormodal'
+                        class='regular pre-open'>
+                        .showErrorModal
+                      </a></li>
+                    
+                      <li><a
+                        href='#switcherrorperson'
+                        class='regular pre-open'>
+                        .switchErrorPerson
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#helper-functions'
+                  class="h5 bold black caps toggle-sibling">
+                  Helper Functions
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#checkifround'
+                        class='regular pre-open'>
+                        .checkIfRound
+                      </a></li>
+                    
+                      <li><a
+                        href='#checkspecialcases'
+                        class='regular pre-open'>
+                        .checkSpecialCases
+                      </a></li>
+                    
+                      <li><a
+                        href='#clearthis'
+                        class='regular pre-open'>
+                        .clearThis
+                      </a></li>
+                    
+                      <li><a
+                        href='#comparevalues'
+                        class='regular pre-open'>
+                        .compareValues
+                      </a></li>
+                    
+                      <li><a
+                        href='#hidethis'
+                        class='regular pre-open'>
+                        .hideThis
+                      </a></li>
+                    
+                      <li><a
+                        href='#ischecked'
+                        class='regular pre-open'>
+                        .isChecked
+                      </a></li>
+                    
+                      <li><a
+                        href='#isinvalid'
+                        class='regular pre-open'>
+                        .isInvalid
+                      </a></li>
+                    
+                      <li><a
+                        href='#islc'
+                        class='regular pre-open'>
+                        .isLC
+                      </a></li>
+                    
+                      <li><a
+                        href='#isoc'
+                        class='regular pre-open'>
+                        .isOC
+                      </a></li>
+                    
+                      <li><a
+                        href='#istl'
+                        class='regular pre-open'>
+                        .isTL
+                      </a></li>
+                    
+                      <li><a
+                        href='#isunchecked'
+                        class='regular pre-open'>
+                        .isUnchecked
+                      </a></li>
+                    
+                      <li><a
+                        href='#iswp'
+                        class='regular pre-open'>
+                        .isWP
+                      </a></li>
+                    
+                      <li><a
+                        href='#mergetime'
+                        class='regular pre-open'>
+                        .mergeTime
+                      </a></li>
+                    
+                      <li><a
+                        href='#moneystring'
+                        class='regular pre-open'>
+                        .moneyString
+                      </a></li>
+                    
+                      <li><a
+                        href='#setblank'
+                        class='regular pre-open'>
+                        .setBlank
+                      </a></li>
+                    
+                      <li><a
+                        href='#showthis'
+                        class='regular pre-open'>
+                        .showThis
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#payroll-form'
+                  class="h5 bold black caps toggle-sibling">
+                  Payroll Form
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#addpreviewbutton'
+                        class='regular pre-open'>
+                        .addPreviewButton
+                      </a></li>
+                    
+                      <li><a
+                        href='#addstaffmembers'
+                        class='regular pre-open'>
+                        .addStaffMembers
+                      </a></li>
+                    
+                      <li><a
+                        href='#assignspanlabel'
+                        class='regular pre-open'>
+                        .assignSpanLabel
+                      </a></li>
+                    
+                      <li><a
+                        href='#campchosen'
+                        class='regular pre-open'>
+                        .campChosen
+                      </a></li>
+                    
+                      <li><a
+                        href='#checkemptypositions'
+                        class='regular pre-open'>
+                        .checkEmptyPositions
+                      </a></li>
+                    
+                      <li><a
+                        href='#checkexceptions'
+                        class='regular pre-open'>
+                        .checkExceptions
+                      </a></li>
+                    
+                      <li><a
+                        href='#checkname'
+                        class='regular pre-open'>
+                        .checkName
+                      </a></li>
+                    
+                      <li><a
+                        href='#checksick'
+                        class='regular pre-open'>
+                        .checkSick
+                      </a></li>
+                    
+                      <li><a
+                        href='#createdata'
+                        class='regular pre-open'>
+                        .createData
+                      </a></li>
+                    
+                      <li><a
+                        href='#createnormallabel'
+                        class='regular pre-open'>
+                        .createNormalLabel
+                      </a></li>
+                    
+                      <li><a
+                        href='#createsickstaff'
+                        class='regular pre-open'>
+                        .createSickStaff
+                      </a></li>
+                    
+                      <li><a
+                        href='#createspeciallabel'
+                        class='regular pre-open'>
+                        .createSpecialLabel
+                      </a></li>
+                    
+                      <li><a
+                        href='#datechanged'
+                        class='regular pre-open'>
+                        .dateChanged
+                      </a></li>
+                    
+                      <li><a
+                        href='#disabledates'
+                        class='regular pre-open'>
+                        .disableDates
+                      </a></li>
+                    
+                      <li><a
+                        href='#enabledates'
+                        class='regular pre-open'>
+                        .enableDates
+                      </a></li>
+                    
+                      <li><a
+                        href='#issiteinfovalid'
+                        class='regular pre-open'>
+                        .isSiteInfoValid
+                      </a></li>
+                    
+                      <li><a
+                        href='#resetinfo'
+                        class='regular pre-open'>
+                        .resetInfo
+                      </a></li>
+                    
+                      <li><a
+                        href='#scrolltotlcard'
+                        class='regular pre-open'>
+                        .scrollToTLCard
+                      </a></li>
+                    
+                      <li><a
+                        href='#sethoursworked'
+                        class='regular pre-open'>
+                        .setHoursWorked
+                      </a></li>
+                    
+                      <li><a
+                        href='#showpositioncards'
+                        class='regular pre-open'>
+                        .showPositionCards
+                      </a></li>
+                    
+                      <li><a
+                        href='#sickswitched'
+                        class='regular pre-open'>
+                        .sickSwitched
+                      </a></li>
+                    
+                      <li><a
+                        href='#sitechosen'
+                        class='regular pre-open'>
+                        .siteChosen
+                      </a></li>
+                    
+                      <li><a
+                        href='#slideinitems'
+                        class='regular pre-open'>
+                        .slideInItems
+                      </a></li>
+                    
+                      <li><a
+                        href='#slideoutitems'
+                        class='regular pre-open'>
+                        .slideOutItems
+                      </a></li>
+                    
+                      <li><a
+                        href='#validinput'
+                        class='regular pre-open'>
+                        .validInput
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#preview-screen'
+                  class="h5 bold black caps toggle-sibling">
+                  Preview Screen
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#addfinalbuttons'
+                        class='regular pre-open'>
+                        .addFinalButtons
+                      </a></li>
+                    
+                      <li><a
+                        href='#buildpreviewcard'
+                        class='regular pre-open'>
+                        .buildPreviewCard
+                      </a></li>
+                    
+                      <li><a
+                        href='#gobacktoform'
+                        class='regular pre-open'>
+                        .goBackToForm
+                      </a></li>
+                    
+                      <li><a
+                        href='#previewdata'
+                        class='regular pre-open'>
+                        .previewData
+                      </a></li>
+                    
+                      <li><a
+                        href='#showerrormessage'
+                        class='regular pre-open'>
+                        .showErrorMessage
+                      </a></li>
+                    
+                      <li><a
+                        href='#showinvalidmodal'
+                        class='regular pre-open'>
+                        .showInvalidModal
+                      </a></li>
+                    
+                      <li><a
+                        href='#showloadingindicator'
+                        class='regular pre-open'>
+                        .showLoadingIndicator
+                      </a></li>
+                    
+                      <li><a
+                        href='#showsuccessmessage'
+                        class='regular pre-open'>
+                        .showSuccessMessage
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+            </ul>
+          </div>
+          <div class='mt1 h6 quiet'>
+            <a href='http://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+          </div>
+        </div>
+      </div>
+      <div id='split-right' class='relative overflow-auto height-viewport-100'>
+        
+          
+            <div class='keyline-top-not py2'></div>
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='data-gathering'>
+      Data Gathering
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>These functions take in raw data from the Payroll form and manipulate it.</p>
+
+ 
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='buildcampminderreportarray'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>buildCampMinderReportArray</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/staffmembers.js#L15-L196'>
+      <span>assets/js/staffmembers.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Takes in the CampMinder report - "2018.csv" and works the data into a final array that then is used by the entire program.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>buildCampMinderReportArray</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='countexceptionhours'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>countExceptionHours(positionArray)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L1031-L1152'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The function counts the hours for the people who worked time outside of the normal hours they were supposed to. Needs to be refactored.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>countExceptionHours(positionArray: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>positionArray</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</code>
+	    The array of people to work with. These people did not work the amount of time that they were supposed to.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='counthours'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>countHours(positionArray, positionType)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L879-L1023'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>This function counts the hours of the "regular" working people. These are staff members that worked the amount of time they were supposed to originally work. This is another HUGE function, and should be refactored heavily.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>countHours(positionArray: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>, positionType: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>positionArray</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</code>
+	    An array of people for the specific position type.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>positionType</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    Either "TL", "LCWP", or "OC". A string that helps determine what will happen with the data.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='countsickhours'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>countSickHours(positionArray)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L1162-L1249'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>This function counts sick hours for people who were sick on a given day. Needs to be refactored, or possibly even simply deleted.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>countSickHours(positionArray: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>positionArray</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</code>
+	    An array of people who were sick.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='formdata'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>formData</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L9-L9'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Holds information from the Payroll Form Google Spreadsheet</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>formData</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='getposition'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getPosition(staffMember, positionNumber)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/staffmembers.js#L56-L78'>
+      <span>assets/js/staffmembers.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Gets information about the position of the current staff member, and translates it to something the form can work with.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>getPosition(staffMember: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>, positionNumber: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>staffMember</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The current staff member in the csv of all working staff members.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>positionNumber</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    Refers to the first or second positon/title. Either "Team Leader", "Senior Team Leader", "Logistics Coordinator", "Wellness Person", "Office Coordinator", "Site Counselor", "Facilitator", "Lead Facilitator", or "Site Administrator".
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        An abbreviated position, from the list of positionDefinitions. (ex. "Team Leader" becomes "TL").
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      <p><p>Use getPosition to get an abbreviated value for a staff member only working as a Logistics Coordinator.</p>
+</p>
+      <pre class='p1 overflow-auto round fill-light'>getPosition({staffMember}, <span class="hljs-number">1</span>);
+<span class="hljs-comment">// returns "LC";</span></pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='init'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>init()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L688-L696'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Uses Tabletop to pull information from the Payroll Form Google Shet</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>init()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='separateformdata'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>separateFormData()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L720-L754'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Separates the formData by site, and pushes that information to each specific site variable.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>separateFormData()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='splithours'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>splitHours(site, hoursWorked, totalHoursThisWeek, consecutiveDayCount, correspondingPersonObject, correspondingDateObject)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L1398-L1542'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Splits a sum of hours into regular, overtime, and double-time hours according to state. Then separates the data. This is done for each day in a pay period.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>splitHours(site: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, hoursWorked: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, totalHoursThisWeek: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, consecutiveDayCount: any, correspondingPersonObject: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>, correspondingDateObject: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>site</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    Site location. Either: "sw", "stan", "ucf", or "villa".
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>hoursWorked</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    Total number of hours worked.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>totalHoursThisWeek</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    Total hours worked in the given work week.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>consecutiveDayCount</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>correspondingPersonObject</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    An object corresponding to the staff member that is being worked on.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>correspondingDateObject</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    A date object corresponding to what time this is. *Unused by the function. Need to refactor this.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+        An object containing: regHours, otHours, dtHours, and sickHours.
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      <p><p>Split up the hours, if the staff member worked 11 hours in the day, 40 hours this week, has worked 5 days in a row, and worked at Villanova University.</p>
+</p>
+      <pre class='p1 overflow-auto round fill-light'>splitHours(<span class="hljs-string">"villa"</span>, <span class="hljs-number">11</span>, <span class="hljs-number">40</span>, <span class="hljs-number">5</span>, {correspondingPersonObject});
+<span class="hljs-comment">// Returns {regHours: 8, otHours: 3, dtHours: 0, sickHours: 0};</span></pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='standata'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>stanData</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L26-L26'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Holds site information. Stanford University.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>stanData</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='swdata'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>swData</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L22-L22'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Holds site information. Southwestern University</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>swData</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='ucfdata'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>ucfData</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L30-L30'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Holds site information. University of Central Florida.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>ucfData</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='villadata'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>villaData</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L34-L34'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Holds site information. Villanova University.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>villaData</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='readdateinfo'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>readDateInfo</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L102-L105'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Reads the date information for the CampMinder report from the "reportInfo.JSON" file.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>readDateInfo</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='readcampminderreport'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>readCampMinderReport</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L114-L683'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Reads the CampMinder Report CSV and assigns 5 Pay Period Arrays for each person.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>readCampMinderReport</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='translatecampcodes'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>translateCampCodes(campCodesArray)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/staffmembers.js#L88-L113'>
+      <span>assets/js/staffmembers.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Translates the camp codes into a more human-readable format.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>translateCampCodes(campCodesArray: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>campCodesArray</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    An array of camp codes that the staff member is working.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a></code>:
+        An array containing strings of readable formats of the camp codes.
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      <p><p>Translate an array of camp codes for someone working both camps at Texas.</p>
+</p>
+      <pre class='p1 overflow-auto round fill-light'>translateCampCodes([<span class="hljs-string">"TXS118 / TXJ118"</span>, <span class="hljs-string">"TXQA118"</span>]);
+<span class="hljs-comment">//returns ["sw-camp1", "sw-camp2"];</span></pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='userinformation'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>userInformation</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L4-L4'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Stores User Information with Log Rocket</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>userInformation</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+</section>
+
+        
+          
+            <div class='keyline-top-not py2'></div>
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='data-displaying'>
+      Data Displaying
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>These functions take data that has already been massaged, and displays it to the user in a variety of ways.</p>
+
+ 
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='assigntable'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>assignTable(site, payPeriodNumber, isSalaryEmployee, state)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L1777-L1879'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Assigns the information to a specific table.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>assignTable(site: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, payPeriodNumber: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, isSalaryEmployee: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, state: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>site</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The site that was worked. Either "sw", "stan", "ucf", or "villa".
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>payPeriodNumber</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The number of the pay period. For 2018, it is either 1, 2, 3, 4, or 5.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>isSalaryEmployee</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    Let's the function know if the employee is a salary employee for this pay period, to do other calulations with the data. Either "Yes", or "No". Comes from CampMinder.param
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>state</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    Allows the data to be assigned by state as well. For 2018, it is either "California", "Florida", "Pennsylvania", or "Texas". Comes from CampMinder.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='assigntablebody'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>assignTableBody(table)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L1885-L1901'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Assigns a body to match up with the given table.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>assignTableBody(table: <a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>)</code>
+	    A table element in the report.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='assignuserinfo'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>assignUserInfo()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1515-L1527'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Assigns user information to Log Rocket.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>assignUserInfo()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='assignuserinfo'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>assignUserInfo()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L1926-L1954'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Assigns user info with Log Rocket for the admin side. Not currently working. Should either refactor or remove.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>assignUserInfo()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='constructtables'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>constructTables()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L1695-L1768'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Uses JQuery and DataTables to construct beautiful, interactive table elements by element ID.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>constructTables()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='createtableentryhourly'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>createTableEntryHourly(table, firstName, lastName, regHours, otHours, dtHours, sickHours, totalHours, deductionTotal, checkLocation)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L1575-L1638'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Assigns a table element for an individual person. Appends the elements to the table. For hourly employees only.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>createTableEntryHourly(table: <a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>, firstName: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, lastName: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, regHours: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, otHours: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, dtHours: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, sickHours: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, totalHours: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, deductionTotal: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, checkLocation: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>)</code>
+	    The specific table in whcih to assign the table entry.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>firstName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The staff member's first name.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>lastName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The staff member's last name.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>regHours</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The final summed number of regular hours in the 2 week pay period.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>otHours</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The final summed number of overtime hours in the 2 week pay period.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>dtHours</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The final summed number of double-time hours in the 2 week pay period.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>sickHours</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The final summed number of sick hours in the 2 week pay period.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>totalHours</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The number of regular, overtime, and double-time hours added together.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>deductionTotal</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The value that should be deducted for Room and Board, formatted by moneyString(). (ex. "$ 160.00").
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>checkLocation</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The location where the check/paystub should be mailed. Either "Southwestern", "Stanford", "UCF", "Villanova", or "Home".
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='createtableentrysalary'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>createTableEntrySalary(table, firstName, lastName, salaryPayTotal, checkLocation)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L1648-L1690'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Assigns a table element for an individual person. Appends the elements to the table. For salary employees only.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>createTableEntrySalary(table: <a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>, firstName: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, lastName: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, salaryPayTotal: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, checkLocation: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>table</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>)</code>
+	    The specific table in whcih to assign the table entry.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>firstName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The staff member's first name.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>lastName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The staff member's last name.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>salaryPayTotal</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The value that should be paid out to the employee. Formatted by moneyString(). (ex. $ 925.00).
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>checkLocation</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The location where the check/paystub should be mailed. Either "Southwestern", "Stanford", "UCF", "Villanova", or "Home".
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='displaydata'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>displayData()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L766-L1365'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Displays data. This is a HUGE function and NEEDS to be restructured into smaller functions.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>displayData()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='reporttime'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>reportTime</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L17-L17'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Displays the time that the CampMinder report was generated. Run from an NPM script.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>reportTime</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='showinfo'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>showInfo(data, tabletop)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L698-L706'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Stores the form data from Tabletop. Calls separarteFormData()  to go through the formData array and separate it by site, and displayData() to display the info in tables on the page when the DOM loads.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>showInfo(data: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>, tabletop: any)</div>
+   
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>data</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</code>
+	    Large array of data containing information on every person in the CampMinder Report
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>tabletop</span> <code class='quiet'>(any)</code>
+	    Not really used. Should consider removing this parameter.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+</section>
+
+        
+          
+            <div class='keyline-top-not py2'></div>
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='error-checker-5000'>
+      Error Checker 5000
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>A tool used to help check on any staff members we have questions about. This tool helps us to see individual calculated data.</p>
+
+ 
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='adderrorperson'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>addErrorPerson()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/error-checker-5000.js#L526-L589'>
+      <span>admin/error-checker-5000.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Adds a person to the list of people to check on. Also calls editIcons().</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>addErrorPerson()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='buildec5report'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>buildEC5Report(info)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/error-checker-5000.js#L195-L324'>
+      <span>admin/error-checker-5000.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Builds the actual report information visually. Responsible for calling showEC5Report.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>buildEC5Report(info: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>info</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</code>
+	    An array of objects containing information on the people the user wishes to check on.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='builderrorarray'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>buildErrorArray(peopleToCheckArray)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L1374-L1383'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>This function corresponds to the initial building of the Error Checker 5000. Not sure if this is still needed.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>buildErrorArray(peopleToCheckArray: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>peopleToCheckArray</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</code>
+	    An array of people to check on.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='checklastperson'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>checkLastPerson(elementsToCheck, buttonElement)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/error-checker-5000.js#L448-L454'>
+      <span>admin/error-checker-5000.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Looks at the elements on the screen, and hides the remove button if only 1 person is on the EC5-pre screen. It will show all remove buttons if more than 1 person is on the screen.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>checkLastPerson(elementsToCheck: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>, buttonElement: <a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>elementsToCheck</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</code>
+	    An array of nodes containing a data-index attribute. This array holds all elements for each person the user input.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>buttonElement</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>)</code>
+	    The button element associated with the person to check.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='createcustomdaybyday'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>createCustomDayByDay(appendTo, days)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/error-checker-5000.js#L331-L399'>
+      <span>admin/error-checker-5000.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Creates a Day-by-Day breakdown card and appends it to an element in the DOM.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>createCustomDayByDay(appendTo: <a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>, days: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>appendTo</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>)</code>
+	    Element to append the Day-by-Day breakdown card to.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>days</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</code>
+	    Array of day objects that should be displayed in the Day-by-Day breakdown card.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='createcustomtag'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>createCustomTag(appendTo, description, value, tagColor, tagAddonColor)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/error-checker-5000.js#L410-L421'>
+      <span>admin/error-checker-5000.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>A helper function to create and append a custom tag to another element easily.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>createCustomTag(appendTo: <a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>, description: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, value: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>), tagColor: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, tagAddonColor: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>appendTo</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>)</code>
+	    The element which the tag will be appended to.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>description</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The inner description to the tag.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>))</code>
+	    A value to be displayed in the tag addon.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>tagColor</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
+            = <code>`dark`</code>)</code>
+	    Color for the tag. Default = "dark".
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>tagAddonColor</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
+            = <code>`blue`</code>)</code>
+	    Color for the inner tag addon. Default = "blue".
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='displaytabcontent'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>displayTabContent(index)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/error-checker-5000.js#L139-L151'>
+      <span>admin/error-checker-5000.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Displays the corresponding content depending on which person was clicked on.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>displayTabContent(index: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>index</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The index of the person that was chosen to be displayed. Starts at 1 (can't be 0 people).
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      <p><p>Example of showing the content for the 3rd person to be searched.</p>
+</p>
+      <pre class='p1 overflow-auto round fill-light'>displayTabContent(<span class="hljs-string">"3"</span>);</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='editicons'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>editIcons()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/error-checker-5000.js#L426-L429'>
+      <span>admin/error-checker-5000.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Adds a special class to the remove buttons, allowing them to grow on hover. Called by showErrorModal().</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>editIcons()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='editpeopleelements'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>editPeopleElements()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/error-checker-5000.js#L460-L500'>
+      <span>admin/error-checker-5000.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Called by removeErrorPerson. Hands out ID's to the search inputs, based on the number of the person.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>editPeopleElements()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='errorformsubmit'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>errorFormSubmit()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/error-checker-5000.js#L65-L104'>
+      <span>admin/error-checker-5000.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>This function is called when the submit button is clicked. It starts up the process of taking the user input and working with it. It loops through the inputs, creating objects for each person. The addPersonButton and errorSubmitButton are hidden, while the back button is revealed. Finally, it calls the filterReportArray function with an array of the people objects.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>errorFormSubmit()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='filterreportarray'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>filterReportArray(people)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/error-checker-5000.js#L111-L131'>
+      <span>admin/error-checker-5000.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Goes through each person object passed to it, and filters down the global Report Array. The Report Array holds data from CampMinder on all 91 staff members. This function filters the data down to just the people that were given to it. It then sets the global variable, errorInfo to the filtered objects. Finally, the function calls buildEC5Report with the filtered objects.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>filterReportArray(people: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>people</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</code>
+	    An array of objects, passed from errorFormSubmit()
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='removeerrorperson'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>removeErrorPerson(e)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/error-checker-5000.js#L507-L520'>
+      <span>admin/error-checker-5000.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Removes a person from the list of people to check on. Also calls editPeopleElements.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>removeErrorPerson(e: <a href="https://developer.mozilla.org/docs/Web/API/Event">event</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>e</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/API/Event">event</a>)</code>
+	    The event triggered from a removeButton being clicked.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='showec5report'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>showEC5Report()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/error-checker-5000.js#L42-L59'>
+      <span>admin/error-checker-5000.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>This function displays the report in the Error Checker 5000 modal.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>showEC5Report()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='showerrormodal'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>showErrorModal()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/error-checker-5000.js#L436-L440'>
+      <span>admin/error-checker-5000.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Calls editIcons() and displays the modal when the user either: 1. clicks the EC5 button, or 2. enters the Konami code.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>showErrorModal()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='switcherrorperson'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>switchErrorPerson(e)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/error-checker-5000.js#L157-L187'>
+      <span>admin/error-checker-5000.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Changes the clicked tab to primary, and makes all other people tabs secondary.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>switchErrorPerson(e: <a href="https://developer.mozilla.org/docs/Web/API/Event">event</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>e</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/API/Event">event</a>)</code>
+	    The event from clicking on a person tab in the error report.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+</section>
+
+        
+          
+            <div class='keyline-top-not py2'></div>
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='helper-functions'>
+      Helper Functions
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>These functions are either misc. or help in small handy ways.</p>
+
+ 
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='checkifround'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>checkIfRound(days, rate, rateUnrounded)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L1325-L1327'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>This function is used for salary employees. It takes in the days, and 2 rates - a rounded and an unrounded rate. The function returns a dailyPayRate depending on the number of days.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>checkIfRound(days: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, rate: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, rateUnrounded: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>days</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The amount of days the employee worked.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>rate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The pay rate for the employee. (ex. $950 / week)
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>rateUnrounded</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The unrounded rate.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        The daily rate for the salary employee, rounded correctly so as not to deviate from the correct amount. The returned value will later be used by moneyString().
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      <p><p>Check the rate for a 1st year FAC working 1 day.</p>
+</p>
+      <pre class='p1 overflow-auto round fill-light'>checkIfRound(<span class="hljs-number">1</span>, <span class="hljs-number">154.17</span>, <span class="hljs-number">154.166666667</span>);
+<span class="hljs-comment">// returns 154.17</span></pre>
+    
+      <p><p>Check the rate for a 1st year FAC working 5 days.</p>
+</p>
+      <pre class='p1 overflow-auto round fill-light'>checkIfRound(<span class="hljs-number">5</span>, <span class="hljs-number">154.17</span>, <span class="hljs-number">154.166666667</span>);
+<span class="hljs-comment">// returns 770.8333333333;</span></pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='checkspecialcases'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>checkSpecialCases(fullName)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/staffmembers.js#L120-L192'>
+      <span>assets/js/staffmembers.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Checks to see if the staff member the program is working on is a "special case" staff member - someone who has something out of the ordinary going on with their position, pay, location, etc. If the person is in the array of special cases, the function pushes the value from the array of special cases.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>checkSpecialCases(fullName: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>fullName</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    A string formed by concatonating the firstName and lastName of an employee.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='clearthis'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>clearThis(thingsToClear)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1886-L1890'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>"Clears" things, by setting their length to 0. Upon a second look, I feel like there are better ways to do this.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>clearThis(thingsToClear: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>thingsToClear</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</code>
+	    An array of things to be cleared.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='comparevalues'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>compareValues(key, order)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1761-L1781'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Used to compare values agains each other, in a sorting fashion. Great for alphabetizing. Optional order parameter as well.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>compareValues(key: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, order: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>key</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The key in which the function will sort by. (ex. "Last Name").
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>order</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    Optional. Ascending or Descending order. Default is ascending. Either 'asc', or 'desc'.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        Returns 0 if the values are the same, -1 if the second value is greater than the first value, and 1 if the second value is less than the first value.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='hidethis'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>hideThis()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1733-L1753'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Hides any amount of elements by adding the class, "hidden" to its classList.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>hideThis()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='ischecked'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>isChecked(checkbox)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1799-L1801'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Checks if a checkbox has been checked or not. Used for sorting. Specifically checks for checked checkboxes.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>isChecked(checkbox: <a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>checkbox</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>)</code>
+	    Checkbox element.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        Returns true if the checkbox is checked.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='isinvalid'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>isInvalid(item)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1859-L1861'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Checks to see if the item has the class "is-invalid". Used in filtering.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>isInvalid(item: <a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>item</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>)</code>
+	    Item to check if is valid or not.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='islc'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>isLC(person)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1824-L1829'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Checks if the person is a Logistics Coordinator. Used for filtering. Also checks to see if they are a "special staff member".</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>isLC(person: <a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>person</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>)</code>
+	    Person to check if is an LC.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        Returns true if the person is an LC.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='isoc'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>isOC(person)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1848-L1853'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Checks if the person is a Office Coordinator. Used for filtering. Also checks to see if they are a "special staff member".</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>isOC(person: <a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>person</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>)</code>
+	    Person to check if is an OC.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        Returns true if the person is an OC.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='istl'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>isTL(person)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1808-L1817'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Checks if the person is a Team Leader or Senior Team Leader. Used for sorting. Also checks to see if they are a "special staff member".</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>isTL(person: <a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>person</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>)</code>
+	    Person to check if is a TL or STL.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        Returns true if the person is a TL or STL.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='isunchecked'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>isUnchecked(checkbox)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1789-L1791'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Checks if a checkbox has been checked or not. Used for sorting. Specifically checks for un-checked checkboxes.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>isUnchecked(checkbox: <a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>checkbox</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>)</code>
+	    Checkbox element.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        Returns true if the checkbox is not checked.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='iswp'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>isWP(person)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1836-L1841'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Checks if the person is a Wellness Person. Used for filtering. Also checks to see if they are a "special staff member".</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>isWP(person: <a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>person</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>)</code>
+	    Person to check if is an WP.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        Returns true if the person is an WP.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='mergetime'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>mergeTime(hours, minutes)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L1558-L1560'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>The function takes in 2 values, and merges it into one time that can be worked with.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>mergeTime(hours: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, minutes: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>hours</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    Number of hours.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>minutes</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    Number of minutes.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>:
+        A number combined with both the hours and the minutes.
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      <p><p>Use mergeTime to get a workable number if the employee worked 10 hours and 45 minutes.</p>
+</p>
+      <pre class='p1 overflow-auto round fill-light'>mergeTime(<span class="hljs-number">10</span>, <span class="hljs-number">45</span>);
+<span class="hljs-comment">// returns 10.75;</span></pre>
+    
+      <p><p>Use mergeTime to get a workable number if the employee worked 15 hours and 0 minutes.</p>
+</p>
+      <pre class='p1 overflow-auto round fill-light'>mergeTime(<span class="hljs-number">15</span>, <span class="hljs-number">0</span>);
+<span class="hljs-comment">// returns 15;</span></pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='moneystring'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>moneyString(value)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/admin/main-compiled.js#L1911-L1920'>
+      <span>admin/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Takes in a number, and returns a nicely formatted string.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>moneyString(value: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    The value of currency that should be formatted.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        A nicely formatted string. (ex. $ 192.14).
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      <p><p>Use moneyString to format 152.189999999.</p>
+</p>
+      <pre class='p1 overflow-auto round fill-light'>moneyString(<span class="hljs-number">152.189999999</span>);
+<span class="hljs-comment">// returns "$ 152.19";</span></pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='setblank'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>setBlank()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1866-L1880'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Sets all initial parts of the Payroll Form to have blank values.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>setBlank()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='showthis'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>showThis()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1721-L1727'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Shows any amount of elements by removing the class, "hidden" from its classList.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>showThis()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+</section>
+
+        
+          
+            <div class='keyline-top-not py2'></div>
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='payroll-form'>
+      Payroll Form
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>These functions are specifically pertaining to the Payroll Form itself.</p>
+
+ 
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='addpreviewbutton'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>addPreviewButton(location)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1619-L1637'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Adds a "Preview" button to a position card in order for the user to preview the data before finally submitting it to QLN.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>addPreviewButton(location: <a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>location</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>)</code>
+	    The position card where the "Preview" button is to be placed.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='addstaffmembers'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>addStaffMembers()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L567-L706'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Adds staff members alphabetically and by position type to the form. Separated by camp.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>addStaffMembers()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='assignspanlabel'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>assignSpanLabel()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L666-L677'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Assigns each staff member a specific span as a label, containing their position for the chosen camp, and their full name.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>assignSpanLabel(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        Returns a string to later become HTML with the staff member's postiion type in parenthesis, followed by their first and last name.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='campchosen'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>campChosen()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L259-L362'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Runs when a camp has been selected from the list of camps in the Payroll Form. Enables the dates for that specific camp. Also calls resetInfo(), dateChanged() and addStaffMembers().</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>campChosen()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='checkemptypositions'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>checkEmptyPositions()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1594-L1613'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Checks to see if there is an empty position at a specific site. For example, in 2018, many sites did not have OC's. The ocCard was not shown because of this function.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>checkEmptyPositions()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='checkexceptions'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>checkExceptions()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L711-L1059'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Checks the staff members who did not work the hours that were expected. Needs to be refactored.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>checkExceptions()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='checkname'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>checkName()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1576-L1589'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Checks the name field to make sure that the name is longer than 2 characters.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>checkName()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='checksick'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>checkSick()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1255-L1428'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Runs when a sick checkbox is clicked. Responsible for running the checks like checkExceptions() but on sick staff.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>checkSick()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='createdata'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>createData()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L2676-L2964'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Creates the data that is sent to the Google Spreadsheet. Use of JSON and PapaParse throughout.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>createData()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='createnormallabel'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>createNormalLabel(person)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L658-L660'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>This function is used when a staff member has the same position for all the camps they will be working. It creates a label containing their position type, first name, and last name.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>createNormalLabel(person: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>person</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    An object containing information on the current person who is working the selected camp.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        Returns a string to later become HTML with the staff member's postiion type in parenthesis, followed by their first and last name.
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      <p><p>Staff Member John Smith is someone who has the same positon type for all the camps he is working. Use createNormalLabel() to return a label for him.</p>
+</p>
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// person = {</span>
+<span class="hljs-comment">//       campsWorking: ["villa-camp1", "villa-camp2", "stan-camp5"],</span>
+<span class="hljs-comment">//       firstName: "John",</span>
+<span class="hljs-comment">//       lastName: "Smith",</span>
+<span class="hljs-comment">//       position1: "STL",</span>
+<span class="hljs-comment">//       position2: "TL",</span>
+<span class="hljs-comment">//   }</span>
+createNormalLabel(person);
+<span class="hljs-comment">// returns '&lt;em&gt;(STL)&lt;/em&gt; John Smith';</span></pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='createsickstaff'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>createSickStaff(positionType)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1108-L1250'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Responsible for creating lists of staffmembers in the sick containers based on position type.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>createSickStaff(positionType: any)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>positionType</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='createspeciallabel'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>createSpecialLabel(person, currentCamp)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L639-L641'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>This function is used when a staff member has different position types for different camps. It creates a label based on the position type for the selected camp.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>createSpecialLabel(person: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>, currentCamp: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>person</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    An object containing information on the current person who is working the selected camp.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>currentCamp</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    A string detailing which camp the user has selected, in an easy-to-read format, as opposed to the sometimes more confusing Camp Code format. Ex. "stan-camp3" as opposed to "STS218".
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        Returns a string to later become HTML with the staff member's postiion type for the selected camp in parenthesis, followed by their first and last name.
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      <p><p>Staff Member John Smith is someone who has different positions for different camps. Use createSpecialLabel() to return a label for him.</p>
+</p>
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// person = {</span>
+<span class="hljs-comment">//       campsWorking: ["villa-camp1", "villa-camp2", "stan-camp5"],</span>
+<span class="hljs-comment">//       firstName: "John",</span>
+<span class="hljs-comment">//       lastName: "Smith",</span>
+<span class="hljs-comment">//       position1: "STL",</span>
+<span class="hljs-comment">//       position2: "TL",</span>
+<span class="hljs-comment">//       specialStaffMember: {</span>
+<span class="hljs-comment">//           id: "John Smith",</span>
+<span class="hljs-comment">//           camps: {</span>
+<span class="hljs-comment">//               villa-camp1: "STL",</span>
+<span class="hljs-comment">//               villa-camp2: "TL",</span>
+<span class="hljs-comment">//               stan-camp5: "WP"</span>
+<span class="hljs-comment">//           }</span>
+<span class="hljs-comment">//       }</span>
+<span class="hljs-comment">//   }</span>
+createSpecialLabel(person, <span class="hljs-string">"stan-camp5"</span>);
+<span class="hljs-comment">// returns '&lt;em&gt;(WP)&lt;/em&gt; John Smith';</span></pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='datechanged'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>dateChanged()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L367-L532'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Runs when the date is selected and changed in the Payroll Form. Sets hours worked for each position type for each day of that camp.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>dateChanged()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='disabledates'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>disableDates(months, days)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L540-L547'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Disables specific months and days from being available to the user in the Payroll Form.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>disableDates(months: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>, days: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>months</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</code>
+	    An array of numbers corresponding to months that should be disabled to the user.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>days</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</code>
+	    An array of numbers corresponding to days of the month that should be disabled to the user.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='enabledates'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>enableDates(months, days)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L555-L562'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Enables specific months and days to be available to the user in the Payroll Form.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>enableDates(months: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>, days: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>months</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</code>
+	    An array of numbers corresponding to months that should be enabled to the user.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>days</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">array</a>)</code>
+	    An array of numbers corresponding to days of the month that should be enabled to the user.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='issiteinfovalid'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>isSiteInfoValid()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1542-L1571'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Checks to see if the information entered by the user before hitting "Continue" was valid. User must enter a first and last name, select a site, and select a camp.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>isSiteInfoValid(): (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>:
+        Returns either "true" if the information was entered correctly, or returns an array of the invalid items.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='resetinfo'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>resetInfo()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1433-L1469'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Resets the lists of staff members, hours worked, sets sick toggles to "No". Resets all info.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>resetInfo()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='scrolltotlcard'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>scrollToTLCard()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1532-L1536'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>When called, it will scroll the tlCard into view, using the browser's native ".scrollIntoView()" method.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>scrollToTLCard()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='sethoursworked'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>setHoursWorked(tlHours, lcwpHours, ocHours)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1477-L1481'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Sets the amount of hours worked on the Payroll Form for the 3 different position types.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>setHoursWorked(tlHours: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, lcwpHours: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, ocHours: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>tlHours</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    Hours allowed on a specific day for the Team Leaders.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>lcwpHours</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    Hours allowed on a specific day for the Logistics Coordinator and Wellness Person.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>ocHours</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+	    Hours allowed on a specific day for the Office Coordinator.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='showpositioncards'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>showPositionCards()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1487-L1510'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Checks to see if isSiteInfoValid() returns true, then shows the position cards filled with the corresponding information.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>showPositionCards()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='sickswitched'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>sickSwitched()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1064-L1103'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Runs when any sick switch is toggled. Changes the toggle and span of the sick switch, reveals the sick containers for that position type, and creates sick staff lists for that position type.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>sickSwitched()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='sitechosen'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>siteChosen()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L229-L254'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Runs when a site has been chosen from the list of sites in the Payroll Form. Shows the corresponding camps for that site, and hides all other camps. Also calls resetInfo() and checkEmptyPositions().</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>siteChosen()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='slideinitems'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>slideInItems()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1682-L1712'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Slides in items, utilizing the "Animate.css" library. Recreates initial alert.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>slideInItems()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='slideoutitems'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>slideOutItems()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L2586-L2593'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Similar to slideInItems(), this function slides items out of the screen. Used on the Preview Screen animation.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>slideOutItems()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='validinput'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>validInput()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L2631-L2661'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Checks the input times to see if they are valid. A valid item must not be empty.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>validInput(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>:
+        Returns "true" if the input is valid, and "false" if it is invalid.
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+</section>
+
+        
+          
+            <div class='keyline-top-not py2'></div>
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='preview-screen'>
+      Preview Screen
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>These functions are specifically pertaining to the Preview Screen of the Payroll Form.</p>
+
+ 
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='addfinalbuttons'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>addFinalButtons(location)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1643-L1664'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Adds "Submit" and "Cancel" buttons to the preview card.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>addFinalButtons(location: <a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>location</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/API/Element">element</a>)</code>
+	    The preview card element where the "Submit" and "Cancel" buttons should be placed.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='buildpreviewcard'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>buildPreviewCard()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L2598-L2624'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Builds the Preview Screen by appending elements to one another.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>buildPreviewCard()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='gobacktoform'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>goBackToForm()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1670-L1713'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Runs when the user clicks on the "Cancel" button on the preview screen. Scrolls back to the top and goes back to the Payroll Form, away from the Preview Screen. Uses slideInItems() to do so.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>goBackToForm()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='previewdata'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>previewData()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L1895-L2625'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Used to generate and show the Preview Screen.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>previewData()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='showerrormessage'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>showErrorMessage(error)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L3006-L3012'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Shows error message if the request to Google did not go through OK.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>showErrorMessage(error: any)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>error</span> <code class='quiet'>(any)</code>
+	    Error from Google
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='showinvalidmodal'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>showInvalidModal()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L2578-L2580'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Shows a modal warning the user that the input was invalid.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>showInvalidModal()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='showloadingindicator'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>showLoadingIndicator()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L2984-L2987'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Shows a simple loading indicator after the user clicks "Submit" while the data is being sent and the browser is waiting for a response from Google.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>showLoadingIndicator()</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='showsuccessmessage'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>showSuccessMessage(response)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/QLN-SuperCamp/Payroll/blob/36720f40c0655dad861a2069e2466cf7ff2736b5/assets/js/main-compiled.js#L2993-L3000'>
+      <span>assets/js/main-compiled.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Shows success message if the request to Google went through OK.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>showSuccessMessage(response: any)</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>response</span> <code class='quiet'>(any)</code>
+	    Reponse from Google.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+</section>
+
+        
+      </div>
+    </div>
+  <script src='assets/anchor.js'></script>
+  <script src='assets/split.js'></script>
+  <script src='assets/site.js'></script>
+</body>
+</html>

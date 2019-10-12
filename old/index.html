@@ -1,0 +1,813 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <script src="https://cdn.logrocket.io/LogRocket.min.js" crossorigin="anonymous"></script>
+
+  <script>
+    // Log Rocket
+    window.LogRocket && window.LogRocket.init('itdpxx/payroll-form-prod');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="msapplication-TileColor" content="#2d89ef">
+  <meta name="theme-color" content="#4188c9">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+  <!-- Generated: 2018-04-16 09:29:05 +0200 -->
+  <title>SuperCamp Payroll</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
+  <!--
+  <script src="./assets/js/require.min.js"></script>
+  <script>
+    requirejs.config({
+      baseUrl: '.'
+    });
+  </script>
+  -->
+  <!-- Dashboard Core -->
+  <link href="./assets/css/dashboard.css" rel="stylesheet" />
+  <!-- <script src="./assets/js/dashboard.js"></script> -->
+  <!-- c3.js Charts Plugin -->
+  <link href="./assets/plugins/charts-c3/plugin.css" rel="stylesheet" />
+  <!-- <script src="./assets/plugins/charts-c3/plugin.js"></script> -->
+  <!-- Google Maps Plugin -->
+  <link href="./assets/plugins/maps-google/plugin.css" rel="stylesheet" />
+  <script src="./assets/plugins/maps-google/plugin.js"></script>
+  <!-- Input Mask Plugin -->
+  <!-- <script src="./assets/plugins/input-mask/plugin.js"></script> -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <!-- Animate.CSS -->
+  <link rel="stylesheet" href="assets/css/animate.css/animate.css">
+  <!-- Font Awesome 5.0.13 -->
+  <script defer src="assets/js/fontawesome-all.min.js"></script>
+
+  <!-- Begin SessionStack code -->
+  <!--
+  <script type="text/javascript">
+    ! function (a, b) {
+      var c = window;
+      c.SessionStackKey = a, c[a] = c[a] || {
+        t: b,
+        q: []
+      };
+      for (var d = ["start", "stop", "identify", "getSessionId", "log"], e = 0; e < d.length; e++) ! function (b) {
+        c[a][b] = c[a][b] || function () {
+          c[a].q.push([b].concat([].slice.call(arguments, 0)));
+        }
+      }(d[e]);
+      var f = document.createElement("script");
+      f.async = 1, f.src = "https://cdn.sessionstack.com/sessionstack.js";
+      var g = document.getElementsByTagName("script")[0];
+      g.parentNode.insertBefore(f, g);
+    }("SessionStack", "7d5aeb9670c342bd8814c6b637d16167");
+  </script>
+-->
+  <!-- End SessionStack Code -->
+
+</head>
+
+<body class="">
+  <div id="page" class="page">
+    <div class="page-main">
+      <div class="header py-4">
+        <div class="container">
+          <div class="d-flex">
+            <a class="header-brand" href="./">
+              <img src="./demo/brand/supercamp.svg" class="header-brand-img" alt="SuperCamp logo">
+            </a>
+            <div class="d-flex order-lg-2 ml-auto">
+              <div class="dropdown d-none d-md-flex">
+                <a class="nav-link icon hidden" data-toggle="dropdown">
+                  <i class="fe fe-bell"></i>
+                  <span class="nav-unread"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                  <a href="#" class="dropdown-item d-flex">
+                    <span class="avatar mr-3 align-self-center" style="background-image: url(demo/faces/alex.jpg)"></span>
+                    <div>
+                      <strong>Southwestern University</strong> starts on
+                      <strong>June 19
+                        <sup>th</sup>
+                      </strong>!
+                      <div class="small text-muted">10 minutes ago</div>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a href="#" class="dropdown-item text-center text-muted-dark">Mark all as read</a>
+                </div>
+              </div>
+              <div class="dropdown hidden">
+                <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
+                  <span class="avatar" style="background-image: url(./demo/faces/alex.jpg)"></span>
+                  <span class="ml-2 d-none d-lg-block">
+                    <span class="text-default">User Name</span>
+                    <small class="text-muted d-block mt-1">Site Administrator</small>
+                  </span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                  <a class="dropdown-item" href="#">
+                    <i class="dropdown-icon fe fe-user"></i> Profile
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="dropdown-icon fe fe-settings"></i> Settings
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <span class="float-right">
+                      <span class="badge badge-primary">6</span>
+                    </span>
+                    <i class="dropdown-icon fe fe-mail"></i> Inbox
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="dropdown-icon fe fe-send"></i> Message
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">
+                    <i class="dropdown-icon fe fe-help-circle"></i> Need help?
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="dropdown-icon fe fe-log-out"></i> Sign out
+                  </a>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="header-toggler d-lg-none ml-3 ml-lg-0 hidden" data-toggle="collapse" data-target="#headerMenuCollapse">
+              <span class="header-toggler-icon"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="header collapse d-lg-flex p-0" id="headerMenuCollapse">
+        <div class="container hidden">
+          <div class="row align-items-center">
+            <div class="col-lg-3 ml-auto">
+              <form class="input-icon my-3 my-lg-0">
+                <input type="search" class="form-control header-search" placeholder="Search&hellip;" tabindex="1">
+                <div class="input-icon-addon">
+                  <i class="fe fe-search"></i>
+                </div>
+              </form>
+            </div>
+            <div class="col-lg order-lg-first">
+              <ul class="nav nav-tabs border-0 flex-column flex-lg-row">
+                <li class="nav-item">
+                  <a href="./index.html" class="nav-link active">
+                    <i class="fe fe-home"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                  <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown">
+                    <i class="fe fe-box"></i> Interface</a>
+                  <div class="dropdown-menu dropdown-menu-arrow">
+                    <a href="./cards.html" class="dropdown-item ">Cards design</a>
+                    <a href="./charts.html" class="dropdown-item ">Charts</a>
+                    <a href="./pricing-cards.html" class="dropdown-item ">Pricing cards</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown">
+                    <i class="fe fe-calendar"></i> Components</a>
+                  <div class="dropdown-menu dropdown-menu-arrow">
+                    <a href="./maps.html" class="dropdown-item ">Maps</a>
+                    <a href="./icons.html" class="dropdown-item ">Icons</a>
+                    <a href="./store.html" class="dropdown-item ">Store</a>
+                    <a href="./blog.html" class="dropdown-item ">Blog</a>
+                    <a href="./carousel.html" class="dropdown-item ">Carousel</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown">
+                    <i class="fe fe-file"></i> Pages</a>
+                  <div class="dropdown-menu dropdown-menu-arrow">
+                    <a href="./profile.html" class="dropdown-item ">Profile</a>
+                    <a href="./login.html" class="dropdown-item ">Login</a>
+                    <a href="./register.html" class="dropdown-item ">Register</a>
+                    <a href="./forgot-password.html" class="dropdown-item ">Forgot password</a>
+                    <a href="./400.html" class="dropdown-item ">400 error</a>
+                    <a href="./401.html" class="dropdown-item ">401 error</a>
+                    <a href="./403.html" class="dropdown-item ">403 error</a>
+                    <a href="./404.html" class="dropdown-item ">404 error</a>
+                    <a href="./500.html" class="dropdown-item ">500 error</a>
+                    <a href="./503.html" class="dropdown-item ">503 error</a>
+                    <a href="./email.html" class="dropdown-item ">Email</a>
+                    <a href="./empty.html" class="dropdown-item ">Empty page</a>
+                    <a href="./rtl.html" class="dropdown-item ">RTL mode</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="./form-elements.html" class="nav-link">
+                    <i class="fe fe-check-square"></i> Forms</a>
+                </li>
+                <li class="nav-item">
+                  <a href="./gallery.html" class="nav-link">
+                    <i class="fe fe-image"></i> Gallery</a>
+                </li>
+                <li class="nav-item">
+                  <a href="./docs/index.html" class="nav-link">
+                    <i class="fe fe-file-text"></i> Documentation</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAGE -->
+      <div class="my-3 my-md-5">
+        <div class="container">
+          <div class="page-header">
+            <h1 class="page-title">
+              Payroll Form
+            </h1>
+          </div>
+
+          <div class="my-3 my-md-5">
+            <div class="container">
+              <div class="row">
+                <div class="col-12">
+
+                  <div id="alert" class="alert alert-primary"></div>
+
+                  <form id="main-form" name="submit-to-google-sheet">
+
+                    <div id="site-info-card" class="card">
+                      <div class="card-header">
+                        <h3 class="card-title">Site Information</h3>
+                      </div>
+                      <div class="card-body">
+
+                        <!-- Basic Information -->
+                        <div class="row">
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label class="form-label">Site Administrator (Your) First Name
+                                <span class="form-required">*</span>
+                              </label>
+                              <input id="firstName" type="text" class="form-control" name="firstName" placeholder="John" title="Please enter your first name.">
+                              <div id="invalid-feedback-first-name" class="invalid-feedback hidden">Please enter your first name.</div>
+                              <label class="form-label">Site Administrator (Your) Last Name
+                                <span class="form-required">*</span>
+                              </label>
+                              <input id="lastName" type="text" class="form-control" name="lastName" placeholder="Smith" title="Please enter your last name.">
+                              <div id="invalid-feedback-last-name" class="invalid-feedback hidden">Please enter your last name.</div>
+                            </div>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <div class="form-label">Site
+                                <span class="form-required">*</span>
+                              </div>
+                              <div class="custom-controls-stacked">
+                                <label class="custom-control custom-radio">
+                                  <input id="site-sw" type="radio" class="custom-control-input" name="site" value="sw">
+                                  <div class="custom-control-label">Southwestern University</div>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="site-stan" type="radio" class="custom-control-input" name="site" value="stan">
+                                  <div class="custom-control-label">Stanford University</div>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="site-ucf" type="radio" class="custom-control-input" name="site" value="ucf">
+                                  <div class="custom-control-label">University of Central Florida</div>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="site-villa" type="radio" class="custom-control-input" name="site" value="villa">
+                                  <div class="custom-control-label">Villanova University</div>
+                                </label>
+                              </div>
+                              <div id="invalid-feedback-site" class="invalid-feedback-custom hidden">Please select a site.</div>
+                            </div>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="form-label">Camp
+                              <span class="form-required">*</span>
+                            </div>
+                            <p id="no-site-text">
+                              <em>Please select a site.</em>
+                            </p>
+                            <div id="sw-camps" class="form-group hidden">
+                              <div class="custom-controls-stacked">
+                                <label class="custom-control custom-radio">
+                                  <input id="sw-camp1" type="radio" class="custom-control-input" name="camp" value="sw-camp1">
+                                  <div class="custom-control-label">Camp 1 (TXS118 / TXJ118)</div>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="sw-camp2" type="radio" class="custom-control-input" name="camp" value="sw-camp2">
+                                  <div class="custom-control-label">Camp 2 (TXQA118)</div>
+                                </label>
+                              </div>
+                            </div>
+                            <div id="stan-camps" class="form-group hidden">
+                              <div class="custom-controls-stacked">
+                                <label class="custom-control custom-radio">
+                                  <input id="stan-camp1" type="radio" class="custom-control-input" name="camp" value="stan-camp1">
+                                  <div class="custom-control-label">Camp 1 (STS118)</div>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="stan-camp2" type="radio" class="custom-control-input" name="camp" value="stan-camp2">
+                                  <div class="custom-control-label">Camp 2 (STJ118)</div>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="stan-camp3" type="radio" class="custom-control-input" name="camp" value="stan-camp3">
+                                  <div class="custom-control-label">Camp 3 (STS218)</div>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="stan-camp4" type="radio" class="custom-control-input" name="camp" value="stan-camp4">
+                                  <div class="custom-control-label">Camp 4 (STJ218)</div>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="stan-camp5" type="radio" class="custom-control-input" name="camp" value="stan-camp5">
+                                  <div class="custom-control-label">Camp 5 (STS318)</div>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="stan-camp6" type="radio" class="custom-control-input" name="camp" value="stan-camp6">
+                                  <div class="custom-control-label">Camp 6 (STS418)</div>
+                                </label>
+                              </div>
+                            </div>
+                            <div id="ucf-camps" class="form-group hidden">
+                              <div class="custom-controls-stacked">
+                                <label class="custom-control custom-radio">
+                                  <input id="ucf-camp1" type="radio" class="custom-control-input" name="camp" value="ucf-camp1">
+                                  <div class="custom-control-label">Camp 1 (FLJ118)</div>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="ucf-camp2" type="radio" class="custom-control-input" name="camp" value="ucf-camp2">
+                                  <div class="custom-control-label">Camp 2 (FLS118)</div>
+                                </label>
+                              </div>
+                            </div>
+                            <div id="villa-camps" class="form-group hidden">
+                              <div class="custom-controls-stacked">
+                                <label class="custom-control custom-radio">
+                                  <input id="villa-camp1" type="radio" class="custom-control-input" name="camp" value="villa-camp1">
+                                  <div class="custom-control-label">Camp 1 (PAS118)</div>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                  <input id="villa-camp2" type="radio" class="custom-control-input" name="camp" value="villa-camp2">
+                                  <div class="custom-control-label">Camp 2 (PAJ118)</div>
+                                </label>
+                              </div>
+                            </div>
+                            <div id="invalid-feedback-camp" class="invalid-feedback-custom hidden">Please select a camp.</div>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label class="form-label">Date
+                                <span class="form-required">*</span>
+                              </label>
+                              <div class="row gutters-xs">
+                                <div class="col-8">
+                                  <select id="date-month" name="date-month" class="form-control custom-select">
+                                    <option value="">Month</option>
+                                    <option value="6" data-month="June">June</option>
+                                    <option value="7" data-month="July">July</option>
+                                    <option value="8" data-month="August">August</option>
+                                  </select>
+                                </div>
+                                <div class="col-4">
+                                  <select id="date-day" name="date-day" class="form-control custom-select">
+                                    <option value="">Day</option>
+                                    <option value="1" data-day="1st">1</option>
+                                    <option value="2" data-day="2nd">2</option>
+                                    <option value="3" data-day="3rd">3</option>
+                                    <option value="4" data-day="4th">4</option>
+                                    <option value="5" data-day="5th">5</option>
+                                    <option value="6" data-day="6th">6</option>
+                                    <option value="7" data-day="7th">7</option>
+                                    <option value="8" data-day="8th">8</option>
+                                    <option value="9" data-day="9th">9</option>
+                                    <option value="10" data-day="10th">10</option>
+                                    <option value="11" data-day="11th">11</option>
+                                    <option value="12" data-day="12th">12</option>
+                                    <option value="13" data-day="13th">13</option>
+                                    <option value="14" data-day="14th">14</option>
+                                    <option value="15" data-day="15th">15</option>
+                                    <option value="16" data-day="16th">16</option>
+                                    <option value="17" data-day="17th">17</option>
+                                    <option value="18" data-day="18th">18</option>
+                                    <option value="19" data-day="19th">19</option>
+                                    <option value="20" data-day="20th">20</option>
+                                    <option value="21" data-day="21st">21</option>
+                                    <option value="22" data-day="22nd">22</option>
+                                    <option value="23" data-day="23rd">23</option>
+                                    <option value="24" data-day="24th">24</option>
+                                    <option value="25" data-day="25th">25</option>
+                                    <option value="26" data-day="26th">26</option>
+                                    <option value="27" data-day="27th">27</option>
+                                    <option value="28" data-day="28th">28</option>
+                                    <option value="29" data-day="29th">29</option>
+                                    <option value="30" data-day="30th">30</option>
+                                    <option value="31" data-day="31st">31</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+
+
+                      </div>
+                      <div id="continue-button-container" class="card-footer text-right">
+                        <div class="d-flex">
+                          <button type="button" id="site-info-continue-button" class="btn btn-primary ml-auto">Continue</button>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+
+                    <div id="tl-card" class="card hidden">
+                      <div class="card-header">
+                        <h3 class="card-title">Team Leaders</h3>
+                      </div>
+                      <div class="card-body">
+                        <!-- Team Leaders -->
+                        <div id="tl-row-1" class="row">
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div class="form-label">Hours Worked</div>
+                            </div>
+                            <input disabled id="hours-worked-tl" type="number" class="form-control">
+                            <!--<div title="This is help text from title" class="help-tip"><p>These are predefined hours. If the value shown is not accurate to what was worked, see section [INSERT SECTION TITLE]</p></div>-->
+                          </div>
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div class="form-label">Staff Members</div>
+                              <div id="staff-members-tl-container" class="custom-controls-stacked">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div class="form-group">
+                              <div id="exceptions-title-tl" class="form-label hidden">Exceptions</div>
+                              <div id="exceptions-warning-tl" class="alert alert-icon alert-warning hidden" role="alert">
+                                <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                                <span>If the staff member was sick, please enter
+                                  <strong>"0"</strong> in the
+                                  <em>"hours"</em> and
+                                  <em>"minutes"</em> sections.</span>
+                              </div>
+                              <div class="custom-controls-stacked">
+                                <div id="exceptions-container-tl" class="form-group">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="tl-row-2" class="row extra-space-top">
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div class="form-label">Was any Team Leader sick during this day?</div>
+                              <label class="custom-switch">
+                                <input id="tl-sick-switch-input" type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" data-position="TL">
+                                <span class="custom-switch-indicator"></span>
+                                <span id="tl-sick-switch-span" class="custom-switch-description">No</span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div id="sick-staff-tl-title" class="form-label hidden">Who was sick?</div>
+                              <div id="sick-staff-tl-container" class="custom-controls-stacked">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div class="form-group">
+                              <div id="sick-exceptions-title-tl" class="form-label hidden">Exceptions</div>
+                              <div class="custom-controls-stacked">
+                                <div id="sick-exceptions-container-tl" class="form-group">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+
+
+                    <div id="lcwp-card" class="card hidden">
+                      <div class="card-header">
+                        <h3 class="card-title">Logistics Coordinator and Wellness Person</h3>
+                      </div>
+                      <div class="card-body">
+
+                        <!-- Logistics Coordinator and Wellness Person -->
+                        <div id="lc-wp-row-1" class="row">
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div class="form-label">Hours Worked</div>
+                            </div>
+                            <input disabled id="hours-worked-lc-wp" type="number" class="form-control">
+                            <!--<div title="This is help text from title" class="help-tip"><p>These are predefined hours. If the value shown is not accurate to what was worked, see section [INSERT SECTION TITLE]</p></div>-->
+                          </div>
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div class="form-label">Staff Members</div>
+                              <div id="staff-members-lc-wp-container" class="custom-controls-stacked">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div class="form-group">
+                              <div id="exceptions-title-lc-wp" class="form-label hidden">Exceptions</div>
+                              <div id="exceptions-warning-lcwp" class="alert alert-icon alert-warning hidden" role="alert">
+                                <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                                <span>If the staff member was sick, please enter
+                                  <strong>"0"</strong> in the
+                                  <em>"hours"</em> and
+                                  <em>"minutes"</em> sections.</span>
+                              </div>
+                              <div class="custom-controls-stacked">
+                                <div id="exceptions-container-lc-wp" class="form-group">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="lc-wp-row-2" class="row extra-space-top">
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div class="form-label">Was a LC / WP sick during this day?</div>
+                              <label class="custom-switch">
+                                <input id="lc-wp-sick-switch-input" type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" data-position="LCWP">
+                                <span class="custom-switch-indicator"></span>
+                                <span id="lc-wp-sick-switch-span" class="custom-switch-description">No</span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div id="sick-staff-lc-wp-title" class="form-label hidden">Who was sick?</div>
+                              <div id="sick-staff-lc-wp-container" class="custom-controls-stacked">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div class="form-group">
+                              <div id="sick-exceptions-title-lc-wp" class="form-label hidden">Exceptions</div>
+                              <div class="custom-controls-stacked">
+                                <div id="sick-exceptions-container-lc-wp" class="form-group">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+                      </div>
+                    </div>
+
+
+
+
+                    <div id="oc-card" class="card hidden">
+                      <div class="card-header">
+                        <h3 class="card-title">Office Coordinator</h3>
+                      </div>
+                      <div class="card-body">
+
+                        <!-- Office Coordinator -->
+                        <div id="oc-row-1" class="row">
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div class="form-label">Hours Worked</div>
+                            </div>
+                            <input disabled id="hours-worked-oc" type="number" class="form-control">
+                            <!--<div title="This is help text from title" class="help-tip"><p>These are predefined hours. If the value shown is not accurate to what was worked, see section [INSERT SECTION TITLE]</p></div>-->
+                          </div>
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div class="form-label">Staff Members</div>
+                              <div id="staff-members-oc-container" class="custom-controls-stacked">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div class="form-group">
+                              <div id="exceptions-title-oc" class="form-label hidden">Exceptions</div>
+                              <div id="exceptions-warning-oc" class="alert alert-icon alert-warning hidden" role="alert">
+                                <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                                <span>If the staff member was sick, please enter
+                                  <strong>"0"</strong> in the
+                                  <em>"hours"</em> and
+                                  <em>"minutes"</em> sections.</span>
+                              </div>
+                              <div class="custom-controls-stacked">
+                                <div id="exceptions-container-oc" class="form-group">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="oc-row-2" class="row extra-space-top">
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div class="form-label">Was the OC sick during this day?</div>
+                              <label class="custom-switch">
+                                <input id="oc-sick-switch-input" type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" data-position="OC">
+                                <span class="custom-switch-indicator"></span>
+                                <span id="oc-sick-switch-span" class="custom-switch-description">No</span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-lg-4">
+                            <div class="form-group">
+                              <div id="sick-staff-oc-title" class="form-label hidden">Who was sick?</div>
+                              <div id="sick-staff-oc-container" class="custom-controls-stacked">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div class="form-group">
+                              <div id="sick-exceptions-title-oc" class="form-label hidden">Exceptions</div>
+                              <div class="custom-controls-stacked">
+                                <div id="sick-exceptions-container-oc" class="form-group">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+                      </div>
+                    </div>
+
+
+
+
+                  </form>
+
+
+
+
+
+
+
+
+                  <div class="loading-form is-hidden-form">
+                    <i class="fas fa-5x fa-circle-notch fa-spin"></i>
+                  </div>
+                  <p class="js-success-message is-hidden-form">Success! QLN has received your data. Thank you for being you!</p>
+                  <p class="js-error-message is-hidden-form">Error! There was an issue, and the data was not sent. Refresh the page to try again.</p>
+                  <button type="button" onclick='location.reload();' class="btn btn-info is-hidden-form again-button">Send Another Form</button>
+                  <!--
+                  <script>
+                    require(['jquery', 'selectize'], function ($, selectize) {
+                      $(document).ready(function () {
+                        $('#input-tags').selectize({
+                          delimiter: ',',
+                          persist: false,
+                          create: function (input) {
+                            return {
+                              value: input,
+                              text: input
+                            }
+                          }
+                        });
+
+                        $('#select-beast').selectize({});
+
+                        $('#select-users').selectize({
+                          render: {
+                            option: function (data, escape) {
+                              return '<div>' +
+                                '<span class="image"><img src="' + data.image + '" alt=""></span>' +
+                                '<span class="title">' + escape(data.text) + '</span>' +
+                                '</div>';
+                            },
+                            item: function (data, escape) {
+                              return '<div>' +
+                                '<span class="image"><img src="' + data.image + '" alt=""></span>' +
+                                escape(data.text) +
+                                '</div>';
+                            }
+                          }
+                        });
+
+                        $('#select-countries').selectize({
+                          render: {
+                            option: function (data, escape) {
+                              return '<div>' +
+                                '<span class="image"><img src="' + data.image + '" alt=""></span>' +
+                                '<span class="title">' + escape(data.text) + '</span>' +
+                                '</div>';
+                            },
+                            item: function (data, escape) {
+                              return '<div>' +
+                                '<span class="image"><img src="' + data.image + '" alt=""></span>' +
+                                escape(data.text) +
+                                '</div>';
+                            }
+                          }
+                        });
+                      });
+                    });
+                  </script>
+                -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Invalid Input Modal -->
+    <div class="modal fade" id="invalid-input-modal" tabindex="-1" role="dialog" aria-labelledby="Invalid Input" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Empty Input</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <span>One or more input fields have been left blank. Please go back and enter in the correct information.</span>
+            <br><br>
+            <span><em>Note: All times must be entered. For example: </em>"5 hours and 15 minutes" <em>instead of </em>"5 hours"<em>.</em></span>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row align-items-center flex-row-reverse">
+          <div class="col-auto ml-lg-auto">
+            <div class="row align-items-center">
+              <div class="col-auto">
+                <ul class="list-inline list-inline-dots mb-0">
+                  <li class="list-inline-item">
+                    <a target="_blank" href="./guide.html">Guide</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-auto">
+                <a href="https://www.supercamp.com/staff/" class="btn btn-outline-primary btn-sm">SuperCamp</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
+            Copyright © 2018
+            <a href="https://www.QLN.com">Quantum Learning Network</a>. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <!-- Javascript -->
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <!-- Boostrap Javascript from CDN -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+  <!-- Smoothscroll Polyfill -->
+  <script src="assets/js/smoothscroll.min.js"></script>
+  <!-- Papa Parse -->
+  <script src="assets/js/papaparse.js"></script>
+  <!-- Staff Members -->
+  <script src="assets/js/staffmembers.js"></script>
+  <!--
+   Cycle JSON data 
+  <script src="assets/js/cycle.js"></script>
+  jsPDF 
+  <script src="assets/js/jspdf.min.js"></script>
+  Script to generate pdf 
+  <script src="assets/js/generate-pdf.js"></script>
+  -->
+  <!-- Main Script -->
+  <script src="assets/js/main-compiled.js"></script>
+
+  <!-- Polyfills? -
+  <script src="https://wzrd.in/standalone/formdata-polyfill"></script>
+  <script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
+  <script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
+
+  -->
+
+</body>
+
+</html>
