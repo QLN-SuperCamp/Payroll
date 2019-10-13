@@ -10,6 +10,7 @@ import {
   TextField,
   Typography
 } from "@material-ui/core";
+import { KeyboardDatePicker } from "@material-ui/pickers";
 import siteInformationStyles from "./siteInformation.module.scss";
 import { useStaticQuery, graphql } from "gatsby";
 
@@ -30,6 +31,7 @@ const SiteInformaation = () => {
   const [lastName, setLastName] = useState("");
   const [site, setSite] = useState("");
   const [camp, setCamp] = useState("");
+  const [date, setDate] = useState(new Date());
 
   return (
     <Paper className={siteInformationStyles.container}>
@@ -112,6 +114,19 @@ const SiteInformaation = () => {
                 Please select a site
               </i>
             )}
+          </FormControl>
+        </Box>
+
+        <Box className={siteInformationStyles.dateContainer}>
+          <FormControl component="fieldset" required>
+            <FormLabel component="legend" required>
+              Date
+            </FormLabel>
+            <KeyboardDatePicker
+              // label="Date"
+              onChange={setDate}
+              value={date}
+            />
           </FormControl>
         </Box>
       </Box>

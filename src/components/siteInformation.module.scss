@@ -13,17 +13,14 @@ div.form-container {
   padding: 20px;
 }
 
-div.name-container {
+div.name-container,
+div.site-container,
+div.date-container,
+div.camp-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 25%;
-}
-
-div.site-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  padding: 10px;
   width: 25%;
 }
 
