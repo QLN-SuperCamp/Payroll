@@ -62,8 +62,10 @@ const SiteInformaation = () => {
           />
         </Box>
         <Box className={siteInformationStyles.siteContainer}>
-          <FormControl component="fieldset">
-            <FormLabel component="legend">Site</FormLabel>
+          <FormControl component="fieldset" required>
+            <FormLabel component="legend" required>
+              Site
+            </FormLabel>
             <RadioGroup
               aria-label="site"
               name="site"
@@ -82,10 +84,12 @@ const SiteInformaation = () => {
           </FormControl>
         </Box>
 
-        {site !== "" && (
-          <Box className={siteInformationStyles.campContainer}>
-            <FormControl component="fieldset">
-              <FormLabel component="legend">Camp</FormLabel>
+        <Box className={siteInformationStyles.campContainer}>
+          <FormControl component="fieldset" required>
+            <FormLabel component="legend" required>
+              Camp
+            </FormLabel>
+            {site !== "" ? (
               <RadioGroup
                 aria-label="camp"
                 name="camp"
@@ -103,9 +107,13 @@ const SiteInformaation = () => {
                     />
                   ))}
               </RadioGroup>
-            </FormControl>
-          </Box>
-        )}
+            ) : (
+              <i className={siteInformationStyles.noChoice}>
+                Please select a site
+              </i>
+            )}
+          </FormControl>
+        </Box>
       </Box>
     </Paper>
   );
