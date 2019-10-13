@@ -1,25 +1,106 @@
 [
   {
     "name": "Southwestern University",
-    "camps": ["Camp 1 (TXS118 / TXJ118)", "Camp 2 (TXQA118)"]
+    "camps": [
+      {
+        "name": "Camp 1 (TXS118 / TXJ118)",
+        "dates": {
+          "max": "06/30/2018",
+          "min": "06/19/2018"
+        }
+      },
+      {
+        "name": "Camp 2 (TXQA118)",
+        "dates": {
+          "max": "07/09/2018",
+          "min": "07/01/2018"
+        }
+      }
+    ]
   },
   {
     "name": "Stanford University",
     "camps": [
-      "Camp 1 (STS118)",
-      "Camp 2 (STJ118)",
-      "Camp 3 (STS218)",
-      "Camp 4 (STJ218)",
-      "Camp 5 (STS318)",
-      "Camp 6 (STS418)"
+      {
+        "name": "Camp 1 (STS118)",
+        "dates": {
+          "max": "07/06/2018",
+          "min": "06/22/2018"
+        }
+      },
+      {
+        "name": "Camp 2 (STJ118)",
+        "dates": {
+          "max": "07/14/2018",
+          "min": "07/07/2018"
+        }
+      },
+      {
+        "name": "Camp 3 (STS218)",
+        "dates": {
+          "max": "07/22/2018",
+          "min": "07/15/2018"
+        }
+      },
+      {
+        "name": "Camp 4 (STJ218)",
+        "dates": {
+          "max": "07/30/2018",
+          "min": "07/23/2018"
+        }
+      },
+      {
+        "name": "Camp 5 (STS318)",
+        "dates": {
+          "max": "08/11/2018",
+          "min": "07/31/2018"
+        }
+      },
+      {
+        "name": "Camp 6 (STS418)",
+        "dates": {
+          "max": "08/20/2018",
+          "min": "08/12/2018"
+        }
+      }
     ]
   },
   {
     "name": "University of Central Florida",
-    "camps": ["Camp 1 (FLJ118)", "Camp 2 (FLS118)"]
+    "camps": [
+      {
+        "name": "Camp 1 (FLJ118)",
+        "dates": {
+          "max": "07/14/2018",
+          "min": "07/03/2018"
+        }
+      },
+      {
+        "name": "Camp 2 (FLS118)",
+        "dates": {
+          "max": "07/23/2018",
+          "min": "07/15/2018"
+        }
+      }
+    ]
   },
   {
     "name": "Villanova University",
-    "camps": ["Camp 1 (PAS118)", "Camp 2 (PAJ118)"]
+    "camps": [
+      {
+        "name": "Camp 1 (PAS118)",
+        "dates": {
+          "max": "07/14/2018",
+          "min": "07/03/2018"
+        }
+      },
+      {
+        "name": "Camp 2 (PAJ118)",
+        "dates": {
+          "max": "07/23/2018",
+          "min": "07/15/2018"
+        }
+      }
+    ]
   }
 ]

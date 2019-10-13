@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   FormControl,
@@ -13,25 +13,45 @@ import {
 import { KeyboardDatePicker } from "@material-ui/pickers";
 import siteInformationStyles from "./siteInformation.module.scss";
 import { useStaticQuery, graphql } from "gatsby";
+import moment from "moment";
 
-const SiteInformaation = () => {
+const SiteInformation = () => {
   const data = useStaticQuery(graphql`
     query {
       allSitesJson {
         edges {
           node {
             name
-            camps
+            camps {
+              name
+              dates {
+                max
+                min
+              }
+            }
           }
         }
       }
     }
   `);
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [site, setSite] = useState("");
   const [camp, setCamp] = useState("");
-  const [date, setDate] = useState(new Date());
+  const siteData = site
+    ? data.allSitesJson.edges.find(edge => edge.node.name === site)
+    : null;
+  const campData = camp
+    ? siteData.node.camps.find(jsonCamp => jsonCamp.name === camp)
+    : null;
+  const [date, setDate] = useState(moment());
+
+  useEffect(() => {
+    if (campData) {
+      setDate(moment(campData.dates.min, "MM/DD/YYYY"));
+    }
+  }, [campData]);
 
   return (
     <Paper className={siteInformationStyles.container}>
@@ -100,12 +120,12 @@ const SiteInformaation = () => {
               >
                 {data.allSitesJson.edges
                   .find(({ node }) => node.name === site)
-                  .node.camps.map(camp => (
+                  .node.camps.map(({ name }) => (
                     <FormControlLabel
-                      key={camp}
-                      value={camp}
+                      key={name}
+                      value={name}
                       control={<Radio color="primary" />}
-                      label={camp}
+                      label={name}
                     />
                   ))}
               </RadioGroup>
@@ -122,11 +142,26 @@ const SiteInformaation = () => {
             <FormLabel component="legend" required>
               Date
             </FormLabel>
-            <KeyboardDatePicker
-              // label="Date"
-              onChange={setDate}
-              value={date}
-            />
+            {camp ? (
+              <KeyboardDatePicker
+                maxDate={
+                  campData
+                    ? moment(campData.dates.max, "MM/DD/YYYY")
+                    : undefined
+                }
+                minDate={
+                  campData
+                    ? moment(campData.dates.min, "MM/DD/YYYY")
+                    : undefined
+                }
+                onChange={setDate}
+                value={date}
+              />
+            ) : (
+              <i className={siteInformationStyles.noChoice}>
+                Please select a camp
+              </i>
+            )}
           </FormControl>
         </Box>
       </Box>
@@ -134,4 +169,4 @@ const SiteInformaation = () => {
   );
 };
 
-export default SiteInformaation;
+export default SiteInformation;
