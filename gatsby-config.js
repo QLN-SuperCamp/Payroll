@@ -24,6 +24,13 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: path.join(__dirname, `src`, `data`)
+      }
+    },
+    {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
@@ -33,6 +40,7 @@ module.exports = {
     },
     "gatsby-plugin-sass",
     `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`
+    `gatsby-transformer-sharp`,
+    `gatsby-transformer-json`
   ]
 };

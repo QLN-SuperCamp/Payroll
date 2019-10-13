@@ -1,0 +1,25 @@
+[
+  {
+    "name": "Southwestern University",
+    "camps": ["Camp 1 (TXS118 / TXJ118)", "Camp 2 (TXQA118)"]
+  },
+  {
+    "name": "Stanford University",
+    "camps": [
+      "Camp 1 (STS118)",
+      "Camp 2 (STJ118)",
+      "Camp 3 (STS218)",
+      "Camp 4 (STJ218)",
+      "Camp 5 (STS318)",
+      "Camp 6 (STS418)"
+    ]
+  },
+  {
+    "name": "University of Central Florida",
+    "camps": ["Camp 1 (FLJ118)", "Camp 2 (FLS118)"]
+  },
+  {
+    "name": "Villanova University",
+    "camps": ["Camp 1 (PAS118)", "Camp 2 (PAJ118)"]
+  }
+]
