@@ -6,6 +6,8 @@ import "../styles/index.scss";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import MomentUtils from "@date-io/moment";
+import { Provider } from "react-redux";
+import store from "../redux/store/store";
 
 const theme = createMuiTheme({
   typography: {
@@ -15,17 +17,19 @@ const theme = createMuiTheme({
 
 const Layout = props => {
   return (
-    <MuiThemeProvider theme={theme}>
-      <MuiPickersUtilsProvider utils={MomentUtils}>
-        <div className={layoutStyles.container}>
-          <div className={layoutStyles.content}>
-            <Header />
-            {props.children}
+    <Provider store={store}>
+      <MuiThemeProvider theme={theme}>
+        <MuiPickersUtilsProvider utils={MomentUtils}>
+          <div className={layoutStyles.container}>
+            <div className={layoutStyles.content}>
+              <Header />
+              {props.children}
+            </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
-      </MuiPickersUtilsProvider>
-    </MuiThemeProvider>
+        </MuiPickersUtilsProvider>
+      </MuiThemeProvider>
+    </Provider>
   );
 };
 
