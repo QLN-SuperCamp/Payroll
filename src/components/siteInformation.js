@@ -29,10 +29,8 @@ const SiteInformation = () => {
         if (Object.keys(errors).length > 0) {
           setErrors(errors);
         } else {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
+          alert(JSON.stringify(values, null, 2));
+          setSubmitting(false);
         }
       }}
       validate={values => {
