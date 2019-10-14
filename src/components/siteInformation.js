@@ -6,8 +6,10 @@ import SiteField from "./siteField";
 import CampField from "./campField";
 import DateField from "./dateField";
 import { Formik } from "formik";
+import { connect } from "react-redux";
+import { setSiteInformation } from "../redux/actions/data";
 
-const SiteInformation = () => {
+const SiteInformation = ({ handleSubmitSiteInformation }) => {
   return (
     <Formik
       initialValues={{
@@ -29,8 +31,9 @@ const SiteInformation = () => {
         if (Object.keys(errors).length > 0) {
           setErrors(errors);
         } else {
-          alert(JSON.stringify(values, null, 2));
+          // alert(JSON.stringify(values, null, 2));
           setSubmitting(false);
+          handleSubmitSiteInformation(values);
         }
       }}
       validate={values => {
@@ -89,4 +92,12 @@ const SiteInformation = () => {
   );
 };
 
-export default SiteInformation;
+const mapDispatchToProps = dispatch => ({
+  handleSubmitSiteInformation: siteInformation =>
+    dispatch(setSiteInformation(siteInformation))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(SiteInformation);

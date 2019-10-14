@@ -13,6 +13,11 @@ div.form-container {
   padding: 20px;
 }
 
+div.table-container {
+  padding: 20px;
+  width: calc(100% - 40px);
+}
+
 div.button-container {
   border-top: 1px solid rgba(0, 40, 100, 0.12);
   display: flex;
