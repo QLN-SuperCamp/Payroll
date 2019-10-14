@@ -3,8 +3,10 @@ import Layout from "../components/layout";
 import { Box, Typography } from "@material-ui/core";
 import homeStyles from "./index.module.scss";
 import Alert from "../components/alert";
-import SiteInformaation from "../components/siteInformation";
+import SiteInformation from "../components/siteInformation";
 import StaffInformation from "../components/staffInformation";
+import Loading from "../components/loading";
+import Status from "../components/status";
 
 const HomePage = () => {
   return (
@@ -14,8 +16,10 @@ const HomePage = () => {
           Payroll Form
         </Typography>
         <Alert />
-        <SiteInformaation />
+        <SiteInformation />
         <StaffInformation />
+        <Loading />
+        <Status />
       </Box>
     </Layout>
   );

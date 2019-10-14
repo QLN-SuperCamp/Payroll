@@ -1,6 +1,8 @@
 const defaultState = {
   siteInformation: null,
-  staffInformation: null
+  staffInformation: null,
+  submitting: false,
+  submitted: false
 };
 
 export default (state = defaultState, action) => {
@@ -9,6 +11,10 @@ export default (state = defaultState, action) => {
       return { ...state, siteInformation: action.payload.siteInformation };
     case "SET_STAFF_INFORMATION":
       return { ...state, staffInformation: action.payload.staffInformation };
+    case "SET_SUBMITTING":
+      return { ...state, submitting: action.payload.submitting };
+    case "SET_SUBMITTED":
+      return { ...state, submitted: action.payload.submitted };
     default:
       return state;
   }

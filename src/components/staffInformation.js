@@ -5,9 +5,14 @@ import { graphql, useStaticQuery } from "gatsby";
 import { connect } from "react-redux";
 import moment from "moment";
 import StaffInformationTable from "./staffInformationTable";
-import { setStaffInformation } from "../redux/actions/data";
+import {
+  setStaffInformation,
+  setSubmitting,
+  setSubmitted,
+  setSiteInformation
+} from "../redux/actions/data";
 
-const StaffInformation = ({ handleSubmit, siteInformation }) => {
+const StaffInformation = ({ handleSubmit, siteInformation, submitting }) => {
   const data = useStaticQuery(graphql`
     {
       allSitesJson {
@@ -69,7 +74,7 @@ const StaffInformation = ({ handleSubmit, siteInformation }) => {
     }
   }, [campData, tableData]);
 
-  if (siteInformation) {
+  if (siteInformation && !submitting) {
     return (
       <Paper className={siteInformationStyles.container}>
         <Box className={siteInformationStyles.topContainer}>
@@ -102,12 +107,21 @@ const StaffInformation = ({ handleSubmit, siteInformation }) => {
 };
 
 const mapStateToProps = ({ data }) => ({
-  siteInformation: data.siteInformation
+  siteInformation: data.siteInformation,
+  submitting: data.submitting
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleSubmit: staffInformation =>
-    dispatch(setStaffInformation(staffInformation))
+  handleSubmit: staffInformation => {
+    dispatch(setSubmitting(true));
+    dispatch(setStaffInformation(staffInformation));
+    setTimeout(() => {
+      dispatch(setSiteInformation(null));
+      dispatch(setStaffInformation(null));
+      dispatch(setSubmitted(true));
+      dispatch(setSubmitting(false));
+    }, 5000);
+  }
 });
 
 export default connect(

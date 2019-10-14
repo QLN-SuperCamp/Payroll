@@ -2,9 +2,16 @@ div.container {
   margin-top: 20px;
 }
 
-div.top-container {
+div.top-container,
+div.loading-container {
   border-bottom: 1px solid rgba(0, 40, 100, 0.12);
   padding: 20px;
+}
+
+div.loading-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 div.form-container {
