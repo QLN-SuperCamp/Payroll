@@ -11,7 +11,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import siteInformationStyles from "./siteInformation.module.scss";
 import { connect } from "react-redux";
 
-const CampField = ({ handleChange, values }) => {
+const CampField = ({ errors, handleChange, values }) => {
   const data = useStaticQuery(graphql`
     query {
       allSitesJson {
@@ -33,7 +33,11 @@ const CampField = ({ handleChange, values }) => {
 
   return (
     <Box className={siteInformationStyles.campContainer}>
-      <FormControl component="fieldset" required>
+      <FormControl
+        component="fieldset"
+        error={errors.camp && errors.camp !== ""}
+        required
+      >
         <FormLabel component="legend" required>
           Camp
         </FormLabel>

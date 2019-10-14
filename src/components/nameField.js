@@ -3,11 +3,13 @@ import { Box, TextField } from "@material-ui/core";
 import siteInformationStyles from "./siteInformation.module.scss";
 import { connect } from "react-redux";
 
-const NameField = ({ handleChange, values }) => {
+const NameField = ({ errors, handleChange, values }) => {
   return (
     <Box className={siteInformationStyles.nameContainer}>
       <TextField
         className={siteInformationStyles.textField}
+        error={errors.firstName && errors.firstName !== ""}
+        helperText={errors.firstName && errors.firstName}
         id="first-name"
         label="First Name"
         margin="normal"
@@ -19,6 +21,8 @@ const NameField = ({ handleChange, values }) => {
       />
       <TextField
         className={siteInformationStyles.textField}
+        error={errors.lastName && errors.lastName !== ""}
+        helperText={errors.lastName && errors.lastName}
         id="last-name"
         label="Last Name"
         margin="normal"

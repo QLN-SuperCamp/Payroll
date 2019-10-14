@@ -6,7 +6,7 @@ import moment from "moment";
 import { connect } from "react-redux";
 import { graphql, useStaticQuery } from "gatsby";
 
-const DateField = ({ handleChange, values }) => {
+const DateField = ({ errors, handleChange, values }) => {
   const [userHasInput, setUserHasInput] = useState(false);
   const data = useStaticQuery(graphql`
     query {
@@ -48,7 +48,11 @@ const DateField = ({ handleChange, values }) => {
 
   return (
     <Box className={siteInformationStyles.dateContainer}>
-      <FormControl component="fieldset" required>
+      <FormControl
+        component="fieldset"
+        error={errors.date && errors.date !== ""}
+        required
+      >
         <FormLabel component="legend" required>
           Date
         </FormLabel>

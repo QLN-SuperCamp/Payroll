@@ -5,17 +5,9 @@ import NameField from "./nameField";
 import SiteField from "./siteField";
 import CampField from "./campField";
 import DateField from "./dateField";
-import { connect } from "react-redux";
 import { Formik } from "formik";
 
-const SiteInformation = ({
-  firstName,
-  formState,
-  lastName,
-  site,
-  camp,
-  date
-}) => {
+const SiteInformation = () => {
   return (
     <Formik
       initialValues={{
@@ -25,27 +17,38 @@ const SiteInformation = ({
         camp: "",
         date: ""
       }}
-      onSubmit={(values, { setSubmitting }) => {
-        console.log({ values, setSubmitting });
-        // setTimeout(() => {
-        //   alert(JSON.stringify(values, null, 2));
-        //   setSubmitting(false);
-        // }, 400);
+      onSubmit={(values, { setErrors, setSubmitting, submitForm }) => {
+        const errors = {};
+        Object.values(values).forEach((value, i) => {
+          const key = Object.keys(values)[i];
+          if (value === "") {
+            errors[key] = "Required";
+          }
+        });
+
+        if (Object.keys(errors).length > 0) {
+          setErrors(errors);
+        } else {
+          setTimeout(() => {
+            alert(JSON.stringify(values, null, 2));
+            setSubmitting(false);
+          }, 400);
+        }
       }}
       validate={values => {
-        console.log({ values });
+        const errors = {};
+
+        Object.values(values).forEach((value, i) => {
+          const key = Object.keys(values)[i];
+          if (value.length <= 2 && value !== "") {
+            errors[key] = "Must be more than 2 characters";
+          }
+        });
+
+        return errors;
       }}
     >
-      {({
-        values,
-        // errors,
-        // touched,
-        handleChange,
-        // handleBlur,
-        handleSubmit
-        // isSubmitting
-        /* and other goodies */
-      }) => (
+      {({ values, errors, handleChange, handleSubmit }) => (
         <form onSubmit={handleSubmit}>
           <Paper className={siteInformationStyles.container}>
             <Box className={siteInformationStyles.topContainer}>
@@ -53,21 +56,31 @@ const SiteInformation = ({
                 Site Information
               </Typography>
             </Box>
-
             <Box className={siteInformationStyles.formContainer}>
-              <NameField handleChange={handleChange} values={values} />
-              <SiteField handleChange={handleChange} values={values} />
-              <CampField handleChange={handleChange} values={values} />
-              <DateField handleChange={handleChange} values={values} />
+              <NameField
+                errors={errors}
+                handleChange={handleChange}
+                values={values}
+              />
+              <SiteField
+                errors={errors}
+                handleChange={handleChange}
+                values={values}
+              />
+              <CampField
+                errors={errors}
+                handleChange={handleChange}
+                values={values}
+              />
+              <DateField
+                errors={errors}
+                handleChange={handleChange}
+                values={values}
+              />
             </Box>
 
             <Box className={siteInformationStyles.buttonContainer}>
-              <Button
-                color="primary"
-                // onClick={handleContinue}
-                type="submit"
-                variant="contained"
-              >
+              <Button color="primary" type="submit" variant="contained">
                 Continue
               </Button>
             </Box>
@@ -78,13 +91,4 @@ const SiteInformation = ({
   );
 };
 
-const mapStateToProps = ({ data }) => ({
-  firstName: data.firstName,
-  formState: data.formState,
-  lastName: data.lastName,
-  site: data.site,
-  camp: data.camp,
-  date: data.date
-});
-
-export default connect(mapStateToProps)(SiteInformation);
+export default SiteInformation;

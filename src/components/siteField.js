@@ -11,7 +11,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import siteInformationStyles from "./siteInformation.module.scss";
 import { connect } from "react-redux";
 
-const SiteField = ({ handleChange, values }) => {
+const SiteField = ({ errors, handleChange, values }) => {
   const data = useStaticQuery(graphql`
     query {
       allSitesJson {
@@ -33,7 +33,11 @@ const SiteField = ({ handleChange, values }) => {
 
   return (
     <Box className={siteInformationStyles.siteContainer}>
-      <FormControl component="fieldset" required>
+      <FormControl
+        component="fieldset"
+        error={errors.site && errors.site !== ""}
+        required
+      >
         <FormLabel component="legend" required>
           Site
         </FormLabel>
