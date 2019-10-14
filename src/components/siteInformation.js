@@ -9,7 +9,7 @@ import { Formik } from "formik";
 import { connect } from "react-redux";
 import { setSiteInformation } from "../redux/actions/data";
 
-const SiteInformation = ({ handleSubmitSiteInformation }) => {
+const SiteInformation = ({ handleSubmitSiteInformation, siteInformation }) => {
   return (
     <Formik
       initialValues={{
@@ -80,11 +80,13 @@ const SiteInformation = ({ handleSubmitSiteInformation }) => {
               />
             </Box>
 
-            <Box className={siteInformationStyles.buttonContainer}>
-              <Button color="primary" type="submit" variant="contained">
-                Continue
-              </Button>
-            </Box>
+            {!siteInformation && (
+              <Box className={siteInformationStyles.buttonContainer}>
+                <Button color="primary" type="submit" variant="contained">
+                  Continue
+                </Button>
+              </Box>
+            )}
           </Paper>
         </form>
       )}
@@ -92,12 +94,16 @@ const SiteInformation = ({ handleSubmitSiteInformation }) => {
   );
 };
 
+const mapStateToProps = ({ data }) => ({
+  siteInformation: data.siteInformation
+});
+
 const mapDispatchToProps = dispatch => ({
   handleSubmitSiteInformation: siteInformation =>
     dispatch(setSiteInformation(siteInformation))
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(SiteInformation);
