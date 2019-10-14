@@ -2,14 +2,8 @@ import React from "react";
 import { Box, TextField } from "@material-ui/core";
 import siteInformationStyles from "./siteInformation.module.scss";
 import { connect } from "react-redux";
-import { setFirstName, setLastName } from "../redux/actions/data";
 
-const NameField = ({
-  firstName,
-  handleSetFirstName,
-  handleSetLastNaame,
-  lastName
-}) => {
+const NameField = ({ handleChange, values }) => {
   return (
     <Box className={siteInformationStyles.nameContainer}>
       <TextField
@@ -17,20 +11,22 @@ const NameField = ({
         id="first-name"
         label="First Name"
         margin="normal"
-        onChange={e => handleSetFirstName(e.target.value)}
+        name="firstName"
+        onChange={handleChange}
         placeholder="Jane"
         required
-        value={firstName}
+        value={values.firstName}
       />
       <TextField
         className={siteInformationStyles.textField}
         id="last-name"
         label="Last Name"
         margin="normal"
-        onChange={e => handleSetLastNaame(e.target.value)}
+        name="lastName"
+        onChange={handleChange}
         placeholder="Doe"
         required
-        value={lastName}
+        value={values.lastName}
       />
     </Box>
   );
@@ -41,12 +37,4 @@ const mapStateToProps = ({ data }) => ({
   lastName: data.lastName
 });
 
-const mapDispatchToProps = dispatch => ({
-  handleSetFirstName: firstName => dispatch(setFirstName(firstName)),
-  handleSetLastNaame: lastName => dispatch(setLastName(lastName))
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(NameField);
+export default connect(mapStateToProps)(NameField);

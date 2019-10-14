@@ -10,9 +10,8 @@ import {
 import { graphql, useStaticQuery } from "gatsby";
 import siteInformationStyles from "./siteInformation.module.scss";
 import { connect } from "react-redux";
-import { setSite } from "../redux/actions/data";
 
-const SiteField = ({ handleSetSite, site }) => {
+const SiteField = ({ handleChange, values }) => {
   const data = useStaticQuery(graphql`
     query {
       allSitesJson {
@@ -41,8 +40,8 @@ const SiteField = ({ handleSetSite, site }) => {
         <RadioGroup
           aria-label="site"
           name="site"
-          value={site}
-          onChange={e => handleSetSite(e.target.value)}
+          value={values.site}
+          onChange={handleChange}
         >
           {data.allSitesJson.edges.map(({ node }) => (
             <FormControlLabel
@@ -60,11 +59,4 @@ const SiteField = ({ handleSetSite, site }) => {
 
 const mapStateToProps = ({ data }) => ({ site: data.site });
 
-const mapDispatchToProps = dispatch => ({
-  handleSetSite: site => dispatch(setSite(site))
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SiteField);
+export default connect(mapStateToProps)(SiteField);

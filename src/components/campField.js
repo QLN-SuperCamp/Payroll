@@ -10,9 +10,8 @@ import {
 import { graphql, useStaticQuery } from "gatsby";
 import siteInformationStyles from "./siteInformation.module.scss";
 import { connect } from "react-redux";
-import { setCamp } from "../redux/actions/data";
 
-const CampField = ({ camp, handleSetCamp, site }) => {
+const CampField = ({ handleChange, values }) => {
   const data = useStaticQuery(graphql`
     query {
       allSitesJson {
@@ -38,15 +37,15 @@ const CampField = ({ camp, handleSetCamp, site }) => {
         <FormLabel component="legend" required>
           Camp
         </FormLabel>
-        {site !== "" ? (
+        {values.site !== "" ? (
           <RadioGroup
             aria-label="camp"
             name="camp"
-            value={camp}
-            onChange={e => handleSetCamp(e.target.value)}
+            value={values.camp}
+            onChange={handleChange}
           >
             {data.allSitesJson.edges
-              .find(({ node }) => node.name === site)
+              .find(({ node }) => node.name === values.site)
               .node.camps.map(({ name }) => (
                 <FormControlLabel
                   key={name}
@@ -66,11 +65,4 @@ const CampField = ({ camp, handleSetCamp, site }) => {
 
 const mapStateToProps = ({ data }) => ({ camp: data.camp, site: data.site });
 
-const mapDispatchToProps = dispatch => ({
-  handleSetCamp: camp => dispatch(setCamp(camp))
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CampField);
+export default connect(mapStateToProps)(CampField);
