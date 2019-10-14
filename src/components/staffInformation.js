@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Box, Paper, Typography } from "@material-ui/core";
+import { Box, Button, Paper, Typography } from "@material-ui/core";
 import siteInformationStyles from "./siteInformation.module.scss";
 import { graphql, useStaticQuery } from "gatsby";
 import { connect } from "react-redux";
 import moment from "moment";
 import StaffInformationTable from "./staffInformationTable";
+import { setStaffInformation } from "../redux/actions/data";
 
-const StaffInformation = ({ siteInformation }) => {
+const StaffInformation = ({ handleSubmit, siteInformation }) => {
   const data = useStaticQuery(graphql`
     {
       allSitesJson {
@@ -60,6 +61,7 @@ const StaffInformation = ({ siteInformation }) => {
   }
 
   const [tableData, setTableData] = useState(campData ? campData.staff : []);
+  const [updatedData, setUpdatedData] = useState([]);
 
   useEffect(() => {
     if (campData) {
@@ -76,10 +78,22 @@ const StaffInformation = ({ siteInformation }) => {
           </Typography>
         </Box>
         <Box className={siteInformationStyles.tableContainer}>
-          <StaffInformationTable data={tableData} />
+          <StaffInformationTable
+            data={tableData}
+            setUpdatedData={setUpdatedData}
+          />
         </Box>
 
-        <Box className={siteInformationStyles.buttonContainer}></Box>
+        <Box className={siteInformationStyles.buttonContainer}>
+          <Button
+            color="primary"
+            onClick={() => handleSubmit(updatedData)}
+            type="submit"
+            variant="contained"
+          >
+            Submit
+          </Button>
+        </Box>
       </Paper>
     );
   } else {
@@ -91,4 +105,12 @@ const mapStateToProps = ({ data }) => ({
   siteInformation: data.siteInformation
 });
 
-export default connect(mapStateToProps)(StaffInformation);
+const mapDispatchToProps = dispatch => ({
+  handleSubmit: staffInformation =>
+    dispatch(setStaffInformation(staffInformation))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(StaffInformation);

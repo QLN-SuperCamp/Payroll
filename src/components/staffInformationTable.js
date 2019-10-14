@@ -41,7 +41,7 @@ const tableIcons = {
   ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
 };
 
-const StaffInformationTable = ({ data }) => {
+const StaffInformationTable = ({ data, setUpdatedData }) => {
   const [tableData, setTableData] = useState(data);
   const [updated, setUpdated] = useState(false);
 
@@ -50,8 +50,9 @@ const StaffInformationTable = ({ data }) => {
   }, [data]);
 
   useEffect(() => {
+    setUpdatedData(tableData);
     setUpdated(false);
-  }, [updated]);
+  }, [updated, setUpdatedData, tableData]);
 
   return (
     <MaterialTable
