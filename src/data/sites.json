@@ -8,80 +8,116 @@
           "max": "06/30/2018",
           "min": "06/19/2018"
         },
-        "hours": {
-          "06/19/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 8
+        "hours": [
+          {
+            "date": "06/19/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "06/20/2018": {
-            "Logistics Coordinator": 11,
-            "Office Coordinator": 12,
-            "Team Leader": 9,
-            "Wellness Person": 8
+          {
+            "date": "06/20/2018",
+            "positions": {
+              "Logistics Coordinator": 11,
+              "Office Coordinator": 12,
+              "Team Leader": 9,
+              "Wellness Person": 8
+            }
           },
-          "06/21/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 8,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "06/21/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 8,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "06/22/2018": {
-            "Logistics Coordinator": 13,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "06/22/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "06/23/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 15,
-            "Wellness Person": 8
+          {
+            "date": "06/23/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
           },
-          "06/24/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 12
+          {
+            "date": "06/24/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
           },
-          "06/25/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 14,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "06/25/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "06/26/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 16,
-            "Wellness Person": 8
+          {
+            "date": "06/26/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
           },
-          "06/27/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 17,
-            "Wellness Person": 8
+          {
+            "date": "06/27/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 17,
+              "Wellness Person": 8
+            }
           },
-          "06/28/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 12,
-            "Wellness Person": 8
+          {
+            "date": "06/28/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 12,
+              "Wellness Person": 8
+            }
           },
-          "06/29/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 12,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "06/29/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 12,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "06/30/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 10
+          {
+            "date": "06/30/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 10
+            }
           }
-        },
+        ],
         "staff": [
           {
             "firstName": "Lavena",
@@ -166,62 +202,89 @@
           "max": "07/09/2018",
           "min": "07/01/2018"
         },
-        "hours": {
-          "07/01/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 8
+        "hours": [
+          {
+            "date": "07/01/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 8,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/02/2018": {
-            "Logistics Coordinator": 11,
-            "Office Coordinator": 12,
-            "Team Leader": 9,
-            "Wellness Person": 8
+          {
+            "date": "07/02/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/03/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 8,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/03/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
           },
-          "07/04/2018": {
-            "Logistics Coordinator": 13,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/04/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
           },
-          "07/05/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 15,
-            "Wellness Person": 8
+          {
+            "date": "07/05/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/06/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 12
+          {
+            "date": "07/06/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
           },
-          "07/07/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 14,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/07/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 17,
+              "Wellness Person": 8
+            }
           },
-          "07/08/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 16,
-            "Wellness Person": 8
+          {
+            "date": "07/08/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 12,
+              "Wellness Person": 8
+            }
           },
-          "07/09/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 17,
-            "Wellness Person": 8
+          {
+            "date": "07/09/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 12,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           }
-        },
+        ],
         "staff": [
           {
             "firstName": "Gilligan",
@@ -311,98 +374,143 @@
           "max": "07/06/2018",
           "min": "06/22/2018"
         },
-        "hours": {
-          "06/22/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 8
+        "hours": [
+          {
+            "date": "06/22/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "06/23/2018": {
-            "Logistics Coordinator": 11,
-            "Office Coordinator": 12,
-            "Team Leader": 9,
-            "Wellness Person": 8
+          {
+            "date": "06/23/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
           },
-          "06/24/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 8,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "06/24/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
           },
-          "06/25/2018": {
-            "Logistics Coordinator": 13,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "06/25/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "06/26/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 15,
-            "Wellness Person": 8
+          {
+            "date": "06/26/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
           },
-          "06/27/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 12
+          {
+            "date": "06/27/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 17,
+              "Wellness Person": 8
+            }
           },
-          "06/28/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 14,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "06/28/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 12,
+              "Wellness Person": 8
+            }
           },
-          "06/29/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 16,
-            "Wellness Person": 8
+          {
+            "date": "06/29/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 12,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "06/30/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 17,
-            "Wellness Person": 8
+          {
+            "date": "06/30/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 10
+            }
           },
-          "07/01/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 12,
-            "Wellness Person": 8
+          {
+            "date": "07/01/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/02/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 12,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/02/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
           },
-          "07/03/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 10
+          {
+            "date": "07/03/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
           },
-          "07/04/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 12,
-            "Wellness Person": 8
+          {
+            "date": "07/04/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/05/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 12,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/05/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
           },
-          "07/06/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 10
+          {
+            "date": "07/06/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           }
-        },
+        ],
         "staff": [
           {
             "firstName": "Caritta",
@@ -487,56 +595,80 @@
           "max": "07/14/2018",
           "min": "07/07/2018"
         },
-        "hours": {
-          "07/07/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 8
+        "hours": [
+          {
+            "date": "07/07/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/08/2018": {
-            "Logistics Coordinator": 11,
-            "Office Coordinator": 12,
-            "Team Leader": 9,
-            "Wellness Person": 8
+          {
+            "date": "07/08/2018",
+            "positions": {
+              "Logistics Coordinator": 11,
+              "Office Coordinator": 12,
+              "Team Leader": 9,
+              "Wellness Person": 8
+            }
           },
-          "07/09/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 8,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/09/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 8,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/10/2018": {
-            "Logistics Coordinator": 13,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/10/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/11/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 15,
-            "Wellness Person": 8
+          {
+            "date": "07/11/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
           },
-          "07/12/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 12
+          {
+            "date": "07/12/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/13/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 14,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/13/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
           },
-          "07/14/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 16,
-            "Wellness Person": 8
+          {
+            "date": "07/14/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 17,
+              "Wellness Person": 8
+            }
           }
-        },
+        ],
         "staff": [
           {
             "firstName": "Bordie",
@@ -621,56 +753,80 @@
           "max": "07/22/2018",
           "min": "07/15/2018"
         },
-        "hours": {
-          "07/15/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 8
+        "hours": [
+          {
+            "date": "07/15/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/16/2018": {
-            "Logistics Coordinator": 11,
-            "Office Coordinator": 12,
-            "Team Leader": 9,
-            "Wellness Person": 8
+          {
+            "date": "07/16/2018",
+            "positions": {
+              "Logistics Coordinator": 11,
+              "Office Coordinator": 12,
+              "Team Leader": 9,
+              "Wellness Person": 8
+            }
           },
-          "07/17/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 8,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/17/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 8,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/18/2018": {
-            "Logistics Coordinator": 13,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/18/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/19/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 15,
-            "Wellness Person": 8
+          {
+            "date": "07/19/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
           },
-          "07/20/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 12
+          {
+            "date": "07/20/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
           },
-          "07/21/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 14,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/21/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/22/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 16,
-            "Wellness Person": 8
+          {
+            "date": "07/22/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
           }
-        },
+        ],
         "staff": [
           {
             "firstName": "Jeffrey",
@@ -755,56 +911,80 @@
           "max": "07/30/2018",
           "min": "07/23/2018"
         },
-        "hours": {
-          "07/23/2018": {
-            "Logistics Coordinator": 11,
-            "Office Coordinator": 12,
-            "Team Leader": 9,
-            "Wellness Person": 8
+        "hours": [
+          {
+            "date": "07/23/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
           },
-          "07/24/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 8,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/24/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
           },
-          "07/25/2018": {
-            "Logistics Coordinator": 13,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/25/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/26/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 15,
-            "Wellness Person": 8
+          {
+            "date": "07/26/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
           },
-          "07/27/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 12
+          {
+            "date": "07/27/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 17,
+              "Wellness Person": 8
+            }
           },
-          "07/28/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 14,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/28/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 12,
+              "Wellness Person": 8
+            }
           },
-          "07/29/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 16,
-            "Wellness Person": 8
+          {
+            "date": "07/29/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 12,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/30/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 17,
-            "Wellness Person": 8
+          {
+            "date": "07/30/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 10
+            }
           }
-        },
+        ],
         "staff": [
           {
             "firstName": "Maximilianus",
@@ -889,80 +1069,116 @@
           "max": "08/11/2018",
           "min": "07/31/2018"
         },
-        "hours": {
-          "07/31/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 8
+        "hours": [
+          {
+            "date": "07/31/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "08/01/2018": {
-            "Logistics Coordinator": 11,
-            "Office Coordinator": 12,
-            "Team Leader": 9,
-            "Wellness Person": 8
+          {
+            "date": "08/01/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 8,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "08/02/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 8,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "08/02/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "08/03/2018": {
-            "Logistics Coordinator": 13,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "08/03/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
           },
-          "08/04/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 15,
-            "Wellness Person": 8
+          {
+            "date": "08/04/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
           },
-          "08/05/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 12
+          {
+            "date": "08/05/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "08/06/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 14,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "08/06/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
           },
-          "08/07/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 16,
-            "Wellness Person": 8
+          {
+            "date": "08/07/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 17,
+              "Wellness Person": 8
+            }
           },
-          "08/08/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 17,
-            "Wellness Person": 8
+          {
+            "date": "08/08/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 12,
+              "Wellness Person": 8
+            }
           },
-          "08/09/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 12,
-            "Wellness Person": 8
+          {
+            "date": "08/09/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 12,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "08/10/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 12,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "08/10/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 10
+            }
           },
-          "08/11/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 10
+          {
+            "date": "08/11/2018",
+            "positions": {
+              "Logistics Coordinator": 11,
+              "Office Coordinator": 10,
+              "Team Leader": 13,
+              "Wellness Person": 8
+            }
           }
-        },
+        ],
         "staff": [
           {
             "firstName": "Tobye",
@@ -1047,62 +1263,89 @@
           "max": "08/20/2018",
           "min": "08/12/2018"
         },
-        "hours": {
-          "08/12/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 8
+        "hours": [
+          {
+            "date": "08/12/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "08/13/2018": {
-            "Logistics Coordinator": 11,
-            "Office Coordinator": 12,
-            "Team Leader": 9,
-            "Wellness Person": 8
+          {
+            "date": "08/13/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
           },
-          "08/14/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 8,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "08/14/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
           },
-          "08/15/2018": {
-            "Logistics Coordinator": 13,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "08/15/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "08/16/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 15,
-            "Wellness Person": 8
+          {
+            "date": "08/16/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
           },
-          "08/17/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 12
+          {
+            "date": "08/17/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 17,
+              "Wellness Person": 8
+            }
           },
-          "08/18/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 14,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "08/18/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 12,
+              "Wellness Person": 8
+            }
           },
-          "08/19/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 16,
-            "Wellness Person": 8
+          {
+            "date": "08/19/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 12,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "08/20/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 17,
-            "Wellness Person": 8
+          {
+            "date": "08/20/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 10
+            }
           }
-        },
+        ],
         "staff": [
           {
             "firstName": "Crin",
@@ -1192,80 +1435,116 @@
           "max": "07/14/2018",
           "min": "07/03/2018"
         },
-        "hours": {
-          "07/03/2018": {
-            "Logistics Coordinator": 11,
-            "Office Coordinator": 12,
-            "Team Leader": 9,
-            "Wellness Person": 8
+        "hours": [
+          {
+            "date": "07/03/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/04/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 8,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/04/2018",
+            "positions": {
+              "Logistics Coordinator": 11,
+              "Office Coordinator": 12,
+              "Team Leader": 9,
+              "Wellness Person": 8
+            }
           },
-          "07/05/2018": {
-            "Logistics Coordinator": 13,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/05/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 8,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/06/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 15,
-            "Wellness Person": 8
+          {
+            "date": "07/06/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/07/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 12
+          {
+            "date": "07/07/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
           },
-          "07/08/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 14,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/08/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
           },
-          "07/09/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 16,
-            "Wellness Person": 8
+          {
+            "date": "07/09/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/10/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 17,
-            "Wellness Person": 8
+          {
+            "date": "07/10/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
           },
-          "07/11/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 12,
-            "Wellness Person": 8
+          {
+            "date": "07/11/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 17,
+              "Wellness Person": 8
+            }
           },
-          "07/12/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 12,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/12/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 12,
+              "Wellness Person": 8
+            }
           },
-          "07/13/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 10
+          {
+            "date": "07/13/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 12,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/14/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 12,
-            "Wellness Person": 8
+          {
+            "date": "07/14/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 10
+            }
           }
-        },
+        ],
         "staff": [
           {
             "firstName": "Alma",
@@ -1350,62 +1629,89 @@
           "max": "07/23/2018",
           "min": "07/15/2018"
         },
-        "hours": {
-          "07/15/2018": {
-            "Logistics Coordinator": 13,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 8
+        "hours": [
+          {
+            "date": "07/15/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/16/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 15,
-            "Wellness Person": 8
+          {
+            "date": "07/16/2018",
+            "positions": {
+              "Logistics Coordinator": 11,
+              "Office Coordinator": 12,
+              "Team Leader": 9,
+              "Wellness Person": 8
+            }
           },
-          "07/17/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 12
+          {
+            "date": "07/17/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 8,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/18/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 14,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/18/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/19/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 16,
-            "Wellness Person": 8
+          {
+            "date": "07/19/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
           },
-          "07/20/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 17,
-            "Wellness Person": 8
+          {
+            "date": "07/20/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
           },
-          "07/21/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 12,
-            "Wellness Person": 8
+          {
+            "date": "07/21/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/22/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 12,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/22/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
           },
-          "07/23/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 10
+          {
+            "date": "07/23/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 17,
+              "Wellness Person": 8
+            }
           }
-        },
+        ],
         "staff": [
           {
             "firstName": "Tedi",
@@ -1495,80 +1801,116 @@
           "max": "07/14/2018",
           "min": "07/03/2018"
         },
-        "hours": {
-          "07/03/2018": {
-            "Logistics Coordinator": 11,
-            "Office Coordinator": 12,
-            "Team Leader": 9,
-            "Wellness Person": 8
+        "hours": [
+          {
+            "date": "07/03/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/04/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 8,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/04/2018",
+            "positions": {
+              "Logistics Coordinator": 11,
+              "Office Coordinator": 12,
+              "Team Leader": 9,
+              "Wellness Person": 8
+            }
           },
-          "07/05/2018": {
-            "Logistics Coordinator": 13,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/05/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 8,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/06/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 15,
-            "Wellness Person": 8
+          {
+            "date": "07/06/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/07/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 12
+          {
+            "date": "07/07/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
           },
-          "07/08/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 14,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/08/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
           },
-          "07/09/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 16,
-            "Wellness Person": 8
+          {
+            "date": "07/09/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/10/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 17,
-            "Wellness Person": 8
+          {
+            "date": "07/10/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
           },
-          "07/11/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 12,
-            "Wellness Person": 8
+          {
+            "date": "07/11/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 17,
+              "Wellness Person": 8
+            }
           },
-          "07/12/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 12,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/12/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 12,
+              "Wellness Person": 8
+            }
           },
-          "07/13/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 10
+          {
+            "date": "07/13/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 12,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/14/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 12,
-            "Wellness Person": 8
+          {
+            "date": "07/14/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 10
+            }
           }
-        },
+        ],
         "staff": [
           {
             "firstName": "Aguste",
@@ -1653,62 +1995,89 @@
           "max": "07/23/2018",
           "min": "07/15/2018"
         },
-        "hours": {
-          "07/15/2018": {
-            "Logistics Coordinator": 13,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 8
+        "hours": [
+          {
+            "date": "07/15/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/16/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 15,
-            "Wellness Person": 8
+          {
+            "date": "07/16/2018",
+            "positions": {
+              "Logistics Coordinator": 11,
+              "Office Coordinator": 12,
+              "Team Leader": 9,
+              "Wellness Person": 8
+            }
           },
-          "07/17/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 12
+          {
+            "date": "07/17/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 8,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/18/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 14,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/18/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/19/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 16,
-            "Wellness Person": 8
+          {
+            "date": "07/19/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
           },
-          "07/20/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 17,
-            "Wellness Person": 8
+          {
+            "date": "07/20/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
           },
-          "07/21/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 12,
-            "Wellness Person": 8
+          {
+            "date": "07/21/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
           },
-          "07/22/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 12,
-            "Team Leader": 8,
-            "Wellness Person": 8
+          {
+            "date": "07/22/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
           },
-          "07/23/2018": {
-            "Logistics Coordinator": 10,
-            "Office Coordinator": 10,
-            "Team Leader": 8,
-            "Wellness Person": 10
+          {
+            "date": "07/23/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 17,
+              "Wellness Person": 8
+            }
           }
-        },
+        ],
         "staff": [
           {
             "firstName": "Lonni",
