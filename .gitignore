@@ -1,5 +1,4 @@
+.cache
 node_modules
-EDITING\.HTML		
-cypress/		
-admin/backup\.html		
-admin/working\.html 
+public
+yarn.lock

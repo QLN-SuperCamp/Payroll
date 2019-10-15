@@ -1,0 +1,2161 @@
+[
+  {
+    "name": "Southwestern University",
+    "camps": [
+      {
+        "name": "Camp 1 (TXS118 / TXJ118)",
+        "dates": {
+          "max": "06/30/2018",
+          "min": "06/19/2018"
+        },
+        "hours": [
+          {
+            "date": "06/19/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "06/20/2018",
+            "positions": {
+              "Logistics Coordinator": 11,
+              "Office Coordinator": 12,
+              "Team Leader": 9,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "06/21/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 8,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "06/22/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "06/23/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "06/24/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
+          },
+          {
+            "date": "06/25/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "06/26/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "06/27/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 17,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "06/28/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 12,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "06/29/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 12,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "06/30/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 10
+            }
+          }
+        ],
+        "staff": [
+          {
+            "firstName": "Lavena",
+            "lastName": "Gasparro",
+            "position": "Wellness Person"
+          },
+          {
+            "firstName": "Alan",
+            "lastName": "Lepard",
+            "position": "Office Coordinator"
+          },
+          {
+            "firstName": "Bartel",
+            "lastName": "Beek",
+            "position": "Logistics Coordinator"
+          },
+          {
+            "firstName": "Bidget",
+            "lastName": "Bonafant",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Judah",
+            "lastName": "Stanlike",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Rikki",
+            "lastName": "Boyce",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Martie",
+            "lastName": "Martinovic",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Elonore",
+            "lastName": "Rathborne",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Fidelia",
+            "lastName": "Chalcroft",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Pamelina",
+            "lastName": "Braidman",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Umeko",
+            "lastName": "De Brett",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Beau",
+            "lastName": "Beirne",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Zak",
+            "lastName": "Mintrim",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Leah",
+            "lastName": "Mulryan",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Patrick",
+            "lastName": "Beat",
+            "position": "Team Leader"
+          }
+        ]
+      },
+      {
+        "name": "Camp 2 (TXQA118)",
+        "dates": {
+          "max": "07/09/2018",
+          "min": "07/01/2018"
+        },
+        "hours": [
+          {
+            "date": "07/01/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 8,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/02/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/03/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/04/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
+          },
+          {
+            "date": "07/05/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/06/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/07/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 17,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/08/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 12,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/09/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 12,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          }
+        ],
+        "staff": [
+          {
+            "firstName": "Gilligan",
+            "lastName": "Grevel",
+            "position": "Logistics Coordinator"
+          },
+          {
+            "firstName": "Inigo",
+            "lastName": "Robertsson",
+            "position": "Office Coordinator"
+          },
+          {
+            "firstName": "Consalve",
+            "lastName": "Millwall",
+            "position": "Wellness Person"
+          },
+          {
+            "firstName": "Helene",
+            "lastName": "Goff",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Rosetta",
+            "lastName": "McKaile",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Christen",
+            "lastName": "Lamboll",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Phoebe",
+            "lastName": "Light",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Jobyna",
+            "lastName": "Swede",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Scarlett",
+            "lastName": "Adair",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Hewitt",
+            "lastName": "Hairesnape",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Godwin",
+            "lastName": "Pelfer",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Bearnard",
+            "lastName": "Sallnow",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Marline",
+            "lastName": "Beaten",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Kasper",
+            "lastName": "Krolak",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Agnella",
+            "lastName": "Spiby",
+            "position": "Team Leader"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Stanford University",
+    "camps": [
+      {
+        "name": "Camp 1 (STS118)",
+        "dates": {
+          "max": "07/06/2018",
+          "min": "06/22/2018"
+        },
+        "hours": [
+          {
+            "date": "06/22/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "06/23/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "06/24/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
+          },
+          {
+            "date": "06/25/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "06/26/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "06/27/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 17,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "06/28/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 12,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "06/29/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 12,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "06/30/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 10
+            }
+          },
+          {
+            "date": "07/01/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/02/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/03/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
+          },
+          {
+            "date": "07/04/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/05/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/06/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          }
+        ],
+        "staff": [
+          {
+            "firstName": "Caritta",
+            "lastName": "Bodsworth",
+            "position": "Logistics Coordinator"
+          },
+          {
+            "firstName": "Andre",
+            "lastName": "Pinnijar",
+            "position": "Office Coordinator"
+          },
+          {
+            "firstName": "Warde",
+            "lastName": "Van Der Weedenburg",
+            "position": "Wellness Person"
+          },
+          {
+            "firstName": "Roy",
+            "lastName": "Sorro",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Aloisia",
+            "lastName": "Sahnow",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Mara",
+            "lastName": "Campanelli",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Derrek",
+            "lastName": "Dowson",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Chrysler",
+            "lastName": "Hunting",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Yancey",
+            "lastName": "Simonard",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Gris",
+            "lastName": "Stewart",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Donny",
+            "lastName": "Ludford",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Augustin",
+            "lastName": "Piggott",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Helaina",
+            "lastName": "Spellward",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Shirline",
+            "lastName": "McCarl",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Grethel",
+            "lastName": "Oganesian",
+            "position": "Team Leader"
+          }
+        ]
+      },
+      {
+        "name": "Camp 2 (STJ118)",
+        "dates": {
+          "max": "07/14/2018",
+          "min": "07/07/2018"
+        },
+        "hours": [
+          {
+            "date": "07/07/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/08/2018",
+            "positions": {
+              "Logistics Coordinator": 11,
+              "Office Coordinator": 12,
+              "Team Leader": 9,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/09/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 8,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/10/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/11/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/12/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/13/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/14/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 17,
+              "Wellness Person": 8
+            }
+          }
+        ],
+        "staff": [
+          {
+            "firstName": "Bordie",
+            "lastName": "Groome",
+            "position": "Logistics Coordinator"
+          },
+          {
+            "firstName": "Saunder",
+            "lastName": "Laying",
+            "position": "Office Coordinator"
+          },
+          {
+            "firstName": "Brit",
+            "lastName": "Wase",
+            "position": "Wellness Person"
+          },
+          {
+            "firstName": "Allys",
+            "lastName": "Mannock",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Sheridan",
+            "lastName": "Renny",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Loree",
+            "lastName": "Tugwell",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Lila",
+            "lastName": "Ramard",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Boonie",
+            "lastName": "Robertis",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Erna",
+            "lastName": "Biscomb",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Bryan",
+            "lastName": "Dunnett",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Damaris",
+            "lastName": "Cranidge",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Margarethe",
+            "lastName": "Hradsky",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Vivi",
+            "lastName": "Tennick",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Felisha",
+            "lastName": "Oakly",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Agretha",
+            "lastName": "Jinkin",
+            "position": "Team Leader"
+          }
+        ]
+      },
+      {
+        "name": "Camp 3 (STS218)",
+        "dates": {
+          "max": "07/22/2018",
+          "min": "07/15/2018"
+        },
+        "hours": [
+          {
+            "date": "07/15/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/16/2018",
+            "positions": {
+              "Logistics Coordinator": 11,
+              "Office Coordinator": 12,
+              "Team Leader": 9,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/17/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 8,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/18/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/19/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/20/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
+          },
+          {
+            "date": "07/21/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/22/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
+          }
+        ],
+        "staff": [
+          {
+            "firstName": "Jeffrey",
+            "lastName": "Geekie",
+            "position": "Logistics Coordinator"
+          },
+          {
+            "firstName": "Nicol",
+            "lastName": "Clapperton",
+            "position": "Office Coordinator"
+          },
+          {
+            "firstName": "Silvain",
+            "lastName": "Whitter",
+            "position": "Wellness Person"
+          },
+          {
+            "firstName": "Yoshi",
+            "lastName": "O'Keefe",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Benedikt",
+            "lastName": "Calveley",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Bat",
+            "lastName": "Beaumont",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Kim",
+            "lastName": "Deporte",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Bevan",
+            "lastName": "Worg",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Britt",
+            "lastName": "Sherbourne",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Augustina",
+            "lastName": "Meran",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Wesley",
+            "lastName": "Matanin",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Leonard",
+            "lastName": "Dible",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Nevins",
+            "lastName": "Pilger",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Garrett",
+            "lastName": "Braiden",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Calida",
+            "lastName": "Waszczyk",
+            "position": "Team Leader"
+          }
+        ]
+      },
+      {
+        "name": "Camp 4 (STJ218)",
+        "dates": {
+          "max": "07/30/2018",
+          "min": "07/23/2018"
+        },
+        "hours": [
+          {
+            "date": "07/23/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/24/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
+          },
+          {
+            "date": "07/25/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/26/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/27/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 17,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/28/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 12,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/29/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 12,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/30/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 10
+            }
+          }
+        ],
+        "staff": [
+          {
+            "firstName": "Maximilianus",
+            "lastName": "Tschierasche",
+            "position": "Logistics Coordinator"
+          },
+          {
+            "firstName": "Axel",
+            "lastName": "Jobbings",
+            "position": "Office Coordinator"
+          },
+          {
+            "firstName": "Xaviera",
+            "lastName": "Haldin",
+            "position": "Wellness Person"
+          },
+          {
+            "firstName": "Arvie",
+            "lastName": "Rustidge",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Bobby",
+            "lastName": "Raw",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Jessie",
+            "lastName": "Goodby",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Gregoire",
+            "lastName": "Gever",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Nappy",
+            "lastName": "Spuner",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Harmonie",
+            "lastName": "Jaggers",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Arny",
+            "lastName": "McConnulty",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Ezekiel",
+            "lastName": "Lerway",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Cesare",
+            "lastName": "Charley",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Emylee",
+            "lastName": "Fewlass",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Rhianon",
+            "lastName": "Forestall",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Tani",
+            "lastName": "Eccersley",
+            "position": "Team Leader"
+          }
+        ]
+      },
+      {
+        "name": "Camp 5 (STS318)",
+        "dates": {
+          "max": "08/11/2018",
+          "min": "07/31/2018"
+        },
+        "hours": [
+          {
+            "date": "07/31/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "08/01/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 8,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "08/02/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "08/03/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "08/04/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
+          },
+          {
+            "date": "08/05/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "08/06/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "08/07/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 17,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "08/08/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 12,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "08/09/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 12,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "08/10/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 10
+            }
+          },
+          {
+            "date": "08/11/2018",
+            "positions": {
+              "Logistics Coordinator": 11,
+              "Office Coordinator": 10,
+              "Team Leader": 13,
+              "Wellness Person": 8
+            }
+          }
+        ],
+        "staff": [
+          {
+            "firstName": "Tobye",
+            "lastName": "McCulloch",
+            "position": "Logistics Coordinator"
+          },
+          {
+            "firstName": "Lauritz",
+            "lastName": "Chetwynd",
+            "position": "Office Coordinator"
+          },
+          {
+            "firstName": "Reinhold",
+            "lastName": "Fulun",
+            "position": "Wellness Person"
+          },
+          {
+            "firstName": "Cyrill",
+            "lastName": "Windley",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Doris",
+            "lastName": "Jaques",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Rodge",
+            "lastName": "Mosen",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Kermit",
+            "lastName": "Rolse",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Quinta",
+            "lastName": "Hakonsen",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Katee",
+            "lastName": "Welbrock",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Edmund",
+            "lastName": "Koch",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Burg",
+            "lastName": "Doerrling",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Mart",
+            "lastName": "Haddrill",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Debee",
+            "lastName": "Lygoe",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Kimmie",
+            "lastName": "Hallatt",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Geneva",
+            "lastName": "Demer",
+            "position": "Team Leader"
+          }
+        ]
+      },
+      {
+        "name": "Camp 6 (STS418)",
+        "dates": {
+          "max": "08/20/2018",
+          "min": "08/12/2018"
+        },
+        "hours": [
+          {
+            "date": "08/12/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "08/13/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "08/14/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
+          },
+          {
+            "date": "08/15/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "08/16/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "08/17/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 17,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "08/18/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 12,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "08/19/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 12,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "08/20/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 10
+            }
+          }
+        ],
+        "staff": [
+          {
+            "firstName": "Crin",
+            "lastName": "Artus",
+            "position": "Logistics Coordinator"
+          },
+          {
+            "firstName": "Philbert",
+            "lastName": "Faires",
+            "position": "Office Coordinator"
+          },
+          {
+            "firstName": "Neils",
+            "lastName": "Tarrant",
+            "position": "Wellness Person"
+          },
+          {
+            "firstName": "Gnni",
+            "lastName": "Gyppes",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Shepherd",
+            "lastName": "Hrachovec",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Binny",
+            "lastName": "Gobel",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Renae",
+            "lastName": "Vanyarkin",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Levon",
+            "lastName": "Muggleton",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Malynda",
+            "lastName": "Pfleger",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Ludovico",
+            "lastName": "Hoodspeth",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Rafaelita",
+            "lastName": "Desborough",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Wilmar",
+            "lastName": "O'Glassane",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Angus",
+            "lastName": "Cazin",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Chelsea",
+            "lastName": "Harkness",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Tobe",
+            "lastName": "Magarrell",
+            "position": "Team Leader"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "University of Central Florida",
+    "camps": [
+      {
+        "name": "Camp 1 (FLJ118)",
+        "dates": {
+          "max": "07/14/2018",
+          "min": "07/03/2018"
+        },
+        "hours": [
+          {
+            "date": "07/03/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/04/2018",
+            "positions": {
+              "Logistics Coordinator": 11,
+              "Office Coordinator": 12,
+              "Team Leader": 9,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/05/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 8,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/06/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/07/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/08/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
+          },
+          {
+            "date": "07/09/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/10/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/11/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 17,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/12/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 12,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/13/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 12,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/14/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 10
+            }
+          }
+        ],
+        "staff": [
+          {
+            "firstName": "Alma",
+            "lastName": "Kamena",
+            "position": "Logistics Coordinator"
+          },
+          {
+            "firstName": "Tracey",
+            "lastName": "Whilder",
+            "position": "Office Coordinator"
+          },
+          {
+            "firstName": "Frans",
+            "lastName": "Lloyds",
+            "position": "Wellness Person"
+          },
+          {
+            "firstName": "Haily",
+            "lastName": "Luchelli",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Northrop",
+            "lastName": "Beadle",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Kiele",
+            "lastName": "Edgley",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Ariella",
+            "lastName": "Rorke",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Kenn",
+            "lastName": "MacKeogh",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Pavel",
+            "lastName": "Findlow",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Eryn",
+            "lastName": "Hughes",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Radcliffe",
+            "lastName": "Levens",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Garek",
+            "lastName": "Suggey",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Cara",
+            "lastName": "Vaissiere",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Cassondra",
+            "lastName": "Luckcock",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Nicoline",
+            "lastName": "Bezants",
+            "position": "Team Leader"
+          }
+        ]
+      },
+      {
+        "name": "Camp 2 (FLS118)",
+        "dates": {
+          "max": "07/23/2018",
+          "min": "07/15/2018"
+        },
+        "hours": [
+          {
+            "date": "07/15/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/16/2018",
+            "positions": {
+              "Logistics Coordinator": 11,
+              "Office Coordinator": 12,
+              "Team Leader": 9,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/17/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 8,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/18/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/19/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/20/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
+          },
+          {
+            "date": "07/21/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/22/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/23/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 17,
+              "Wellness Person": 8
+            }
+          }
+        ],
+        "staff": [
+          {
+            "firstName": "Tedi",
+            "lastName": "Ockwell",
+            "position": "Logistics Coordinator"
+          },
+          {
+            "firstName": "Christophorus",
+            "lastName": "Sinclaire",
+            "position": "Office Coordinator"
+          },
+          {
+            "firstName": "Leanna",
+            "lastName": "Plitz",
+            "position": "Wellness Person"
+          },
+          {
+            "firstName": "Reeva",
+            "lastName": "Lawless",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Kareem",
+            "lastName": "Raffeorty",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Guglielma",
+            "lastName": "Frantz",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Humbert",
+            "lastName": "Rallin",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Glynn",
+            "lastName": "Hurton",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Ellen",
+            "lastName": "Pellett",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Carver",
+            "lastName": "Durbyn",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Terence",
+            "lastName": "Melbourn",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Krishna",
+            "lastName": "Whetnell",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Sabina",
+            "lastName": "Littlepage",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Avery",
+            "lastName": "Vella",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Sinclair",
+            "lastName": "Witherington",
+            "position": "Team Leader"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Villanova University",
+    "camps": [
+      {
+        "name": "Camp 1 (PAS118)",
+        "dates": {
+          "max": "07/14/2018",
+          "min": "07/03/2018"
+        },
+        "hours": [
+          {
+            "date": "07/03/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/04/2018",
+            "positions": {
+              "Logistics Coordinator": 11,
+              "Office Coordinator": 12,
+              "Team Leader": 9,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/05/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 8,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/06/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/07/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/08/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
+          },
+          {
+            "date": "07/09/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/10/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/11/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 17,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/12/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 12,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/13/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 12,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/14/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 10
+            }
+          }
+        ],
+        "staff": [
+          {
+            "firstName": "Aguste",
+            "lastName": "Mercy",
+            "position": "Logistics Coordinator"
+          },
+          {
+            "firstName": "Hannis",
+            "lastName": "Cavy",
+            "position": "Office Coordinator"
+          },
+          {
+            "firstName": "Herc",
+            "lastName": "Southerill",
+            "position": "Wellness Person"
+          },
+          {
+            "firstName": "Albert",
+            "lastName": "McIlheran",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Haleigh",
+            "lastName": "Jales",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Hadleigh",
+            "lastName": "Lorent",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Lexy",
+            "lastName": "Fenich",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Silvanus",
+            "lastName": "Munsey",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Licha",
+            "lastName": "Janssens",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Jourdan",
+            "lastName": "Sothern",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Robinett",
+            "lastName": "Tregian",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Darrin",
+            "lastName": "Say",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Leo",
+            "lastName": "Hort",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Chelsie",
+            "lastName": "Deener",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Cheri",
+            "lastName": "Delacourt",
+            "position": "Team Leader"
+          }
+        ]
+      },
+      {
+        "name": "Camp 2 (PAJ118)",
+        "dates": {
+          "max": "07/23/2018",
+          "min": "07/15/2018"
+        },
+        "hours": [
+          {
+            "date": "07/15/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/16/2018",
+            "positions": {
+              "Logistics Coordinator": 11,
+              "Office Coordinator": 12,
+              "Team Leader": 9,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/17/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 8,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/18/2018",
+            "positions": {
+              "Logistics Coordinator": 13,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/19/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 15,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/20/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 8,
+              "Wellness Person": 12
+            }
+          },
+          {
+            "date": "07/21/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 14,
+              "Team Leader": 8,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/22/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 16,
+              "Wellness Person": 8
+            }
+          },
+          {
+            "date": "07/23/2018",
+            "positions": {
+              "Logistics Coordinator": 10,
+              "Office Coordinator": 10,
+              "Team Leader": 17,
+              "Wellness Person": 8
+            }
+          }
+        ],
+        "staff": [
+          {
+            "firstName": "Lonni",
+            "lastName": "McNeely",
+            "position": "Logistics Coordinator"
+          },
+          {
+            "firstName": "Tresa",
+            "lastName": "Crofts",
+            "position": "Office Coordinator"
+          },
+          {
+            "firstName": "Ranee",
+            "lastName": "Maccrae",
+            "position": "Wellness Person"
+          },
+          {
+            "firstName": "Burt",
+            "lastName": "Tingly",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Libbey",
+            "lastName": "Semrad",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Del",
+            "lastName": "Camsey",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Darcey",
+            "lastName": "Alleyne",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Olva",
+            "lastName": "Kobus",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Becca",
+            "lastName": "Baglow",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Bessy",
+            "lastName": "Greenhead",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Lucita",
+            "lastName": "Mapples",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Velvet",
+            "lastName": "Ottee",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Stesha",
+            "lastName": "Frenzl",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Pru",
+            "lastName": "Grainge",
+            "position": "Team Leader"
+          },
+          {
+            "firstName": "Hinda",
+            "lastName": "Fost",
+            "position": "Team Leader"
+          }
+        ]
+      }
+    ]
+  }
+]
