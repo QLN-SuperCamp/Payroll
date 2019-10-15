@@ -16,9 +16,12 @@
     "@material-ui/core": "^4.5.0",
     "@material-ui/icons": "^4.4.3",
     "@material-ui/pickers": "^3.2.6",
+    "babel-plugin-styled-components": "^1.10.6",
     "formik": "^1.5.8",
     "gatsby": "^2.15.36",
+    "gatsby-plugin-material-ui": "^2.1.6",
     "gatsby-plugin-sass": "^2.1.18",
+    "gatsby-plugin-styled-components": "^3.1.11",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.1.31",
     "gatsby-transformer-json": "^2.2.13",
@@ -29,7 +32,8 @@
     "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1",
     "react-redux": "^7.1.1",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "styled-components": "^4.4.0"
   },
   "devDependencies": {
     "prettier": "^1.18.2"

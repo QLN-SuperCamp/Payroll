@@ -2,74 +2,69 @@ import React from "react";
 import Layout from "../components/layout";
 import { Box, Typography, Paper } from "@material-ui/core";
 import Helmet from "../components/helmet";
-import { makeStyles } from "@material-ui/core/styles";
+import styled from "styled-components";
 
-const useStyles = makeStyles(theme => ({
-  container: {
-    marginBottom: "50px",
-    marginLeft: "10%",
-    marginRight: "10%",
-    marginTop: "50px",
-    "& a": {
-      color: "#172b46",
-      fontWeight: 600,
-      textDecoration: "none"
-    }
-  },
-  title: {
-    color: "#495057",
-    margin: 0,
-    fontSize: "1.5rem",
-    fontWeight: 400,
-    lineHeight: "2.5rem"
-  },
-  textContainer: {
-    marginTop: "25px",
-    padding: "25px",
-    "& h2": {
-      color: "#495057",
-      fontSize: "1.75rem"
-    },
-    "& h3": {
-      color: "#495057",
-      fontSize: "1.5rem"
-    },
-    "& p": {
-      color: "#495057",
-      fontSize: "1rem",
-      marginBottom: "1rem",
-      marginTop: "1rem"
-    }
-  }
-}));
+const StyledGuideContainer = styled(Box)`
+  margin-bottom: 50px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 50px;
+`;
 
-const HomePage = () => {
-  const classes = useStyles();
+const StyledTextContainer = styled(Paper)`
+  margin-top: 25px;
+  padding: 25px;
+`;
+
+const StyledTitle = styled(Typography)`
+  color: #495057;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2.5rem;
+`;
+
+const StyledH2 = styled(Typography)`
+  color: #495057;
+  font-size: 1.75re;
+`;
+
+const StyledH3 = styled(Typography)`
+  color: #495057;
+  font-size: 1.5rem;
+`;
+
+const StyledP = styled(Typography)`
+  color: #495057;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+`;
+
+const GuidePage = props => {
   return (
     <Layout>
       <Helmet title="Guide" />
-      <Box className={classes.container}>
-        <Typography className={classes.title} variant="h1">
-          Guide
-        </Typography>
-        <Paper className={classes.textContainer}>
-          <Typography variant="h2">Introduction</Typography>
-          <Typography>
+      <StyledGuideContainer>
+        <StyledTitle variant="h1">Guide</StyledTitle>
+        <StyledTextContainer>
+          <StyledH2 variant="h2">Introduction</StyledH2>
+          <StyledP>
             This payroll form is meant to be a simple and easy process for
             logging staff member hours every day throughout camp. Most
             information is already filled in for you!
-          </Typography>
-          <Typography variant="h3">Site Information</Typography>
-          <Typography>
+          </StyledP>
+          <StyledH3 variant="h3">Site Information</StyledH3>
+          <StyledP>
             Please be sure to enter all information in this section before
             clicking "continue". Enter your first and last name, as well as the
             site and camp you are inputting hours for. The date will
             automatically populate to the 1st day of that camp, and you will
             only be able to select days within the selected camp. Use the drop
             down menu to select the correct day.
-          </Typography>
-          <Typography variant="h3">Staff Information</Typography>
-          <Typography>
+          </StyledP>
+          <StyledH3 variant="h3">Staff Information</StyledH3>
+          <StyledP>
             Once you click "continue", sections with position information will
             become available to you. Each position section has the same
             information: Staff Members: A list of staff members is generated
@@ -88,20 +83,20 @@ const HomePage = () => {
             Sick Staff: If there is a sick staff member, select the toggle, and
             check which staff member was sick. Uncheck the staff member from the
             regular section, and input "0" in the "hours" and "minutes" fields.
-          </Typography>
-          <Typography variant="h3">Submitting the Form</Typography>
-          <Typography>
+          </StyledP>
+          <StyledH3 variant="h3">Submitting the Form</StyledH3>
+          <StyledP>
             After entering in the information, you are able to preview before
             you officially submit. Hit the "Preview" button to see an overview
             of the information you entered. Once you have read through
             everything and verified the information is correct, click the
             "Submit" button. The information is sent over to QLN, and you are
             able to enter another form.
-          </Typography>
-        </Paper>
-      </Box>
+          </StyledP>
+        </StyledTextContainer>
+      </StyledGuideContainer>
     </Layout>
   );
 };
 
-export default HomePage;
+export default GuidePage;

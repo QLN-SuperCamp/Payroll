@@ -4,23 +4,22 @@ import { IconButton, Snackbar, SnackbarContent } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import { setSubmitted } from "../redux/actions/data";
-import { makeStyles } from "@material-ui/core/styles";
+import styled from "styled-components";
 
-const useStyles = makeStyles(theme => ({
-  status: {
-    backgroundColor: "#43a047"
-  },
-  message: {
-    alignItems: "center",
-    display: "flex"
-  },
-  icon: {
-    marginRight: "10px"
-  }
-}));
+const StyledSnackbarContent = styled(SnackbarContent)`
+  background-color: #43a047;
+`;
+
+const StyledSpan = styled.span`
+  align-items: center;
+  display: flex;
+`;
+
+const StyledCheckCircleIcon = styled(CheckCircleIcon)`
+  margin-right: 10px;
+`;
 
 const Status = ({ handleClose, submitted }) => {
-  const classes = useStyles();
   return (
     <Snackbar
       anchorOrigin={{
@@ -31,7 +30,7 @@ const Status = ({ handleClose, submitted }) => {
       open={submitted}
       onClose={handleClose}
     >
-      <SnackbarContent
+      <StyledSnackbarContent
         action={[
           <IconButton
             key="close"
@@ -42,12 +41,11 @@ const Status = ({ handleClose, submitted }) => {
             <CloseIcon />
           </IconButton>
         ]}
-        className={classes.status}
         message={
-          <span className={classes.message}>
-            <CheckCircleIcon className={classes.icon} />
+          <StyledSpan>
+            <StyledCheckCircleIcon />
             Report sent successfully
-          </span>
+          </StyledSpan>
         }
       />
     </Snackbar>

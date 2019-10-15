@@ -7,52 +7,42 @@ import DateField from "./dateField";
 import { Formik } from "formik";
 import { connect } from "react-redux";
 import { setSiteInformation } from "../redux/actions/data";
-import { makeStyles } from "@material-ui/core/styles";
+import styled from "styled-components";
 
-const useStyles = makeStyles(theme => ({
-  container: {
-    marginTop: "20px"
-  },
-  topContainer: {
-    borderBottom: "1px solid rgba(0, 40, 100, 0.12)",
-    padding: "20px"
-  },
-  loadingContainer: {
-    borderBottom: "1px solid rgba(0, 40, 100, 0.12)",
-    padding: "20px",
-    alignItems: "center",
-    display: "flex",
-    justifyContent: "center"
-  },
-  formContainer: {
-    display: "flex",
-    flexDirection: "row",
-    padding: "20px"
-  },
-  tableContainer: {
-    padding: "20px",
-    width: "calc(100% - 40px)"
-  },
-  buttonContainer: {
-    borderTop: "1px solid rgba(0, 40, 100, 0.12)",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "flex-end",
-    padding: "20px"
-  },
-  title: {
-    fontSize: "1.125rem",
-    lineHeight: 1.2,
-    fontWeight: 400
-  }
-}));
+const StyledPaper = styled(Paper)`
+  margin-top: 20px;
+`;
+
+const StyledTopContainer = styled(Box)`
+  border-bottom: 1px solid rgba(0, 40, 100, 0.12);
+  padding: 20px;
+`;
+
+const StyledFormContainer = styled(Box)`
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+`;
+
+const StyledButtonContainer = styled(Box)`
+  border-top: 1px solid rgba(0, 40, 100, 0.12);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 20px;
+`;
+
+const StyledTitle = styled(Typography)`
+  font-size: 1.125rem;
+  line-height: 1.2;
+  font-weight: 400;
+`;
 
 const SiteInformation = ({
   handleSubmitSiteInformation,
   siteInformation,
   submitting
 }) => {
-  const classes = useStyles();
   if (submitting) {
     return null;
   } else {
@@ -97,13 +87,11 @@ const SiteInformation = ({
       >
         {({ values, errors, handleChange, handleSubmit }) => (
           <form onSubmit={handleSubmit}>
-            <Paper className={classes.container}>
-              <Box className={classes.topContainer}>
-                <Typography className={classes.title} variant="h2">
-                  Site Information
-                </Typography>
-              </Box>
-              <Box className={classes.formContainer}>
+            <StyledPaper>
+              <StyledTopContainer>
+                <StyledTitle variant="h2">Site Information</StyledTitle>
+              </StyledTopContainer>
+              <StyledFormContainer>
                 <NameField
                   errors={errors}
                   handleChange={handleChange}
@@ -124,16 +112,16 @@ const SiteInformation = ({
                   handleChange={handleChange}
                   values={values}
                 />
-              </Box>
+              </StyledFormContainer>
 
               {!siteInformation && (
-                <Box className={classes.buttonContainer}>
+                <StyledButtonContainer>
                   <Button color="primary" type="submit" variant="contained">
                     Continue
                   </Button>
-                </Box>
+                </StyledButtonContainer>
               )}
-            </Paper>
+            </StyledPaper>
           </form>
         )}
       </Formik>

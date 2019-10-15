@@ -10,48 +10,37 @@ import {
   setSubmitted,
   setSiteInformation
 } from "../redux/actions/data";
-import { makeStyles } from "@material-ui/core/styles";
+import styled from "styled-components";
 
-const useStyles = makeStyles(theme => ({
-  container: {
-    marginTop: "20px"
-  },
-  topContainer: {
-    borderBottom: "1px solid rgba(0, 40, 100, 0.12)",
-    padding: "20px"
-  },
-  loadingContainer: {
-    borderBottom: "1px solid rgba(0, 40, 100, 0.12)",
-    padding: "20px",
-    alignItems: "center",
-    display: "flex",
-    justifyContent: "center"
-  },
-  formContainer: {
-    display: "flex",
-    flexDirection: "row",
-    padding: "20px"
-  },
-  tableContainer: {
-    padding: "20px",
-    width: "calc(100% - 40px)"
-  },
-  buttonContainer: {
-    borderTop: "1px solid rgba(0, 40, 100, 0.12)",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "flex-end",
-    padding: "20px"
-  },
-  title: {
-    fontSize: "1.125rem",
-    lineHeight: 1.2,
-    fontWeight: 400
-  }
-}));
+const StyledPaper = styled(Paper)`
+  margin-top: 20px;
+`;
+
+const StyledTopContainer = styled(Box)`
+  border-bottom: 1px solid rgba(0, 40, 100, 0.12);
+  padding: 20px;
+`;
+
+const StyledTableContainer = styled(Box)`
+  padding: 20px;
+  width: calc(100% - 40px);
+`;
+
+const StyledButtonContainer = styled(Box)`
+  border-top: 1px solid rgba(0, 40, 100, 0.12);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 20px;
+`;
+
+const StyledTitle = styled(Typography)`
+  font-size: 1.125rem;
+  line-height: 1.2;
+  font-weight: 400;
+`;
 
 const StaffInformation = ({ handleSubmit, siteInformation, submitting }) => {
-  const classes = useStyles();
   const data = useStaticQuery(graphql`
     {
       allSitesJson {
@@ -115,20 +104,18 @@ const StaffInformation = ({ handleSubmit, siteInformation, submitting }) => {
 
   if (siteInformation && !submitting) {
     return (
-      <Paper className={classes.container}>
-        <Box className={classes.topContainer}>
-          <Typography className={classes.title} variant="h2">
-            Staff Information
-          </Typography>
-        </Box>
-        <Box className={classes.tableContainer}>
+      <StyledPaper>
+        <StyledTopContainer>
+          <StyledTitle variant="h2">Staff Information</StyledTitle>
+        </StyledTopContainer>
+        <StyledTableContainer>
           <StaffInformationTable
             data={tableData}
             setUpdatedData={setUpdatedData}
           />
-        </Box>
+        </StyledTableContainer>
 
-        <Box className={classes.buttonContainer}>
+        <StyledButtonContainer>
           <Button
             color="primary"
             onClick={() => handleSubmit(updatedData)}
@@ -137,8 +124,8 @@ const StaffInformation = ({ handleSubmit, siteInformation, submitting }) => {
           >
             Submit
           </Button>
-        </Box>
-      </Paper>
+        </StyledButtonContainer>
+      </StyledPaper>
     );
   } else {
     return null;

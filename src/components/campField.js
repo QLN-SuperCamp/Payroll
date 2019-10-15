@@ -9,23 +9,21 @@ import {
 } from "@material-ui/core";
 import { graphql, useStaticQuery } from "gatsby";
 import { connect } from "react-redux";
-import { makeStyles } from "@material-ui/core/styles";
+import styled from "styled-components";
 
-const useStyles = makeStyles(theme => ({
-  campContainer: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    padding: "10px",
-    width: "25%"
-  },
-  noChoice: {
-    marginTop: "10px"
-  }
-}));
+const StyledContainer = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px;
+  width: 25%;
+`;
+
+const StyledItalics = styled.i`
+  margin-top: 10px;
+`;
 
 const CampField = ({ errors, handleChange, values }) => {
-  const classes = useStyles();
   const data = useStaticQuery(graphql`
     query {
       allSitesJson {
@@ -46,7 +44,7 @@ const CampField = ({ errors, handleChange, values }) => {
   `);
 
   return (
-    <Box className={classes.campContainer}>
+    <StyledContainer>
       <FormControl
         component="fieldset"
         error={errors.camp && errors.camp !== ""}
@@ -74,10 +72,10 @@ const CampField = ({ errors, handleChange, values }) => {
               ))}
           </RadioGroup>
         ) : (
-          <i className={classes.noChoice}>Please select a site</i>
+          <StyledItalics>Please select a site</StyledItalics>
         )}
       </FormControl>
-    </Box>
+    </StyledContainer>
   );
 };
 

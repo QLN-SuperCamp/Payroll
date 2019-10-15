@@ -1,22 +1,19 @@
 import React from "react";
 import { Box, TextField } from "@material-ui/core";
 import { connect } from "react-redux";
-import { makeStyles } from "@material-ui/core/styles";
+import styled from "styled-components";
 
-const useStyles = makeStyles(theme => ({
-  nameContainer: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    padding: "10px",
-    width: "25%"
-  }
-}));
+const StyledContainer = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px;
+  width: 25%;
+`;
 
 const NameField = ({ errors, handleChange, values }) => {
-  const classes = useStyles();
   return (
-    <Box className={classes.nameContainer}>
+    <StyledContainer>
       <TextField
         error={errors.firstName && errors.firstName !== ""}
         helperText={errors.firstName && errors.firstName}
@@ -41,7 +38,7 @@ const NameField = ({ errors, handleChange, values }) => {
         required
         value={values.lastName}
       />
-    </Box>
+    </StyledContainer>
   );
 };
 

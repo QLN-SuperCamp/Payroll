@@ -4,23 +4,21 @@ import { KeyboardDatePicker } from "@material-ui/pickers";
 import moment from "moment";
 import { connect } from "react-redux";
 import { graphql, useStaticQuery } from "gatsby";
-import { makeStyles } from "@material-ui/core/styles";
+import styled from "styled-components";
 
-const useStyles = makeStyles(theme => ({
-  dateContainer: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    padding: "10px",
-    width: "25%"
-  },
-  noChoice: {
-    marginTop: "10px"
-  }
-}));
+const StyledContainer = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px;
+  width: 25%;
+`;
+
+const StyledItalics = styled.i`
+  margin-top: 10px;
+`;
 
 const DateField = ({ errors, handleChange, values }) => {
-  const classes = useStyles();
   const [userHasInput, setUserHasInput] = useState(false);
   const data = useStaticQuery(graphql`
     query {
@@ -61,7 +59,7 @@ const DateField = ({ errors, handleChange, values }) => {
   }, [campData, handleChange, userHasInput]);
 
   return (
-    <Box className={classes.dateContainer}>
+    <StyledContainer>
       <FormControl
         component="fieldset"
         error={errors.date && errors.date !== ""}
@@ -90,10 +88,10 @@ const DateField = ({ errors, handleChange, values }) => {
             value={values.date}
           />
         ) : (
-          <i className={classes.noChoice}>Please select a camp</i>
+          <StyledItalics>Please select a camp</StyledItalics>
         )}
       </FormControl>
-    </Box>
+    </StyledContainer>
   );
 };
 

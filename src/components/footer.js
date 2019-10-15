@@ -1,44 +1,45 @@
 import React from "react";
 import { Box, Button, Paper } from "@material-ui/core";
 import { Link, useStaticQuery, graphql } from "gatsby";
-import { makeStyles } from "@material-ui/core/styles";
+import styled from "styled-components";
 
-const useStyles = makeStyles(theme => ({
-  footer: {
-    alignItems: "center",
-    display: "flex",
-    justifyContent: "space-between",
-    padding: "25px"
-  },
-  copyright: {
-    color: "#9aa0ac",
-    fontSize: "14px",
-    "& a": {
-      color: "#6e7687",
-      textDecoration: "none"
-    },
-    "& div": {
-      flexGrow: 1
-    }
-  },
-  plainLink: {
-    color: "inherit",
-    textDecoration: "none",
-    "& span": {
-      color: "#9aa0ac",
-      fontSize: "14px",
-      textTransform: "none"
-    }
-  },
-  secondary: {
-    "& span": {
-      color: "#467fcf"
-    }
+const StyledPaper = styled(Paper)`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+`;
+
+const StyledCopyrightContainer = styled(Box)`
+  color: #9aa0ac;
+  font-size: 14px;
+`;
+
+const StyledCopyrightAnchor = styled.a`
+  color: #6e7687;
+  text-decoration: none;
+`;
+
+const StyledCopyrightSpan = styled.span`
+  color: #9aa0ac;
+  font-size: 14px;
+`;
+
+const StyledLink = styled(Link)`
+  color: inherit;
+  text-decoration: none;
+`;
+
+const StyledFooterButton = styled(Button)`
+  color: inherit;
+  textdecoration: none;
+
+  span {
+    color: #467fcf;
   }
-}));
+`;
 
 const Footer = () => {
-  const classes = useStyles();
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -53,36 +54,35 @@ const Footer = () => {
   `);
 
   return (
-    <Paper className={classes.footer}>
-      <Box className={classes.copyright}>
-        <span className={classes.copyright}>
+    <StyledPaper>
+      <StyledCopyrightContainer>
+        <StyledCopyrightSpan>
           Copyright © 2019{" "}
-          <a
+          <StyledCopyrightAnchor
             href={data.site.siteMetadata.company.link}
             rel="noopener noreferrer"
             target="_blank"
           >
             {data.site.siteMetadata.company.name}
-          </a>
+          </StyledCopyrightAnchor>
           . All rights reserved.
-        </span>
-      </Box>
+        </StyledCopyrightSpan>
+      </StyledCopyrightContainer>
 
       <Box>
-        <Link className={classes.plainLink} to="/guide">
+        <StyledLink to="/guide">
           <Button color="inherit">Guide</Button>
-        </Link>
-        <Button
-          className={`${classes.plainLink} ${classes.secondary}`}
+        </StyledLink>
+        <StyledFooterButton
           color="inherit"
           onClick={() => window.open("https://www.supercamp.com/", "_blank")}
           style={{ borderColor: "#467fcf", padding: "0.25rem 0.5rem" }}
           variant="outlined"
         >
           SuperCamp
-        </Button>
+        </StyledFooterButton>
       </Box>
-    </Paper>
+    </StyledPaper>
   );
 };
 

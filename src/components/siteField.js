@@ -9,20 +9,17 @@ import {
 } from "@material-ui/core";
 import { graphql, useStaticQuery } from "gatsby";
 import { connect } from "react-redux";
-import { makeStyles } from "@material-ui/core/styles";
+import styled from "styled-components";
 
-const useStyles = makeStyles(theme => ({
-  siteContainer: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    padding: "10px",
-    width: "25%"
-  }
-}));
+const StyledContainer = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px;
+  width: 25%;
+`;
 
 const SiteField = ({ errors, handleChange, values }) => {
-  const classes = useStyles();
   const data = useStaticQuery(graphql`
     query {
       allSitesJson {
@@ -43,7 +40,7 @@ const SiteField = ({ errors, handleChange, values }) => {
   `);
 
   return (
-    <Box className={classes.siteContainer}>
+    <StyledContainer>
       <FormControl
         component="fieldset"
         error={errors.site && errors.site !== ""}
@@ -68,7 +65,7 @@ const SiteField = ({ errors, handleChange, values }) => {
           ))}
         </RadioGroup>
       </FormControl>
-    </Box>
+    </StyledContainer>
   );
 };
 

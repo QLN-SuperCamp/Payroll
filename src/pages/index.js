@@ -7,44 +7,35 @@ import StaffInformation from "../components/staffInformation";
 import Loading from "../components/loading";
 import Status from "../components/status";
 import Helmet from "../components/helmet";
-import { makeStyles } from "@material-ui/core/styles";
+import styled from "styled-components";
 
-const useStyles = makeStyles(theme => ({
-  title: {
-    color: "#495057",
-    margin: 0,
-    fontSize: "1.5rem",
-    fontWeight: 400,
-    lineHeight: "2.5rem"
-  },
-  container: {
-    marginBottom: "50px",
-    marginLeft: "10%",
-    marginRight: "10%",
-    marginTop: "50px",
-    "& a": {
-      color: "#172b46",
-      fontWeight: 600,
-      textDecoration: "none"
-    }
-  }
-}));
+const StyledBox = styled(Box)`
+  margin-bottom: 50px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 50px;
+`;
+
+const StyledTypography = styled(Typography)`
+  color: #495057;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2.5rem;
+`;
 
 const HomePage = () => {
-  const classes = useStyles();
   return (
     <Layout>
       <Helmet title="Payroll Form" />
-      <Box className={classes.container}>
-        <Typography className={classes.title} variant="h1">
-          Payroll Form
-        </Typography>
+      <StyledBox>
+        <StyledTypography variant="h1">Payroll Form</StyledTypography>
         <Alert />
         <SiteInformation />
         <StaffInformation />
         <Loading />
         <Status />
-      </Box>
+      </StyledBox>
     </Layout>
   );
 };

@@ -3,37 +3,34 @@ import { Link } from "gatsby";
 import { SnackbarContent } from "@material-ui/core";
 import InfoIcon from "@material-ui/icons/Info";
 import { connect } from "react-redux";
-import { makeStyles } from "@material-ui/core/styles";
+import styled from "styled-components";
 
-const useStyles = makeStyles(theme => ({
-  message: {
-    alignItems: "center",
-    display: "flex",
-    flexDirection: "row"
-  },
-  link: {
-    marginLeft: "3px",
-    marginRight: "3px"
-  }
-}));
+const StyledAlert = styled.span`
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+`;
+
+const StyledLink = styled(Link)`
+  margin-left: 3px;
+  margin-right: 3px;
+  color: #172b46;
+  font-weight: 600;
+  text-decoration: none;
+`;
 
 const Alert = ({ submitting }) => {
-  const classes = useStyles();
-
   if (submitting) {
     return null;
   } else {
     return (
       <SnackbarContent
         message={
-          <span className={classes.message}>
+          <StyledAlert>
             <InfoIcon style={{ marginRight: "10px" }} />
-            Need help?{" "}
-            <Link className={classes.link} to="/guide">
-              Read our guide
-            </Link>{" "}
-            for more information.
-          </span>
+            Need help? <StyledLink to="/guide">Read our guide</StyledLink> for
+            more information.
+          </StyledAlert>
         }
         style={{
           backgroundColor: "#dae5f5",
