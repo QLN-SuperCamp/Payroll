@@ -3,10 +3,24 @@ import { connect } from "react-redux";
 import { IconButton, Snackbar, SnackbarContent } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
-import statusStyles from "./status.module.scss";
 import { setSubmitted } from "../redux/actions/data";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(theme => ({
+  status: {
+    backgroundColor: "#43a047"
+  },
+  message: {
+    alignItems: "center",
+    display: "flex"
+  },
+  icon: {
+    marginRight: "10px"
+  }
+}));
 
 const Status = ({ handleClose, submitted }) => {
+  const classes = useStyles();
   return (
     <Snackbar
       anchorOrigin={{
@@ -28,10 +42,10 @@ const Status = ({ handleClose, submitted }) => {
             <CloseIcon />
           </IconButton>
         ]}
-        className={statusStyles.status}
+        className={classes.status}
         message={
-          <span className={statusStyles.message}>
-            <CheckCircleIcon className={statusStyles.icon} />
+          <span className={classes.message}>
+            <CheckCircleIcon className={classes.icon} />
             Report sent successfully
           </span>
         }

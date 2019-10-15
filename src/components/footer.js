@@ -1,9 +1,44 @@
 import React from "react";
 import { Box, Button, Paper } from "@material-ui/core";
-import footerStyles from "./footer.module.scss";
 import { Link, useStaticQuery, graphql } from "gatsby";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(theme => ({
+  footer: {
+    alignItems: "center",
+    display: "flex",
+    justifyContent: "space-between",
+    padding: "25px"
+  },
+  copyright: {
+    color: "#9aa0ac",
+    fontSize: "14px",
+    "& a": {
+      color: "#6e7687",
+      textDecoration: "none"
+    },
+    "& div": {
+      flexGrow: 1
+    }
+  },
+  plainLink: {
+    color: "inherit",
+    textDecoration: "none",
+    "& span": {
+      color: "#9aa0ac",
+      fontSize: "14px",
+      textTransform: "none"
+    }
+  },
+  secondary: {
+    "& span": {
+      color: "#467fcf"
+    }
+  }
+}));
 
 const Footer = () => {
+  const classes = useStyles();
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -18,9 +53,9 @@ const Footer = () => {
   `);
 
   return (
-    <Paper className={footerStyles.footer}>
-      <Box className={footerStyles.copyright}>
-        <span className={footerStyles.copyright}>
+    <Paper className={classes.footer}>
+      <Box className={classes.copyright}>
+        <span className={classes.copyright}>
           Copyright © 2019{" "}
           <a
             href={data.site.siteMetadata.company.link}
@@ -34,11 +69,11 @@ const Footer = () => {
       </Box>
 
       <Box>
-        <Link className={footerStyles.plainLink} to="/guide">
+        <Link className={classes.plainLink} to="/guide">
           <Button color="inherit">Guide</Button>
         </Link>
         <Button
-          className={`${footerStyles.plainLink} ${footerStyles.secondary}`}
+          className={`${classes.plainLink} ${classes.secondary}`}
           color="inherit"
           onClick={() => window.open("https://www.supercamp.com/", "_blank")}
           style={{ borderColor: "#467fcf", padding: "0.25rem 0.5rem" }}

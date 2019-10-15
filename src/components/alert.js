@@ -2,20 +2,34 @@ import React from "react";
 import { Link } from "gatsby";
 import { SnackbarContent } from "@material-ui/core";
 import InfoIcon from "@material-ui/icons/Info";
-import alertStyles from "./alert.module.scss";
 import { connect } from "react-redux";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(theme => ({
+  message: {
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "row"
+  },
+  link: {
+    marginLeft: "3px",
+    marginRight: "3px"
+  }
+}));
 
 const Alert = ({ submitting }) => {
+  const classes = useStyles();
+
   if (submitting) {
     return null;
   } else {
     return (
       <SnackbarContent
         message={
-          <span className={alertStyles.message}>
+          <span className={classes.message}>
             <InfoIcon style={{ marginRight: "10px" }} />
             Need help?{" "}
-            <Link className={alertStyles.link} to="/guide">
+            <Link className={classes.link} to="/guide">
               Read our guide
             </Link>{" "}
             for more information.

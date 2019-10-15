@@ -1,12 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { Box, FormLabel, FormControl } from "@material-ui/core";
 import { KeyboardDatePicker } from "@material-ui/pickers";
-import siteInformationStyles from "./siteInformation.module.scss";
 import moment from "moment";
 import { connect } from "react-redux";
 import { graphql, useStaticQuery } from "gatsby";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(theme => ({
+  dateContainer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    padding: "10px",
+    width: "25%"
+  },
+  noChoice: {
+    marginTop: "10px"
+  }
+}));
 
 const DateField = ({ errors, handleChange, values }) => {
+  const classes = useStyles();
   const [userHasInput, setUserHasInput] = useState(false);
   const data = useStaticQuery(graphql`
     query {
@@ -47,7 +61,7 @@ const DateField = ({ errors, handleChange, values }) => {
   }, [campData, handleChange, userHasInput]);
 
   return (
-    <Box className={siteInformationStyles.dateContainer}>
+    <Box className={classes.dateContainer}>
       <FormControl
         component="fieldset"
         error={errors.date && errors.date !== ""}
@@ -76,7 +90,7 @@ const DateField = ({ errors, handleChange, values }) => {
             value={values.date}
           />
         ) : (
-          <i className={siteInformationStyles.noChoice}>Please select a camp</i>
+          <i className={classes.noChoice}>Please select a camp</i>
         )}
       </FormControl>
     </Box>

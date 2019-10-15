@@ -8,10 +8,24 @@ import {
   Radio
 } from "@material-ui/core";
 import { graphql, useStaticQuery } from "gatsby";
-import siteInformationStyles from "./siteInformation.module.scss";
 import { connect } from "react-redux";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(theme => ({
+  campContainer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    padding: "10px",
+    width: "25%"
+  },
+  noChoice: {
+    marginTop: "10px"
+  }
+}));
 
 const CampField = ({ errors, handleChange, values }) => {
+  const classes = useStyles();
   const data = useStaticQuery(graphql`
     query {
       allSitesJson {
@@ -32,7 +46,7 @@ const CampField = ({ errors, handleChange, values }) => {
   `);
 
   return (
-    <Box className={siteInformationStyles.campContainer}>
+    <Box className={classes.campContainer}>
       <FormControl
         component="fieldset"
         error={errors.camp && errors.camp !== ""}
@@ -60,7 +74,7 @@ const CampField = ({ errors, handleChange, values }) => {
               ))}
           </RadioGroup>
         ) : (
-          <i className={siteInformationStyles.noChoice}>Please select a site</i>
+          <i className={classes.noChoice}>Please select a site</i>
         )}
       </FormControl>
     </Box>

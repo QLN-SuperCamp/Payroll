@@ -1,18 +1,58 @@
 import React from "react";
 import Layout from "../components/layout";
 import { Box, Typography, Paper } from "@material-ui/core";
-import guideStyles from "./guide.module.scss";
 import Helmet from "../components/helmet";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(theme => ({
+  container: {
+    marginBottom: "50px",
+    marginLeft: "10%",
+    marginRight: "10%",
+    marginTop: "50px",
+    "& a": {
+      color: "#172b46",
+      fontWeight: 600,
+      textDecoration: "none"
+    }
+  },
+  title: {
+    color: "#495057",
+    margin: 0,
+    fontSize: "1.5rem",
+    fontWeight: 400,
+    lineHeight: "2.5rem"
+  },
+  textContainer: {
+    marginTop: "25px",
+    padding: "25px",
+    "& h2": {
+      color: "#495057",
+      fontSize: "1.75rem"
+    },
+    "& h3": {
+      color: "#495057",
+      fontSize: "1.5rem"
+    },
+    "& p": {
+      color: "#495057",
+      fontSize: "1rem",
+      marginBottom: "1rem",
+      marginTop: "1rem"
+    }
+  }
+}));
 
 const HomePage = () => {
+  const classes = useStyles();
   return (
     <Layout>
       <Helmet title="Guide" />
-      <Box className={guideStyles.container}>
-        <Typography className={guideStyles.title} variant="h1">
+      <Box className={classes.container}>
+        <Typography className={classes.title} variant="h1">
           Guide
         </Typography>
-        <Paper className={guideStyles.textContainer}>
+        <Paper className={classes.textContainer}>
           <Typography variant="h2">Introduction</Typography>
           <Typography>
             This payroll form is meant to be a simple and easy process for

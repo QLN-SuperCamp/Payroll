@@ -1,13 +1,23 @@
 import React from "react";
 import { Box, TextField } from "@material-ui/core";
-import siteInformationStyles from "./siteInformation.module.scss";
 import { connect } from "react-redux";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(theme => ({
+  nameContainer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    padding: "10px",
+    width: "25%"
+  }
+}));
 
 const NameField = ({ errors, handleChange, values }) => {
+  const classes = useStyles();
   return (
-    <Box className={siteInformationStyles.nameContainer}>
+    <Box className={classes.nameContainer}>
       <TextField
-        className={siteInformationStyles.textField}
         error={errors.firstName && errors.firstName !== ""}
         helperText={errors.firstName && errors.firstName}
         id="first-name"
@@ -20,7 +30,6 @@ const NameField = ({ errors, handleChange, values }) => {
         value={values.firstName}
       />
       <TextField
-        className={siteInformationStyles.textField}
         error={errors.lastName && errors.lastName !== ""}
         helperText={errors.lastName && errors.lastName}
         id="last-name"

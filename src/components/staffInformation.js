@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Box, Button, Paper, Typography } from "@material-ui/core";
-import siteInformationStyles from "./siteInformation.module.scss";
 import { graphql, useStaticQuery } from "gatsby";
 import { connect } from "react-redux";
 import moment from "moment";
@@ -11,8 +10,48 @@ import {
   setSubmitted,
   setSiteInformation
 } from "../redux/actions/data";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(theme => ({
+  container: {
+    marginTop: "20px"
+  },
+  topContainer: {
+    borderBottom: "1px solid rgba(0, 40, 100, 0.12)",
+    padding: "20px"
+  },
+  loadingContainer: {
+    borderBottom: "1px solid rgba(0, 40, 100, 0.12)",
+    padding: "20px",
+    alignItems: "center",
+    display: "flex",
+    justifyContent: "center"
+  },
+  formContainer: {
+    display: "flex",
+    flexDirection: "row",
+    padding: "20px"
+  },
+  tableContainer: {
+    padding: "20px",
+    width: "calc(100% - 40px)"
+  },
+  buttonContainer: {
+    borderTop: "1px solid rgba(0, 40, 100, 0.12)",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    padding: "20px"
+  },
+  title: {
+    fontSize: "1.125rem",
+    lineHeight: 1.2,
+    fontWeight: 400
+  }
+}));
 
 const StaffInformation = ({ handleSubmit, siteInformation, submitting }) => {
+  const classes = useStyles();
   const data = useStaticQuery(graphql`
     {
       allSitesJson {
@@ -76,20 +115,20 @@ const StaffInformation = ({ handleSubmit, siteInformation, submitting }) => {
 
   if (siteInformation && !submitting) {
     return (
-      <Paper className={siteInformationStyles.container}>
-        <Box className={siteInformationStyles.topContainer}>
-          <Typography className={siteInformationStyles.title} variant="h2">
+      <Paper className={classes.container}>
+        <Box className={classes.topContainer}>
+          <Typography className={classes.title} variant="h2">
             Staff Information
           </Typography>
         </Box>
-        <Box className={siteInformationStyles.tableContainer}>
+        <Box className={classes.tableContainer}>
           <StaffInformationTable
             data={tableData}
             setUpdatedData={setUpdatedData}
           />
         </Box>
 
-        <Box className={siteInformationStyles.buttonContainer}>
+        <Box className={classes.buttonContainer}>
           <Button
             color="primary"
             onClick={() => handleSubmit(updatedData)}

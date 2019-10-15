@@ -8,10 +8,21 @@ import {
   Radio
 } from "@material-ui/core";
 import { graphql, useStaticQuery } from "gatsby";
-import siteInformationStyles from "./siteInformation.module.scss";
 import { connect } from "react-redux";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(theme => ({
+  siteContainer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    padding: "10px",
+    width: "25%"
+  }
+}));
 
 const SiteField = ({ errors, handleChange, values }) => {
+  const classes = useStyles();
   const data = useStaticQuery(graphql`
     query {
       allSitesJson {
@@ -32,7 +43,7 @@ const SiteField = ({ errors, handleChange, values }) => {
   `);
 
   return (
-    <Box className={siteInformationStyles.siteContainer}>
+    <Box className={classes.siteContainer}>
       <FormControl
         component="fieldset"
         error={errors.site && errors.site !== ""}
