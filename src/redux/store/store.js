@@ -3,7 +3,7 @@ import dataReducer from "../reducers/data";
 
 let composeEnhancer;
 
-if (window) {
+if (process.env.NODE_ENV === "development") {
   composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 } else {
   composeEnhancer = compose;
