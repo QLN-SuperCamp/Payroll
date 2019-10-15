@@ -7,10 +7,12 @@ import SiteInformation from "../components/siteInformation";
 import StaffInformation from "../components/staffInformation";
 import Loading from "../components/loading";
 import Status from "../components/status";
+import Helmet from "../components/helmet";
 
 const HomePage = () => {
   return (
     <Layout>
+      <Helmet title="Payroll Form" />
       <Box className={homeStyles.container}>
         <Typography className={homeStyles.title} variant="h1">
           Payroll Form

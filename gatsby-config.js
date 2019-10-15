@@ -8,7 +8,7 @@ const path = require("path");
 
 module.exports = {
   siteMetadata: {
-    title: "Paayroll",
+    title: "Payroll",
     author: "Alex Lee",
     company: {
       link: "https://www.qln.com/",

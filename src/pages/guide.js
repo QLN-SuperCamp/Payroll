@@ -2,10 +2,12 @@ import React from "react";
 import Layout from "../components/layout";
 import { Box, Typography, Paper } from "@material-ui/core";
 import guideStyles from "./guide.module.scss";
+import Helmet from "../components/helmet";
 
 const HomePage = () => {
   return (
     <Layout>
+      <Helmet title="Guide" />
       <Box className={guideStyles.container}>
         <Typography className={guideStyles.title} variant="h1">
           Guide
